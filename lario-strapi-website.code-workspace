@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "packages/next"
+		},
+		{
+			"path": "packages/astro"
+		},
+		{
+			"path": "packages/strapi"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "lario-strapi-website/node_modules/typescript/lib"
+	}
+}

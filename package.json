@@ -1,0 +1,7 @@
+{
+  "name": "lario-strapi-website",
+  "packageManager": "yarn@4.7.0",
+  "workspaces": [
+    "packages/*"
+  ]
+}
