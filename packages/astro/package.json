@@ -6,7 +6,9 @@
     "dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro"
+    "astro": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro",
+    "lint": "eslint ./src/**/*.{tsx,ts,js,jsx}",
+    "lint:fix": "eslint ./src/**/*.{tsx,ts,js,jsx} --fix"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.4",
@@ -30,5 +32,13 @@
     "tailwindcss": "^4.1.3",
     "tw-animate-css": "^1.2.4",
     "vite": "^6.3.2"
+  },
+  "devDependencies": {
+    "@types/eslint-plugin-jsx-a11y": "^6",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.26.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0"
   }
 }
