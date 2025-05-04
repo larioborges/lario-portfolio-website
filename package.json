@@ -3,5 +3,8 @@
   "packageManager": "yarn@4.7.0",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "specifier-resolution-node": "^1.1.4"
+  }
 }

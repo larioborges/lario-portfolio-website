@@ -8,5 +8,8 @@ export default (config: UserConfig) => {
         '@': '/src',
       },
     },
+    esbuild: {
+      loader: { ".js": "jsx" },
+    },
   });
 };

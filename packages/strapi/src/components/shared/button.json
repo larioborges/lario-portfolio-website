@@ -1,0 +1,58 @@
+{
+  "collectionName": "components_shared_buttons",
+  "info": {
+    "displayName": "Button",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ButtonText": {
+      "type": "string",
+      "required": true,
+      "default": "Click Me"
+    },
+    "IconStart": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "IconEnd": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ButtonStyle": {
+      "type": "enumeration",
+      "enum": [
+        "PrimarySolid",
+        "PrimaryHollow",
+        "PrimaryText",
+        "SecondarySolid",
+        "SecondaryHollow",
+        "SecondaryText"
+      ],
+      "default": "PrimarySolid",
+      "required": true
+    },
+    "BorderRadius": {
+      "type": "integer",
+      "default": 3,
+      "required": true
+    },
+    "Size": {
+      "type": "enumeration",
+      "enum": [
+        "Small",
+        "Medium",
+        "Large"
+      ],
+      "default": "Medium",
+      "required": true
+    }
+  }
+}
