@@ -1,9 +1,9 @@
-import React from "react";
-import { skills } from "@/data";
-import { motion } from "framer-motion";
-import MotionWrapper from "./MotionWrapper";
-import { GlassCard } from "./ui/glass-card";
-import SkillTag from "./ui/SkillTag";
+import React from 'react';
+import { skills } from '@/data';
+import { motion } from 'framer-motion';
+import MotionWrapper from './MotionWrapper';
+import { GlassCard } from './ui/glass-card';
+import SkillTag from './ui/SkillTag';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,15 +28,10 @@ const skillCategoryVariants = {
 
 export default function SkillsSection() {
   return (
-    <section
-      id="skills"
-      className="py-12 bg-gradient-to-b from-background to-muted/20"
-    >
+    <section id="skills" className="py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
-          <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
-            🛠️ Skills
-          </h2>
+          <h2 className="text-2xl font-bold mb-8 text-center md:text-left">🛠️ Skills</h2>
         </MotionWrapper>
 
         <motion.div
@@ -44,7 +39,7 @@ export default function SkillsSection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
         >
           <motion.div variants={skillCategoryVariants}>
             <GlassCard className="p-4">

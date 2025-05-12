@@ -1,6 +1,6 @@
 import React from 'react';
-import { personalInfo } from "@/data";
-import { motion } from "framer-motion";
+import { personalInfo } from '@/data';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
@@ -13,12 +13,8 @@ export default function Footer() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <motion.p
-            className="text-sm text-muted-foreground text-center md:text-left"
-            whileHover={{ scale: 1.01 }}
-          >
-            &copy; {new Date().getFullYear()} {personalInfo.name}. All rights
-            reserved. ✨
+          <motion.p className="text-sm text-muted-foreground text-center md:text-left" whileHover={{ scale: 1.01 }}>
+            &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved. ✨
           </motion.p>
           <motion.p
             className="text-sm text-muted-foreground mt-2 md:mt-0 text-center md:text-left"
@@ -28,7 +24,7 @@ export default function Footer() {
             viewport={{ once: true }}
             whileHover={{ scale: 1.01 }}
           >
-            Built with{" "}
+            Built with{' '}
             <motion.span
               className="inline-block"
               initial={{ rotate: 0 }}
@@ -36,8 +32,8 @@ export default function Footer() {
               transition={{ duration: 0.5 }}
             >
               💻
-            </motion.span>{" "}
-            and{" "}
+            </motion.span>{' '}
+            and{' '}
             <motion.span
               className="inline-block"
               animate={{
@@ -45,7 +41,7 @@ export default function Footer() {
               }}
               transition={{
                 repeat: Infinity,
-                repeatType: "reverse",
+                repeatType: 'reverse',
                 duration: 1.5,
               }}
             >

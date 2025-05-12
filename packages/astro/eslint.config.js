@@ -1,34 +1,40 @@
 import eslintPluginAstro from 'eslint-plugin-astro';
-import { defineConfig, globalIgnores } from "eslint/config";
-import reactPlugin from 'eslint-plugin-react'
-import hooksPlugin from 'eslint-plugin-react-hooks'
+import { defineConfig, globalIgnores } from 'eslint/config';
+import reactPlugin from 'eslint-plugin-react';
+import hooksPlugin from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 import astroparser from 'astro-eslint-parser';
+import globals from 'globals';
+import prettierPlugin from 'eslint-plugin-prettier';
 
 export default defineConfig(
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
-    // languageOptions: {
-    //   parser: tseslint,
-    // },
     settings: {
       react: {
-        version: 'detect'
-      }
+        version: 'detect',
+      },
     },
     plugins: {
-      'react': reactPlugin,
+      react: reactPlugin,
       'react-hooks': hooksPlugin,
+      prettier: prettierPlugin,
     },
     rules: {
-        ...reactPlugin.configs.recommended.rules,
-        ...hooksPlugin.configs.recommended.rules,
-        "no-unused-vars": ["warn", { "varsIgnorePattern": "React" }],
+      ...reactPlugin.configs.recommended.rules,
+      ...hooksPlugin.configs.recommended.rules,
+      ...prettierPlugin.configs.recommended.rules,
+      'no-unused-vars': ['warn', { varsIgnorePattern: 'React' }],
     },
   },
-  globalIgnores(['**/.astro/**', '**/node_modules/**']),
+  globalIgnores(['**/.astro/**', '**/node_modules/**', '**/dist/**']),
   {
     languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      ecmaVersion: 'latest',
       parser: astroparser,
     },
   },

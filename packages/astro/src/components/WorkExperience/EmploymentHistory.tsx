@@ -1,16 +1,13 @@
-import { employmentHistory } from "@/data";
-import TimelineItem from "../ui/TimelineItem";
-import { Star } from "lucide-react";
-import { motion } from "framer-motion";
-import MotionWrapper from "../MotionWrapper";
+import { employmentHistory } from '@/data';
+import TimelineItem from '../ui/TimelineItem';
+import { Star } from 'lucide-react';
+import { motion } from 'framer-motion';
+import MotionWrapper from '../MotionWrapper';
 import React from 'react';
 
 export default function EmploymentHistory() {
   return (
-    <section
-      id="experience"
-      className="py-12 bg-gradient-to-b from-muted/20 to-background"
-    >
+    <section id="experience" className="py-12 bg-gradient-to-b from-muted/20 to-background">
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
           <h2 className="text-2xl font-bold mb-8 text-center md:text-left flex items-center md:inline-block">
@@ -22,7 +19,7 @@ export default function EmploymentHistory() {
               viewport={{ once: true }}
             >
               💼
-            </motion.span>{" "}
+            </motion.span>{' '}
             Employment History
           </h2>
         </MotionWrapper>

@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import type { MotionProps } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
+import type { MotionProps } from 'framer-motion';
 
 interface MotionWrapperProps extends MotionProps {
   delay?: number;
@@ -15,21 +15,17 @@ const defaultAnimations = {
     transition: {
       duration: 0.6,
       delay: delay,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   }),
 };
 
-export default function MotionWrapper({
-  children,
-  delay = 0,
-  ...props
-}: MotionWrapperProps) {
+export default function MotionWrapper({ children, delay = 0, ...props }: MotionWrapperProps) {
   return (
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: '-100px' }}
       variants={defaultAnimations}
       custom={delay}
       {...props}

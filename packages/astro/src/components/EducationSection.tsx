@@ -1,21 +1,16 @@
 import React from 'react';
-import education from "@/data/education";
-import TimelineItem from "./ui/TimelineItem";
-import { Award } from "lucide-react";
-import MotionWrapper from "./MotionWrapper";
-import { motion } from "framer-motion";
+import education from '@/data/education';
+import TimelineItem from './ui/TimelineItem';
+import { Award } from 'lucide-react';
+import MotionWrapper from './MotionWrapper';
+import { motion } from 'framer-motion';
 
 export default function EducationSection() {
   return (
-    <section
-      id="education"
-      className="py-12 bg-gradient-to-b from-muted/10 to-background"
-    >
+    <section id="education" className="py-12 bg-gradient-to-b from-muted/10 to-background">
       <div className="container max-w-4xl mx-auto px-6 md:px-4">
         <MotionWrapper>
-          <h2 className="text-2xl font-bold mb-8 text-center md:text-left">
-            🎓 Education
-          </h2>
+          <h2 className="text-2xl font-bold mb-8 text-center md:text-left">🎓 Education</h2>
         </MotionWrapper>
 
         <div className="mb-8">
@@ -28,9 +23,7 @@ export default function EducationSection() {
               isLast={index === education.length - 1}
               index={index}
             >
-              <p className="text-sm text-muted-foreground mb-3">
-                📍 {edu.location}
-              </p>
+              <p className="text-sm text-muted-foreground mb-3">📍 {edu.location}</p>
 
               {edu.achievements && edu.achievements.length > 0 && (
                 <motion.div
@@ -44,9 +37,7 @@ export default function EducationSection() {
                     <div className="h-6 w-6 flex items-center justify-center rounded-full bg-purple-500/10 mr-2">
                       <Award className="h-4 w-4 text-purple-500" />
                     </div>
-                    <h4 className="text-sm font-medium">
-                      ✨ Achievements & Activities
-                    </h4>
+                    <h4 className="text-sm font-medium">✨ Achievements & Activities</h4>
                   </div>
                   <ul className="list-none ml-4 space-y-2 text-sm">
                     {edu.achievements.map((achievement, i) => (
