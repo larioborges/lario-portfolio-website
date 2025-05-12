@@ -7,8 +7,8 @@ interface TimelineItemProps extends MotionProps {
   titleHref?: string;
   subtitle: string;
   subtitleHref?: string;
-  location: string,
-  locationHref?: string,
+  location: string;
+  locationHref?: string;
   date: string;
   isLast?: boolean;
   index?: number;
@@ -67,27 +67,27 @@ export default function TimelineItem({
         >
           <h3 className="font-extrabold mb-2 text-xl">{`📅 ${date}`}</h3>
           <div className="pl-3 mb-6">
-            {
-              titleHref != null && titleHref != ''  ? 
-              <a href={titleHref} target='_blank'>
+            {titleHref != null && titleHref != '' ? (
+              <a href={titleHref} target="_blank" rel="noreferrer">
                 <h3 className="font-medium">{title}</h3>
-              </a>:
+              </a>
+            ) : (
               <h3 className="font-medium">{title}</h3>
-            }
-            {
-              subtitleHref != null && subtitleHref != '' ?
-              <a href={subtitleHref} target='_blank'>
+            )}
+            {subtitleHref != null && subtitleHref != '' ? (
+              <a href={subtitleHref} target="_blank" rel="noreferrer">
                 <p className="text-sm text-muted-foreground">{subtitle}</p>
-              </a>:
+              </a>
+            ) : (
               <p className="text-sm text-muted-foreground">{subtitle}</p>
-            }
-            {
-              locationHref != null && locationHref != '' ?
-              <a href={locationHref} target='_blank'>
+            )}
+            {locationHref != null && locationHref != '' ? (
+              <a href={locationHref} target="_blank" rel="noreferrer">
                 <p className="text-sm text-muted-foreground">📍 {location}</p>
-              </a>:
+              </a>
+            ) : (
               <p className="text-sm text-muted-foreground">📍 {location}</p>
-            }
+            )}
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -98,7 +98,6 @@ export default function TimelineItem({
             </motion.div>
           </div>
         </motion.div>
-        
       </div>
     </motion.div>
   );

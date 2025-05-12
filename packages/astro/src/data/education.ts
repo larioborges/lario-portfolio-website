@@ -27,7 +27,7 @@ export default [
     ],
   },
   {
-    institution: 'St. Andrew\'s College (Makhanda/Grahamstown)',
+    institution: "St. Andrew's College (Makhanda/Grahamstown)",
     institutionHref: 'https://www.sacschool.com/',
     location: 'Makhanda/Grahamstown, South Africa',
     locationHref: 'https://maps.app.goo.gl/GeMipXsVkX8pyUCB9',
