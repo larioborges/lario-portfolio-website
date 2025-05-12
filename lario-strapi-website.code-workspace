@@ -15,6 +15,11 @@
 		}
 	],
 	"settings": {
-		"typescript.tsdk": "lario-strapi-website/node_modules/typescript/lib"
+		"typescript.tsdk": "lario-strapi-website/node_modules/typescript/lib",
+		"files.insertFinalNewline": true,
+		"files.trimFinalNewlines": true,
+		"notebook.insertFinalNewline": false,
+		"editor.tabSize": 2,
+		"editor.renderWhitespace": "all"
 	}
 }

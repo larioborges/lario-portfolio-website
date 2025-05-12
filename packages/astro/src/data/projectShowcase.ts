@@ -1,0 +1,46 @@
+export default [
+  {
+    title: 'Net Zero Carbon Emissions 1',
+    employer: '',
+    client: '',
+    location: '',
+    period: '',
+    tags: ['asd', 'fff'],
+    description: [
+      'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
+      'IoT Solutions: Implemented smart monitoring for energy efficiency and food waste reduction.',
+      'Real-Time Tracking: Designed systems to monitor carbon emissions and optimize resources.',
+      'Data-Driven Insights: Analyzed user patterns for adaptive energy and food management.',
+      'Reward Integration: Built QR-based green points system to incentivize eco-friendly actions.',
+    ],
+    highlights: [
+      'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
+      'IoT Solutions: Implemented smart monitoring for energy efficiency and food waste reduction.',
+      'Real-Time Tracking: Designed systems to monitor carbon emissions and optimize resources.',
+      'Data-Driven Insights: Analyzed user patterns for adaptive energy and food management.',
+      'Reward Integration: Built QR-based green points system to incentivize eco-friendly actions.',
+    ],
+  },
+  {
+    title: 'Net Zero Carbon Emissions',
+    employer: '',
+    client: '',
+    location: '',
+    period: '',
+    tags: ['1232', '32323'],
+    description: [
+      'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
+      'IoT Solutions: Implemented smart monitoring for energy efficiency and food waste reduction.',
+      'Real-Time Tracking: Designed systems to monitor carbon emissions and optimize resources.',
+      'Data-Driven Insights: Analyzed user patterns for adaptive energy and food management.',
+      'Reward Integration: Built QR-based green points system to incentivize eco-friendly actions.',
+    ],
+    highlights: [
+      'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
+      'IoT Solutions: Implemented smart monitoring for energy efficiency and food waste reduction.',
+      'Real-Time Tracking: Designed systems to monitor carbon emissions and optimize resources.',
+      'Data-Driven Insights: Analyzed user patterns for adaptive energy and food management.',
+      'Reward Integration: Built QR-based green points system to incentivize eco-friendly actions.',
+    ],
+  },
+];
