@@ -28,9 +28,10 @@ export default function ExperienceSection() {
           {projectShowcase.map((project, index) => (
             <TimelineItem
               key={project.title + project.period}
-              title={`👨‍💻 ${project.title} | ${project.employer}`}
-              subtitle={`🌍 ${project.location}`}
-              date={`📅 ${project.period}`}
+              title={`👨‍💻 ${project.title}`}
+              subtitle={`🌍 ${project.employer}`}
+              location={project.location}
+              date={`${project.period}`}
               isLast={index === projectShowcase.length - 1}
               index={index}
             >

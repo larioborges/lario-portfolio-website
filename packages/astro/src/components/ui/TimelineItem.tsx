@@ -4,7 +4,11 @@ import { motion, type MotionProps } from 'framer-motion';
 
 interface TimelineItemProps extends MotionProps {
   title: string;
+  titleHref?: string;
   subtitle: string;
+  subtitleHref?: string;
+  location: string,
+  locationHref?: string,
   date: string;
   isLast?: boolean;
   index?: number;
@@ -12,7 +16,11 @@ interface TimelineItemProps extends MotionProps {
 
 export default function TimelineItem({
   title,
+  titleHref,
   subtitle,
+  subtitleHref,
+  location,
+  locationHref,
   date,
   isLast = false,
   index = 0,
@@ -57,18 +65,40 @@ export default function TimelineItem({
           transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
           viewport={{ once: true, margin: '-50px' }}
         >
-          <h3 className="font-medium">{title}</h3>
-          <p className="text-sm text-muted-foreground">{subtitle}</p>
-          <p className="text-xs text-muted-foreground/70 mb-2">{date}</p>
+          <h3 className="font-extrabold mb-2 text-xl">{`📅 ${date}`}</h3>
+          <div className="pl-3 mb-6">
+            {
+              titleHref != null && titleHref != ''  ? 
+              <a href={titleHref} target='_blank'>
+                <h3 className="font-medium">{title}</h3>
+              </a>:
+              <h3 className="font-medium">{title}</h3>
+            }
+            {
+              subtitleHref != null && subtitleHref != '' ?
+              <a href={subtitleHref} target='_blank'>
+                <p className="text-sm text-muted-foreground">{subtitle}</p>
+              </a>:
+              <p className="text-sm text-muted-foreground">{subtitle}</p>
+            }
+            {
+              locationHref != null && locationHref != '' ?
+              <a href={locationHref} target='_blank'>
+                <p className="text-sm text-muted-foreground">📍 {location}</p>
+              </a>:
+              <p className="text-sm text-muted-foreground">📍 {location}</p>
+            }
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
+              viewport={{ once: true, margin: '-50px' }}
+            >
+              {children}
+            </motion.div>
+          </div>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-          viewport={{ once: true, margin: '-50px' }}
-        >
-          {children}
-        </motion.div>
+        
       </div>
     </motion.div>
   );

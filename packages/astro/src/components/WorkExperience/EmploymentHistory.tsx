@@ -27,9 +27,10 @@ export default function EmploymentHistory() {
           {employmentHistory.map((job, index) => (
             <TimelineItem
               key={job.company + job.period}
-              title={`👨‍💻 ${job.position} | ${job.company}`}
-              subtitle={`🌍 ${job.location}`}
-              date={`📅 ${job.period}`}
+              title={`👨‍💻 ${job.position}`}
+              subtitle={job.company}
+              location={job.location}
+              date={`${job.period}`}
               isLast={index === employmentHistory.length - 1}
               index={index}
             >
