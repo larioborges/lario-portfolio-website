@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "@/lib/data";
+import { projectShowcase } from "@/data";
 import {
   CardContent,
   CardDescription,
@@ -23,7 +23,7 @@ export default function ProjectsSection() {
         </MotionWrapper>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
+          {projectShowcase.map((project, index) => (
             <MotionWrapper key={project.title} delay={index * 0.2}>
               <GlassCard className="group overflow-hidden dark:border-purple-500/10 h-full flex flex-col">
                 <CardHeader className="bg-gradient-to-r from-purple-500/5 to-pink-500/5">

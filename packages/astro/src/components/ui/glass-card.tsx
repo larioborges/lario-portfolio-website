@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import type { HTMLMotionProps } from "framer-motion";
@@ -7,7 +7,7 @@ interface GlassCardProps extends HTMLMotionProps<"div"> {
   hoverEffect?: boolean;
 }
 
-const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
+const GlassCard = forwardRef<HTMLDivElement, GlassCardProps>(
   ({ className, hoverEffect = true, ...props }, ref) => {
     return (
       <motion.div

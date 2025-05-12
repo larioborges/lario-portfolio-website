@@ -1,5 +1,5 @@
-import { education } from "@/lib/data";
-import TimelineItem from "./TimelineItem";
+import education from "@/data/education";
+import TimelineItem from "./ui/TimelineItem";
 import { Award } from "lucide-react";
 import MotionWrapper from "./MotionWrapper";
 import { motion } from "framer-motion";

@@ -1,14 +1,13 @@
-import * as React from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, type MotionProps } from "framer-motion";
 
-interface TimelineItemProps {
+interface TimelineItemProps extends MotionProps {
   title: string;
   subtitle: string;
   date: string;
   isLast?: boolean;
   index?: number;
-  children?: React.ReactNode;
 }
 
 export default function TimelineItem({

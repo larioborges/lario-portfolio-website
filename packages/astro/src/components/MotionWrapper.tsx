@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import type { MotionProps } from "framer-motion";
 
 interface MotionWrapperProps extends MotionProps {
-  children: React.ReactNode;
   delay?: number;
 }
 

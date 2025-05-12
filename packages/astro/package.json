@@ -7,8 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro",
-    "lint": "eslint ./src/**/*.{tsx,ts,js,jsx}",
-    "lint:fix": "eslint ./src/**/*.{tsx,ts,js,jsx} --fix"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.4",
@@ -37,8 +37,12 @@
     "@types/eslint-plugin-jsx-a11y": "^6",
     "@typescript-eslint/parser": "^8.31.1",
     "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.3.1",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3"
   }
 }
