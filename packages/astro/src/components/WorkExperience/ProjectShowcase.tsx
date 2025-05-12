@@ -4,6 +4,7 @@ import { Briefcase, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionWrapper from "../MotionWrapper";
 import SkillTag from "../ui/SkillTag";
+import React from 'react';
 
 export default function ExperienceSection() {
   return (

@@ -1,3 +1,4 @@
+import React from 'react';
 import education from "@/data/education";
 import TimelineItem from "./ui/TimelineItem";
 import { Award } from "lucide-react";

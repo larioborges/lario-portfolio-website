@@ -1,3 +1,4 @@
+import React from 'react';
 import { personalInfo } from "@/data";
 import { Mail, MapPin } from "lucide-react";
 import { LinkedInIcon, GithubIcon } from "./icons";
@@ -128,7 +129,7 @@ export default function HeroSection() {
               across different platforms and environments, adapting quickly to
               new technologies and methodologies. My holistic approach combines
               technical expertise with creative problem-solving, allowing me to
-              develop solutions that are both innovative and practical. I'm
+              develop solutions that are both innovative and practical. I&#39;m
               driven by continuous learning and a commitment to excellence,
               whether working independently or collaborating with diverse teams
               to create impactful, scalable solutions.

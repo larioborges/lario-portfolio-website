@@ -3,6 +3,7 @@ import TimelineItem from "../ui/TimelineItem";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import MotionWrapper from "../MotionWrapper";
+import React from 'react';
 
 export default function EmploymentHistory() {
   return (
@@ -51,7 +52,7 @@ export default function EmploymentHistory() {
                 <ul className="list-circle ml-4 space-y-2 text-sm">
                   {job.summary.map((item, i) => (
                     <motion.li
-                      key={i}
+                      key={item + i}
                       className="text-muted-foreground relative pl-2"
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}

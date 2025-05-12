@@ -1,3 +1,4 @@
+import React from 'react';
 import { personalInfo } from "@/data";
 import { motion } from "framer-motion";
 
