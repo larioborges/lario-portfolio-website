@@ -19,7 +19,9 @@ export default function GlassHeader() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          ✨ {personalInfo.name}
+          <img width="50px" src="/images/south-africa.webp" className="inline-block dark:hidden align-middle mr-2.5" />
+          <img width="35px" src="/images/luigi-cap.webp" className="dark:inline-block hidden align-middle mr-2.5" />
+          {personalInfo.name}
         </motion.a>
 
         {/* Desktop Navigation */}

@@ -16,7 +16,7 @@ export default function AwardsSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {awards.map((award, index) => (
             <MotionWrapper key={award.name + award.date} delay={index * 0.1}>
-              <GlassCard className="p-4 dark:border-purple-500/10 hover:border-purple-500/30 transition-all duration-300 flex flex-col h-full">
+              <GlassCard className="p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full">
                 <div className="flex items-center mb-2">
                   <motion.div
                     whileHover={{ rotate: 20 }}
@@ -32,7 +32,7 @@ export default function AwardsSection() {
                   <div className="text-center wr">
                     {award.position && (
                       <motion.span
-                        className="inline-block mt-1.5 mb-1.5 mr-2 text-center text-sm px-2.5 py-1 bg-purple-500/10 rounded-full"
+                        className="inline-block mt-1.5 mb-1.5 mr-2 text-center text-sm px-2.5 py-1 bg-yellow-500/10 rounded-full"
                         whileHover={{ scale: 1.05 }}
                       >
                         {award.position}
@@ -40,7 +40,7 @@ export default function AwardsSection() {
                     )}
                     {award.type && (
                       <motion.span
-                        className="inline-block mt-1.5 mb-1.5 text-center text-sm px-2.5 py-1 bg-purple-500/10 rounded-full"
+                        className="inline-block mt-1.5 mb-1.5 text-center text-sm px-2.5 py-1 bg-yellow-500/10 rounded-full"
                         whileHover={{ scale: 1.05 }}
                       >
                         {award.type}

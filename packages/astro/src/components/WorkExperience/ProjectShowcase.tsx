@@ -41,15 +41,15 @@ export default function ExperienceSection() {
                 ))}
               </div>
               <motion.div
-                className="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-purple-500/20 dark:bg-card/10 dark:border-purple-500/10 shadow-sm"
+                className="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-yellow-500/20 dark:bg-card/10 dark:border-yellow-500/10 shadow-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-3">
-                  <div className="h-6 w-6 flex items-center justify-center rounded-full bg-purple-500/10 mr-2">
-                    <Briefcase className="h-4 w-4 text-purple-500" />
+                  <div className="h-6 w-6 flex items-center justify-center rounded-full bg-yellow-500/10 mr-2">
+                    <Briefcase className="h-4 w-4 text-yellow-500" />
                   </div>
                   <h4 className="text-sm font-medium">Job Role</h4>
                 </div>
@@ -69,15 +69,15 @@ export default function ExperienceSection() {
                 </div>
               </motion.div>
               <motion.div
-                className="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-purple-500/20 dark:bg-card/10 dark:border-purple-500/10 shadow-sm"
+                className="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-yellow-500/20 dark:bg-card/10 dark:border-yellow-500/10 shadow-sm"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
                 <div className="flex items-center mb-3">
-                  <div className="h-6 w-6 flex items-center justify-center rounded-full bg-purple-500/10 mr-2">
-                    <Star className="h-4 w-4 text-purple-500" />
+                  <div className="h-6 w-6 flex items-center justify-center rounded-full bg-yellow-500/10 mr-2">
+                    <Star className="h-4 w-4 text-yellow-500" />
                   </div>
                   <h4 className="text-sm font-medium">Highlights</h4>
                 </div>
