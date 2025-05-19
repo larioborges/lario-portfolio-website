@@ -7,9 +7,9 @@ export default [
     degree: 'Computer Science Honours',
     period: '2009',
     achievements: [
-      // TODO Lario
-      'President of the Department of Information Technology',
-      'G20 student delegate',
+      'Got my honours degree!',
+      'Did some advanced courses including robotics and graphics programming',
+      'Did my honours thesis on UX design',
     ],
   },
   {
