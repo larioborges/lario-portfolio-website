@@ -33,6 +33,8 @@ export default defineConfig(
       globals: {
         ...globals.browser,
         ...globals.node,
+        gtag: 'readonly',
+        dataLayer: 'readonly',
       },
       ecmaVersion: 'latest',
       parser: astroparser,

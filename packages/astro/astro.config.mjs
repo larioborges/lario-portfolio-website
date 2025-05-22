@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
+import svelte from '@astrojs/svelte';
 // import compressor from "astro-compressor";
 // 
 // https://astro.build/config
@@ -12,5 +13,17 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    integrations: [sitemap(), partytown(), react()/*,compressor()*/],
+    integrations: [
+        partytown({
+            config: {
+                forward: ['dataLayer.push'],
+            },
+        }),
+        sitemap(),
+        react(),
+        svelte({
+            extensions: ['.svelte']
+        })
+        /*,compressor()*/
+    ],
 });
