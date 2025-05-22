@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro dev",
     "build": "astro build",
+    "netlify:build": "yarn netlify build",
     "preview": "astro preview",
     "astro": "NODE_OPTIONS='--experimental-specifier-resolution=node' astro",
     "lint": "eslint .",
@@ -37,6 +38,7 @@
     "vite": "^6.3.2"
   },
   "devDependencies": {
+    "@netlify/plugin-lighthouse": "^6.0.1",
     "@types/eslint-plugin-jsx-a11y": "^6",
     "astro-eslint-parser": "^1.2.2",
     "eslint": "^9.26.0",
@@ -47,6 +49,11 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "globals": "^16.1.0",
+    "netlify-plugin-hashfiles": "^4.0.2",
+    "netlify-plugin-html-validate": "^1.1.1",
+    "netlify-plugin-hugo-cache-resources": "^0.2.1",
+    "netlify-plugin-inline-critical-css": "^2.0.0",
+    "netlify-plugin-minify-html": "^0.3.1",
     "prettier": "^3.5.3",
     "typescript-eslint": "^8.32.0"
   }
