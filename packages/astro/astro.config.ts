@@ -29,7 +29,10 @@ export default defineConfig({
 	integrations: [
 		svelte({
 			extensions: ['.svelte'],
-			preprocess: [typescript(), globalStyle()],
+			preprocess: [
+				typescript(),
+				globalStyle(),
+			],
 		}),
 		partytown({
 			config: {

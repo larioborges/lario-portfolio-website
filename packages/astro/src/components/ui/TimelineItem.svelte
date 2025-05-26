@@ -2,18 +2,7 @@
 	import { cn } from '../../utils';
 	import MotionDiv from '../motion/MotionDiv.svelte';
 
-	let {
-		title,
-		titleHref = null,
-		subtitle,
-		subtitleHref = null,
-		location,
-		locationHref = null,
-		date,
-		isLast = false,
-		index = 0,
-		children,
-	} = $props();
+	let { title, titleHref = null, subtitle, subtitleHref = null, location, locationHref = null, date, isLast = false, index = 0, children } = $props();
 </script>
 
 <MotionDiv

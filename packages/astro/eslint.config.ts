@@ -11,16 +11,9 @@ import tseslint from 'typescript-eslint';
 import svelteConfig from './svelte.config';
 
 export default tseslint.config(
-	globalIgnores([
-		'**.astro/**/*',
-		'**.netlify/**/*',
-		'**packages/**/*',
-		'**node_modules/**/*',
-		'/node_modules/**/*',
-		'**dist/**/*',
-		'**strapi/**/*',
-	]),
+	globalIgnores(['**.astro/**/*', '**.netlify/**/*', '**packages/**/*', '**node_modules/**/*', '/node_modules/**/*', '**dist/**/*', '**strapi/**/*']),
 	{
+		files: ['**/*.ts', '*.ts', '**/*.js', '*.js', '**/*.astro', '**/*.svelte', '*.json'],
 		plugins: {
 			prettier: prettierPlugin,
 		},
@@ -49,6 +42,11 @@ export default tseslint.config(
 		languageOptions: {
 			parser: astroparser,
 		},
+		rules: {
+			'prettier/prettier': 'off',
+		},
+		// ...eslintPluginAstro.configs.recommended,
+		// ...eslintPluginPrettierRecommended,
 	},
 	{
 		files: ['**/*.svelte'],
@@ -67,9 +65,8 @@ export default tseslint.config(
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	tseslint.configs.stylistic,
-	eslintPluginAstro.configs.recommended,
-	sveltePlugin.configs.recommended,
+	...eslintPluginAstro.configs.recommended,
 	...eslintPluginAstro.configs['jsx-a11y-recommended'],
-	...sveltePlugin.configs.prettier,
 	eslintPluginPrettierRecommended,
+	...sveltePlugin.configs.prettier,
 );

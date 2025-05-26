@@ -80,12 +80,12 @@
 #   --------------------   PLUGINS/INTEGRATIONS   --------------------
 
 
-[[plugins]]
-  package = "netlify-plugin-hugo-cache-resources"
-	[plugins.inputs]
-    baseURL = "."
-    debug = true
-    srcdir = "src"
+# [[plugins]]
+#   package = "netlify-plugin-hugo-cache-resources"
+# 	[plugins.inputs]
+#     baseURL = "."
+#     debug = true
+#     srcdir = "src"
 
 # [[plugins]]
 #   package = "netlify-plugin-inline-critical-css"
@@ -138,9 +138,24 @@
 [[plugins]]
   package = "@netlify/plugin-sitemap"
   [plugins.inputs]
-    baseUrl = "http://www.lariocpt.biz"
+    baseUrl = "https://www.lariocpt.biz"
     buildDir = "dist"
     prettyURLs = true
+
+# [[plugins]]
+# package = "netlify-plugin-checklinks"
+
+#   [plugins.inputs]
+#   entryPoints = [
+#     "*.html",
+#   ]
+#   recursive = true
+#   pretty = true
+#   checkExternal = true
+#   followSourceMaps = true
+
+# [[plugins]]
+#   package = "netlify-plugin-is-website-vulnerable"
 
 [[plugins]]
   package = "netlify-plugin-submit-sitemap"
@@ -152,21 +167,6 @@
       "google",
       "yandex"
     ]
-
-[[plugins]]
-package = "netlify-plugin-checklinks"
-
-  [plugins.inputs]
-  entryPoints = [
-    "*.html",
-  ]
-  recursive = true
-  pretty = true
-  checkExternal = true
-  followSourceMaps = true
-
-[[plugins]]
-  package = "netlify-plugin-is-website-vulnerable"
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"

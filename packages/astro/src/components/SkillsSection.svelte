@@ -70,13 +70,7 @@
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
     > -->
-		<MotionDiv
-			class="space-y-6"
-			variants={containerVariants}
-			initial="hidden"
-			whileInView="visible"
-			viewport={{ once: true, margin: '-50px' }}
-		>
+		<MotionDiv class="space-y-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
 			<!-- <MotionDiv
       class="space-y-6"
     > -->

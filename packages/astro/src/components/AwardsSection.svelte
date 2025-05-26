@@ -16,9 +16,7 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 			{#each awards as award, index (`${award.name}-${award.date}`)}
 				<MotionWrapper delay={index * 0.1}>
-					<GlassCard
-						className="p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full"
-					>
+					<GlassCard className="p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full">
 						<div class="flex items-center mb-2">
 							<MotionDiv
 								whileHover={{ rotate: 20 }}
@@ -41,10 +39,7 @@
 									</MotionSpan>
 								{/if}
 								{#if award.type}
-									<MotionSpan
-										class="inline-block mt-1.5 mb-1.5 text-center text-sm px-2.5 py-1 bg-yellow-500/10 rounded-full"
-										whileHover={{ scale: 1.05 }}
-									>
+									<MotionSpan class="inline-block mt-1.5 mb-1.5 text-center text-sm px-2.5 py-1 bg-yellow-500/10 rounded-full" whileHover={{ scale: 1.05 }}>
 										{award.type}
 									</MotionSpan>
 								{/if}

@@ -12,44 +12,6 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
-<html lang='en'>
-	<head>
-		<script type='text/partytown' src='https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X' is:inline></script>
-		<script type='text/partytown' is:inline>
-			window.dataLayer = window.dataLayer || []; const gtag = (...args) => dataLayer.push(args); 			gtag('js', new Date());
-			gtag('config', 'G-YW069N7W3X');
-		</script>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
-		<link rel='icon' type='image/svg+xml' href='/images/favicon.webp
-    ' />
-		<meta name='generator' content={Astro.generator} />
-		<meta name='description' content={description} />
-		<title>{title}</title>
-		<link rel='preconnect' href='https://fonts.googleapis.com' />
-		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-		<link
-			href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
-			rel='stylesheet'
-		/>
-	</head>
-	<body
-		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'
-	>
-		<div
-			class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
-		>
-		</div>
-		<slot />
-	</body>
-</html>
-
-<script is:inline>
-	const getTheme = () => (localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark'); const theme =
-getTheme() == 'dark' ? 'dark' : 'light'; localStorage.setItem('theme', theme);
-</script>
-
 <style>
 	html,
 	body {
@@ -70,3 +32,34 @@ getTheme() == 'dark' ? 'dark' : 'light'; localStorage.setItem('theme', theme);
 			color var(--transition-standard);
 	}
 </style>
+
+<html lang='en'>
+	<head>
+		<script type='text/partytown' src='https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X' is:inline></script>
+		<script type='text/partytown' is:inline>
+		window.dataLayer = window.dataLayer || [];
+		const gtag = (...args) => dataLayer.push(args);
+		gtag('js', new Date());
+		gtag('config', 'G-YW069N7W3X');
+		</script>
+		<script type='text/party-town' is:inline>
+		const getTheme = () => (localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark');
+		const theme = getTheme() == 'dark' ? 'dark' : 'light';
+		localStorage.setItem('theme', theme);
+		</script>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/images/favicon.webp' />
+		<meta name='generator' content={Astro.generator} />
+		<meta name='description' content={description} />
+		<title>{title}</title>
+		<link rel='preconnect' href='https://fonts.googleapis.com' />
+		<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+		<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' rel='stylesheet' />
+	</head>
+	<body class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'>
+		<div class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'>
+		</div>
+		<slot />
+	</body>
+</html>

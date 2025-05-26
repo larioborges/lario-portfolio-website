@@ -6,11 +6,7 @@ export default [
 		locationHref: 'https://maps.app.goo.gl/XHZ68oYWh594ph7t9',
 		degree: 'Computer Science Honours',
 		period: '2009',
-		achievements: [
-			'Got my honours degree!',
-			'Did some advanced courses including robotics and graphics programming',
-			'Did my honours thesis on UX design',
-		],
+		achievements: ['Got my honours degree!', 'Did some advanced courses including robotics and graphics programming', 'Did my honours thesis on UX design'],
 	},
 	{
 		institution: 'UCT (University of Cape Town)',

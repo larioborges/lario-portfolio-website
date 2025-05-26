@@ -27,14 +27,7 @@
 				whileHover={{ scale: 1.01 }}
 			>
 				Built with&nbsp;
-				<MotionSpan
-					class="inline-block"
-					initial={{ rotate: 0 }}
-					whileHover={{ rotate: 360 }}
-					transition={{ duration: 0.5 }}
-				>
-					💻
-				</MotionSpan>&nbsp; and&nbsp;
+				<MotionSpan class="inline-block" initial={{ rotate: 0 }} whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>💻</MotionSpan>&nbsp; and&nbsp;
 				<MotionSpan
 					class="inline-block"
 					animate={{
@@ -51,9 +44,7 @@
 			</MotionP>
 		</MotionDiv>
 		<MotionDiv>
-			<a href="https://www.flaticon.com/free-icons/nerd" title="nerd icons">
-				Nerd icons created by Smashicons - Flaticon
-			</a>
+			<a href="https://www.flaticon.com/free-icons/nerd" title="nerd icons"> Nerd icons created by Smashicons - Flaticon </a>
 		</MotionDiv>
 	</div>
 </footer>

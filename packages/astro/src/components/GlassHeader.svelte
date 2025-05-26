@@ -40,24 +40,9 @@
 	class="top-0 sticky z-50 w-full backdrop-blur-md backdrop-filter bg-background/70 dark:bg-background/40 border-b border-border/40 supports-[backdrop-filter]:bg-background/60"
 >
 	<div class="container max-w-4xl mx-auto p-4 flex justify-between items-center">
-		<MotionA
-			class="flex items-center text-lg font-medium"
-			href="/"
-			whileHover={{ scale: 1.05 }}
-			whileTap={{ scale: 0.95 }}
-		>
-			<img
-				width="50px"
-				alt="South Africa"
-				src="/images/south-africa.webp"
-				class="inline-block dark:hidden align-middle mr-2.5"
-			/>
-			<img
-				width="35px"
-				alt="Luigi Cap"
-				src="/images/luigi-cap.webp"
-				class="dark:inline-block hidden align-middle mr-2.5"
-			/>
+		<MotionA class="flex items-center text-lg font-medium" href="/" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+			<img width="50px" alt="South Africa" src="/images/south-africa.webp" class="inline-block dark:hidden align-middle mr-2.5" />
+			<img width="35px" alt="Luigi Cap" src="/images/luigi-cap.webp" class="dark:inline-block hidden align-middle mr-2.5" />
 			{personalInfo.name}
 		</MotionA>
 
@@ -79,12 +64,7 @@
 		<div class="flex items-center space-x-2">
 			<ThemeToggle />
 
-			<MotionButton
-				class="md:hidden p-2 text-foreground"
-				onclick={toggleMenu}
-				aria-label="Toggle menu"
-				whileTap={{ scale: 0.95 }}
-			>
+			<MotionButton class="md:hidden p-2 text-foreground" onclick={toggleMenu} aria-label="Toggle menu" whileTap={{ scale: 0.95 }}>
 				{#if isMenuOpen}
 					<X size={24} />
 				{:else}
