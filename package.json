@@ -1,10 +1,23 @@
 {
   "name": "lario-strapi-website",
+  "type": "commonjs",
   "packageManager": "yarn@4.7.0",
+  "scripts": {
+    "netlify:build": "NODE_OPTIONS='--import=specifier-resolution-node/register' netlify build"
+  },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
+    "netlify": "^21.5.0",
     "specifier-resolution-node": "^1.1.4"
+  },
+  "devDependencies": {
+    "netlify-plugin-hashfiles": "^4.0.2",
+    "netlify-plugin-html-validate": "^1.1.1",
+    "netlify-plugin-hugo-cache-resources": "^0.2.1",
+    "netlify-plugin-inline-critical-css": "^2.0.0",
+    "netlify-plugin-minify-html": "^0.3.1",
+    "netlify-plugin-subfont": "^6.0.0"
   }
 }

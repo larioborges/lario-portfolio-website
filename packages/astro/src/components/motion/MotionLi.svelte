@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { Motion } from 'svelte-motion';
-  let { children, ...props } = $props();
+	import { Motion } from 'svelte-motion';
+	let compProps = $props();
 </script>
 
-<Motion {...props} let:motion let:props>
-  <li {...props} use:motion>
-    {@render children?.()}
-  </li>
+<Motion {...compProps} let:motion let:props>
+	<li {...props} use:motion>
+		{@render compProps?.children?.()}
+	</li>
 </Motion>

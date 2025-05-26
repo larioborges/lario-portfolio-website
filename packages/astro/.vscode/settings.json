@@ -5,5 +5,8 @@
       "typescript", // Enable .ts
       "svelte",
       "json"
-    ]
+    ],
+    "[astro]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
   }

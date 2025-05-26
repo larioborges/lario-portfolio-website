@@ -3,14 +3,14 @@
   "include": [
     "./**/*.ts",
     "./**/*.svelte",
-    ".astro",
+    "./**/*.astro",
   ],
   "exclude": [
-    "dist",
-    "node_modules",
+    "dist/**/*",
+    "node_modules/**/*",
     "*.js",
-    ".netlify",
-    "spackages",
+    ".netlify/**/*",
+    "packages/**/*",
   ],
   "compilerOptions": {
     "baseUrl": "./",
