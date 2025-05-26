@@ -1,23 +1,43 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [
-    ".astro/types.d.ts",
-    "**/*"
+    "./**/*.ts",
+    "./**/*.svelte",
+    ".astro",
   ],
   "exclude": [
-    "dist"
+    "dist",
+    "node_modules",
+    "*.js",
+    ".netlify",
+    "spackages",
   ],
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*",
+      ],
+      "@/pages/*": [
+        "pages/*",
+      ],
+      "@/styles/*": [
+        "styles/*",
+      ],
+      "@/data/*": [
+        "src/data/*",
+      ],
+      "@/lib/*": [
+        "lib/*",
       ],
       "@/public/*": [
-        "./public/*",
+        "public/*",
       ],
     },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
+    "sourceMap": true,
+    "resolveJsonModule": true,
   },
 }

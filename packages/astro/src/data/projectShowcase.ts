@@ -1,10 +1,10 @@
 export default [
   {
     title: 'Net Zero Carbon Emissions 1',
-    employer: '',
-    client: '',
-    location: '',
-    period: '',
+    employer: 'ddddd',
+    client: 'ddd',
+    location: 'dddd',
+    period: 'dddd',
     tags: ['asd', 'fff'],
     description: [
       'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
@@ -23,10 +23,10 @@ export default [
   },
   {
     title: 'Net Zero Carbon Emissions',
-    employer: '',
-    client: '',
-    location: '',
-    period: '',
+    employer: 'ddddd',
+    client: 'ddd',
+    location: 'dddd',
+    period: 'dddd',
     tags: ['1232', '32323'],
     description: [
       'WiFi-RTT: Developed indoor occupancy tracking for energy optimization.',
