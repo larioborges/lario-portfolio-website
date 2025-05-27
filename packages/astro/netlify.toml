@@ -38,24 +38,32 @@
   [headers.values]
     cache-control = '''
     public,
-    max-age=15552000
+    max-age=31536000
     '''
 
 [[headers]]
-  for = "*.js"
+  for = "_astro/*"
   [headers.values]
     cache-control = '''
     public,
-    max-age=15552000
+    max-age=31536000
     '''
 
-[[headers]]
-  for = "*.css"
-  [headers.values]
-    cache-control = '''
-    public,
-    max-age=15552000
-    '''
+# [[headers]]
+#   for = "*.js"
+#   [headers.values]
+#     cache-control = '''
+#     public,
+#     max-age=15552000
+#     '''
+
+# [[headers]]
+#   for = "*.css"
+#   [headers.values]
+#     cache-control = '''
+#     public,
+#     max-age=15552000
+#     '''
 
 
 
