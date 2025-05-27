@@ -29,7 +29,6 @@
 	);
 
 	const { children, className, variant, size, asChild = false, ...props } = $props();
-
 </script>
 
 {#if asChild}
