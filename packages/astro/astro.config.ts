@@ -45,4 +45,10 @@ export default defineConfig({
 			minify: 'esbuild',
 		},
 	},
+	redirects: {
+		'https://lario-f09798.netlify.app/': {
+     status: 301,
+     destination: 'https://www.lariocpt.biz',
+   },
+	},
 });
