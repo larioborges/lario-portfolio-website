@@ -48,7 +48,6 @@
 
 {#snippet categorySection(category: string, icon: string, skills: string[])}
 	<MotionDiv variants={skillCategoryVariants}>
-		<!-- <MotionDiv> -->
 		<GlassCard className="p-4">
 			{@render categoryHeading(category, icon)}
 			{@render skillTags(skills)}
@@ -65,14 +64,6 @@
 			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">🛠️ Skills</h2>
 		</MotionWrapper>
 
-		<!-- this is a comment! 
-    <Motion.div
-      class="space-y-6"
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-    > -->
 		<MotionDiv
 			class="space-y-6"
 			variants={containerVariants}
@@ -80,9 +71,6 @@
 			whileInView="visible"
 			viewport={{ once: true, margin: '-50px' }}
 		>
-			<!-- <MotionDiv
-      class="space-y-6"
-    > -->
 			{@render categorySection('Programming Languages', '💻', skills.programmingLanguages)}
 			{@render categorySection('Frontend Development', '🎨', skills.frontendDevelopment)}
 			{@render categorySection('Backend Development', '⚙️', skills.backendDevelopment)}

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import MotionDiv from '../motion/MotionDiv.svelte';
-	let { children, index } = $props();
+	let { children, index = 1 } = $props();
 </script>
 
-<MotionDiv
+<!-- <MotionDiv
 	initial={{ opacity: 0, scale: 0.8 }}
 	whileInView={{ opacity: 1, scale: 1 }}
 	transitionOverride={{
@@ -14,9 +14,11 @@
 	}}
 	whileHover={{ scale: 1.05, y: -2 }}
 	class="bg-muted/80 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm"
->
-	<!-- <MotionDiv
-  class="px-3 py-1 bg-muted/80 backdrop-blur-sm rounded-md text-sm border border-yellow-500/10 shadow-sm"
 > -->
+<MotionDiv
+	initial={{ opacity: 0, scale: 0.8 }}
+	whileInView={{ opacity: 1, scale: 1 }}
+	class="bg-yellow-500/10 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm"
+>
 	{@render children?.()}
 </MotionDiv>

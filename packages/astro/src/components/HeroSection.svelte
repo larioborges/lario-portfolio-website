@@ -118,12 +118,6 @@
 				</MotionDiv>
 			</div>
 
-			<!-- <MotionDiv
-        class="mt-6 md:mt-0 flex justify-center"
-        variants={childVariants}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      > -->
 			<MotionDiv
 				variants={childVariants}
 				whileHover={{ scale: 1.05 }}
@@ -142,7 +136,6 @@
 					/>
 				</div>
 			</MotionDiv>
-			<!-- </MotionDiv> -->
 		</MotionDiv>
 
 		<MotionWrapper>

@@ -5,6 +5,7 @@
 	import GlassCard from './ui/GlassCard.svelte';
 	import MotionDiv from './motion/MotionDiv.svelte';
 	import MotionSpan from './motion/MotionSpan.svelte';
+	import SkillTag from './ui/SkillTag.svelte'
 </script>
 
 <section
@@ -34,22 +35,16 @@
 						</div>
 						<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuer} (${award.date})`}</p>
 						<div class="mt-auto space-y-2">
-							<div class="wr text-center">
+							<div class="flex flex-wrap justify-center gap-2 md:justify-center-safe">
 								{#if award.position}
-									<MotionSpan
-										class="mt-1.5 mr-2 mb-1.5 inline-block rounded-full bg-yellow-500/10 px-2.5 py-1 text-center text-sm"
-										whileHover={{ scale: 1.05 }}
-									>
+									<SkillTag>
 										{award.position}
-									</MotionSpan>
+									</SkillTag>
 								{/if}
 								{#if award.type}
-									<MotionSpan
-										class="mt-1.5 mb-1.5 inline-block rounded-full bg-yellow-500/10 px-2.5 py-1 text-center text-sm"
-										whileHover={{ scale: 1.05 }}
-									>
+									<SkillTag>
 										{award.type}
-									</MotionSpan>
+									</SkillTag>
 								{/if}
 							</div>
 						</div>

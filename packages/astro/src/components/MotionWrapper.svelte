@@ -1,5 +1,3 @@
-<!--</Motion.div>-->
-
 <script lang="ts">
 	import MotionDiv from './motion/MotionDiv.svelte';
 
@@ -27,15 +25,5 @@
 	custom={delay}
 	{...props}
 >
-	<!-- <MotionDiv
-  initial="hidden"
-  variants={defaultAnimations}
-  custom={delay}
-  {...props}
-> -->
-	<!-- <MotionDiv -->
-	<!-- custom={delay}
-  {...props}
-> -->
 	{@render children?.()}
 </MotionDiv>
