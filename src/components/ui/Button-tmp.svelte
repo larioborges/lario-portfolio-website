@@ -30,14 +30,6 @@
 
 	const { children, className, variant, size, asChild = false, ...props } = $props();
 
-	// const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	//   ({ class, variant, size, asChild = false, ...props }, ref) => {
-
-	// const Comp = asChild ? Slot : 'button';
-
-	// Button.displayName = 'Button';
-
-	// export { Button, buttonVariants };
 </script>
 
 {#if asChild}

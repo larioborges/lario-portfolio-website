@@ -1,4 +1,45 @@
 {
-  "extends": "./packages/astro/tsconfig.json",
-  "exclude": ["node_modules/**"]
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    "./**/*.ts",
+    "./**/*.svelte",
+    "./**/*.astro",
+    "./src/assets/**/*"
+  ],
+  "exclude": [
+    "dist/**/*",
+    "node_modules/**/*",
+    "*.js",
+    ".netlify/**/*",
+    "packages/**/*"
+  ],
+  "compilerOptions": {
+    "types": ["gtag.js"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/data/*": [
+        "src/data/*"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ]
+    },
+    "sourceMap": true,
+    "resolveJsonModule": true
+  }
 }
