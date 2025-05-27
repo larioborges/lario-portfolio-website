@@ -13,7 +13,7 @@
 		delay: 0.05 * index,
 	}}
 	whileHover={{ scale: 1.05, y: -2 }}
-	class="px-3 py-1 bg-muted/80 backdrop-blur-sm rounded-md text-sm border border-yellow-500/10 shadow-sm"
+	class="bg-muted/80 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm"
 >
 	<!-- <MotionDiv
   class="px-3 py-1 bg-muted/80 backdrop-blur-sm rounded-md text-sm border border-yellow-500/10 shadow-sm"

@@ -16,8 +16,8 @@
 
 <MotionDiv
 	class={cn(
-		'rounded-lg border border-border/50 bg-background/80 backdrop-blur-md backdrop-filter shadow-sm dark:bg-card/30 dark:backdrop-blur-md',
-		hoverEffect && 'hover:shadow-md transition-all duration-300 ease-in-out',
+		'border-border/50 bg-background/80 dark:bg-card/30 rounded-lg border shadow-sm backdrop-blur-md backdrop-filter dark:backdrop-blur-md',
+		hoverEffect && 'transition-all duration-300 ease-in-out hover:shadow-md',
 		className,
 	)}
 	whileHover={hoverEffect

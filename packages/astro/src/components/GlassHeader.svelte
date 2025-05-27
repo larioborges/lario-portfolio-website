@@ -37,20 +37,35 @@
 </script>
 
 <header
-	class="top-0 sticky z-50 w-full backdrop-blur-md backdrop-filter bg-background/70 dark:bg-background/40 border-b border-border/40 supports-[backdrop-filter]:bg-background/60"
+	class="bg-background/70 dark:bg-background/40 border-border/40 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur-md backdrop-filter"
 >
-	<div class="container max-w-4xl mx-auto p-4 flex justify-between items-center">
-		<MotionA class="flex items-center text-lg font-medium" href="/" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-			<img width="50px" alt="South Africa" src="/images/south-africa.webp" class="inline-block dark:hidden align-middle mr-2.5" />
-			<img width="35px" alt="Luigi Cap" src="/images/luigi-cap.webp" class="dark:inline-block hidden align-middle mr-2.5" />
+	<div class="container mx-auto flex max-w-4xl items-center justify-between p-4">
+		<MotionA
+			class="flex items-center text-lg font-medium"
+			href="/"
+			whileHover={{ scale: 1.05 }}
+			whileTap={{ scale: 0.95 }}
+		>
+			<img
+				width="50px"
+				alt="South Africa"
+				src="/images/south-africa.webp"
+				class="mr-2.5 inline-block align-middle dark:hidden"
+			/>
+			<img
+				width="35px"
+				alt="Luigi Cap"
+				src="/images/luigi-cap.webp"
+				class="mr-2.5 hidden align-middle dark:inline-block"
+			/>
 			{personalInfo.name}
 		</MotionA>
 
-		<nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+		<nav class="hidden items-center space-x-6 text-sm font-medium md:flex">
 			{#each navLinks as { name, href }, index (name)}
 				<MotionA
 					{href}
-					class="transition-colors hover:text-foreground/80 text-foreground/60"
+					class="hover:text-foreground/80 text-foreground/60 transition-colors"
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.2, delay: index * 0.1 }}
@@ -64,7 +79,12 @@
 		<div class="flex items-center space-x-2">
 			<ThemeToggle />
 
-			<MotionButton class="md:hidden p-2 text-foreground" onclick={toggleMenu} aria-label="Toggle menu" whileTap={{ scale: 0.95 }}>
+			<MotionButton
+				class="text-foreground p-2 md:hidden"
+				onclick={toggleMenu}
+				aria-label="Toggle menu"
+				whileTap={{ scale: 0.95 }}
+			>
 				{#if isMenuOpen}
 					<X size={24} />
 				{:else}
@@ -77,7 +97,7 @@
 	<AnimatePresence>
 		{#if isMenuOpen}
 			<MotionDiv
-				class="md:hidden py-4 px-4 border-t border-border/10 backdrop-blur-md backdrop-filter bg-background/80 dark:bg-background/40"
+				class="border-border/10 bg-background/80 dark:bg-background/40 border-t px-4 py-4 backdrop-blur-md backdrop-filter md:hidden"
 				initial={{ opacity: 0, height: 0 }}
 				animate={{ opacity: 1, height: 'auto' }}
 				exit={{ opacity: 0, height: 0 }}
@@ -87,7 +107,7 @@
 					{#each navLinks as { name, href }, index (name)}
 						<MotionA
 							{href}
-							class="transition-colors hover:text-foreground/80 text-foreground/60 py-2"
+							class="hover:text-foreground/80 text-foreground/60 py-2 transition-colors"
 							onclick={toggleMenu}
 							initial={{ opacity: 0, x: -20 }}
 							animate={{ opacity: 1, x: 0 }}

@@ -43,7 +43,10 @@
 {#if asChild}
 	{@render children?.({ attrs: props })}
 {:else}
-	<button class={cn(buttonVariants({ variant, size, className }))} {...props}>
+	<button
+		class={cn(buttonVariants({ variant, size, className }))}
+		{...props}
+	>
 		{@render children?.()}
 	</button>
 {/if}

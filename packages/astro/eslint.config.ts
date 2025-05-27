@@ -1,9 +1,9 @@
 import eslint from '@eslint/js';
 import astroparser from 'astro-eslint-parser';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import json from 'eslint-plugin-json';
 import prettierPlugin from 'eslint-plugin-prettier';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import sveltePlugin from 'eslint-plugin-svelte';
 import { globalIgnores } from 'eslint/config';
 import globals from 'globals';
@@ -11,7 +11,15 @@ import tseslint from 'typescript-eslint';
 import svelteConfig from './svelte.config';
 
 export default tseslint.config(
-	globalIgnores(['**.astro/**/*', '**.netlify/**/*', '**packages/**/*', '**node_modules/**/*', '/node_modules/**/*', '**dist/**/*', '**strapi/**/*']),
+	globalIgnores([
+		'**.astro/**/*',
+		'**.netlify/**/*',
+		'**packages/**/*',
+		'**node_modules/**/*',
+		'/node_modules/**/*',
+		'**dist/**/*',
+		'**strapi/**/*',
+	]),
 	{
 		files: ['**/*.ts', '*.ts', '**/*.js', '*.js', '**/*.astro', '**/*.svelte', '*.json'],
 		plugins: {
@@ -24,6 +32,8 @@ export default tseslint.config(
 				gtag: 'readonly',
 				dataLayer: 'readonly',
 			},
+			parser: tseslint.parser,
+			sourceType: 'module',
 			ecmaVersion: 'latest',
 		},
 	},
@@ -41,12 +51,14 @@ export default tseslint.config(
 		},
 		languageOptions: {
 			parser: astroparser,
+			parserOptions: {
+				parser: tseslint.parser,
+				extraFileExtensions: ['.astro'],
+				sourceType: 'module',
+				ecmaVersion: 'latest',
+				project: './tsconfig.json',
+			},
 		},
-		rules: {
-			'prettier/prettier': 'off',
-		},
-		// ...eslintPluginAstro.configs.recommended,
-		// ...eslintPluginPrettierRecommended,
 	},
 	{
 		files: ['**/*.svelte'],
@@ -62,11 +74,20 @@ export default tseslint.config(
 			},
 		},
 	},
+	{
+		plugins: {
+			prettier: prettierPlugin,
+		},
+		rules: {
+			// disable warnings, since prettier should format on save
+			'prettier/prettier': 'off',
+		},
+	},
 	eslint.configs.recommended,
 	tseslint.configs.recommended,
 	tseslint.configs.stylistic,
 	...eslintPluginAstro.configs.recommended,
 	...eslintPluginAstro.configs['jsx-a11y-recommended'],
-	eslintPluginPrettierRecommended,
 	...sveltePlugin.configs.prettier,
+	eslintConfigPrettier,
 );

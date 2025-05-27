@@ -9,12 +9,15 @@
 	import MotionLi from '../motion/MotionLi.svelte';
 </script>
 
-<section id="projects" class="py-12 bg-gradient-to-b from-muted/20 to-background">
-	<div class="container max-w-4xl mx-auto px-6 md:px-4">
+<section
+	id="projects"
+	class="from-muted/20 to-background bg-gradient-to-b py-12"
+>
+	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="text-2xl font-bold mb-8 text-center md:text-left flex items-center md:inline-block">
+			<h2 class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left">
 				<MotionSpan
-					class="inline-block mr-2"
+					class="mr-2 inline-block"
 					initial={{ rotate: 0 }}
 					whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
 					transition={{ duration: 0.5, delay: 0.2 }}
@@ -34,7 +37,7 @@
 					isLast={index === projectShowcase.length - 1}
 					{index}
 				>
-					<div class="flex flex-wrap gap-2 justify-center md:justify-start">
+					<div class="flex flex-wrap justify-center gap-2 md:justify-start">
 						{#each project.tags as tag, index (`${tag}-${project.title}`)}
 							<SkillTag {index}>
 								{tag}
@@ -42,19 +45,19 @@
 						{/each}
 					</div>
 					<MotionDiv
-						class="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-yellow-500/20 dark:bg-card/10 dark:border-yellow-500/10 shadow-sm"
+						class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
 						viewport={{ once: true }}
 					>
-						<div class="flex items-center mb-3">
-							<div class="h-6 w-6 flex items-center justify-center rounded-full bg-yellow-500/10 mr-2">
+						<div class="mb-3 flex items-center">
+							<div class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10">
 								<Briefcase class="h-4 w-4 text-yellow-500" />
 							</div>
 							<h4 class="text-sm font-medium">Job Role</h4>
 						</div>
-						<div class="list-none ml-4 space-y-2 text-sm">
+						<div class="ml-4 list-none space-y-2 text-sm">
 							{#each project.description as role, i (`${role}-${i}`)}
 								<MotionLi
 									class="text-muted-foreground relative pl-2"
@@ -69,14 +72,14 @@
 						</div>
 					</MotionDiv>
 					<MotionDiv
-						class="mt-3 p-4 bg-background/80 backdrop-blur-sm backdrop-filter rounded-lg border border-yellow-500/20 dark:bg-card/10 dark:border-yellow-500/10 shadow-sm"
+						class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
 						viewport={{ once: true }}
 					>
-						<div class="flex items-center mb-3">
-							<div class="h-6 w-6 flex items-center justify-center rounded-full bg-yellow-500/10 mr-2">
+						<div class="mb-3 flex items-center">
+							<div class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10">
 								<Star class="h-4 w-4 text-yellow-500" />
 							</div>
 							<h4 class="text-sm font-medium">Highlights</h4>

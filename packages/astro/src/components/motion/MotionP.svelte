@@ -3,8 +3,15 @@
 	let compProps = $props();
 </script>
 
-<Motion {...compProps} let:motion let:props>
-	<p {...props} use:motion>
+<Motion
+	{...compProps}
+	let:motion
+	let:props
+>
+	<p
+		{...props}
+		use:motion
+	>
 		{@render compProps?.children?.()}
 	</p>
 </Motion>

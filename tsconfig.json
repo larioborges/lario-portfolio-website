@@ -1,3 +1,4 @@
 {
-  "extends": "./packages/astro/tsconfig.json"
+  "extends": "./packages/astro/tsconfig.json",
+  "exclude": ["node_modules/**"]
 }

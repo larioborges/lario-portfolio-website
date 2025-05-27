@@ -19,7 +19,14 @@
 	let { children, delay = 0, ...props } = $props();
 </script>
 
-<MotionDiv initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-100px' }} variants={defaultAnimations} custom={delay} {...props}>
+<MotionDiv
+	initial="hidden"
+	whileInView="visible"
+	viewport={{ once: true, margin: '-100px' }}
+	variants={defaultAnimations}
+	custom={delay}
+	{...props}
+>
 	<!-- <MotionDiv
   initial="hidden"
   variants={defaultAnimations}

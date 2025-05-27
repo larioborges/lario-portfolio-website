@@ -28,7 +28,7 @@
 </script>
 
 {#snippet categoryHeading(name, icon)}
-	<h3 class="text-lg font-medium mb-3 text-center md:text-left flex items-center">
+	<h3 class="mb-3 flex items-center text-center text-lg font-medium md:text-left">
 		{#if icon}
 			<span class="mr-2 text-xl">{icon}</span>
 		{/if}
@@ -37,7 +37,7 @@
 {/snippet}
 
 {#snippet skillTags(skills)}
-	<div class="flex flex-wrap gap-2 justify-center md:justify-start">
+	<div class="flex flex-wrap justify-center gap-2 md:justify-start">
 		{#each skills as skill, index (`${skill}-${index}`)}
 			<SkillTag {index}>
 				{skill}
@@ -56,10 +56,13 @@
 	</MotionDiv>
 {/snippet}
 
-<section id="skills" class="py-12 bg-gradient-to-b from-background to-muted/20">
-	<div class="container max-w-4xl mx-auto px-6 md:px-4">
+<section
+	id="skills"
+	class="from-background to-muted/20 bg-gradient-to-b py-12"
+>
+	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="text-2xl font-bold mb-8 text-center md:text-left">🛠️ Skills</h2>
+			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">🛠️ Skills</h2>
 		</MotionWrapper>
 
 		<!-- this is a comment! 
@@ -70,7 +73,13 @@
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
     > -->
-		<MotionDiv class="space-y-6" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
+		<MotionDiv
+			class="space-y-6"
+			variants={containerVariants}
+			initial="hidden"
+			whileInView="visible"
+			viewport={{ once: true, margin: '-50px' }}
+		>
 			<!-- <MotionDiv
       class="space-y-6"
     > -->

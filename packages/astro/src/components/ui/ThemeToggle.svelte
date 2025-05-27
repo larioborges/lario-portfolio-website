@@ -21,7 +21,12 @@
 	};
 </script>
 
-<Button variant="ghost" size="icon" onclick={toggleTheme} className="rounded-full cursor-pointer">
+<Button
+	variant="ghost"
+	size="icon"
+	onclick={toggleTheme}
+	className="rounded-full cursor-pointer"
+>
 	{#if theme === 'light'}
 		<Moon class="h-5 w-5" />
 	{:else}

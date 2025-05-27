@@ -2,7 +2,18 @@
 	import { cn } from '../../utils';
 	import MotionDiv from '../motion/MotionDiv.svelte';
 
-	let { title, titleHref = null, subtitle, subtitleHref = null, location, locationHref = null, date, isLast = false, index = 0, children } = $props();
+	let {
+		title,
+		titleHref = null,
+		subtitle,
+		subtitleHref = null,
+		location,
+		locationHref = null,
+		date,
+		isLast = false,
+		index = 0,
+		children,
+	} = $props();
 </script>
 
 <MotionDiv
@@ -14,7 +25,7 @@
 >
 	<div class="flex flex-col items-center">
 		<MotionDiv
-			class="flex h-[18px] w-[18px] rounded-full border border-yellow-500/50 bg-background dark:bg-muted z-10"
+			class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50"
 			initial={{ scale: 0 }}
 			whileInView={{ scale: 1 }}
 			transition={{
@@ -43,28 +54,40 @@
 			transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
 			viewport={{ once: true, margin: '-50px' }}
 		>
-			<h3 class="font-extrabold mb-2 text-xl">{`📅 ${date}`}</h3>
-			<div class="pl-3 mb-6">
+			<h3 class="mb-2 text-xl font-extrabold">{`📅 ${date}`}</h3>
+			<div class="mb-6 pl-3">
 				{#if titleHref}
-					<a href={titleHref} target="_blank" rel="noreferrer">
+					<a
+						href={titleHref}
+						target="_blank"
+						rel="noreferrer"
+					>
 						<h3 class="font-medium">{title}</h3>
 					</a>
 				{:else}
 					<h3 class="font-medium">{title}</h3>
 				{/if}
 				{#if subtitleHref}
-					<a href={subtitleHref} target="_blank" rel="noreferrer">
-						<p class="text-sm text-muted-foreground">{subtitle}</p>
+					<a
+						href={subtitleHref}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<p class="text-muted-foreground text-sm">{subtitle}</p>
 					</a>
 				{:else}
-					<p class="text-sm text-muted-foreground">{subtitle}</p>
+					<p class="text-muted-foreground text-sm">{subtitle}</p>
 				{/if}
 				{#if locationHref}
-					<a href={locationHref} target="_blank" rel="noreferrer">
-						<p class="text-sm text-muted-foreground">📍 {location}</p>
+					<a
+						href={locationHref}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<p class="text-muted-foreground text-sm">📍 {location}</p>
 					</a>
 				{:else}
-					<p class="text-sm text-muted-foreground">📍 {location}</p>
+					<p class="text-muted-foreground text-sm">📍 {location}</p>
 				{/if}
 				<div>
 					<MotionDiv

@@ -10,10 +10,24 @@ export default {
 		'prettier-plugin-svelte',
 		'prettier-plugin-toml',
 	],
+	overrides: [
+		{
+			files: '**/*.svelte',
+			options: {
+				parser: 'svelte',
+			},
+		},
+		{
+			files: '**/*.astro',
+			options: {
+				parser: 'astro',
+			},
+		},
+	],
 	semi: true,
 	trailingComma: 'all',
 	singleQuote: true,
-	printWidth: 160,
+	printWidth: 120,
 	tabWidth: 2,
 	useTabs: true,
 	arrowParens: 'avoid',
@@ -26,18 +40,4 @@ export default {
 	astroSortOrder: 'styles | markup',
 	astroAllowShorthand: true,
 	files: ['*.ts', '*.mjs', '*.json', '*.cjs', '*.js', '*.astro', '*.svelte', '*.toml', 'package.json'],
-	overrides: [
-		{
-			files: '*.svelte',
-			options: {
-				parser: 'svelte',
-			},
-		},
-		{
-			files: '*.astro',
-			options: {
-				parser: 'astro',
-			},
-		},
-	],
 };

@@ -12,7 +12,7 @@
 		}
 	],
 	"settings": {
-		"typescript.tsdk": "lario-strapi-website/node_modules/typescript/lib",
+		"typescript.tsdk": "./node_modules/typescript/lib",
 		"files.insertFinalNewline": true,
 		"files.trimFinalNewlines": true,
 		"notebook.insertFinalNewline": false,
@@ -23,12 +23,14 @@
 		"editor.codeActionsOnSave": {
 			"source.fixAll.eslint": "explicit"
 		},
+  	"editor.formatOnSave": false,
 		"eslint.validate": [
 			"javascript",
 			"typescript",
 			"html",
 			"json",
-			"svelte"
+			"svelte",
+			
 		],
 		"editor.indentSize": "tabSize",
 	}
