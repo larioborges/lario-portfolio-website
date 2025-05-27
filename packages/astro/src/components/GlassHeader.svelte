@@ -6,8 +6,8 @@
 	import MotionA from './motion/MotionA.svelte';
 	import MotionDiv from './motion/MotionDiv.svelte';
 	import MotionButton from './motion/MotionButton.svelte';
-	import southAfrica from '../assets/south-africa.webp';
-	import luigiCap from '../assets/luigi-cap.webp';
+	import southAfrica from '../assets/images/south-africa.webp';
+	import luigiCap from '../assets/images/luigi-cap.webp';
 
 	let isMenuOpen = $state(false);
 	const toggleMenu = () => {

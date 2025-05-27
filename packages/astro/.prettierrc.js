@@ -39,5 +39,5 @@ export default {
 	svelteIndentScriptAndStyle: true,
 	astroSortOrder: 'styles | markup',
 	astroAllowShorthand: true,
-	files: ['*.ts', '*.mjs', '*.json', '*.cjs', '*.js', '*.astro', '*.svelte', '*.toml', 'package.json'],
+	files: ['*.ts', '*.mjs', '*.json', '*.cjs', '*.js', '*.astro', '*.svelte', '*.toml', '*.json'],
 };

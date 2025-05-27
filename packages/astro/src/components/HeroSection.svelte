@@ -9,8 +9,8 @@
 	import MotionSpan from './motion/MotionSpan.svelte';
 	import MotionP from './motion/MotionP.svelte';
 	import MotionA from './motion/MotionA.svelte';
-	import nerd from '../assets/nerd.webp';
-	import profile from '../assets/profile.webp';
+	import nerd from '../assets/images/nerd.webp';
+	import profile from '../assets/images/profile.webp';
 
 	const containerVariants = {
 		hidden: { opacity: 0 },

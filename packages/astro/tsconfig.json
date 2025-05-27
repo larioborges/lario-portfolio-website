@@ -4,40 +4,42 @@
     "./**/*.ts",
     "./**/*.svelte",
     "./**/*.astro",
+    "./src/assets/**/*"
   ],
   "exclude": [
     "dist/**/*",
     "node_modules/**/*",
     "*.js",
     ".netlify/**/*",
-    "packages/**/*",
+    "packages/**/*"
   ],
   "compilerOptions": {
+    "types": ["gtag.js"],
     "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
       ],
       "@/layouts/*": [
-        "layouts/*",
+        "layouts/*"
       ],
       "@/pages/*": [
-        "pages/*",
+        "pages/*"
       ],
       "@/styles/*": [
-        "styles/*",
+        "styles/*"
       ],
       "@/data/*": [
-        "src/data/*",
+        "src/data/*"
       ],
       "@/lib/*": [
-        "lib/*",
+        "lib/*"
       ],
       "@/public/*": [
-        "public/*",
-      ],
+        "public/*"
+      ]
     },
     "sourceMap": true,
-    "resolveJsonModule": true,
-  },
+    "resolveJsonModule": true
+  }
 }

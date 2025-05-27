@@ -45,7 +45,7 @@ export default [
 	{
 		institution: 'Western Province Preparatory School',
 		institutionHref: 'https://wpps.org.za',
-		location: 'Cape Town, South Africa',
+		location: 'Claremont, Cape Town, South Africa',
 		locationHref: 'https://maps.app.goo.gl/LP9htwcFkLq1UvFm7',
 		degree: 'Senior Certificate with Endorsement and survived boarding school',
 		period: '1992 - 2000',

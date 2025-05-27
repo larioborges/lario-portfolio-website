@@ -4,6 +4,7 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintPluginAstro from 'eslint-plugin-astro';
 import json from 'eslint-plugin-json';
 import prettierPlugin from 'eslint-plugin-prettier';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import sveltePlugin from 'eslint-plugin-svelte';
 import { globalIgnores } from 'eslint/config';
 import globals from 'globals';
@@ -31,6 +32,7 @@ export default tseslint.config(
 				...globals.node,
 				gtag: 'readonly',
 				dataLayer: 'readonly',
+				arguments: 'readonly',
 			},
 			parser: tseslint.parser,
 			sourceType: 'module',
@@ -88,6 +90,8 @@ export default tseslint.config(
 	tseslint.configs.stylistic,
 	...eslintPluginAstro.configs.recommended,
 	...eslintPluginAstro.configs['jsx-a11y-recommended'],
+	...sveltePlugin.configs.recommended,
+	eslintPluginPrettierRecommended,
 	...sveltePlugin.configs.prettier,
 	eslintConfigPrettier,
 );

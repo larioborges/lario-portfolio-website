@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-import { AstroFont } from "astro-font";
+import { AstroFont } from 'astro-font';
+import { GoogleAnalytics } from 'astro-google-analytics';
 
 interface Props {
 	title?: string;
@@ -36,27 +37,11 @@ const {
 
 <html lang='en'>
 	<head>
+		<GoogleAnalytics id='G-YW069N7W3X' />
 		<script
-			type='text/partytown'
-			src='https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X'
-			is:inline
+			type='module'
+			src='/src/layouts/initScript.ts'
 		></script>
-		<script type='text/partytown' is:inline>
-			window.dataLayer = window.dataLayer || [];
-			const gtag = (...args) => dataLayer.push(args);
-			gtag('js', new Date());
-			gtag('config', 'G-YW069N7W3X');
-		</script>
-		<script type='text/party-town' is:inline>
-			function getTheme() {
-				if (localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				return 'dark';
-			}
-			const theme = getTheme() == 'dark' ? 'dark' : 'light';
-			localStorage.setItem('theme', theme);
-		</script>
 		<meta charset='UTF-8' />
 		<meta
 			name='viewport'
@@ -77,19 +62,19 @@ const {
 		/>
 		<title>{title}</title>
 		<AstroFont
-      config={[
-        {
-          src: [],
-          name: "Inter",
-          // Google Fonts URL
-          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
-          preload: true,
-          display: "swap",
-          selector: "body",
-          fallback: "sans-serif",
-        },
-      ]}
-    />
+			config={[
+				{
+					src: [],
+					name: 'Inter',
+					// Google Fonts URL
+					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+					preload: true,
+					display: 'swap',
+					selector: 'body',
+					fallback: 'sans-serif',
+				},
+			]}
+		/>
 	</head>
 	<body
 		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'

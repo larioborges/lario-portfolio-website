@@ -4,8 +4,7 @@
 	import MotionWrapper from './MotionWrapper.svelte';
 	import GlassCard from './ui/GlassCard.svelte';
 	import MotionDiv from './motion/MotionDiv.svelte';
-	import MotionSpan from './motion/MotionSpan.svelte';
-	import SkillTag from './ui/SkillTag.svelte'
+	import SkillTag from './ui/SkillTag.svelte';
 </script>
 
 <section

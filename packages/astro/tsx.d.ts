@@ -6,9 +6,11 @@ declare global {
 		type Element = HTMLElement;
 	}
 
-	type DataLayer = Record<string, object | string | number>[];
-	interface Window {
-		dataLayer: DataLayer;
-	}
-	declare const dataLayer: DataLayer;
+	declare module '*.png';
+	declare module '*.jpg';
+	declare module '*.jpeg';
+	declare module '*.gif';
+	declare module '*.svg';
+	declare module '*.svelte';
+	declare module '*.webp';
 }
