@@ -48,7 +48,6 @@
     "netlify-plugin-hugo-cache-resources": "^0.2.1",
     "netlify-plugin-inline-critical-css": "^2.0.0",
     "netlify-plugin-is-website-vulnerable": "^2.0.3",
-    "netlify-plugin-subfont": "^6.0.0",
     "netlify-plugin-submit-sitemap": "^0.4.0",
     "prettier": "^3.5.3",
     "prettier-config-standard": "^7.0.0",

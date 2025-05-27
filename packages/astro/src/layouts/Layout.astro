@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { AstroFont } from "astro-font";
 
 interface Props {
 	title?: string;
@@ -75,19 +76,20 @@ const {
 			content={description}
 		/>
 		<title>{title}</title>
-		<link
-			rel='preconnect'
-			href='https://fonts.googleapis.com'
-		/>
-		<link
-			rel='preconnect'
-			href='https://fonts.gstatic.com'
-			crossorigin
-		/>
-		<link
-			href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
-			rel='stylesheet'
-		/>
+		<AstroFont
+      config={[
+        {
+          src: [],
+          name: "Inter",
+          // Google Fonts URL
+          googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+          preload: true,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
 	</head>
 	<body
 		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'
