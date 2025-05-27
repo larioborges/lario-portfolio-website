@@ -12,15 +12,26 @@
 		}
 	],
 	"settings": {
-		"typescript.tsdk": "lario-strapi-website/node_modules/typescript/lib",
+		"typescript.tsdk": "./node_modules/typescript/lib",
 		"files.insertFinalNewline": true,
 		"files.trimFinalNewlines": true,
 		"notebook.insertFinalNewline": false,
+		"editor.bracketPairColorization.enabled": true,
+		"editor.useTabStops": false,
 		"editor.tabSize": 2,
 		"editor.renderWhitespace": "all",
 		"editor.codeActionsOnSave": {
 			"source.fixAll.eslint": "explicit"
 		},
-		"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "json"],
+  	"editor.formatOnSave": false,
+		"eslint.validate": [
+			"javascript",
+			"typescript",
+			"html",
+			"json",
+			"svelte",
+			
+		],
+		"editor.indentSize": "tabSize",
 	}
 }

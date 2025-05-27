@@ -1,0 +1,170 @@
+[build]
+  base = "/packages/astro/"
+  publish = "dist"
+  command = "yarn build"
+  cssMinify = true
+  assetsDir = "public"
+  lib = true
+  cssCodeSplit = true
+  sourcemap = true
+  minify = true
+  hashfiles = true
+
+
+
+#   --------------------   URL REDIRECTS   --------------------
+
+# [[redirects]]
+#   from = "/old-path"
+#   to = "/new-path"
+#   status = 301
+#   force = false
+#   query = {path = ":path"} #  apply this rule for /old-path?path=example
+#   conditions = {Language = ["en","es"], Country = ["US"]}
+
+# [[redirects]]
+#   from = "/news"
+#   to = "/blog"
+
+[[redirects]]
+  from = "https://lario-f09798.netlify.app/"
+  to = "https://www.lariocpt.biz"
+  status = 301
+  force = true
+
+
+
+#   --------------------   RESPONSE HEADERS   --------------------
+
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-DNS-Prefetch-Control = "on"
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-XSS-Protection = '''
+    1,
+    mode=block'''
+    Strict-Transport-Security = '''
+    max-age=63072000,
+    includeSubDomains,
+    preload
+    '''
+    Content-Security-Policy = "frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    cache-control = '''
+    no-cache,
+    no-store,
+    must-revalidate'''
+
+[[headers]]
+  for = "images/*"
+  [headers.values]
+    cache-control = '''
+    public,
+    max-age=15552000
+    '''
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    cache-control = '''
+    public,
+    max-age=15552000
+    '''
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    cache-control = '''
+    public,
+    max-age=15552000
+    '''
+
+
+
+#   --------------------   PLUGINS/INTEGRATIONS   --------------------
+
+
+# [[plugins]]
+#   package = "netlify-plugin-hugo-cache-resources"
+# 	[plugins.inputs]
+#     baseURL = "."
+#     debug = true
+#     srcdir = "src"
+
+# [[plugins]]
+#   package = "netlify-plugin-inline-critical-css"`
+
+#   [plugins.inputs]
+#     fileFilter = ["src/*.html"]
+#     directoryFilter = ["!node_modules", '!strapi']
+#     extract = false
+#     dimensions = [
+#       { width = 414, height = 896 },
+#       { width = 1920, height = 1080 }
+#     ]
+
+# [[plugins]]
+#   package = "netlify-plugin-minify-html"
+
+# [[plugins]]
+#   package = "netlify-plugin-hashfiles"
+#   [plugins.inputs]
+#     entryPoints = [
+#       "dist/**.*.html",
+#       "dist/**.*.js",
+#       "src/**/*.astro",
+#       "src/**/*.svelte",
+#     ]
+#     staticDir = "public"
+
+# [[plugins]]
+#   package = "netlify-plugin-html-validate"
+
+#   [plugins.inputs]
+#     ext = "html"
+#     config = ".htmlvalidate.json"
+
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+#   [plugins.inputs]
+#     baseUrl = "https://www.lariocpt.biz"
+#     buildDir = "dist"
+#     prettyURLs = true
+
+# [[plugins]]
+# package = "netlify-plugin-checklinks"
+
+#   [plugins.inputs]
+#   entryPoints = [
+#     "*.html",
+#   ]
+#   recursive = true
+#   pretty = true
+#   checkExternal = true
+#   followSourceMaps = true
+
+# [[plugins]]
+#   package = "netlify-plugin-is-website-vulnerable"
+
+# [[plugins]]
+#   package = "netlify-plugin-submit-sitemap"
+# 	[plugins.inputs]
+#     baseUrl = "https://www.lariocpt.dev"
+#     sitemapPath = "/sitemap.xml"
+#     ignorePeriod = 0
+#     providers = [
+#       "google",
+#       "yandex"
+#     ]
+
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
+#   [plugins.inputs.audits]
+#     output_path = "/reports/lighthouse.html"

@@ -1,20 +1,20 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import WorkExperience from "@/components/WorkExperience";
-import GlassHeader from "@/components/GlassHeader";
-import SkillsSection from "@/components/SkillsSection";
-import AwardsSection from "@/components/AwardsSection";
-import EducationSection from "@/components/EducationSection";
-import Footer from "@/components/Footer";
+import Layout from '../layouts/Layout.astro';
+import WorkExperience from '../components/WorkExperience.svelte';
+import GlassHeader from '../components/GlassHeader.svelte';
+import SkillsSection from '../components/SkillsSection.svelte';
+import AwardsSection from '../components/AwardsSection.svelte';
+import EducationSection from '../components/EducationSection.svelte';
+import Footer from '../components/Footer.svelte';
 ---
 
 <Layout>
-  <GlassHeader client:only="react" />
-  <main class="min-h-screen">
-    <WorkExperience client:only="react" />
-    <SkillsSection client:only="react" />
-    <AwardsSection client:only="react" />
-    <EducationSection client:only="react" />
-  </main>
-  <Footer client:only="react" />
+	<GlassHeader client:only='svelte' />
+	<main class='min-h-screen'>
+		<WorkExperience client:only='svelte' />
+		<SkillsSection client:only='svelte' />
+		<AwardsSection client:only='svelte' />
+		<EducationSection client:only='svelte' />
+	</main>
+	<Footer client:only='svelte' />
 </Layout>

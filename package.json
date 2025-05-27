@@ -1,10 +1,15 @@
 {
   "name": "lario-strapi-website",
+  "type": "commonjs",
   "packageManager": "yarn@4.7.0",
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "netlify:build": "NODE_OPTIONS='--import=specifier-resolution-node/register' netlify build"
+  },
   "dependencies": {
+    "netlify-cli": "^21.5.0",
     "specifier-resolution-node": "^1.1.4"
   }
 }
