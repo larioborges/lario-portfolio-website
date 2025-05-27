@@ -7,6 +7,8 @@
   lib = true
   cssCodeSplit = true
   sourcemap = true
+  minify = true
+  hashfiles = true
 
 
 
@@ -108,8 +110,8 @@
 #       { width = 1920, height = 1080 }
 #     ]
 
-[[plugins]]
-  package = "netlify-plugin-minify-html"
+# [[plugins]]
+#   package = "netlify-plugin-minify-html"
 
 
 [[plugins]]
@@ -117,7 +119,8 @@
 
   [plugins.inputs]
     entryPoints = [
-      "src/*.html",
+      "src/**/*.astro",
+      "dist/**/*.html",
     ]
     recursive = true
     fontDisplay = "swap"
@@ -125,17 +128,16 @@
     inlineFonts = true
     fallbacks = true
 
-[[plugins]]
-  package = "netlify-plugin-hashfiles"
-  [plugins.inputs]
-    entryPoints = [
-      "src/*.html",
-      "src/*.astro",
-      "src/*.svelte",
-      "src/*.svelte.js",
-      "src/*.svelte.ts"
-    ]
-    staticDir = "public"
+# [[plugins]]
+#   package = "netlify-plugin-hashfiles"
+#   [plugins.inputs]
+#     entryPoints = [
+#       "dist/**.*.html",
+#       "dist/**.*.js",
+#       "src/**/*.astro",
+#       "src/**/*.svelte",
+#     ]
+#     staticDir = "public"
 
 # [[plugins]]
 #   package = "netlify-plugin-html-validate"
@@ -144,12 +146,12 @@
 #     ext = "html"
 #     config = ".htmlvalidate.json"
 
-[[plugins]]
-  package = "@netlify/plugin-sitemap"
-  [plugins.inputs]
-    baseUrl = "https://www.lariocpt.biz"
-    buildDir = "dist"
-    prettyURLs = true
+# [[plugins]]
+#   package = "@netlify/plugin-sitemap"
+#   [plugins.inputs]
+#     baseUrl = "https://www.lariocpt.biz"
+#     buildDir = "dist"
+#     prettyURLs = true
 
 # [[plugins]]
 # package = "netlify-plugin-checklinks"

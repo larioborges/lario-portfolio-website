@@ -9,6 +9,8 @@
 	import MotionSpan from './motion/MotionSpan.svelte';
 	import MotionP from './motion/MotionP.svelte';
 	import MotionA from './motion/MotionA.svelte';
+	import nerd from '../assets/nerd.webp';
+	import profile from '../assets/profile.webp';
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -55,7 +57,7 @@
 					>
 						<img
 							alt="nerd"
-							src="/images/nerd.webp"
+							src={nerd.src}
 							width="45px"
 							class="ml-3 inline-block align-middle"
 						/>
@@ -133,7 +135,7 @@
 						class="from--500 absolute -inset-1 rounded-full bg-gradient-to-r to-yellow-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
 					></div>
 					<img
-						src="/images/profile.webp"
+						src={profile.src}
 						alt="Profile"
 						class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
 						style="objectFit: 'cover'"

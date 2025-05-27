@@ -7,9 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
 import { globalStyle, typescript } from 'svelte-preprocess';
-// import compressor from "astro-compressor";
-//
-// https://astro.build/config
+
 export default defineConfig({
 	site: 'https://www.lariocpt.biz',
 	adapter: netlify({
@@ -47,17 +45,4 @@ export default defineConfig({
 			minify: 'esbuild',
 		},
 	},
-	// integrations: [
-	//   svelte({
-	//     extensions: ['.svelte', '.svelte.js', '.svelte.ts'],
-	//     preprocess: [typescript(), globalStyle()],
-	//   }),
-	//   partytown({
-	//     config: {
-	//       forward: ['dataLayer.push'],
-	//     },
-	//   }),
-	//   sitemap(),
-	//   compress(),
-	// ],
 });

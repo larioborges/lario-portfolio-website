@@ -6,6 +6,8 @@
 	import MotionA from './motion/MotionA.svelte';
 	import MotionDiv from './motion/MotionDiv.svelte';
 	import MotionButton from './motion/MotionButton.svelte';
+	import southAfrica from '../assets/south-africa.webp';
+	import luigiCap from '../assets/luigi-cap.webp';
 
 	let isMenuOpen = $state(false);
 	const toggleMenu = () => {
@@ -49,13 +51,13 @@
 			<img
 				width="50px"
 				alt="South Africa"
-				src="/images/south-africa.webp"
+				src={southAfrica.src}
 				class="mr-2.5 inline-block align-middle dark:hidden"
 			/>
 			<img
 				width="35px"
 				alt="Luigi Cap"
-				src="/images/luigi-cap.webp"
+				src={luigiCap.src}
 				class="mr-2.5 hidden align-middle dark:inline-block"
 			/>
 			{personalInfo.name}
