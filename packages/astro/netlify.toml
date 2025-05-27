@@ -1,31 +1,4 @@
-[build]
-  base = "/packages/astro/"
-  publish = "dist"
-  command = "yarn build"
-  cssMinify = true
-  assetsDir = "public"
-  lib = true
-  cssCodeSplit = true
-  sourcemap = true
-  minify = true
-  hashfiles = true
-
-
-
 #   --------------------   URL REDIRECTS   --------------------
-
-# [[redirects]]
-#   from = "/old-path"
-#   to = "/new-path"
-#   status = 301
-#   force = false
-#   query = {path = ":path"} #  apply this rule for /old-path?path=example
-#   conditions = {Language = ["en","es"], Country = ["US"]}
-
-# [[redirects]]
-#   from = "/news"
-#   to = "/blog"
-
 [[redirects]]
   from = "https://lario-f09798.netlify.app/"
   to = "https://www.lariocpt.biz"
@@ -35,8 +8,6 @@
 
 
 #   --------------------   RESPONSE HEADERS   --------------------
-
-
 [[headers]]
   for = "/*"
   [headers.values]
@@ -89,8 +60,6 @@
 
 
 #   --------------------   PLUGINS/INTEGRATIONS   --------------------
-
-
 # [[plugins]]
 #   package = "netlify-plugin-hugo-cache-resources"
 # 	[plugins.inputs]
