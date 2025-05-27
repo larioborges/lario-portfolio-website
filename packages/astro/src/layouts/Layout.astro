@@ -2,15 +2,20 @@
 import '../styles/global.css';
 import { AstroFont } from 'astro-font';
 import { GoogleAnalytics } from 'astro-google-analytics';
+import { AstroSeo } from '@astrolib/seo';
 
 interface Props {
 	title?: string;
 	description?: string;
+	canonicalUrl?: string;
+	siteName?: string;
 }
 
 const {
 	title = 'Lario Borges - Full Stack Web Engineer',
 	description = 'Bright, experienced and diligent Web Engineer and web front end specialist. Get to know some the nut in this shell (AKA Lario Borges).',
+	canonicalUrl = 'https://lariocpt.biz',
+	siteName = 'Lario Borges - Full Stack Web Engineer',
 } = Astro.props;
 ---
 
@@ -56,11 +61,36 @@ const {
 			name='generator'
 			content={Astro.generator}
 		/>
-		<meta
-			name='description'
-			content={description}
+		<AstroSeo
+			{title}
+			{description}
+			canonical={canonicalUrl}
+			openGraph={{
+				url: canonicalUrl,
+				title,
+				description,
+				// TODO Lario
+				// images: [
+				//   {
+				//     url: 'https://www.example.ie/og-image-01.jpg',
+				//     width: 800,
+				//     height: 600,
+				//     alt: 'Og Image Alt',
+				//     type: 'image/jpeg',
+				//   },
+				//   {
+				//     url: 'https://www.example.ie/og-image-02.jpg',
+				//     width: 900,
+				//     height: 800,
+				//     alt: 'Og Image Alt Second',
+				//     type: 'image/jpeg',
+				//   },
+				//   { url: 'https://www.example.ie/og-image-03.jpg' },
+				//   { url: 'https://www.example.ie/og-image-04.jpg' },
+				// ],
+				site_name: siteName,
+			}}
 		/>
-		<title>{title}</title>
 		<AstroFont
 			config={[
 				{

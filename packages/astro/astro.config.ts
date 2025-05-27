@@ -8,6 +8,7 @@ import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
 import { globalStyle, typescript } from 'svelte-preprocess';
 
+// TODO Lario PWA
 export default defineConfig({
 	site: 'https://www.lariocpt.biz',
 	adapter: netlify({
