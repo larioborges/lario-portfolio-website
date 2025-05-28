@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { personalInfo } from '@/data';
 	import MotionP from '@/motion/MotionP.svelte';
 	import MotionDiv from '@/motion/MotionDiv.svelte';
 	import MotionSpan from '@/motion/MotionSpan.svelte';
+	const { name } = $props();
 </script>
 
 <footer class="from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm">
@@ -19,7 +19,7 @@
 				whileHover={{ scale: 1.01 }}
 			>
 				&copy; {new Date().getFullYear()}
-				{personalInfo.name}. All rights reserved. ✨
+				{name}. All rights reserved. ✨
 			</MotionP>
 			<MotionP
 				class="text-muted-foreground mt-2 text-center text-sm md:mt-0 md:text-left"

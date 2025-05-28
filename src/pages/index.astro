@@ -8,17 +8,36 @@ import SkillsSection from '@/components/SkillsSection.svelte';
 import AwardsSection from '@/components/AwardsSection.svelte';
 import EducationSection from '@/components/EducationSection.svelte';
 import Footer from '@/components/Footer.svelte';
+import { contentfulClient } from '@/contentful';
+import type { PersonalInfo } from '@/contentful/contentTypes/PersonalInfo';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+const personalInfoEntries = await contentfulClient.getEntries<PersonalInfo>({
+	content_type: 'personalInfo',
+});
+const personalInfoFields = personalInfoEntries.items[0]?.fields;
 ---
 
 <Layout>
-	<GlassHeader client:only='svelte' />
+	<GlassHeader
+		name={personalInfoFields?.name}
+		client:only='svelte'
+	/>
 	<main class='min-h-screen'>
-		<HeroSection client:only='svelte' />
+		<HeroSection
+			{...personalInfoFields}
+			client:only='svelte'
+		>
+			{personalInfoFields && <div set:html={documentToHtmlString(personalInfoFields.intro)} />}
+		</HeroSection>
 		<EmploymentHistory client:only='svelte' />
 		<ProjectShowcase client:only='svelte' />
 		<SkillsSection client:only='svelte' />
 		<AwardsSection client:only='svelte' />
 		<EducationSection client:only='svelte' />
 	</main>
-	<Footer client:only='svelte' />
+	<Footer
+		name={personalInfoFields?.name}
+		client:only='svelte'
+	/>
 </Layout>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import ThemeToggle from '@/ui/ThemeToggle.svelte';
-	import { personalInfo } from '@/data';
 	import { Menu, X } from 'lucide-svelte';
 	import { AnimatePresence } from 'svelte-motion';
 	import MotionA from '@/motion/MotionA.svelte';
@@ -36,6 +35,8 @@
 			href: '#education',
 		},
 	];
+
+	const { name } = $props();
 </script>
 
 <header
@@ -60,7 +61,7 @@
 				src={luigiCap.src}
 				class="mr-2.5 hidden align-middle dark:inline-block"
 			/>
-			{personalInfo.name}
+			{name}
 		</MotionA>
 
 		<nav class="hidden items-center space-x-6 text-sm font-medium md:flex">
