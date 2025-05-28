@@ -3,8 +3,11 @@ import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
+import playformInline from '@playform/inline';
 import tailwindcss from '@tailwindcss/vite';
 import compress from 'astro-compress';
+import astroCompressor from 'astro-compressor';
+import astroRobotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import { globalStyle, typescript } from 'svelte-preprocess';
 import devtoolsJson from 'vite-plugin-devtools-json';
@@ -37,7 +40,10 @@ export default defineConfig({
 			},
 		}),
 		sitemap(),
+		astroRobotsTxt(),
+		playformInline(),
 		compress(),
+		astroCompressor(),
 	],
 	vite: {
 		plugins: [tailwindcss(), devtoolsJson()],

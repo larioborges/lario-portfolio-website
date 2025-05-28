@@ -3356,6 +3356,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playform/inline@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "@playform/inline@npm:0.1.2"
+  dependencies:
+    "@playform/pipe": "npm:0.1.3"
+    astro: "npm:*"
+    beasties: "npm:0.2.0"
+    deepmerge-ts: "npm:7.1.5"
+  checksum: 10c0/bffd161e8514276b3726a916966f1472a5d67750eee49f9d3778ff569c23406923bc7be144fa092bf7272b80b27b15e3fe42ac5f8f131e3638521b4288e235da
+  languageName: node
+  linkType: hard
+
 "@playform/pipe@npm:0.1.3":
   version: 0.1.3
   resolution: "@playform/pipe@npm:0.1.3"
@@ -5378,6 +5390,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"astro-capo@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "astro-capo@npm:0.0.1"
+  dependencies:
+    ultrahtml: "npm:^1.3.0"
+  peerDependencies:
+    astro: ">= 2.8"
+  checksum: 10c0/3f7677a527ccc9bfad0518161351858805882f309467f3758463da6e274dfc04e8bfffe8618c2b95d75502afe71fb8bb2fd6b298ae8c87bf38b7a8ae7d1e77b2
+  languageName: node
+  linkType: hard
+
 "astro-compress@npm:^2.3.8":
   version: 2.3.8
   resolution: "astro-compress@npm:2.3.8"
@@ -5397,6 +5420,13 @@ __metadata:
     svgo: "npm:3.3.2"
     terser: "npm:5.39.0"
   checksum: 10c0/f648808bb0968040c8831ac96949e814002966b720ba6aba2dff6ef42ec35bfff3c7073cdc338ddfb1712c5c0c32d742ab4592fca0efb4b220324fc0a79981e6
+  languageName: node
+  linkType: hard
+
+"astro-compressor@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "astro-compressor@npm:1.0.0"
+  checksum: 10c0/d438d1ee73ffb477eaa8f1318750a9bd48d3ffd33b5561a0035901080afb7ec8337ce691ef81890cd3fb8e3aad054ae6d3f6b93ea9aa3b4227c7fa88479c168f
   languageName: node
   linkType: hard
 
@@ -5434,6 +5464,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"astro-robots-txt@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "astro-robots-txt@npm:1.0.0"
+  dependencies:
+    valid-filename: "npm:^4.0.0"
+    zod: "npm:^3.22.2"
+  checksum: 10c0/d389573e627877b4e69984897066cfb7df610eac1cdec47da69ccce239fed8dc9e69bb9046b700f0f532837a4d5ea6b0e065d5b73dd94cf8b89ec2e33d87a3a6
+  languageName: node
+  linkType: hard
+
 "astro@npm:*, astro@workspace:.":
   version: 0.0.0-use.local
   resolution: "astro@workspace:."
@@ -5446,16 +5486,20 @@ __metadata:
     "@contentful/rich-text-html-renderer": "npm:^17.0.0"
     "@netlify/plugin-lighthouse": "npm:^6.0.1"
     "@playform/build": "npm:^0.2.4"
+    "@playform/inline": "npm:^0.1.2"
     "@tailwindcss/vite": "npm:^4.1.3"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
     "@types/gtag.js": "npm:^0.0.20"
     "@vite-pwa/astro": "npm:^1.1.0"
     aos: "npm:^2.3.4"
     astro: "npm:^5.4.2"
+    astro-capo: "npm:^0.0.1"
     astro-compress: "npm:^2.3.8"
+    astro-compressor: "npm:^1.0.0"
     astro-eslint-parser: "npm:^1.2.2"
     astro-font: "npm:^1.1.0"
     astro-google-analytics: "npm:^1.0.3"
+    astro-robots-txt: "npm:^1.0.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
     contentful: "npm:^11.5.24"
@@ -5814,6 +5858,22 @@ __metadata:
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
   checksum: 10c0/f23823513b63173a001030fae4f2dabe283b99a9d324ade3ad3d148e218134676f1ee8568c877cd79ec1c53158dcf2d2ba527a97c606618928ba99dd930102bf
+  languageName: node
+  linkType: hard
+
+"beasties@npm:0.2.0":
+  version: 0.2.0
+  resolution: "beasties@npm:0.2.0"
+  dependencies:
+    css-select: "npm:^5.1.0"
+    css-what: "npm:^6.1.0"
+    dom-serializer: "npm:^2.0.0"
+    domhandler: "npm:^5.0.3"
+    htmlparser2: "npm:^9.1.0"
+    picocolors: "npm:^1.1.1"
+    postcss: "npm:^8.4.49"
+    postcss-media-query-parser: "npm:^0.2.3"
+  checksum: 10c0/f7d885553b0289e3d50bcc7e4ad72a3974cedad4418d714b29afca91ee0cd0fef9f907a8e17bb80622f18ca410279be8ec2d938bc22e2cb2fcd084dad17291fa
   languageName: node
   linkType: hard
 
@@ -7734,7 +7794,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domutils@npm:^3.0.1":
+"domutils@npm:^3.0.1, domutils@npm:^3.1.0":
   version: 3.2.2
   resolution: "domutils@npm:3.2.2"
   dependencies:
@@ -10258,6 +10318,18 @@ __metadata:
   version: 3.0.0
   resolution: "html-void-elements@npm:3.0.0"
   checksum: 10c0/a8b9ec5db23b7c8053876dad73a0336183e6162bf6d2677376d8b38d654fdc59ba74fdd12f8812688f7db6fad451210c91b300e472afc0909224e0a44c8610d2
+  languageName: node
+  linkType: hard
+
+"htmlparser2@npm:^9.1.0":
+  version: 9.1.0
+  resolution: "htmlparser2@npm:9.1.0"
+  dependencies:
+    domelementtype: "npm:^2.3.0"
+    domhandler: "npm:^5.0.3"
+    domutils: "npm:^3.1.0"
+    entities: "npm:^4.5.0"
+  checksum: 10c0/394f6323efc265bbc791d8c0d96bfe95984e0407565248521ab92e2dc7668e5ceeca7bc6ed18d408b9ee3b25032c5743368a4280d280332d782821d5d467ad8f
   languageName: node
   linkType: hard
 
@@ -14680,6 +14752,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-media-query-parser@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "postcss-media-query-parser@npm:0.2.3"
+  checksum: 10c0/252c8cf24f0e9018516b0d70b7b3d6f5b52e81c4bab2164b49a4e4c1b87bb11f5dbe708c0076990665cb24c70d5fd2f3aee9c922b0f67c7c619e051801484688
+  languageName: node
+  linkType: hard
+
 "postcss-safe-parser@npm:^7.0.0":
   version: 7.0.1
   resolution: "postcss-safe-parser@npm:7.0.1"
@@ -18004,7 +18083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ultrahtml@npm:^1.6.0":
+"ultrahtml@npm:^1.3.0, ultrahtml@npm:^1.6.0":
   version: 1.6.0
   resolution: "ultrahtml@npm:1.6.0"
   checksum: 10c0/1140be819fdde198d83ad61b0186cb1fdb9d3a5d77ff416a752ae735089851a182d2100a1654f6b70dbb4f67881fcac1afba9323e261c8a95846a63f668b4c2a
@@ -18496,6 +18575,15 @@ __metadata:
   version: 3.0.1
   resolution: "v8-compile-cache-lib@npm:3.0.1"
   checksum: 10c0/bdc36fb8095d3b41df197f5fb6f11e3a26adf4059df3213e3baa93810d8f0cc76f9a74aaefc18b73e91fe7e19154ed6f134eda6fded2e0f1c8d2272ed2d2d391
+  languageName: node
+  linkType: hard
+
+"valid-filename@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "valid-filename@npm:4.0.0"
+  dependencies:
+    filename-reserved-regex: "npm:^3.0.0"
+  checksum: 10c0/cfbd173134b63ba2e831e464b9828c6ca8e4e00344271693488e42d94387944813cdbde49d1c76026467c3fe3a5b2de8c8c485eb75ec78457007f2dcde000ac4
   languageName: node
   linkType: hard
 
@@ -19458,6 +19546,13 @@ __metadata:
     typescript: ^4.9.4 || ^5.0.2
     zod: ^3
   checksum: 10c0/69375a29b04ac93fcfb7df286984a287c06219b51a0a70f15088baa662378d2078f4f96730f0090713df9172f02fe84ba9767cd2e1fbbc55f7d48b2190d9b0d9
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.2":
+  version: 3.25.32
+  resolution: "zod@npm:3.25.32"
+  checksum: 10c0/de0bc052a7666578b3d5dd42bc522f02f27e1c798236439c0f6b6bc1b311a221706aebdafb1f58399d5f558b1fab7860c6970e096fe8d6947743bc791d567c4b
   languageName: node
   linkType: hard
 

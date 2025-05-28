@@ -4,6 +4,7 @@ import { AstroFont } from 'astro-font';
 import { GoogleAnalytics } from 'astro-google-analytics';
 import { AstroSeo } from '@astrolib/seo';
 import favicon from '@/assets/images/favicon.webp';
+import { Head } from 'astro-capo';
 
 interface Props {
 	title?: string;
@@ -42,7 +43,7 @@ const {
 </style>
 
 <html lang='en'>
-	<head>
+	<Head>
 		<GoogleAnalytics id='G-YW069N7W3X' />
 		<script src='@/scripts/BrowserInit.ts'></script>
 		<meta charset='UTF-8' />
@@ -94,7 +95,6 @@ const {
 				{
 					src: [],
 					name: 'Inter',
-					// Google Fonts URL
 					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
 					preload: true,
 					display: 'swap',
@@ -103,7 +103,7 @@ const {
 				},
 			]}
 		/>
-	</head>
+	</Head>
 	<body
 		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'
 	>
