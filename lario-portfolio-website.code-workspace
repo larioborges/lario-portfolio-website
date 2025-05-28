@@ -31,13 +31,12 @@
 		"astro.updateImportsOnFileMove.enabled": true,
 	  "taskExplorer.enableSideBar": true,
 		"search.exclude": {
-	    "**/.yarn": true,
-	    "**/.pnp.*": true,
-	    "**/node_modules": true,
-			"**/.astro": true,
-	    "**/.netlify": true,
-	    "**/dist": true,
-			"**/packages": true
+	    ".yarn/": true,
+	    "node_modules/": true,
+			".astro/": true,
+	    ".netlify/": true,
+	    "dist/": true,
+			"packages/": true
 	  },
 	  "eslint.validate": [
 	    "javascript",
@@ -47,6 +46,7 @@
 	    "json",
 			"html"
 	  ],
+		"eslint.onIgnoredFiles": "off",
 	  "[astro]": {
 	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	  },

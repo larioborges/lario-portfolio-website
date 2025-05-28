@@ -76,22 +76,6 @@
     max-age=31536000
     '''
 
-# [[headers]]
-#   for = "*.js"
-#   [headers.values]
-#     cache-control = '''
-#     public,
-#     max-age=15552000
-#     '''
-
-# [[headers]]
-#   for = "*.css"
-#   [headers.values]
-#     cache-control = '''
-#     public,
-#     max-age=15552000
-#     '''
-
 
 
 #   --------------------   PLUGINS/INTEGRATIONS   --------------------
@@ -103,61 +87,6 @@
 #     srcdir = "src"
 
 # [[plugins]]
-#   package = "netlify-plugin-inline-critical-css"`
-
-#   [plugins.inputs]
-#     fileFilter = ["src/*.html"]
-#     directoryFilter = ["!node_modules", '!strapi']
-#     extract = false
-#     dimensions = [
-#       { width = 414, height = 896 },
-#       { width = 1920, height = 1080 }
-#     ]
-
-# [[plugins]]
-#   package = "netlify-plugin-minify-html"
-
-# [[plugins]]
-#   package = "netlify-plugin-hashfiles"
-#   [plugins.inputs]
-#     entryPoints = [
-#       "dist/**.*.html",
-#       "dist/**.*.js",
-#       "src/**/*.astro",
-#       "src/**/*.svelte",
-#     ]
-#     staticDir = "public"
-
-# [[plugins]]
-#   package = "netlify-plugin-html-validate"
-
-#   [plugins.inputs]
-#     ext = "html"
-#     config = ".htmlvalidate.json"
-
-# [[plugins]]
-#   package = "@netlify/plugin-sitemap"
-#   [plugins.inputs]
-#     baseUrl = "https://www.lariocpt.biz"
-#     buildDir = "dist"
-#     prettyURLs = true
-
-# [[plugins]]
-# package = "netlify-plugin-checklinks"
-
-#   [plugins.inputs]
-#   entryPoints = [
-#     "*.html",
-#   ]
-#   recursive = true
-#   pretty = true
-#   checkExternal = true
-#   followSourceMaps = true
-
-# [[plugins]]
-#   package = "netlify-plugin-is-website-vulnerable"
-
-# [[plugins]]
 #   package = "netlify-plugin-submit-sitemap"
 # 	[plugins.inputs]
 #     baseUrl = "https://www.lariocpt.dev"
@@ -167,8 +96,3 @@
 #       "google",
 #       "yandex"
 #     ]
-
-# [[plugins]]
-#   package = "@netlify/plugin-lighthouse"
-#   [plugins.inputs.audits]
-#     output_path = "/reports/lighthouse.html"
