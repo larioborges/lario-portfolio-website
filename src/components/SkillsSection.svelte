@@ -27,7 +27,7 @@
 	};
 </script>
 
-{#snippet categoryHeading(name, icon)}
+{#snippet categoryHeading(name: string, icon: string)}
 	<h3 class="mb-3 flex items-center text-center text-lg font-medium md:text-left">
 		{#if icon}
 			<span class="mr-2 text-xl">{icon}</span>
@@ -36,7 +36,7 @@
 	</h3>
 {/snippet}
 
-{#snippet skillTags(skills)}
+{#snippet skillTags(skills: string[])}
 	<div class="flex flex-wrap justify-center gap-2 md:justify-start">
 		{#each skills as skill, index (`${skill}-${index}`)}
 			<SkillTag {index}>

@@ -13,16 +13,15 @@ import svelteConfig from './svelte.config';
 
 export default tseslint.config(
 	globalIgnores([
-		'**.astro/**/*',
-		'**.netlify/**/*',
-		'**packages/**/*',
-		'**node_modules/**/*',
-		'/node_modules/**/*',
-		'**dist/**/*',
-		'**strapi/**/*',
+		'./.astro/**/*',
+		'./.netlify/**/*',
+		'./.yarn/**/*',
+		'./packages/**/*',
+		'./node_modules/**/*',
+		'./dist/**/*',
 	]),
 	{
-		files: ['**/*.ts', '*.ts', '**/*.js', '*.js', '**/*.astro', '**/*.svelte', '*.json'],
+		files: ['**/*.ts', '*.ts', '**/*.js', '*.js', '**/*.astro', '**/*.svelte', '**/*.json'],
 		plugins: {
 			prettier: prettierPlugin,
 		},
@@ -72,6 +71,7 @@ export default tseslint.config(
 				projectService: true,
 				extraFileExtensions: ['.svelte'],
 				parser: tseslint.parser,
+				project: './tsconfig.json',
 				svelteConfig,
 			},
 		},

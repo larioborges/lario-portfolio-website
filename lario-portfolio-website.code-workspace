@@ -17,14 +17,53 @@
 			"source.fixAll.eslint": "explicit"
 		},
   	"editor.formatOnSave": false,
-		"eslint.validate": [
-			"javascript",
-			"typescript",
-			"html",
-			"json",
-			"svelte",
-			
-		],
 		"editor.indentSize": "tabSize",
+		"yaml.format.bracketSpacing": false,
+  	"yaml.format.singleQuote": true,
+	  "yaml.format.enable": true,
+	  "files.associations": {
+	    "*.yaml": "yaml",
+			"*.svelte": "svelte",
+			"*.astro": "astro"
+	  },
+	  "typescript.updateImportsOnFileMove.enabled": "always",
+	  "javascript.updateImportsOnFileMove.enabled": "always",
+		"astro.updateImportsOnFileMove.enabled": true,
+	  "taskExplorer.enableSideBar": true,
+		"search.exclude": {
+	    "**/.yarn": true,
+	    "**/.pnp.*": true,
+	    "**/node_modules": true,
+			"**/.astro": true,
+	    "**/.netlify": true,
+	    "**/dist": true,
+			"**/packages": true
+	  },
+	  "eslint.validate": [
+	    "javascript",
+	    "astro",
+	    "typescript",
+	    "svelte",
+	    "json",
+			"html"
+	  ],
+	  "[astro]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  },
+		"[javascript]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  },
+		"[typescript]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  },
+		"[svelte]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  },
+		"[json]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  },
+		"[toml]": {
+	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	  }
 	}
 }

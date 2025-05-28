@@ -4,7 +4,9 @@
     "./**/*.ts",
     "./**/*.svelte",
     "./**/*.astro",
-    "./src/assets/**/*"
+    "./src/assets/**/*",
+    "./src/assets/**/*.d.ts",
+    ".astro/types.d.ts"
   ],
   "exclude": [
     "dist/**/*",
@@ -39,7 +41,6 @@
         "public/*"
       ]
     },
-    "sourceMap": true,
     "resolveJsonModule": true
   }
 }
