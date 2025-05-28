@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { skills } from '../data';
-	import MotionWrapper from './MotionWrapper.svelte';
-	import GlassCard from './ui/GlassCard.svelte';
-	import SkillTag from './ui/SkillTag.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
+	import { skills } from '@/data';
+	import MotionWrapper from '@/motion/MotionWrapper.svelte';
+	import GlassCard from '@/ui/GlassCard.svelte';
+	import SkillTag from '@/ui/SkillTag.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
 
 	const containerVariants = {
 		hidden: { opacity: 0 },

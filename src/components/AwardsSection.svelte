@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { awards } from '../data';
+	import { awards } from '@/data';
 	import { Trophy } from 'lucide-svelte';
-	import MotionWrapper from './MotionWrapper.svelte';
-	import GlassCard from './ui/GlassCard.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
-	import SkillTag from './ui/SkillTag.svelte';
+	import MotionWrapper from '@/motion/MotionWrapper.svelte';
+	import GlassCard from '@/ui/GlassCard.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import SkillTag from '@/ui/SkillTag.svelte';
 </script>
 
 <section

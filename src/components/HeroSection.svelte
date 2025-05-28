@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { personalInfo } from '../data';
+	import { personalInfo } from '@/data';
 	import { Mail, MapPin } from 'lucide-svelte';
-	import GithubIcon from './icons/Github.svelte';
-	import LinkedInIcon from './icons/LinkedIn.svelte';
-	import MotionWrapper from './MotionWrapper.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
-	import MotionH1 from './motion/MotionH1.svelte';
-	import MotionSpan from './motion/MotionSpan.svelte';
-	import MotionP from './motion/MotionP.svelte';
-	import MotionA from './motion/MotionA.svelte';
-	import nerd from '../assets/images/nerd.webp';
-	import profile from '../assets/images/profile.webp';
+	import GithubIcon from '@/icons/Github.svelte';
+	import LinkedInIcon from '@/icons/LinkedIn.svelte';
+	import MotionWrapper from '@/motion/MotionWrapper.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import MotionH1 from '@/motion/MotionH1.svelte';
+	import MotionSpan from '@/motion/MotionSpan.svelte';
+	import MotionP from '@/motion/MotionP.svelte';
+	import MotionA from '@/motion/MotionA.svelte';
+	import nerd from '@/images/nerd.webp';
+	import profile from '@/images/profile.webp';
 
 	const containerVariants = {
 		hidden: { opacity: 0 },

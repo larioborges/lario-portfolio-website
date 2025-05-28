@@ -13,10 +13,16 @@
   },
   "aliases": {
     "components": "@/components",
-    "utils": "@/utils",
-    "ui": "@/components/ui",
+    "icons": "@/icons",
+    "motion": "@/motion",
+    "ui": "@/ui",
+    "contentful": "@/contentful",
     "data": "@/data",
-    "hooks": "@/hooks"
+    "utils": "@/utils",
+    "scripts": "@/scripts",
+    "styles": "@/styles",
+    "layouts": "@/layouts",
+    "images": "@/images"
   },
   "iconLibrary": "lucide"
 }

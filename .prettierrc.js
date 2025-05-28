@@ -12,13 +12,13 @@ export default {
 	],
 	overrides: [
 		{
-			files: '**/*.svelte',
+			files: 'src/**/*.svelte',
 			options: {
 				parser: 'svelte',
 			},
 		},
 		{
-			files: '**/*.astro',
+			files: 'src/**/*.astro',
 			options: {
 				parser: 'astro',
 			},
@@ -39,5 +39,23 @@ export default {
 	svelteIndentScriptAndStyle: true,
 	astroSortOrder: 'styles | markup',
 	astroAllowShorthand: true,
-	files: ['*.ts', '*.mjs', '*.json', '*.cjs', '*.js', '*.astro', '*.svelte', '*.toml', '*.json'],
+	files: [
+		'srcx/**/*.ts',
+		'src/**/*.mjs',
+		'.prettierrc.js',
+		'astro.config.js',
+		'components.json',
+		'eslint.config.ts',
+		'netlify.toml',
+		'package.json',
+		'svelte.config.ts',
+		'tsconfig.json',
+		'src/**/*.json',
+		'src/**/*.cjs',
+		'src/**/*.js',
+		'src/**/*.astro',
+		'src/**/*.svelte',
+		'src/**/*.toml',
+		'src/**/*.json',
+	],
 };

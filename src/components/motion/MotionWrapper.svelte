@@ -1,5 +1,5 @@
 <script lang="ts">
-	import MotionDiv from './motion/MotionDiv.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
 
 	const defaultAnimations = {
 		hidden: { opacity: 0, y: 20 },

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { education } from '../data';
-	import TimelineItem from './ui/TimelineItem.svelte';
+	import { education } from '@/data';
+	import TimelineItem from '@/ui/TimelineItem.svelte';
 	import { Award } from 'lucide-svelte';
-	import MotionWrapper from './MotionWrapper.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
-	import MotionLi from './motion/MotionLi.svelte';
+	import MotionWrapper from '@/motion/MotionWrapper.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import MotionLi from '@/motion/MotionLi.svelte';
 </script>
 
 <section

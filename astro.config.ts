@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import compress from 'astro-compress';
 import { defineConfig } from 'astro/config';
 import { globalStyle, typescript } from 'svelte-preprocess';
+import devtoolsJson from 'vite-plugin-devtools-json';
 
 // TODO Lario PWA
 export default defineConfig({
@@ -39,7 +40,7 @@ export default defineConfig({
 		compress(),
 	],
 	vite: {
-		plugins: [tailwindcss()],
+		plugins: [tailwindcss(), devtoolsJson()],
 		build: {
 			emptyOutDir: true,
 			cssMinify: true,

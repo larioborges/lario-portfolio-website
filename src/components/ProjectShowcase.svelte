@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { projectShowcase } from '../../data';
-	import TimelineItem from '../ui/TimelineItem.svelte';
+	import { projectShowcase } from '@/data';
+	import TimelineItem from '@/ui/TimelineItem.svelte';
 	import { Briefcase, Star } from 'lucide-svelte';
-	import MotionWrapper from '../MotionWrapper.svelte';
-	import SkillTag from '../ui/SkillTag.svelte';
-	import MotionDiv from '../motion/MotionDiv.svelte';
-	import MotionSpan from '../motion/MotionSpan.svelte';
-	import MotionLi from '../motion/MotionLi.svelte';
+	import MotionWrapper from '@/components/motion/MotionWrapper.svelte';
+	import SkillTag from '@/ui/SkillTag.svelte';
+	import MotionDiv from '@/components/motion/MotionDiv.svelte';
+	import MotionSpan from '@/components/motion/MotionSpan.svelte';
+	import MotionLi from '@/components/motion/MotionLi.svelte';
 </script>
 
 <section

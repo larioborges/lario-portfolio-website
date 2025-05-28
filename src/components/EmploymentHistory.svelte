@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { employmentHistory } from '../../data';
-	import TimelineItem from '../ui/TimelineItem.svelte';
+	import { employmentHistory } from '@/data';
+	import TimelineItem from '@/ui/TimelineItem.svelte';
 	import { Star } from 'lucide-svelte';
-	import MotionWrapper from '../MotionWrapper.svelte';
-	import MotionDiv from '../motion/MotionDiv.svelte';
-	import MotionSpan from '../motion/MotionSpan.svelte';
-	import MotionLi from '../motion/MotionLi.svelte';
+	import MotionWrapper from '@/motion/MotionWrapper.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import MotionSpan from '@/motion/MotionSpan.svelte';
+	import MotionLi from '@/motion/MotionLi.svelte';
 </script>
 
 <section

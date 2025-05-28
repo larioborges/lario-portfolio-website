@@ -1,11 +1,11 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends":["astro/tsconfigs/strict", "astro-compress/tsconfig"],
   "include": [
-    "./**/*.ts",
-    "./**/*.svelte",
-    "./**/*.astro",
+    "./src/**/*.ts",
+    "./src/**/*.svelte",
+    "./src/**/*.astro",
     "./src/assets/**/*",
-    "./src/assets/**/*.d.ts",
+    "./src/**/*.d.ts",
     ".astro/types.d.ts"
   ],
   "exclude": [
@@ -16,30 +16,26 @@
     "packages/**/*"
   ],
   "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
     "types": ["gtag.js"],
     "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
       ],
-      "@/layouts/*": [
-        "layouts/*"
+      "@/motion/*": [
+        "src/components/motion/*"
       ],
-      "@/pages/*": [
-        "pages/*"
+      "@/icons/*": [
+        "src/components/icons/*"
       ],
-      "@/styles/*": [
-        "styles/*"
+      "@/ui/*": [
+        "src/components/ui/*"
       ],
-      "@/data/*": [
-        "src/data/*"
+      "@/images/*": [
+        "src/assets/images/*"
       ],
-      "@/lib/*": [
-        "lib/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ]
     },
     "resolveJsonModule": true
   }

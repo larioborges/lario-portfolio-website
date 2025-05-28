@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { personalInfo } from '../data';
-	import MotionP from './motion/MotionP.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
-	import MotionSpan from './motion/MotionSpan.svelte';
+	import { personalInfo } from '@/data';
+	import MotionP from '@/motion/MotionP.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import MotionSpan from '@/motion/MotionSpan.svelte';
 </script>
 
 <footer class="from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm">

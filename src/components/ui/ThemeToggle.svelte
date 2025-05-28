@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Moon, Sun } from 'lucide-svelte';
-	import Button from './Button.svelte';
+	import Button from '@/ui/Button.svelte';
 
 	const getTheme = () => {
 		if (localStorage.getItem('theme')) {

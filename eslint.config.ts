@@ -13,15 +13,24 @@ import svelteConfig from './svelte.config';
 
 export default tseslint.config(
 	globalIgnores([
-		'./.astro/**/*',
-		'./.netlify/**/*',
-		'./.yarn/**/*',
-		'./packages/**/*',
-		'./node_modules/**/*',
-		'./dist/**/*',
+		'**/.astro/**/*',
+		'**/.netlify/**/*',
+		'**/.yarn/**/*',
+		'**/packages/**/*',
+		'**/node_modules/**/*',
+		'**/dist/**/*',
 	]),
 	{
-		files: ['**/*.ts', '*.ts', '**/*.js', '*.js', '**/*.astro', '**/*.svelte', '**/*.json'],
+		files: [
+			'src/**/*.ts',
+			'*.ts',
+			'src/**/*.js',
+			'*.js',
+			'src/**/*.astro',
+			'src/**/*.svelte',
+			'src/**/*.json',
+			'*.json',
+		],
 		plugins: {
 			prettier: prettierPlugin,
 		},
@@ -59,6 +68,9 @@ export default tseslint.config(
 				ecmaVersion: 'latest',
 				project: './tsconfig.json',
 			},
+		},
+		rules: {
+			'prettier/prettier': 'off',
 		},
 	},
 	{

@@ -1,13 +1,13 @@
 <script lang="ts">
-	import ThemeToggle from './ui/ThemeToggle.svelte';
-	import { personalInfo } from '../data';
+	import ThemeToggle from '@/ui/ThemeToggle.svelte';
+	import { personalInfo } from '@/data';
 	import { Menu, X } from 'lucide-svelte';
 	import { AnimatePresence } from 'svelte-motion';
-	import MotionA from './motion/MotionA.svelte';
-	import MotionDiv from './motion/MotionDiv.svelte';
-	import MotionButton from './motion/MotionButton.svelte';
-	import southAfrica from '../assets/images/south-africa.webp';
-	import luigiCap from '../assets/images/luigi-cap.webp';
+	import MotionA from '@/motion/MotionA.svelte';
+	import MotionDiv from '@/motion/MotionDiv.svelte';
+	import MotionButton from '@/motion/MotionButton.svelte';
+	import southAfrica from '@/images/south-africa.webp';
+	import luigiCap from '@/images/luigi-cap.webp';
 
 	let isMenuOpen = $state(false);
 	const toggleMenu = () => {
