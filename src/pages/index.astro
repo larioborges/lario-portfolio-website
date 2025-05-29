@@ -8,57 +8,20 @@ import SkillsSection from '@/components/SkillsSection.svelte';
 import AwardsSection from '@/components/AwardsSection.svelte';
 import EducationSection from '@/components/EducationSection.svelte';
 import Footer from '@/components/Footer.svelte';
-import { contentfulClient } from '@/contentful';
-import type {
-	PastEmployer,
-	Location,
-	Institution,
-	InstitutionFields,
-} from '@/contentful/contentTypes';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { getAwards, getPersonalInfo } from '@/contentful/content';
+import {
+	getAwards,
+	getPersonalInfo,
+	getPastEmployers,
+} from '@/contentful/content';
 
 const personalInfo = await getPersonalInfo();
 const awards = await getAwards();
-
-const pastEmployerEntries = await contentfulClient.getEntries<PastEmployer>({
-	content_type: 'pastEmployer',
-});
-const pastEmployers = await Promise.all(
-	pastEmployerEntries.items.map(async employer => {
-		const employerFields = employer.fields;
-		const { company, description, period, position } = employerFields;
-		const companyEtntry = await contentfulClient.getEntry<Institution>(
-			company.sys.id,
-		);
-		const companyFields: InstitutionFields = companyEtntry.fields;
-		const {
-			name: companyName,
-			websiteUrl: companyWebsiteUrl,
-			location: companyLocationEntry,
-		} = companyFields;
-		const locationEntry = await contentfulClient.getEntry<Location>(
-			companyLocationEntry.sys.id,
-		);
-		const { name: companyLocation, googleMapsUrl: companyGoogleMapsUrl } =
-			locationEntry.fields;
-
-		return {
-			companyName,
-			companyWebsiteUrl,
-			companyLocation,
-			companyGoogleMapsUrl,
-			period,
-			position,
-			descriptionHtml: documentToHtmlString(description),
-		};
-	}),
-);
+const pastEmployers = await getPastEmployers();
 ---
 
 <Layout>
 	<GlassHeader
-		name={personalInfo?.name}
+		name={personalInfo.name}
 		client:only='svelte'
 	/>
 	<main class='min-h-screen'>
@@ -79,7 +42,7 @@ const pastEmployers = await Promise.all(
 		<EducationSection client:only='svelte' />
 	</main>
 	<Footer
-		name={personalInfo?.name}
+		name={personalInfo.name}
 		client:only='svelte'
 	/>
 </Layout>

@@ -6,6 +6,7 @@
 	import HtmlElement from '@/ui/HtmlElement.svelte';
 
 	const { pastEmployers } = $props();
+	console.log(pastEmployers);
 </script>
 
 <section
@@ -38,7 +39,7 @@
 			</h2>
 		</MotionWrapper>
 		<div class="mb-8">
-			{#each pastEmployers as { companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, descriptionHtml }, index (`${companyName}-${period}-${index}`)}
+			{#each pastEmployers as { companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description }, index (`${companyName}-${period}-${index}`)}
 				<TimelineItem
 					title={`👨‍💻 ${position}`}
 					subtitle={companyName}
@@ -67,7 +68,7 @@
 							once: true,
 						}}
 					>
-						<HtmlElement content={descriptionHtml} />
+						<HtmlElement content={description} />
 					</MotionDiv>
 				</TimelineItem>
 			{/each}

@@ -11,7 +11,10 @@ export const getPersonalInfo = async () => {
 	);
 	const personalInfoFields: PersonalInfoFields = personalInfoEntry.fields;
 	personalInfoFields.introHtml = documentToHtmlString(personalInfoFields.intro);
-	return personalInfoFields;
+	return {
+		...personalInfoFields,
+		intro: documentToHtmlString(personalInfoFields.intro),
+	};
 };
 
 export default getPersonalInfo;
