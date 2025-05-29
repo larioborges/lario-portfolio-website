@@ -6,7 +6,7 @@ export interface Award {
 	fields: {
 		name: EntryFieldTypes.Symbol<string>;
 		issuer: EntryFieldTypes.EntryLink<Institution>;
-		date: EntryFieldTypes.Symbol;
+		date: EntryFieldTypes.Symbol<string>;
 		tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol<string>>;
 	};
 }
