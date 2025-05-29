@@ -13,7 +13,9 @@
 	import HtmlElement from '@/ui/HtmlElement.svelte';
 
 	const containerVariants = {
-		hidden: { opacity: 0 },
+		hidden: {
+			opacity: 0,
+		},
 		visible: {
 			opacity: 1,
 			transition: {
@@ -24,7 +26,10 @@
 	};
 
 	const childVariants = {
-		hidden: { opacity: 0, y: 20 },
+		hidden: {
+			opacity: 0,
+			y: 20,
+		},
 		visible: {
 			opacity: 1,
 			y: 0,
@@ -34,7 +39,15 @@
 		},
 	};
 
-	const { name, profileImage, location, email, githubUrl, linkedInUrl, introHtml } = $props();
+	const {
+		name,
+		profileImage,
+		location,
+		email,
+		githubUrl,
+		linkedInUrl,
+		introHtml,
+	} = $props();
 	const { fields: profileImageFields }: { fields: AssetFields } = profileImage;
 	const { fields: locationFields } = location;
 </script>
@@ -55,9 +68,15 @@
 					{name} <span class="inline-block animate-pulse"></span>
 					<MotionSpan
 						class="inline-block"
-						initial={{ rotate: 0 }}
-						whileHover={{ rotate: 360 }}
-						transition={{ duration: 0.5 }}
+						initial={{
+							rotate: 0,
+						}}
+						whileHover={{
+							rotate: 360,
+						}}
+						transition={{
+							duration: 0.5,
+						}}
 					>
 						<img
 							alt="nerd"
@@ -80,7 +99,10 @@
 					<MotionDiv
 						class="text-muted-foreground flex items-center text-sm"
 						variants={childVariants}
-						whileHover={{ scale: 1.05, color: '#4b5563' }}
+						whileHover={{
+							scale: 1.05,
+							color: '#4b5563',
+						}}
 					>
 						<MapPin class="mr-2 h-4 w-4 text-red-400" />
 						{#if locationFields.googleMapsUrl}
@@ -99,7 +121,10 @@
 						href={`mailto:${email}`}
 						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
 						variants={childVariants}
-						whileHover={{ scale: 1.05, color: '#4b5563' }}
+						whileHover={{
+							scale: 1.05,
+							color: '#4b5563',
+						}}
 					>
 						<Mail class="mr-2 h-4 w-4 text-green-500" />
 						{email}
@@ -111,7 +136,10 @@
 						rel="noopener noreferrer"
 						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
 						variants={childVariants}
-						whileHover={{ scale: 1.05, color: '#4b5563' }}
+						whileHover={{
+							scale: 1.05,
+							color: '#4b5563',
+						}}
 					>
 						<GithubIcon className="h-4 w-4 mr-2 text-black dark:text-white" />
 						GitHub
@@ -123,7 +151,10 @@
 						rel="noopener noreferrer"
 						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
 						variants={childVariants}
-						whileHover={{ scale: 1.05, color: '#4b5563' }}
+						whileHover={{
+							scale: 1.05,
+							color: '#4b5563',
+						}}
 					>
 						<LinkedInIcon className="h-4 w-4 mr-2 text-blue-600/90" />
 						LinkedIn
@@ -133,8 +164,12 @@
 
 			<MotionDiv
 				variants={childVariants}
-				whileHover={{ scale: 1.05 }}
-				whileTap={{ scale: 0.95 }}
+				whileHover={{
+					scale: 1.05,
+				}}
+				whileTap={{
+					scale: 0.95,
+				}}
 				class="mt-6 flex justify-center md:mt-0"
 			>
 				<div class="relative">
@@ -158,7 +193,8 @@
 				class="rounded-lg border border-yellow-500/20 bg-gradient-to-r from-yellow-500/10 to-green-500/10 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 			>
 				<div class="text-muted-foreground relative mb-4 py-2 pl-4">
-					<span class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
+					<span
+						class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
 					<HtmlElement content={introHtml} />
 				</div>

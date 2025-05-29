@@ -64,6 +64,6 @@
 	  },
 		"[toml]": {
 	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	  }
+		}
 	}
 }

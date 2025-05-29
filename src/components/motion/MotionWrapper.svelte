@@ -2,7 +2,10 @@
 	import MotionDiv from '@/motion/MotionDiv.svelte';
 
 	const defaultAnimations = {
-		hidden: { opacity: 0, y: 20 },
+		hidden: {
+			opacity: 0,
+			y: 20,
+		},
 		visible: (delay = 0) => ({
 			opacity: 1,
 			y: 0,
@@ -20,7 +23,10 @@
 <MotionDiv
 	initial="hidden"
 	whileInView="visible"
-	viewport={{ once: true, margin: '-100px' }}
+	viewport={{
+		once: true,
+		margin: '-100px',
+	}}
 	variants={defaultAnimations}
 	custom={delay}
 	{...props}

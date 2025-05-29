@@ -14,13 +14,24 @@
 >
 	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left">
+			<h2
+				class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left"
+			>
 				<MotionSpan
 					class="mr-2 inline-block"
-					initial={{ rotate: 0 }}
-					whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
-					transition={{ duration: 0.5, delay: 0.2 }}
-					viewport={{ once: true }}
+					initial={{
+						rotate: 0,
+					}}
+					whileInView={{
+						rotate: [0, -10, 10, -5, 5, 0],
+					}}
+					transition={{
+						duration: 0.5,
+						delay: 0.2,
+					}}
+					viewport={{
+						once: true,
+					}}
 				>
 					💼
 				</MotionSpan>&nbsp; Employment History
@@ -40,10 +51,21 @@
 				>
 					<MotionDiv
 						class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
-						viewport={{ once: true }}
+						initial={{
+							opacity: 0,
+							y: 20,
+						}}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+						}}
+						transition={{
+							duration: 0.5,
+							delay: 0.2,
+						}}
+						viewport={{
+							once: true,
+						}}
 					>
 						<HtmlElement content={descriptionHtml} />
 					</MotionDiv>

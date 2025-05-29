@@ -14,7 +14,9 @@
 	whileHover={hoverEffect
 		? {
 				y: -5,
-				transition: { duration: 0.2 },
+				transition: {
+					duration: 0.2,
+				},
 			}
 		: undefined}
 	{...props}

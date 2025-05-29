@@ -16,8 +16,14 @@
 	class="bg-muted/80 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm"
 > -->
 <MotionDiv
-	initial={{ opacity: 0, scale: 0.8 }}
-	whileInView={{ opacity: 1, scale: 1 }}
+	initial={{
+		opacity: 0,
+		scale: 0.8,
+	}}
+	whileInView={{
+		opacity: 1,
+		scale: 1,
+	}}
 	transitionOverride={{
 		type: 'spring',
 		stiffness: 260,

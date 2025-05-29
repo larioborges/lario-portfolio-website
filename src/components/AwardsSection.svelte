@@ -14,7 +14,9 @@
 >
 	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">🏆 Awards</h2>
+			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">
+				🏆 Awards
+			</h2>
 		</MotionWrapper>
 
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -25,8 +27,13 @@
 					>
 						<div class="mb-2 flex items-center">
 							<MotionDiv
-								whileHover={{ rotate: 20 }}
-								transition={{ type: 'spring', stiffness: 500 }}
+								whileHover={{
+									rotate: 20,
+								}}
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+								}}
 								class="mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5"
 							>
 								<Trophy class="h-4 w-4 text-white" />
@@ -43,11 +50,15 @@
 								&nbsp;-&nbsp;{award.date}
 							</p>
 						{:else}
-							<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuerName} - ${award.date}`}</p>
+							<p class="text-muted-foreground mb-1 pl-8 text-xs">
+								🏢 {`${award.issuerName} - ${award.date}`}
+							</p>
 						{/if}
 
 						<div class="mt-auto space-y-2">
-							<div class="flex flex-wrap justify-center gap-2 md:justify-center-safe">
+							<div
+								class="flex flex-wrap justify-center gap-2 md:justify-center-safe"
+							>
 								{#each award.tags as tag, index (`${tag}-${index}`)}
 									<SkillTag>
 										{tag}

@@ -15,13 +15,24 @@
 >
 	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left">
+			<h2
+				class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left"
+			>
 				<MotionSpan
 					class="mr-2 inline-block"
-					initial={{ rotate: 0 }}
-					whileInView={{ rotate: [0, -10, 10, -5, 5, 0] }}
-					transition={{ duration: 0.5, delay: 0.2 }}
-					viewport={{ once: true }}
+					initial={{
+						rotate: 0,
+					}}
+					whileInView={{
+						rotate: [0, -10, 10, -5, 5, 0],
+					}}
+					transition={{
+						duration: 0.5,
+						delay: 0.2,
+					}}
+					viewport={{
+						once: true,
+					}}
 				>
 					💼
 				</MotionSpan>&nbsp; Project Showcase
@@ -46,13 +57,26 @@
 					</div>
 					<MotionDiv
 						class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
-						viewport={{ once: true }}
+						initial={{
+							opacity: 0,
+							y: 20,
+						}}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+						}}
+						transition={{
+							duration: 0.5,
+							delay: 0.2,
+						}}
+						viewport={{
+							once: true,
+						}}
 					>
 						<div class="mb-3 flex items-center">
-							<div class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10">
+							<div
+								class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10"
+							>
 								<Briefcase class="h-4 w-4 text-yellow-500" />
 							</div>
 							<h4 class="text-sm font-medium">Job Role</h4>
@@ -61,10 +85,21 @@
 							{#each project.description as role, i (`${role}-${i}`)}
 								<MotionLi
 									class="text-muted-foreground relative pl-2"
-									initial={{ opacity: 0, x: -10 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.3, delay: 0.1 * i }}
-									viewport={{ once: true }}
+									initial={{
+										opacity: 0,
+										x: -10,
+									}}
+									whileInView={{
+										opacity: 1,
+										x: 0,
+									}}
+									transition={{
+										duration: 0.3,
+										delay: 0.1 * i,
+									}}
+									viewport={{
+										once: true,
+									}}
 								>
 									{role}
 								</MotionLi>
@@ -73,13 +108,26 @@
 					</MotionDiv>
 					<MotionDiv
 						class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5, delay: 0.2 }}
-						viewport={{ once: true }}
+						initial={{
+							opacity: 0,
+							y: 20,
+						}}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+						}}
+						transition={{
+							duration: 0.5,
+							delay: 0.2,
+						}}
+						viewport={{
+							once: true,
+						}}
 					>
 						<div class="mb-3 flex items-center">
-							<div class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10">
+							<div
+								class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10"
+							>
 								<Star class="h-4 w-4 text-yellow-500" />
 							</div>
 							<h4 class="text-sm font-medium">Highlights</h4>
@@ -88,10 +136,21 @@
 							{#each project.highlights as highlight, i (`${highlight}-${project.period}`)}
 								<MotionLi
 									class="text-muted-foreground relative pl-2"
-									initial={{ opacity: 0, x: -10 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.3, delay: 0.1 * i }}
-									viewport={{ once: true }}
+									initial={{
+										opacity: 0,
+										x: -10,
+									}}
+									whileInView={{
+										opacity: 1,
+										x: 0,
+									}}
+									transition={{
+										duration: 0.3,
+										delay: 0.1 * i,
+									}}
+									viewport={{
+										once: true,
+									}}
 								>
 									{highlight}
 								</MotionLi>

@@ -95,6 +95,16 @@ export default tseslint.config(
 		rules: {
 			// disable warnings, since prettier should format on save
 			'prettier/prettier': 'off',
+			'function-paren-newline': ['error', { minItems: 3 }],
+			'object-curly-newline': [
+				'error',
+				{
+					ObjectExpression: 'always',
+					ObjectPattern: { multiline: true, minProperties: 3 },
+					ImportDeclaration: { multiline: true, minProperties: 3 },
+					ExportDeclaration: { multiline: true, minProperties: 3 },
+				},
+			],
 		},
 	},
 	eslint.configs.recommended,
@@ -103,7 +113,6 @@ export default tseslint.config(
 	...eslintPluginAstro.configs.recommended,
 	...eslintPluginAstro.configs['jsx-a11y-recommended'],
 	...sveltePlugin.configs.recommended,
-	eslintPluginPrettierRecommended,
-	...sveltePlugin.configs.prettier,
 	eslintConfigPrettier,
+	eslintPluginPrettierRecommended,
 );
