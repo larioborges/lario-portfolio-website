@@ -1,5 +1,14 @@
-import type { EntryFieldTypes } from 'contentful';
+import type { Document } from '@contentful/rich-text-types';
+import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
 import type { Institution } from './Institution';
+
+export interface PastEmployerFields {
+	company: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
+	position: string;
+	period: string;
+	description: Document;
+	descriptionHtml?: Document;
+}
 
 export interface PastEmployer {
 	contentTypeId: 'pastEmployer';

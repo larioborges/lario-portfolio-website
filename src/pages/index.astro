@@ -16,6 +16,7 @@ import type {
 	PastEmployer,
 	Location,
 	Institution,
+	InstitutionFields,
 } from '@/contentful/contentTypes';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
@@ -49,9 +50,8 @@ const pastEmployers = await Promise.all(
 	pastEmployerEntries.items.map(async employer => {
 		const employerFields = employer.fields;
 		const { company, description, period, position } = employerFields;
-		const { fields: companyFields } = company as {
-			fields: { name: string; websiteUrl: string; location: { sys: { type: string; id: string } } };
-		};
+		const companyEtntry = await contentfulClient.getEntry<Institution>(company.sys.id);
+		const companyFields: InstitutionFields = companyEtntry.fields;
 		const { name: companyName, websiteUrl: companyWebsiteUrl, location: companyLocationEntry } = companyFields;
 		const locationEntry = await contentfulClient.getEntry<Location>(companyLocationEntry.sys.id);
 		const { name: companyLocation, googleMapsUrl: companyGoogleMapsUrl } = locationEntry.fields;
