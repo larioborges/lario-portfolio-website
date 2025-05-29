@@ -10,6 +10,7 @@
 	import MotionA from '@/motion/MotionA.svelte';
 	import nerd from '@/images/nerd.webp';
 	import type { AssetFields } from 'contentful';
+	import HtmlElement from '@/ui/HtmlElement.svelte';
 
 	const containerVariants = {
 		hidden: { opacity: 0 },
@@ -33,7 +34,7 @@
 		},
 	};
 
-	const { name, profileImage, location, email, githubUrl, linkedInUrl, children } = $props();
+	const { name, profileImage, location, email, githubUrl, linkedInUrl, introHtml } = $props();
 	const { fields: profileImageFields }: { fields: AssetFields } = profileImage;
 	const { fields: locationFields } = location;
 </script>
@@ -159,7 +160,7 @@
 				<div class="text-muted-foreground relative mb-4 py-2 pl-4">
 					<span class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
-					{@render children?.()}
+					<HtmlElement content={introHtml} />
 				</div>
 			</div>
 		</MotionWrapper>

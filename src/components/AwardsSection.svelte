@@ -33,17 +33,17 @@
 							</MotionDiv>
 							<h3 class="font-medium">{award.name}</h3>
 						</div>
-						{#if award.issuerFields.websiteUrl}
+						{#if award.issuerWebsiteUrl}
 							<p class="text-muted-foreground mb-1 pl-8 text-xs">
 								🏢 <a
-									href={award.issuerFields.websiteUrl}
+									href={award.issuerWebsiteUrl}
 									class="underline"
-									target="_blank">{award.issuerFields.name}</a
+									target="_blank">{award.issuerName}</a
 								>
 								&nbsp;-&nbsp;{award.date}
 							</p>
 						{:else}
-							<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuerFields.name} - ${award.date}`}</p>
+							<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuerName} - ${award.date}`}</p>
 						{/if}
 
 						<div class="mt-auto space-y-2">

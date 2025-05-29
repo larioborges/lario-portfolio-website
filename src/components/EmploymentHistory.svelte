@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { employmentHistory } from '@/data';
 	import TimelineItem from '@/ui/TimelineItem.svelte';
-	import { Star } from 'lucide-svelte';
 	import MotionWrapper from '@/motion/MotionWrapper.svelte';
 	import MotionDiv from '@/motion/MotionDiv.svelte';
 	import MotionSpan from '@/motion/MotionSpan.svelte';
-	import MotionLi from '@/motion/MotionLi.svelte';
+	import HtmlElement from '@/ui/HtmlElement.svelte';
+
+	const { pastEmployers } = $props();
 </script>
 
 <section
@@ -27,13 +27,15 @@
 			</h2>
 		</MotionWrapper>
 		<div class="mb-8">
-			{#each employmentHistory as job, index (`${job.company}-${job.period}`)}
+			{#each pastEmployers as { companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, descriptionHtml }, index (`${companyName}-${period}-${index}`)}
 				<TimelineItem
-					title={`👨‍💻 ${job.position}`}
-					subtitle={job.company}
-					location={job.location}
-					date={`${job.period}`}
-					isLast={index === employmentHistory.length - 1}
+					title={`👨‍💻 ${position}`}
+					subtitle={companyName}
+					subtitleHref={companyWebsiteUrl}
+					location={companyLocation}
+					locationHref={companyGoogleMapsUrl}
+					date={`${period}`}
+					isLast={index === pastEmployers.length - 1}
 					{index}
 				>
 					<MotionDiv
@@ -43,25 +45,7 @@
 						transition={{ duration: 0.5, delay: 0.2 }}
 						viewport={{ once: true }}
 					>
-						<div class="mb-3 flex items-center">
-							<div class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10">
-								<Star class="h-4 w-4 text-yellow-500" />
-							</div>
-							<h4 class="text-sm font-medium">Key Achievements</h4>
-						</div>
-						<ul class="list-circle ml-4 space-y-2 text-sm">
-							{#each job.summary as item, i (`${item}-${i}`)}
-								<MotionLi
-									class="text-muted-foreground relative pl-2"
-									initial={{ opacity: 0, x: -10 }}
-									whileInView={{ opacity: 1, x: 0 }}
-									transition={{ duration: 0.3, delay: 0.1 * i }}
-									viewport={{ once: true }}
-								>
-									{item}
-								</MotionLi>
-							{/each}
-						</ul>
+						<HtmlElement content={descriptionHtml} />
 					</MotionDiv>
 				</TimelineItem>
 			{/each}

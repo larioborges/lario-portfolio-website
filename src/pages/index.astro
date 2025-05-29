@@ -9,29 +9,64 @@ import AwardsSection from '@/components/AwardsSection.svelte';
 import EducationSection from '@/components/EducationSection.svelte';
 import Footer from '@/components/Footer.svelte';
 import { contentfulClient } from '@/contentful';
-import type { PersonalInfo } from '@/contentful/contentTypes/PersonalInfo';
+import type {
+	PersonalInfo,
+	PersonalInfoFields,
+	Award,
+	PastEmployer,
+	Location,
+	Institution,
+} from '@/contentful/contentTypes';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import type { Award } from '@/contentful/contentTypes/Award';
 
-const personalInfoEntries = await contentfulClient.getEntries<PersonalInfo>({
-	content_type: 'personalInfo',
-});
-const personalInfoFields = personalInfoEntries.items[0]?.fields;
+const personalInfoEntry = await contentfulClient.getEntry<PersonalInfo>('3VUcnT1kxkcTnaxAwSVaHf');
+const personalInfoFields: PersonalInfoFields = personalInfoEntry.fields;
+personalInfoFields.introHtml = documentToHtmlString(personalInfoFields.intro);
 
 const awardEntries = await contentfulClient.getEntries<Award>({
 	content_type: 'award',
 });
-const awards = awardEntries.items.map(award => {
-	const awardFields = award.fields;
-	const { name, date, tags, issuer } = awardFields;
-	const { fields: issuerFields } = issuer as { fields: { websiteUrl: string; name: string } };
-	return {
-		name,
-		issuerFields,
-		date,
-		tags,
-	};
+const awards = await Promise.all(
+	awardEntries.items.map(async award => {
+		const awardFields = award.fields;
+		const { name, date, tags, issuer } = awardFields;
+		const issuerEntry = await contentfulClient.getEntry<Institution>(issuer.sys.id);
+		const { websiteUrl: issuerWebsiteUrl, name: issuerName } = issuerEntry.fields;
+		return {
+			name,
+			issuerWebsiteUrl,
+			issuerName,
+			date,
+			tags,
+		};
+	}),
+);
+
+const pastEmployerEntries = await contentfulClient.getEntries<PastEmployer>({
+	content_type: 'pastEmployer',
 });
+const pastEmployers = await Promise.all(
+	pastEmployerEntries.items.map(async employer => {
+		const employerFields = employer.fields;
+		const { company, description, period, position } = employerFields;
+		const { fields: companyFields } = company as {
+			fields: { name: string; websiteUrl: string; location: { sys: { type: string; id: string } } };
+		};
+		const { name: companyName, websiteUrl: companyWebsiteUrl, location: companyLocationEntry } = companyFields;
+		const locationEntry = await contentfulClient.getEntry<Location>(companyLocationEntry.sys.id);
+		const { name: companyLocation, googleMapsUrl: companyGoogleMapsUrl } = locationEntry.fields;
+
+		return {
+			companyName,
+			companyWebsiteUrl,
+			companyLocation,
+			companyGoogleMapsUrl,
+			period,
+			position,
+			descriptionHtml: documentToHtmlString(description),
+		};
+	}),
+);
 ---
 
 <Layout>
@@ -43,10 +78,11 @@ const awards = awardEntries.items.map(award => {
 		<HeroSection
 			{...personalInfoFields}
 			client:only='svelte'
-		>
-			{personalInfoFields && <div set:html={documentToHtmlString(personalInfoFields.intro)} />}
-		</HeroSection>
-		<EmploymentHistory client:only='svelte' />
+		/>
+		<EmploymentHistory
+			{pastEmployers}
+			client:only='svelte'
+		/>
 		<ProjectShowcase client:only='svelte' />
 		<SkillsSection client:only='svelte' />
 		<AwardsSection
