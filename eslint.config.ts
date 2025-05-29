@@ -9,7 +9,7 @@ import sveltePlugin from 'eslint-plugin-svelte';
 import { globalIgnores } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import svelteConfig from './svelte.config';
+// import svelteConfig from './svelte.config';
 
 export default tseslint.config(
 	globalIgnores([
@@ -31,9 +31,6 @@ export default tseslint.config(
 			'src/**/*.json',
 			'*.json',
 		],
-		plugins: {
-			prettier: prettierPlugin,
-		},
 		languageOptions: {
 			globals: {
 				...globals.browser,
@@ -84,7 +81,7 @@ export default tseslint.config(
 				extraFileExtensions: ['.svelte'],
 				parser: tseslint.parser,
 				project: './tsconfig.json',
-				svelteConfig,
+				// svelteConfig,
 			},
 		},
 	},
@@ -108,11 +105,11 @@ export default tseslint.config(
 		},
 	},
 	eslint.configs.recommended,
-	tseslint.configs.recommended,
+	tseslint.configs.eslintRecommended,
 	tseslint.configs.stylistic,
-	...eslintPluginAstro.configs.recommended,
-	...eslintPluginAstro.configs['jsx-a11y-recommended'],
-	...sveltePlugin.configs.recommended,
+	eslintPluginAstro.configs['flat/recommended'],
+	eslintPluginAstro.configs['flat/jsx-a11y-recommended'],
+	sveltePlugin.configs['flat/recommended'],
 	eslintConfigPrettier,
 	eslintPluginPrettierRecommended,
 );
