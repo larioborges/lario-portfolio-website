@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { awards } from '@/data';
 	import { Trophy } from 'lucide-svelte';
 	import MotionWrapper from '@/motion/MotionWrapper.svelte';
 	import GlassCard from '@/ui/GlassCard.svelte';
 	import MotionDiv from '@/motion/MotionDiv.svelte';
 	import SkillTag from '@/ui/SkillTag.svelte';
+
+	const { awards } = $props();
 </script>
 
 <section
@@ -32,19 +33,26 @@
 							</MotionDiv>
 							<h3 class="font-medium">{award.name}</h3>
 						</div>
-						<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuer} (${award.date})`}</p>
+						{#if award.issuerFields.websiteUrl}
+							<p class="text-muted-foreground mb-1 pl-8 text-xs">
+								🏢 <a
+									href={award.issuerFields.websiteUrl}
+									class="underline"
+									target="_blank">{award.issuerFields.name}</a
+								>
+								&nbsp;-&nbsp;{award.date}
+							</p>
+						{:else}
+							<p class="text-muted-foreground mb-1 pl-8 text-xs">🏢 {`${award.issuerFields.name} - ${award.date}`}</p>
+						{/if}
+
 						<div class="mt-auto space-y-2">
 							<div class="flex flex-wrap justify-center gap-2 md:justify-center-safe">
-								{#if award.position}
+								{#each award.tags as tag, index (`${tag}-${index}`)}
 									<SkillTag>
-										{award.position}
+										{tag}
 									</SkillTag>
-								{/if}
-								{#if award.type}
-									<SkillTag>
-										{award.type}
-									</SkillTag>
-								{/if}
+								{/each}
 							</div>
 						</div>
 					</GlassCard>

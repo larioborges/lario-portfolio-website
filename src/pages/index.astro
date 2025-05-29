@@ -11,11 +11,27 @@ import Footer from '@/components/Footer.svelte';
 import { contentfulClient } from '@/contentful';
 import type { PersonalInfo } from '@/contentful/contentTypes/PersonalInfo';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import type { Award } from '@/contentful/contentTypes/Award';
 
 const personalInfoEntries = await contentfulClient.getEntries<PersonalInfo>({
 	content_type: 'personalInfo',
 });
 const personalInfoFields = personalInfoEntries.items[0]?.fields;
+
+const awardEntries = await contentfulClient.getEntries<Award>({
+	content_type: 'award',
+});
+const awards = awardEntries.items.map(award => {
+	const awardFields = award.fields;
+	const { name, date, tags, issuer } = awardFields;
+	const { fields: issuerFields } = issuer as { fields: { websiteUrl: string; name: string } };
+	return {
+		name,
+		issuerFields,
+		date,
+		tags,
+	};
+});
 ---
 
 <Layout>
@@ -33,7 +49,10 @@ const personalInfoFields = personalInfoEntries.items[0]?.fields;
 		<EmploymentHistory client:only='svelte' />
 		<ProjectShowcase client:only='svelte' />
 		<SkillsSection client:only='svelte' />
-		<AwardsSection client:only='svelte' />
+		<AwardsSection
+			{awards}
+			client:only='svelte'
+		/>
 		<EducationSection client:only='svelte' />
 	</main>
 	<Footer
