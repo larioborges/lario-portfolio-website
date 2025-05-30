@@ -79,14 +79,5 @@
     "tw-animate-css": "^1.2.4",
     "typescript-eslint": "^8.32.0",
     "vite-plugin-devtools-json": "^0.1.0"
-  },
-  "lint-staged": {
-    "*.ts": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.js": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.mjs": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.cjs": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.astro": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.svelte": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-    "*.json": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix"
   }
 }
