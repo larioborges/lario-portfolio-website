@@ -14,20 +14,18 @@ export default {
 		{
 			files: 'src/**/*.svelte',
 			options: {
-				parser: 'svelte',
+				parser: 'svelte', 
 			},
 		},
 		{
 			files: 'src/**/*.astro',
 			options: {
-				parser: 'astro',
+				parser: 'astro', 
 			},
 		},
 	],
 	semi: true,
-	trailingComma: 'all',
 	singleQuote: true,
-	printWidth: 120,
 	tabWidth: 2,
 	useTabs: true,
 	arrowParens: 'avoid',
@@ -40,7 +38,7 @@ export default {
 	astroSortOrder: 'styles | markup',
 	astroAllowShorthand: true,
 	files: [
-		'srcx/**/*.ts',
+		'src/**/*.ts',
 		'src/**/*.mjs',
 		'.prettierrc.js',
 		'astro.config.js',

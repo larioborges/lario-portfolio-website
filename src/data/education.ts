@@ -17,7 +17,8 @@ export default [
 		institutionHref: 'https://www.uct.ac.za/',
 		location: 'Cape Town, South Africa',
 		locationHref: 'https://maps.app.goo.gl/XHZ68oYWh594ph7t9',
-		degree: 'Bachelor of Science: Computer Science and Computer Game Simulation',
+		degree:
+			'Bachelor of Science: Computer Science and Computer Game Simulation',
 		period: '2006 - 2008',
 		achievements: [
 			'Majored in Computer Science and Computer Game Simulation',
@@ -27,7 +28,7 @@ export default [
 		],
 	},
 	{
-		institution: "St. Andrew's College (Makhanda/Grahamstown)",
+		institution: 'St. Andrew\'s College (Makhanda/Grahamstown)',
 		institutionHref: 'https://www.sacschool.com/',
 		location: 'Makhanda/Grahamstown, South Africa',
 		locationHref: 'https://maps.app.goo.gl/GeMipXsVkX8pyUCB9',

@@ -1,5 +1,7 @@
 <script lang="ts">
-	let { className = '' } = $props();
+let {
+	className = '', 
+} = $props();
 </script>
 
 <svg
@@ -14,7 +16,9 @@
 	stroke-linejoin="round"
 	class={`${className} lucide lucide-linkedin-icon lucide-linkedin`}
 >
-	<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+	<path
+		d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+	/>
 	<rect
 		width="4"
 		height="12"

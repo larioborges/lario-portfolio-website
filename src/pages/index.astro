@@ -8,17 +8,41 @@ import SkillsSection from '@/components/SkillsSection.svelte';
 import AwardsSection from '@/components/AwardsSection.svelte';
 import EducationSection from '@/components/EducationSection.svelte';
 import Footer from '@/components/Footer.svelte';
+import {
+	getAwards,
+	getPersonalInfo,
+	getPastEmployers,
+} from '@/contentful/content';
+
+const personalInfo = await getPersonalInfo();
+const awards = await getAwards();
+const pastEmployers = await getPastEmployers();
 ---
 
 <Layout>
-	<GlassHeader client:only='svelte' />
+	<GlassHeader
+		name={personalInfo.name}
+		client:only='svelte'
+	/>
 	<main class='min-h-screen'>
-		<HeroSection client:only='svelte' />
-		<EmploymentHistory client:only='svelte' />
+		<HeroSection
+			{...personalInfo}
+			client:only='svelte'
+		/>
+		<EmploymentHistory
+			{pastEmployers}
+			client:only='svelte'
+		/>
 		<ProjectShowcase client:only='svelte' />
 		<SkillsSection client:only='svelte' />
-		<AwardsSection client:only='svelte' />
+		<AwardsSection
+			{awards}
+			client:only='svelte'
+		/>
 		<EducationSection client:only='svelte' />
 	</main>
-	<Footer client:only='svelte' />
+	<Footer
+		name={personalInfo.name}
+		client:only='svelte'
+	/>
 </Layout>

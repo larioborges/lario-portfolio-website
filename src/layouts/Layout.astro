@@ -1,10 +1,18 @@
 ---
 import '@/styles/global.css';
-import { AstroFont } from 'astro-font';
-import { GoogleAnalytics } from 'astro-google-analytics';
-import { AstroSeo } from '@astrolib/seo';
+import {
+	AstroFont, 
+} from 'astro-font';
+import {
+	GoogleAnalytics, 
+} from 'astro-google-analytics';
+import {
+	AstroSeo, 
+} from '@astrolib/seo';
 import favicon from '@/assets/images/favicon.webp';
-import { Head } from 'astro-capo';
+import {
+	Head, 
+} from 'astro-capo';
 
 interface Props {
 	title?: string;
@@ -95,7 +103,8 @@ const {
 				{
 					src: [],
 					name: 'Inter',
-					googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+					googleFontsURL:
+						'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
 					preload: true,
 					display: 'swap',
 					selector: 'body',
