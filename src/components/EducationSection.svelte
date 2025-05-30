@@ -17,9 +17,7 @@ import MotionLi from '@/motion/MotionLi.svelte';
 >
 	<div class="container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionWrapper>
-			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">
-				🎓 Education
-			</h2>
+			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">Education</h2>
 		</MotionWrapper>
 
 		<div class="mb-8">
