@@ -25,6 +25,7 @@ export const getSkillCategories = async () =>
 				fields: skillCatFields,
 			}) => ({
 				name: skillCatFields.name,
+				icon: skillCatFields.icon,
 				skills: skillCatFields.skills.map(skill => (skill as SkillEntry).fields.name),
 			}),
 		),

@@ -92,11 +92,11 @@ const {
 			}}
 		>
 			{#each skillCategories as {
-				name, skills,
+				name, icon, skills,
 			}, index (`${name}-${index}`)}
 				{@render categorySection(
 					name,
-					null,
+					icon,
 					skills,
 				)}
 			{/each}
