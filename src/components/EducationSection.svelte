@@ -3,9 +3,7 @@ import {
 	education, 
 } from '@/data';
 import TimelineItem from '@/ui/TimelineItem.svelte';
-import {
-	Award, 
-} from 'lucide-svelte';
+import {Award, } from 'lucide-svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import MotionLi from '@/motion/MotionLi.svelte';
@@ -36,7 +34,8 @@ import MotionLi from '@/motion/MotionLi.svelte';
 						<MotionDiv
 							class="bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 							initial={{
-								opacity: 0,y: 20,
+								opacity: 0,
+								y: 20,
 							}}
 							whileInView={{
 								opacity: 1,
