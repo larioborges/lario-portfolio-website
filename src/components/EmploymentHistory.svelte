@@ -6,7 +6,7 @@ import MotionSpan from '@/motion/MotionSpan.svelte';
 import HtmlElement from '@/ui/HtmlElement.svelte';
 
 const {
-	pastEmployers, 
+	pastEmployers,
 } = $props();
 </script>
 

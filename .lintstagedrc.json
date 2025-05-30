@@ -1,9 +1,9 @@
 {
-  "*.ts": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.js": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.mjs": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.cjs": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.astro": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.svelte": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix",
-  "*.json": "NODE_OPTIONS='--trace-warnings' eslint --cache --fix"
+  "*.ts": "eslint --cache --fix",
+  "*.js": "eslint --cache --fix",
+  "*.mjs": "eslint --cache --fix",
+  "*.cjs": "eslint --cache --fix",
+  "*.astro": "eslint --cache --fix",
+  "*.svelte": "eslint --cache --fix",
+  "*.json": "eslint --cache --fix"
 }
