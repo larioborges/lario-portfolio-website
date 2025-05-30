@@ -40,7 +40,7 @@ const {
 								}}
 								class="mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5"
 							>
-								<Trophy class="h-4 w-4 text-white" />
+								<Trophy class="h-4 w-4    text-white" />
 							</MotionDiv>
 							<h3 class="font-medium">{award.name}</h3>
 						</div>
