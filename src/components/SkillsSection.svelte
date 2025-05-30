@@ -1,7 +1,4 @@
 <script lang="ts">
-import {
-	skills,
-} from '@/data';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
@@ -32,6 +29,10 @@ const skillCategoryVariants = {
 		},
 	},
 };
+
+const {
+	skillCategories,
+} = $props();
 </script>
 
 {#snippet categoryHeading(name: string, icon: string)}
@@ -90,41 +91,15 @@ const skillCategoryVariants = {
 				margin: '-50px',
 			}}
 		>
-			{@render categorySection(
-				'Programming Languages',
-				'💻',
-				skills.programmingLanguages,
-			)}
-			{@render categorySection(
-				'Frontend Development',
-				'🎨',
-				skills.frontendDevelopment,
-			)}
-			{@render categorySection(
-				'Backend Development',
-				'⚙️',
-				skills.backendDevelopment,
-			)}
-			{@render categorySection(
-				'Database & Storage',
-				'🗄️',
-				skills.databaseAndStorage,
-			)}
-			{@render categorySection(
-				'Content Management Systems',
-				'📝',
-				skills.cms,
-			)}
-			{@render categorySection(
-				'Cloud & DevOps',
-				'☁️',
-				skills.cloudAndDevOps,
-			)}
-			{@render categorySection(
-				'Tools & Services',
-				'🧰',
-				skills.toolsAndServices,
-			)}
+			{#each skillCategories as {
+				name, skills,
+			}, index (`${name}-${index}`)}
+				{@render categorySection(
+					name,
+					null,
+					skills,
+				)}
+			{/each}
 		</MotionDiv>
 	</div>
 </section>

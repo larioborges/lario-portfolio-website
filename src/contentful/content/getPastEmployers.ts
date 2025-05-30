@@ -1,5 +1,5 @@
 import type {
-	Institution,
+	InstitutionFields,
 	Location,
 	PastEmployer,
 } from '@/contentful/contentTypes';
@@ -17,13 +17,6 @@ const getPastEmployerEntries = async () =>
 		},
 	);
 
-const getPastEmployerById = async (
-	id: string,
-) =>
-	await contentfulClient.getEntry<Institution>(
-		id,
-	);
-
 export const getPastEmployers = async () =>
 	await Promise.all(
 		(await getPastEmployerEntries()).items.map(
@@ -35,9 +28,10 @@ export const getPastEmployers = async () =>
 					name: companyName,
 					websiteUrl: companyWebsiteUrl,
 					location: companyLocationEntry,
-				} = (await getPastEmployerById(
-					company.sys.id,
-				)).fields;
+				} = (company as { fields: InstitutionFields }).fields
+				// } = (await getPastEmployerById(
+				// 	company.sys.id,
+				// )).fields;
 				const locationEntry = await contentfulClient.getEntry<Location>(
 					companyLocationEntry.sys.id,
 				);

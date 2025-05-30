@@ -12,11 +12,13 @@ import {
 	getAwards,
 	getPersonalInfo,
 	getPastEmployers,
+	getSkillCategories,
 } from '@/contentful/content';
 
 const personalInfo = await getPersonalInfo();
 const awards = await getAwards();
 const pastEmployers = await getPastEmployers();
+const skillCategories = await getSkillCategories();
 ---
 
 <Layout>
@@ -34,7 +36,7 @@ const pastEmployers = await getPastEmployers();
 			client:only='svelte'
 		/>
 		<ProjectShowcase client:only='svelte' />
-		<SkillsSection client:only='svelte' />
+		<SkillsSection {skillCategories} client:only='svelte' />
 		<AwardsSection
 			{awards}
 			client:only='svelte'

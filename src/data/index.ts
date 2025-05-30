@@ -7,6 +7,3 @@ export {
 export {
 	default as projectShowcase,
 } from './projectShowcase';
-export {
-	default as skills,
-} from './skills';
