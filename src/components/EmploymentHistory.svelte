@@ -1,12 +1,13 @@
 <script lang="ts">
-	import TimelineItem from '@/ui/TimelineItem.svelte';
-	import MotionWrapper from '@/motion/MotionWrapper.svelte';
-	import MotionDiv from '@/motion/MotionDiv.svelte';
-	import MotionSpan from '@/motion/MotionSpan.svelte';
-	import HtmlElement from '@/ui/HtmlElement.svelte';
+import TimelineItem from '@/ui/TimelineItem.svelte';
+import MotionWrapper from '@/motion/MotionWrapper.svelte';
+import MotionDiv from '@/motion/MotionDiv.svelte';
+import MotionSpan from '@/motion/MotionSpan.svelte';
+import HtmlElement from '@/ui/HtmlElement.svelte';
 
-	const { pastEmployers } = $props();
-	console.log(pastEmployers);
+const {
+	pastEmployers, 
+} = $props();
 </script>
 
 <section
@@ -21,17 +22,17 @@
 				<MotionSpan
 					class="mr-2 inline-block"
 					initial={{
-						rotate: 0,
+						rotate: 0, 
 					}}
 					whileInView={{
-						rotate: [0, -10, 10, -5, 5, 0],
+						rotate: [0, -10, 10, -5, 5, 0], 
 					}}
 					transition={{
 						duration: 0.5,
 						delay: 0.2,
 					}}
 					viewport={{
-						once: true,
+						once: true, 
 					}}
 				>
 					💼
@@ -39,7 +40,9 @@
 			</h2>
 		</MotionWrapper>
 		<div class="mb-8">
-			{#each pastEmployers as { companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description }, index (`${companyName}-${period}-${index}`)}
+			{#each pastEmployers as {
+				companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description, 
+			}, index (`${companyName}-${period}-${index}`)}
 				<TimelineItem
 					title={`👨‍💻 ${position}`}
 					subtitle={companyName}
@@ -65,7 +68,7 @@
 							delay: 0.2,
 						}}
 						viewport={{
-							once: true,
+							once: true, 
 						}}
 					>
 						<HtmlElement content={description} />

@@ -1,55 +1,65 @@
 <script lang="ts">
-	import { Mail, MapPin } from 'lucide-svelte';
-	import GithubIcon from '@/icons/Github.svelte';
-	import LinkedInIcon from '@/icons/LinkedIn.svelte';
-	import MotionWrapper from '@/motion/MotionWrapper.svelte';
-	import MotionDiv from '@/motion/MotionDiv.svelte';
-	import MotionH1 from '@/motion/MotionH1.svelte';
-	import MotionSpan from '@/motion/MotionSpan.svelte';
-	import MotionP from '@/motion/MotionP.svelte';
-	import MotionA from '@/motion/MotionA.svelte';
-	import nerd from '@/images/nerd.webp';
-	import type { AssetFields } from 'contentful';
-	import HtmlElement from '@/ui/HtmlElement.svelte';
+import {
+	Mail, MapPin, 
+} from 'lucide-svelte';
+import GithubIcon from '@/icons/Github.svelte';
+import LinkedInIcon from '@/icons/LinkedIn.svelte';
+import MotionWrapper from '@/motion/MotionWrapper.svelte';
+import MotionDiv from '@/motion/MotionDiv.svelte';
+import MotionH1 from '@/motion/MotionH1.svelte';
+import MotionSpan from '@/motion/MotionSpan.svelte';
+import MotionP from '@/motion/MotionP.svelte';
+import MotionA from '@/motion/MotionA.svelte';
+import nerd from '@/images/nerd.webp';
+import type {
+	AssetFields, 
+} from 'contentful';
+import HtmlElement from '@/ui/HtmlElement.svelte';
 
-	const containerVariants = {
-		hidden: {
-			opacity: 0,
+const containerVariants = {
+	hidden: {
+		opacity: 0, 
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.2,
+			delayChildren: 0.3,
 		},
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.3,
-			},
-		},
-	};
+	},
+};
 
-	const childVariants = {
-		hidden: {
-			opacity: 0,
-			y: 20,
+const childVariants = {
+	hidden: {
+		opacity: 0,
+		y: 20,
+	},
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.5, 
 		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.5,
-			},
-		},
-	};
+	},
+};
 
-	const {
-		name,
-		profileImage,
-		location,
-		email,
-		githubUrl,
-		linkedInUrl,
-		introHtml,
-	} = $props();
-	const { fields: profileImageFields }: { fields: AssetFields } = profileImage;
-	const { fields: locationFields } = location;
+const {
+	name,
+	profileImage,
+	location,
+	email,
+	githubUrl,
+	linkedInUrl,
+	introHtml,
+} = $props();
+const {
+	fields: profileImageFields, 
+}: {
+	fields: AssetFields 
+} = profileImage;
+const {
+	fields: locationFields, 
+} = location;
 </script>
 
 <section class="relative overflow-hidden py-16 md:py-24">
@@ -69,13 +79,13 @@
 					<MotionSpan
 						class="inline-block"
 						initial={{
-							rotate: 0,
+							rotate: 0, 
 						}}
 						whileHover={{
-							rotate: 360,
+							rotate: 360, 
 						}}
 						transition={{
-							duration: 0.5,
+							duration: 0.5, 
 						}}
 					>
 						<img
@@ -165,10 +175,10 @@
 			<MotionDiv
 				variants={childVariants}
 				whileHover={{
-					scale: 1.05,
+					scale: 1.05, 
 				}}
 				whileTap={{
-					scale: 0.95,
+					scale: 0.95, 
 				}}
 				class="mt-6 flex justify-center md:mt-0"
 			>

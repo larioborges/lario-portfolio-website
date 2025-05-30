@@ -1,5 +1,9 @@
-import type { EntryFieldTypes } from 'contentful';
-import type { Institution } from './Institution';
+import type {
+	EntryFieldTypes, 
+} from 'contentful';
+import type {
+	Institution, 
+} from './Institution';
 
 export interface Award {
 	contentTypeId: 'award';

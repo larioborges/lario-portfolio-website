@@ -1,5 +1,9 @@
-import type { EntryFieldTypes } from 'contentful';
-import type { Skill } from './Skill';
+import type {
+	EntryFieldTypes, 
+} from 'contentful';
+import type {
+	Skill, 
+} from './Skill';
 
 export interface SkillCategory {
 	contentTypeId: 'skillCategory';

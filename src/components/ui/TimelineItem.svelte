@@ -1,19 +1,21 @@
 <script lang="ts">
-	import { cn } from '@/utils';
-	import MotionDiv from '@/motion/MotionDiv.svelte';
+import {
+	cn, 
+} from '@/utils';
+import MotionDiv from '@/motion/MotionDiv.svelte';
 
-	let {
-		title,
-		titleHref = null,
-		subtitle,
-		subtitleHref = null,
-		location,
-		locationHref = null,
-		date,
-		isLast = false,
-		index = 0,
-		children,
-	} = $props();
+let {
+	title,
+	titleHref = null,
+	subtitle,
+	subtitleHref = null,
+	location,
+	locationHref = null,
+	date,
+	isLast = false,
+	index = 0,
+	children,
+} = $props();
 </script>
 
 <MotionDiv
@@ -39,10 +41,10 @@
 		<MotionDiv
 			class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50"
 			initial={{
-				scale: 0,
+				scale: 0, 
 			}}
 			whileInView={{
-				scale: 1,
+				scale: 1, 
 			}}
 			transition={{
 				type: 'spring',
@@ -59,10 +61,10 @@
 			<MotionDiv
 				class="w-px grow bg-gradient-to-b from-yellow-500/50 to-green-500/30 dark:from-yellow-500/30 dark:to-yellow-100/10"
 				initial={{
-					height: 0,
+					height: 0, 
 				}}
 				whileInView={{
-					height: '100%',
+					height: '100%', 
 				}}
 				transition={{
 					duration: 0.8,
@@ -133,10 +135,10 @@
 				<div>
 					<MotionDiv
 						initial={{
-							opacity: 0,
+							opacity: 0, 
 						}}
 						whileInView={{
-							opacity: 1,
+							opacity: 1, 
 						}}
 						transition={{
 							duration: 0.5,

@@ -1,8 +1,12 @@
 <script>
-	/* eslint svelte/no-at-html-tags: "off" */
-	import DOMPurify from 'dompurify';
+/* eslint svelte/no-at-html-tags: "off" */
+import DOMPurify from 'dompurify';
 
-	const { content } = $props();
+const {
+	content, 
+} = $props();
 </script>
 
-{@html DOMPurify.sanitize(content)}
+{@html DOMPurify.sanitize(
+	content,
+)}

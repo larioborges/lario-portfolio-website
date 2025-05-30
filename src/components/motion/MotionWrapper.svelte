@@ -1,23 +1,27 @@
 <script lang="ts">
-	import MotionDiv from '@/motion/MotionDiv.svelte';
+import MotionDiv from '@/motion/MotionDiv.svelte';
 
-	const defaultAnimations = {
-		hidden: {
-			opacity: 0,
-			y: 20,
+const defaultAnimations = {
+	hidden: {
+		opacity: 0,
+		y: 20,
+	},
+	visible: (
+		delay = 0,
+	) => ({
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.6,
+			delay: delay,
+			ease: 'easeOut',
 		},
-		visible: (delay = 0) => ({
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.6,
-				delay: delay,
-				ease: 'easeOut',
-			},
-		}),
-	};
+	}),
+};
 
-	let { children, delay = 0, ...props } = $props();
+let {
+	children, delay = 0, ...props 
+} = $props();
 </script>
 
 <MotionDiv

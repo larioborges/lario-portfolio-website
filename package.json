@@ -43,6 +43,7 @@
     "@netlify/plugin-lighthouse": "^6.0.1",
     "@playform/build": "^0.2.4",
     "@playform/inline": "^0.1.2",
+    "@stylistic/eslint-plugin": "^4.4.0",
     "@tailwindcss/vite": "^4.1.3",
     "@types/eslint-plugin-jsx-a11y": "^6",
     "@types/gtag.js": "^0.0.20",
@@ -80,12 +81,12 @@
     "vite-plugin-devtools-json": "^0.1.0"
   },
   "lint-staged": {
-    "*.ts": "eslint --cache --fix",
-    "*.js": "eslint --cache --fix",
-    "*.mjs": "eslint --cache --fix",
-    "*.cjs": "eslint --cache --fix",
-    "*.astro": "eslint --cache --fix",
-    "*.svelte": "eslint --cache --fix",
-    "*.json": "eslint --cache --fix"
+    "*.ts": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.js": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.mjs": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.cjs": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.astro": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.svelte": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix",
+    "*.json": "NODE_OPTIONS='--trace-warnings' eslint . --cache --fix"
   }
 }

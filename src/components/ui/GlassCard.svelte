@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { cn } from '@/utils';
-	import MotionDiv from '@/motion/MotionDiv.svelte';
+import {
+	cn, 
+} from '@/utils';
+import MotionDiv from '@/motion/MotionDiv.svelte';
 
-	let { children, className, hoverEffect = true, ...props } = $props();
+let {
+	children, className, hoverEffect = true, ...props 
+} = $props();
 </script>
 
 <MotionDiv
@@ -13,11 +17,11 @@
 	)}
 	whileHover={hoverEffect
 		? {
-				y: -5,
-				transition: {
-					duration: 0.2,
-				},
-			}
+			y: -5,
+			transition: {
+				duration: 0.2, 
+			},
+		}
 		: undefined}
 	{...props}
 >

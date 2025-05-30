@@ -1,5 +1,12 @@
-import { sveltePreprocess } from 'svelte-preprocess';
+import {
+	vitePreprocess, 
+} from '@astrojs/svelte';
+// import { typescript, replace } from 'svelte-preprocess';
 
 export default {
-	preprocess: sveltePreprocess(),
+	preprocess: [vitePreprocess(
+		{
+			script: true, 
+		},
+	)], 
 };

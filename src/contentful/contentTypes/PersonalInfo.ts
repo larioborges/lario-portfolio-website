@@ -1,6 +1,12 @@
-import type { Document } from '@contentful/rich-text-types';
-import type { Asset, Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
-import type { Location } from './Location';
+import type {
+	Document, 
+} from '@contentful/rich-text-types';
+import type {
+	Asset, Entry, EntryFieldTypes, UnresolvedLink, 
+} from 'contentful';
+import type {
+	Location, 
+} from './Location';
 
 export interface PersonalInfoFields {
 	name: string;

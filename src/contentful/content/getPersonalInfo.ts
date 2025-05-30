@@ -1,19 +1,40 @@
-import { contentfulClient } from '@/contentful';
+import {
+	contentfulClient, 
+} from '@/contentful';
 import type {
-	PersonalInfo,
-	PersonalInfoFields,
+	Location, PersonalInfo, 
 } from '@/contentful/contentTypes';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import {
+	documentToHtmlString, 
+} from '@contentful/rich-text-html-renderer';
+import type {
+	Document, 
+} from '@contentful/rich-text-types';
+import type {
+	Asset, Entry, UnresolvedLink, 
+} from 'contentful';
 
-export const getPersonalInfo = async () => {
-	const personalInfoEntry = await contentfulClient.getEntry<PersonalInfo>(
-		'3VUcnT1kxkcTnaxAwSVaHf',
-	);
-	const personalInfoFields: PersonalInfoFields = personalInfoEntry.fields;
-	personalInfoFields.introHtml = documentToHtmlString(personalInfoFields.intro);
+type getPersonalInfo = () => Promise<{
+	introHtml: string;
+	name: string;
+	profileImage: UnresolvedLink<'Asset'> | Asset<undefined, string>;
+	location: UnresolvedLink<'Entry'> | Entry<Location, undefined, string>;
+	email: string;
+	githubUrl: string;
+	linkedInUrl: string;
+	intro: Document;
+}>;
+export const getPersonalInfo: getPersonalInfo = async () => {
+	const personalInfoFields = (
+		await contentfulClient.getEntry<PersonalInfo>(
+			'3VUcnT1kxkcTnaxAwSVaHf',
+		)
+	).fields;
 	return {
 		...personalInfoFields,
-		intro: documentToHtmlString(personalInfoFields.intro),
+		introHtml: documentToHtmlString(
+			personalInfoFields.intro,
+		),
 	};
 };
 

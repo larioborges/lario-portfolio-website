@@ -1,5 +1,9 @@
-import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
-import type { Location } from './Location';
+import type {
+	Entry, EntryFieldTypes, UnresolvedLink, 
+} from 'contentful';
+import type {
+	Location, 
+} from './Location';
 
 export interface InstitutionFields {
 	name: string;

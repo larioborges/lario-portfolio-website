@@ -1,6 +1,8 @@
 <script lang="ts">
-	import MotionDiv from '@/motion/MotionDiv.svelte';
-	let { children, index = 1 } = $props();
+import MotionDiv from '@/motion/MotionDiv.svelte';
+let {
+	children, index = 1, 
+} = $props();
 </script>
 
 <!-- <MotionDiv

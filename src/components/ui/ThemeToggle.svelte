@@ -1,24 +1,34 @@
 <script lang="ts">
-	import { Moon, Sun } from 'lucide-svelte';
-	import Button from '@/ui/Button.svelte';
+import {
+	Moon, Sun, 
+} from 'lucide-svelte';
+import Button from '@/ui/Button.svelte';
 
-	const getTheme = () => {
-		if (localStorage.getItem('theme')) {
-			return localStorage.getItem('theme');
-		}
-		return 'dark';
-	};
+const getTheme = () => {
+	if (localStorage.getItem(
+		'theme',
+	)) {
+		return localStorage.getItem(
+			'theme',
+		);
+	}
+	return 'dark';
+};
 
-	let theme = $state(getTheme());
+let theme = $state(
+	getTheme(),
+);
 
-	const toggleTheme = () => {
-		const newTheme = getTheme() == 'dark' ? 'light' : 'dark';
-		localStorage.setItem('theme', newTheme);
-		if (theme != newTheme) {
-			document.documentElement.classList.toggle('dark');
-		}
-		theme = newTheme;
-	};
+const toggleTheme = () => {
+	const newTheme = getTheme() == 'dark' ? 'light' : 'dark';
+	localStorage.setItem('theme', newTheme);
+	if (theme != newTheme) {
+		document.documentElement.classList.toggle(
+			'dark',
+		);
+	}
+	theme = newTheme;
+};
 </script>
 
 <Button

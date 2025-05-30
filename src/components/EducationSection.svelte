@@ -1,10 +1,14 @@
 <script lang="ts">
-	import { education } from '@/data';
-	import TimelineItem from '@/ui/TimelineItem.svelte';
-	import { Award } from 'lucide-svelte';
-	import MotionWrapper from '@/motion/MotionWrapper.svelte';
-	import MotionDiv from '@/motion/MotionDiv.svelte';
-	import MotionLi from '@/motion/MotionLi.svelte';
+import {
+	education, 
+} from '@/data';
+import TimelineItem from '@/ui/TimelineItem.svelte';
+import {
+	Award, 
+} from 'lucide-svelte';
+import MotionWrapper from '@/motion/MotionWrapper.svelte';
+import MotionDiv from '@/motion/MotionDiv.svelte';
+import MotionLi from '@/motion/MotionLi.svelte';
 </script>
 
 <section
@@ -46,7 +50,7 @@
 								delay: 0.2,
 							}}
 							viewport={{
-								once: true,
+								once: true, 
 							}}
 						>
 							<div class="mb-3 flex items-center">
@@ -74,7 +78,7 @@
 											delay: 0.1 * i,
 										}}
 										viewport={{
-											once: true,
+											once: true, 
 										}}
 									>
 										{achievement}
