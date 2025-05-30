@@ -3,7 +3,7 @@
 import DOMPurify from 'dompurify';
 
 const {
-	content, 
+	content,
 } = $props();
 </script>
 

@@ -13,7 +13,7 @@
 #   --------------------   URL REDIRECTS   --------------------
 [[redirects]]
   from = "https://lario-f09798.netlify.app/"
-  to = "https://www.lariocpt.biz"
+  to = "https://lariocpt.biz"
   status = 301
   force = true
 
@@ -89,7 +89,7 @@
 # [[plugins]]
 #   package = "netlify-plugin-submit-sitemap"
 # 	[plugins.inputs]
-#     baseUrl = "https://www.lariocpt.dev"
+#     baseUrl = "https://lariocpt.dev"
 #     sitemapPath = "/sitemap.xml"
 #     ignorePeriod = 0
 #     providers = [

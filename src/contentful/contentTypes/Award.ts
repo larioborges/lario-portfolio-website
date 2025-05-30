@@ -1,8 +1,8 @@
 import type {
-	EntryFieldTypes, 
+	EntryFieldTypes,
 } from 'contentful';
 import type {
-	Institution, 
+	Institution,
 } from './Institution';
 
 export interface Award {

@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	Mail, MapPin, 
+	Mail, MapPin,
 } from 'lucide-svelte';
 import GithubIcon from '@/icons/Github.svelte';
 import LinkedInIcon from '@/icons/LinkedIn.svelte';
@@ -12,13 +12,13 @@ import MotionP from '@/motion/MotionP.svelte';
 import MotionA from '@/motion/MotionA.svelte';
 import nerd from '@/images/nerd.webp';
 import type {
-	AssetFields, 
+	AssetFields,
 } from 'contentful';
 import HtmlElement from '@/ui/HtmlElement.svelte';
 
 const containerVariants = {
 	hidden: {
-		opacity: 0, 
+		opacity: 0,
 	},
 	visible: {
 		opacity: 1,
@@ -38,7 +38,7 @@ const childVariants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5, 
+			duration: 0.5,
 		},
 	},
 };
@@ -53,12 +53,12 @@ const {
 	introHtml,
 } = $props();
 const {
-	fields: profileImageFields, 
+	fields: profileImageFields,
 }: {
-	fields: AssetFields 
+	fields: AssetFields
 } = profileImage;
 const {
-	fields: locationFields, 
+	fields: locationFields,
 } = location;
 </script>
 
@@ -79,13 +79,13 @@ const {
 					<MotionSpan
 						class="inline-block"
 						initial={{
-							rotate: 0, 
+							rotate: 0,
 						}}
 						whileHover={{
-							rotate: 360, 
+							rotate: 360,
 						}}
 						transition={{
-							duration: 0.5, 
+							duration: 0.5,
 						}}
 					>
 						<img
@@ -175,10 +175,10 @@ const {
 			<MotionDiv
 				variants={childVariants}
 				whileHover={{
-					scale: 1.05, 
+					scale: 1.05,
 				}}
 				whileTap={{
-					scale: 0.95, 
+					scale: 0.95,
 				}}
 				class="mt-6 flex justify-center md:mt-0"
 			>

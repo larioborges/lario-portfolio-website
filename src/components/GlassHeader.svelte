@@ -1,10 +1,10 @@
 <script lang="ts">
 import ThemeToggle from '@/ui/ThemeToggle.svelte';
 import {
-	Menu, X, 
+	Menu, X,
 } from 'lucide-svelte';
 import {
-	AnimatePresence, 
+	AnimatePresence,
 } from 'svelte-motion';
 import MotionA from '@/motion/MotionA.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
@@ -43,7 +43,7 @@ const navLinks = [
 ];
 
 const {
-	name, 
+	name,
 } = $props();
 </script>
 
@@ -57,10 +57,10 @@ const {
 			class="flex items-center text-lg font-medium"
 			href="/"
 			whileHover={{
-				scale: 1.05, 
+				scale: 1.05,
 			}}
 			whileTap={{
-				scale: 0.95, 
+				scale: 0.95,
 			}}
 		>
 			<img
@@ -80,7 +80,7 @@ const {
 
 		<nav class="hidden items-center space-x-6 text-sm font-medium md:flex">
 			{#each navLinks as {
-				name, href, 
+				name, href,
 			}, index (name)}
 				<MotionA
 					{href}
@@ -98,7 +98,7 @@ const {
 						delay: index * 0.1,
 					}}
 					whileHover={{
-						y: -2, 
+						y: -2,
 					}}
 				>
 					{name}
@@ -114,7 +114,7 @@ const {
 				onclick={toggleMenu}
 				aria-label="Toggle menu"
 				whileTap={{
-					scale: 0.95, 
+					scale: 0.95,
 				}}
 			>
 				{#if isMenuOpen}
@@ -143,12 +143,12 @@ const {
 					height: 0,
 				}}
 				transition={{
-					duration: 0.3, 
+					duration: 0.3,
 				}}
 			>
 				<nav class="flex flex-col space-y-4 text-sm font-medium">
 					{#each navLinks as {
-						name, href, 
+						name, href,
 					}, index (name)}
 						<MotionA
 							{href}

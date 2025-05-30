@@ -1,27 +1,27 @@
 export type {
-	Award, 
+	Award,
 } from './Award';
 export type {
-	Certification, 
+	Certification,
 } from './Certification';
 export type {
-	Institution, InstitutionFields, 
+	Institution, InstitutionFields,
 } from './Institution';
 export type {
-	Location, 
+	Location,
 } from './Location';
 export type {
-	PastEmployer, PastEmployerFields, 
+	PastEmployer, PastEmployerFields,
 } from './PastEmployer';
 export type {
-	PersonalInfo, PersonalInfoFields, 
+	PersonalInfo, PersonalInfoFields,
 } from './PersonalInfo';
 export type {
-	Seo, 
+	Seo,
 } from './Seo';
 export type {
-	Skill, 
+	Skill,
 } from './Skill';
 export type {
-	SkillCategory, 
+	SkillCategory,
 } from './SkillCategory';

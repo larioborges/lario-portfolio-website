@@ -1,12 +1,12 @@
 import {
-	clsx, type ClassValue, 
+	clsx, type ClassValue,
 } from 'clsx';
 import {
-	twMerge, 
+	twMerge,
 } from 'tailwind-merge';
 
 export {
-	default as InitTheme, 
+	default as InitTheme,
 } from './InitTheme';
 
 // TODO Lario: consider remove clsx

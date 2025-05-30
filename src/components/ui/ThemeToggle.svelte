@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	Moon, Sun, 
+	Moon, Sun,
 } from 'lucide-svelte';
 import Button from '@/ui/Button.svelte';
 
@@ -21,7 +21,10 @@ let theme = $state(
 
 const toggleTheme = () => {
 	const newTheme = getTheme() == 'dark' ? 'light' : 'dark';
-	localStorage.setItem('theme', newTheme);
+	localStorage.setItem(
+		'theme',
+		newTheme,
+	);
 	if (theme != newTheme) {
 		document.documentElement.classList.toggle(
 			'dark',

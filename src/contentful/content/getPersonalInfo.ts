@@ -1,17 +1,19 @@
 import {
-	contentfulClient, 
+	contentfulClient,
 } from '@/contentful';
 import type {
-	Location, PersonalInfo, 
+	Location, PersonalInfo,
 } from '@/contentful/contentTypes';
 import {
-	documentToHtmlString, 
+	documentToHtmlString,
 } from '@contentful/rich-text-html-renderer';
 import type {
-	Document, 
+	Document,
 } from '@contentful/rich-text-types';
 import type {
-	Asset, Entry, UnresolvedLink, 
+	Asset,
+	Entry,
+	UnresolvedLink,
 } from 'contentful';
 
 type getPersonalInfo = () => Promise<{

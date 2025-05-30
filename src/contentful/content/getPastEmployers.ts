@@ -4,16 +4,16 @@ import type {
 	PastEmployer,
 } from '@/contentful/contentTypes';
 import {
-	documentToHtmlString, 
+	documentToHtmlString,
 } from '@contentful/rich-text-html-renderer';
 import {
-	contentfulClient, 
+	contentfulClient,
 } from '..';
 
 const getPastEmployerEntries = async () =>
 	await contentfulClient.getEntries<PastEmployer>(
 		{
-			content_type: 'pastEmployer', 
+			content_type: 'pastEmployer',
 		},
 	);
 
@@ -29,7 +29,7 @@ export const getPastEmployers = async () =>
 		(await getPastEmployerEntries()).items.map(
 			async employer => {
 				const {
-					company, description, period, position, 
+					company, description, period, position,
 				} = employer.fields;
 				const {
 					name: companyName,
@@ -42,7 +42,7 @@ export const getPastEmployers = async () =>
 					companyLocationEntry.sys.id,
 				);
 				const {
-					name: companyLocation, googleMapsUrl: companyGoogleMapsUrl, 
+					name: companyLocation, googleMapsUrl: companyGoogleMapsUrl,
 				} =
 				locationEntry.fields;
 

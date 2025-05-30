@@ -1,10 +1,10 @@
 <script lang="ts">
 import {
-	education, 
+	education,
 } from '@/data';
 import TimelineItem from '@/ui/TimelineItem.svelte';
 import {
-	Award,  
+	Award,
 } from 'lucide-svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
@@ -48,7 +48,7 @@ import MotionLi from '@/motion/MotionLi.svelte';
 								delay: 0.2,
 							}}
 							viewport={{
-								once: true, 
+								once: true,
 							}}
 						>
 							<div class="mb-3 flex items-center">
@@ -76,7 +76,7 @@ import MotionLi from '@/motion/MotionLi.svelte';
 											delay: 0.1 * i,
 										}}
 										viewport={{
-											once: true, 
+											once: true,
 										}}
 									>
 										{achievement}

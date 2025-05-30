@@ -1,9 +1,9 @@
 <script lang="ts">
 import {
-	cva, 
+	cva,
 } from 'class-variance-authority';
 import {
-	cn, 
+	cn,
 } from '@/utils';
 
 const buttonVariants = cva(
@@ -49,7 +49,7 @@ let {
 {#if asChild}
 	{@render children?.(
 		{
-			attrs: props, 
+			attrs: props,
 		},
 	)}
 {:else}

@@ -3,7 +3,7 @@ import MotionP from '@/motion/MotionP.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import MotionSpan from '@/motion/MotionSpan.svelte';
 const {
-	name, 
+	name,
 } = $props();
 </script>
 
@@ -22,16 +22,16 @@ const {
 				y: 0,
 			}}
 			transition={{
-				duration: 0.5, 
+				duration: 0.5,
 			}}
 			viewport={{
-				once: true, 
+				once: true,
 			}}
 		>
 			<MotionP
 				class="text-muted-foreground text-center text-sm md:text-left"
 				whileHover={{
-					scale: 1.01, 
+					scale: 1.01,
 				}}
 			>
 				&copy; {new Date()
@@ -41,39 +41,39 @@ const {
 			<MotionP
 				class="text-muted-foreground mt-2 text-center text-sm md:mt-0 md:text-left"
 				initial={{
-					opacity: 0, 
+					opacity: 0,
 				}}
 				whileInView={{
-					opacity: 1, 
+					opacity: 1,
 				}}
 				transition={{
 					delay: 0.2,
 					duration: 0.5,
 				}}
 				viewport={{
-					once: true, 
+					once: true,
 				}}
 				whileHover={{
-					scale: 1.01, 
+					scale: 1.01,
 				}}
 			>
 				Built with&nbsp;
 				<MotionSpan
 					class="inline-block"
 					initial={{
-						rotate: 0, 
+						rotate: 0,
 					}}
 					whileHover={{
-						rotate: 360, 
+						rotate: 360,
 					}}
 					transition={{
-						duration: 0.5, 
+						duration: 0.5,
 					}}>💻</MotionSpan
 				>&nbsp; and&nbsp;
 				<MotionSpan
 					class="inline-block"
 					animate={{
-						scale: [1, 1.2, 1], 
+						scale: [1, 1.2, 1],
 					}}
 					transition={{
 						repeat: Infinity,

@@ -1,8 +1,8 @@
 import type {
-	EntryFieldTypes, 
+	EntryFieldTypes,
 } from 'contentful';
 import type {
-	Skill, 
+	Skill,
 } from './Skill';
 
 export interface SkillCategory {

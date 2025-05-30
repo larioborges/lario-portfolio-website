@@ -10,5 +10,8 @@ export default () => {
 				: 'dark')() == 'dark'
 			? 'dark'
 			: 'light';
-	localStorage.setItem('theme', theme);
+	localStorage.setItem(
+		'theme',
+		theme,
+	);
 };

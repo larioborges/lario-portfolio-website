@@ -1,11 +1,11 @@
 import type {
-	Document, 
+	Document,
 } from '@contentful/rich-text-types';
 import type {
-	Asset, Entry, EntryFieldTypes, UnresolvedLink, 
+	Asset, Entry, EntryFieldTypes, UnresolvedLink,
 } from 'contentful';
 import type {
-	Location, 
+	Location,
 } from './Location';
 
 export interface PersonalInfoFields {

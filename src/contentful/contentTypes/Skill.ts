@@ -1,5 +1,5 @@
 import type {
-	EntryFieldTypes, 
+	EntryFieldTypes,
 } from 'contentful';
 
 export interface Skill {

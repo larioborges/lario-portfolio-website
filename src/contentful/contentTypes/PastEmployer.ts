@@ -1,11 +1,11 @@
 import type {
-	Document, 
+	Document,
 } from '@contentful/rich-text-types';
 import type {
-	Entry, EntryFieldTypes, UnresolvedLink, 
+	Entry, EntryFieldTypes, UnresolvedLink,
 } from 'contentful';
 import type {
-	Institution, 
+	Institution,
 } from './Institution';
 
 export interface PastEmployerFields {

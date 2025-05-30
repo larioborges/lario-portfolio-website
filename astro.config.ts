@@ -9,17 +9,17 @@ import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
 import astroRobotsTxt from 'astro-robots-txt';
 import {
-	defineConfig, 
+	defineConfig,
 } from 'astro/config';
 import {
-	globalStyle, typescript, 
+	globalStyle, typescript,
 } from 'svelte-preprocess';
 import devtoolsJson from 'vite-plugin-devtools-json';
 
 // TODO Lario PWA
 export default defineConfig(
 	{
-		site: 'https://www.lariocpt.biz',
+		site: 'https://lariocpt.biz',
 		adapter: netlify(
 			{
 				includeFiles: ['./src/data/**/*.json'],
@@ -46,8 +46,8 @@ export default defineConfig(
 			partytown(
 				{
 					config: {
-						forward: ['dataLayer.push'], 
-					}, 
+						forward: ['dataLayer.push'],
+					},
 				},
 			),
 			sitemap(),
