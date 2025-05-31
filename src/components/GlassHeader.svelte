@@ -65,12 +65,14 @@ const {
 		>
 			<img
 				width="50px"
+				height="36px"
 				alt="South Africa"
 				src={southAfrica.src}
 				class="mr-2.5 inline-block align-middle dark:hidden"
 			/>
 			<img
 				width="35px"
+				height="35px"
 				alt="Luigi Cap"
 				src={luigiCap.src}
 				class="mr-2.5 hidden align-middle dark:inline-block"
