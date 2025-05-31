@@ -4,6 +4,7 @@ import type {
 	Location,
 	LocationFields,
 	CertificationFields,
+	CertificationResponse,
 } from '@/contentful/contentTypes';
 import {
 	documentToHtmlString,
@@ -19,7 +20,7 @@ const getCertificationEntries = async () =>
 		},
 	);
 
-const createCertResponseObj = (certEntryFields: CertificationFields, instutionEntryFields: InstitutionFields, locationEntryFields: LocationFields) => ({
+const createCertResponseObj = (certEntryFields: CertificationFields, instutionEntryFields: InstitutionFields, locationEntryFields: LocationFields):CertificationResponse => ({
 	institutionName: instutionEntryFields.name,
 	institutionWebsiteUrl: instutionEntryFields.websiteUrl,
 	institutionLocation: locationEntryFields.name,
@@ -37,19 +38,18 @@ const getLocationFields = async (certEntryFields: CertificationFields) => (await
 	(certEntryFields.institution as { fields: InstitutionFields }).fields.location.sys.id,
 )).fields;
 
-export const getCertifications = async () =>
+export const getCertifications = async ():Promise<CertificationResponse[]> =>
 	await Promise.all(
 		(await getCertificationEntries()).items.map(
 			async ({
 				fields: certEntryFields,
-			}) => (
+			}):Promise<CertificationResponse> =>
 				createCertResponseObj(
 					certEntryFields,
 					getInstitutionFields(certEntryFields),
 					await getLocationFields(certEntryFields),
-				)
-			),
-		),
+				),
+		) as any,
 	);
 
 export default getCertifications;

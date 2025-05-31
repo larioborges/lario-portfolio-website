@@ -3,6 +3,7 @@ import {
 } from '@/contentful';
 import type {
 	SkillCategory,
+	SkillCategoryResponse,
 } from '@/contentful/contentTypes';
 
 interface SkillEntry {
@@ -23,7 +24,7 @@ export const getSkillCategories = async () =>
 		(await getSkillCategoryEntries()).items.map(
 			({
 				fields: skillCatFields,
-			}) => ({
+			}):SkillCategoryResponse => ({
 				name: skillCatFields.name,
 				icon: skillCatFields.icon,
 				skills: skillCatFields.skills.map(skill => (skill as SkillEntry).fields.name),

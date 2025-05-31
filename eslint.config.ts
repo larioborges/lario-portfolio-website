@@ -146,6 +146,8 @@ export default tseslint.config(
 			'@stylistic/indent': ['error', 'tab'],
 			'@stylistic/one-var-declaration-per-line': ['error', 'always'],
 			'@stylistic/no-trailing-spaces': 'error',
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': ['error'],
 		},
 	},
 );

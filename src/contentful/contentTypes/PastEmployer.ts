@@ -8,6 +8,15 @@ import type {
 	Institution,
 } from './Institution';
 
+export interface PastEmployerResponse {
+	companyName: string;
+	companyWebsiteUrl: string;
+	companyLocation: string;
+	companyGoogleMapsUrl: string | undefined;
+	period: string;
+	position: string;
+	description: string;
+}
 export interface PastEmployerFields {
 	company: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	position: string;

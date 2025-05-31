@@ -4,6 +4,7 @@ import type {
 	LocationFields,
 	PastEmployer,
 	PastEmployerFields,
+	PastEmployerResponse,
 } from '@/contentful/contentTypes';
 import {
 	documentToHtmlString,
@@ -19,7 +20,7 @@ const getPastEmployerEntries = async () =>
 		},
 	);
 
-const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionFields, locationEntryFields: LocationFields) => ({
+const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionFields, locationEntryFields: LocationFields): PastEmployerResponse => ({
 	companyName: companyEntryFields.name,
 	companyWebsiteUrl: companyEntryFields.websiteUrl,
 	companyLocation: locationEntryFields.name,
@@ -42,12 +43,10 @@ export const getPastEmployers = async () =>
 		(await getPastEmployerEntries()).items.map(
 			async ({
 				fields: pastEmployerEntryFields,
-			}) => (
-				createPastEmployerResponseObj(
-					pastEmployerEntryFields,
-					getCompanyFields(pastEmployerEntryFields),
-					await getLocationFields(pastEmployerEntryFields),
-				)
+			}) => createPastEmployerResponseObj(
+				pastEmployerEntryFields,
+				getCompanyFields(pastEmployerEntryFields),
+				await getLocationFields(pastEmployerEntryFields),
 			),
 		),
 	);

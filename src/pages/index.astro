@@ -16,11 +16,21 @@ import {
 	getCertifications,
 } from '@/contentful/content';
 
-const personalInfo = await getPersonalInfo();
-const awards = await getAwards();
-const pastEmployers = await getPastEmployers();
-const skillCategories = await getSkillCategories();
-const certifications = await getCertifications();
+const [
+	personalInfo,
+	awards,
+	pastEmployers,
+	skillCategories,
+	certifications,
+] = (await Promise.all(
+	[
+		getPersonalInfo(),
+		getAwards(),
+		getPastEmployers(),
+		getSkillCategories(),
+		getCertifications(),
+	],
+));
 ---
 
 <Layout>

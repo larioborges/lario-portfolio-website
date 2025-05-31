@@ -5,6 +5,12 @@ import type {
 	Skill,
 } from './Skill';
 
+export interface SkillCategoryResponse {
+	name: string;
+	icon: string;
+	skills: string[];
+}
+
 export interface SkillCategory {
 	contentTypeId: 'skillCategory';
 	fields: {
