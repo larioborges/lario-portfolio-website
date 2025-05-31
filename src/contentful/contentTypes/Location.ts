@@ -1,6 +1,11 @@
 import type {
-	EntryFieldTypes, 
+	EntryFieldTypes,
 } from 'contentful';
+
+export interface LocationFields {
+	name: string;
+	googleMapsUrl?: string;
+}
 
 export interface Location {
 	contentTypeId: 'location';

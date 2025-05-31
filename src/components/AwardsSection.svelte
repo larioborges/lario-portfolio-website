@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	Trophy, 
+	Trophy,
 } from 'lucide-svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
@@ -8,7 +8,7 @@ import MotionDiv from '@/motion/MotionDiv.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
 
 const {
-	awards, 
+	awards,
 } = $props();
 </script>
 
@@ -32,7 +32,7 @@ const {
 						<div class="mb-2 flex items-center">
 							<MotionDiv
 								whileHover={{
-									rotate: 20, 
+									rotate: 20,
 								}}
 								transition={{
 									type: 'spring',

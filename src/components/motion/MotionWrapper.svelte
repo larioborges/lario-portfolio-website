@@ -20,7 +20,7 @@ const defaultAnimations = {
 };
 
 let {
-	children, delay = 0, ...props 
+	children, delay = 0, ...props
 } = $props();
 </script>
 

@@ -22,17 +22,17 @@ const {
 				<MotionSpan
 					class="mr-2 inline-block"
 					initial={{
-						rotate: 0, 
+						rotate: 0,
 					}}
 					whileInView={{
-						rotate: [0, -10, 10, -5, 5, 0], 
+						rotate: [0, -10, 10, -5, 5, 0],
 					}}
 					transition={{
 						duration: 0.5,
 						delay: 0.2,
 					}}
 					viewport={{
-						once: true, 
+						once: true,
 					}}
 				>
 					💼
@@ -41,7 +41,7 @@ const {
 		</MotionWrapper>
 		<div class="mb-8">
 			{#each pastEmployers as {
-				companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description, 
+				companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description,
 			}, index (`${companyName}-${period}-${index}`)}
 				<TimelineItem
 					title={`👨‍💻 ${position}`}
@@ -68,7 +68,7 @@ const {
 							delay: 0.2,
 						}}
 						viewport={{
-							once: true, 
+							once: true,
 						}}
 					>
 						<HtmlElement content={description} />

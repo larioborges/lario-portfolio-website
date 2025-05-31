@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	Motion, 
+	Motion,
 } from 'svelte-motion';
 let compProps = $props();
 </script>

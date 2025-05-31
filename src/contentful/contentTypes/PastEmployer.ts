@@ -1,19 +1,27 @@
 import type {
-	Document, 
+	Document,
 } from '@contentful/rich-text-types';
 import type {
-	Entry, EntryFieldTypes, UnresolvedLink, 
+	Entry, EntryFieldTypes, UnresolvedLink,
 } from 'contentful';
 import type {
-	Institution, 
+	Institution,
 } from './Institution';
 
+export interface PastEmployerResponse {
+	companyName: string;
+	companyWebsiteUrl: string;
+	companyLocation: string;
+	companyGoogleMapsUrl: string | undefined;
+	period: string;
+	position: string;
+	description: string;
+}
 export interface PastEmployerFields {
 	company: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	position: string;
 	period: string;
 	description: Document;
-	descriptionHtml?: Document;
 }
 
 export interface PastEmployer {

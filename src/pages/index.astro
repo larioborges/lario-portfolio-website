@@ -12,11 +12,25 @@ import {
 	getAwards,
 	getPersonalInfo,
 	getPastEmployers,
+	getSkillCategories,
+	getCertifications,
 } from '@/contentful/content';
 
-const personalInfo = await getPersonalInfo();
-const awards = await getAwards();
-const pastEmployers = await getPastEmployers();
+const [
+	personalInfo,
+	awards,
+	pastEmployers,
+	skillCategories,
+	certifications,
+] = (await Promise.all(
+	[
+		getPersonalInfo(),
+		getAwards(),
+		getPastEmployers(),
+		getSkillCategories(),
+		getCertifications(),
+	],
+));
 ---
 
 <Layout>
@@ -34,12 +48,12 @@ const pastEmployers = await getPastEmployers();
 			client:only='svelte'
 		/>
 		<ProjectShowcase client:only='svelte' />
-		<SkillsSection client:only='svelte' />
+		<SkillsSection {skillCategories} client:only='svelte' />
 		<AwardsSection
 			{awards}
 			client:only='svelte'
 		/>
-		<EducationSection client:only='svelte' />
+		<EducationSection {certifications} client:only='svelte' />
 	</main>
 	<Footer
 		name={personalInfo.name}

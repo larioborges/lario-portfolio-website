@@ -7,7 +7,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import sveltePlugin from 'eslint-plugin-svelte';
 import {
-	globalIgnores, 
+	globalIgnores,
 } from 'eslint/config';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -27,8 +27,8 @@ export default tseslint.config(
 	),
 	{
 		plugins: {
-			'@stylistic': stylistic, 
-		}, 
+			'@stylistic': stylistic,
+		},
 	},
 	{
 		files: [
@@ -57,14 +57,14 @@ export default tseslint.config(
 	{
 		files: ['**/*.json'],
 		plugins: {
-			json, 
+			json,
 		},
 		processor: 'json/json',
 	},
 	{
 		files: ['**/*.astro'],
 		plugins: {
-			astro: eslintPluginAstro, 
+			astro: eslintPluginAstro,
 		},
 		languageOptions: {
 			parser: astroparser,
@@ -80,7 +80,7 @@ export default tseslint.config(
 	{
 		files: ['**/*.svelte'],
 		plugins: {
-			svelte: sveltePlugin, 
+			svelte: sveltePlugin,
 		},
 		languageOptions: {
 			parserOptions: {
@@ -94,8 +94,8 @@ export default tseslint.config(
 	},
 	{
 		plugins: {
-			prettier: prettierPlugin, 
-		}, 
+			prettier: prettierPlugin,
+		},
 	},
 	eslint.configs.recommended,
 	tseslint.configs.eslintRecommended,
@@ -111,18 +111,43 @@ export default tseslint.config(
 			'@stylistic/function-paren-newline': [
 				'error',
 				'multiline-arguments',
+				// 'always',
 			],
 			'@stylistic/object-curly-newline': [
 				'error',
-				'always',
+				// 'always',
+				{
+					'ObjectExpression': {
+						'multiline': true,
+						'minProperties': 1,
+					},
+					'ObjectPattern': {
+						'multiline': true,
+						'minProperties': 1,
+					},
+					'ImportDeclaration': {
+						'multiline': true,
+						'minProperties': 1,
+					},
+					'ExportDeclaration': {
+						'multiline': true,
+						'minProperties': 1,
+					},
+				},
 			],
 			'@stylistic/quotes': ['error', 'single'],
 			'@stylistic/comma-dangle': ['error', 'always-multiline'],
 			'@stylistic/newline-per-chained-call': ['error', {
-				'ignoreChainWithDepth': 1, 
+				'ignoreChainWithDepth': 1,
 			}],
 			'@stylistic/object-curly-spacing': ['error', 'always'],
-			'@stylistic/indent': ['error', 'tab'], 
+			'@stylistic/object-property-newline': ['error'],
+			'@stylistic/function-call-argument-newline': ['error', 'always'],
+			'@stylistic/indent': ['error', 'tab'],
+			'@stylistic/one-var-declaration-per-line': ['error', 'always'],
+			'@stylistic/no-trailing-spaces': 'error',
+			'no-unused-vars': 'off',
+			'@typescript-eslint/no-unused-vars': ['error'],
 		},
 	},
 );

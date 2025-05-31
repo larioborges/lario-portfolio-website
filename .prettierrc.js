@@ -14,13 +14,13 @@ export default {
 		{
 			files: 'src/**/*.svelte',
 			options: {
-				parser: 'svelte', 
+				parser: 'svelte',
 			},
 		},
 		{
 			files: 'src/**/*.astro',
 			options: {
-				parser: 'astro', 
+				parser: 'astro',
 			},
 		},
 	],

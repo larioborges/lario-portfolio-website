@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	Mail, MapPin, 
+	Mail, MapPin,
 } from 'lucide-svelte';
 import GithubIcon from '@/icons/Github.svelte';
 import LinkedInIcon from '@/icons/LinkedIn.svelte';
@@ -12,13 +12,13 @@ import MotionP from '@/motion/MotionP.svelte';
 import MotionA from '@/motion/MotionA.svelte';
 import nerd from '@/images/nerd.webp';
 import type {
-	AssetFields, 
+	AssetFields,
 } from 'contentful';
 import HtmlElement from '@/ui/HtmlElement.svelte';
 
 const containerVariants = {
 	hidden: {
-		opacity: 0, 
+		opacity: 0,
 	},
 	visible: {
 		opacity: 1,
@@ -38,7 +38,7 @@ const childVariants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5, 
+			duration: 0.5,
 		},
 	},
 };
@@ -50,15 +50,15 @@ const {
 	email,
 	githubUrl,
 	linkedInUrl,
-	introHtml,
+	intro,
 } = $props();
 const {
-	fields: profileImageFields, 
+	fields: profileImageFields,
 }: {
-	fields: AssetFields 
+	fields: AssetFields
 } = profileImage;
 const {
-	fields: locationFields, 
+	fields: locationFields,
 } = location;
 </script>
 
@@ -79,19 +79,20 @@ const {
 					<MotionSpan
 						class="inline-block"
 						initial={{
-							rotate: 0, 
+							rotate: 0,
 						}}
 						whileHover={{
-							rotate: 360, 
+							rotate: 360,
 						}}
 						transition={{
-							duration: 0.5, 
+							duration: 0.5,
 						}}
 					>
 						<img
 							alt="nerd"
 							src={nerd.src}
 							width="45px"
+							height="45px"
 							class="ml-3 inline-block align-middle"
 						/>
 					</MotionSpan>
@@ -175,10 +176,10 @@ const {
 			<MotionDiv
 				variants={childVariants}
 				whileHover={{
-					scale: 1.05, 
+					scale: 1.05,
 				}}
 				whileTap={{
-					scale: 0.95, 
+					scale: 0.95,
 				}}
 				class="mt-6 flex justify-center md:mt-0"
 			>
@@ -188,6 +189,8 @@ const {
 					></div>
 					{#if profileImageFields && profileImageFields.file}
 						<img
+							height="192px"
+							width="192px"
 							src={profileImageFields.file.url}
 							alt={profileImageFields.title}
 							class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
@@ -206,7 +209,7 @@ const {
 					<span
 						class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
-					<HtmlElement content={introHtml} />
+					<HtmlElement content={intro} />
 				</div>
 			</div>
 		</MotionWrapper>

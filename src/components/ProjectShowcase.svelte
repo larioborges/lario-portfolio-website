@@ -1,10 +1,10 @@
 <script lang="ts">
 import {
-	projectShowcase, 
+	projectShowcase,
 } from '@/data';
 import TimelineItem from '@/ui/TimelineItem.svelte';
 import {
-	Briefcase, Star, 
+	Briefcase, Star,
 } from 'lucide-svelte';
 import MotionWrapper from '@/components/motion/MotionWrapper.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
@@ -25,17 +25,17 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 				<MotionSpan
 					class="mr-2 inline-block"
 					initial={{
-						rotate: 0, 
+						rotate: 0,
 					}}
 					whileInView={{
-						rotate: [0, -10, 10, -5, 5, 0], 
+						rotate: [0, -10, 10, -5, 5, 0],
 					}}
 					transition={{
 						duration: 0.5,
 						delay: 0.2,
 					}}
 					viewport={{
-						once: true, 
+						once: true,
 					}}
 				>
 					💼
@@ -74,7 +74,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 							delay: 0.2,
 						}}
 						viewport={{
-							once: true, 
+							once: true,
 						}}
 					>
 						<div class="mb-3 flex items-center">
@@ -102,7 +102,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 										delay: 0.1 * i,
 									}}
 									viewport={{
-										once: true, 
+										once: true,
 									}}
 								>
 									{role}
@@ -125,7 +125,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 							delay: 0.2,
 						}}
 						viewport={{
-							once: true, 
+							once: true,
 						}}
 					>
 						<div class="mb-3 flex items-center">
@@ -153,7 +153,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 										delay: 0.1 * i,
 									}}
 									viewport={{
-										once: true, 
+										once: true,
 									}}
 								>
 									{highlight}

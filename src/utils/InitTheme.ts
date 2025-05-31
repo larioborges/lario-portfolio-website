@@ -1,4 +1,4 @@
-export default () => {
+export const InitTheme = () => {
 	const theme =
 		(() =>
 			localStorage.getItem(
@@ -10,5 +10,10 @@ export default () => {
 				: 'dark')() == 'dark'
 			? 'dark'
 			: 'light';
-	localStorage.setItem('theme', theme);
+	localStorage.setItem(
+		'theme',
+		theme,
+	);
 };
+
+export default InitTheme;

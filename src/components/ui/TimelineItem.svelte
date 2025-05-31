@@ -1,6 +1,6 @@
 <script lang="ts">
 import {
-	cn, 
+	cn,
 } from '@/utils';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 
@@ -41,10 +41,10 @@ let {
 		<MotionDiv
 			class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50"
 			initial={{
-				scale: 0, 
+				scale: 0,
 			}}
 			whileInView={{
-				scale: 1, 
+				scale: 1,
 			}}
 			transition={{
 				type: 'spring',
@@ -61,10 +61,10 @@ let {
 			<MotionDiv
 				class="w-px grow bg-gradient-to-b from-yellow-500/50 to-green-500/30 dark:from-yellow-500/30 dark:to-yellow-100/10"
 				initial={{
-					height: 0, 
+					height: 0,
 				}}
 				whileInView={{
-					height: '100%', 
+					height: '100%',
 				}}
 				transition={{
 					duration: 0.8,
@@ -77,7 +77,10 @@ let {
 			></MotionDiv>
 		{/if}
 	</div>
-	<div class={cn('pb-8', isLast ? 'pb-0' : '')}>
+	<div class={cn(
+		'pb-8',
+		isLast ? 'pb-0' : '',
+	)}>
 		<MotionDiv
 			class="flex flex-col gap-0.5"
 			initial={{
@@ -135,10 +138,10 @@ let {
 				<div>
 					<MotionDiv
 						initial={{
-							opacity: 0, 
+							opacity: 0,
 						}}
 						whileInView={{
-							opacity: 1, 
+							opacity: 1,
 						}}
 						transition={{
 							duration: 0.5,

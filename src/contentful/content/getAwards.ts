@@ -1,42 +1,39 @@
 import type {
-	Award, 
+	Award,
+	AwardResponse,
+	InstitutionFields,
+	AwardFields,
 } from '@/contentful/contentTypes';
 import {
-	contentfulClient, 
-} from '..';
-import type {
-	Institution, 
-} from '../contentTypes';
+	contentfulClient,
+} from '@/contentful';
 
 const getAwardEntries = async () =>
 	await contentfulClient.getEntries<Award>(
 		{
-			content_type: 'award', 
+			content_type: 'award',
 		},
 	);
+
+const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntryFields: InstitutionFields): AwardResponse => ({
+	name: awardsEntryFields.name,
+	issuerWebsiteUrl: issuerEntryFields.websiteUrl,
+	issuerName: issuerEntryFields.name,
+	date: awardsEntryFields.date,
+	tags: awardsEntryFields.tags,
+});
+
+const getIssuerFields = (awardsEntryFields:AwardFields) => (awardsEntryFields.issuer as { fields: InstitutionFields }).fields
 
 export const getAwards = async () =>
 	await Promise.all(
 		(await getAwardEntries()).items.map(
-			async award => {
-				const {
-					name, date, tags, issuer, 
-				} = award.fields;
-				const issuerEntry = await contentfulClient.getEntry<Institution>(
-					issuer.sys.id,
-				);
-				const {
-					websiteUrl: issuerWebsiteUrl, name: issuerName, 
-				} =
-				issuerEntry.fields;
-				return {
-					name,
-					issuerWebsiteUrl,
-					issuerName,
-					date,
-					tags,
-				};
-			},
+			async ({
+				fields: awardFields,
+			}):Promise<AwardResponse> => createPastEmployerResponseObj(
+				awardFields,
+				getIssuerFields(awardFields),
+			),
 		),
 	);
 

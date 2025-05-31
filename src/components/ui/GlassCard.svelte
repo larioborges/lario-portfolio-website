@@ -1,11 +1,11 @@
 <script lang="ts">
 import {
-	cn, 
+	cn,
 } from '@/utils';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 
 let {
-	children, className, hoverEffect = true, ...props 
+	children, className, hoverEffect = true, ...props
 } = $props();
 </script>
 
@@ -19,7 +19,7 @@ let {
 		? {
 			y: -5,
 			transition: {
-				duration: 0.2, 
+				duration: 0.2,
 			},
 		}
 		: undefined}

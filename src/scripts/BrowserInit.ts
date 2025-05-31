@@ -1,5 +1,5 @@
 import {
-	InitTheme, 
+	InitTheme,
 } from '@/utils';
 
 InitTheme();

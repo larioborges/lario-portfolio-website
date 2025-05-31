@@ -1,7 +1,4 @@
 <script lang="ts">
-import {
-	skills, 
-} from '@/data';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
@@ -9,12 +6,12 @@ import MotionDiv from '@/motion/MotionDiv.svelte';
 
 const containerVariants = {
 	hidden: {
-		opacity: 0, 
+		opacity: 0,
 	},
 	visible: {
 		opacity: 1,
 		transition: {
-			staggerChildren: 0.1, 
+			staggerChildren: 0.1,
 		},
 	},
 };
@@ -28,10 +25,14 @@ const skillCategoryVariants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5, 
+			duration: 0.5,
 		},
 	},
 };
+
+const {
+	skillCategories,
+} = $props();
 </script>
 
 {#snippet categoryHeading(name: string, icon: string)}
@@ -58,7 +59,10 @@ const skillCategoryVariants = {
 {#snippet categorySection(category: string, icon: string, skills: string[])}
 	<MotionDiv variants={skillCategoryVariants}>
 		<GlassCard className="p-4">
-			{@render categoryHeading(category, icon)}
+			{@render categoryHeading(
+				category,
+				icon,
+			)}
 			{@render skillTags(
 				skills,
 			)}
@@ -87,33 +91,15 @@ const skillCategoryVariants = {
 				margin: '-50px',
 			}}
 		>
-			{@render categorySection(
-				'Programming Languages',
-				'💻',
-				skills.programmingLanguages,
-			)}
-			{@render categorySection(
-				'Frontend Development',
-				'🎨',
-				skills.frontendDevelopment,
-			)}
-			{@render categorySection(
-				'Backend Development',
-				'⚙️',
-				skills.backendDevelopment,
-			)}
-			{@render categorySection(
-				'Database & Storage',
-				'🗄️',
-				skills.databaseAndStorage,
-			)}
-			{@render categorySection('Content Management Systems', '📝', skills.cms)}
-			{@render categorySection('Cloud & DevOps', '☁️', skills.cloudAndDevOps)}
-			{@render categorySection(
-				'Tools & Services',
-				'🧰',
-				skills.toolsAndServices,
-			)}
+			{#each skillCategories as {
+				name, icon, skills,
+			}, index (`${name}-${index}`)}
+				{@render categorySection(
+					name,
+					icon,
+					skills,
+				)}
+			{/each}
 		</MotionDiv>
 	</div>
 </section>
