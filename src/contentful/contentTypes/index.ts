@@ -7,3 +7,4 @@ export * from './PersonalInfo';
 export * from './Seo';
 export * from './Skill';
 export * from './SkillCategory';
+export * from './ShowcaseProject';

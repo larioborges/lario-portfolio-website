@@ -92,6 +92,7 @@ const {
 							alt="nerd"
 							src={nerd.src}
 							width="45px"
+							height="45px"
 							class="ml-3 inline-block align-middle"
 						/>
 					</MotionSpan>
@@ -188,6 +189,8 @@ const {
 					></div>
 					{#if profileImageFields && profileImageFields.file}
 						<img
+							height="192px"
+							width="192px"
 							src={profileImageFields.file.url}
 							alt={profileImageFields.title}
 							class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
