@@ -13,7 +13,6 @@ export interface PastEmployerFields {
 	position: string;
 	period: string;
 	description: Document;
-	descriptionHtml?: Document;
 }
 
 export interface PastEmployer {

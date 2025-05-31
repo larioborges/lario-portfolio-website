@@ -50,7 +50,7 @@ const {
 	email,
 	githubUrl,
 	linkedInUrl,
-	introHtml,
+	intro,
 } = $props();
 const {
 	fields: profileImageFields,
@@ -206,7 +206,7 @@ const {
 					<span
 						class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
-					<HtmlElement content={introHtml} />
+					<HtmlElement content={intro} />
 				</div>
 			</div>
 		</MotionWrapper>

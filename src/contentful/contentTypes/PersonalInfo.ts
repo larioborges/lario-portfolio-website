@@ -8,15 +8,20 @@ import type {
 	Location,
 } from './Location';
 
-export interface PersonalInfoFields {
+export interface PersonalInfoFieldsBase {
 	name: string;
 	profileImage: UnresolvedLink<'Asset'> | Asset<undefined, string>;
 	location: UnresolvedLink<'Entry'> | Entry<Location, undefined, string>;
 	email: string;
 	githubUrl: string;
 	linkedInUrl: string;
+}
+
+export interface PersonalInfoResponse extends PersonalInfoFieldsBase {
+	intro: string;
+}
+export interface PersonalInfoFields extends PersonalInfoFieldsBase {
 	intro: Document;
-	introHtml?: string;
 }
 export interface PersonalInfo {
 	contentTypeId: 'personalInfo';

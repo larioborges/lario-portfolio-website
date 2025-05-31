@@ -1,7 +1,4 @@
 export {
-	default as education,
-} from './education';
-export {
 	default as pennyThoughts,
 } from './pennyThoughts';
 export {

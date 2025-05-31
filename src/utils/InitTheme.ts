@@ -1,4 +1,4 @@
-export default () => {
+export const InitTheme = () => {
 	const theme =
 		(() =>
 			localStorage.getItem(
@@ -15,3 +15,5 @@ export default () => {
 		theme,
 	);
 };
+
+export default InitTheme;

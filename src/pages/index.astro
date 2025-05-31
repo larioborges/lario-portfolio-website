@@ -13,12 +13,14 @@ import {
 	getPersonalInfo,
 	getPastEmployers,
 	getSkillCategories,
+	getCertifications,
 } from '@/contentful/content';
 
 const personalInfo = await getPersonalInfo();
 const awards = await getAwards();
 const pastEmployers = await getPastEmployers();
 const skillCategories = await getSkillCategories();
+const certifications = await getCertifications();
 ---
 
 <Layout>
@@ -41,7 +43,7 @@ const skillCategories = await getSkillCategories();
 			{awards}
 			client:only='svelte'
 		/>
-		<EducationSection client:only='svelte' />
+		<EducationSection {certifications} client:only='svelte' />
 	</main>
 	<Footer
 		name={personalInfo.name}
