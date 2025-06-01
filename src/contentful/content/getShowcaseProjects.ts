@@ -18,8 +18,8 @@ import type {
 	Entry,
 } from 'contentful';
 
-const getShowcaseProjectsEntries = async () =>
-	await contentfulClient.getEntries<ShowcaseProject>(
+const getShowcaseProjectsEntries = () =>
+	contentfulClient.getEntries<ShowcaseProject>(
 		{
 			content_type: 'showcaseProject',
 		},
@@ -51,8 +51,12 @@ const getLocationFieldsFromInstitution = async (institutionEntryFields: Institut
 
 const getLocationFields = async (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
 	getClientFields(showcaseProjectEntryFields) != undefined ?
-		await getLocationFieldsFromInstitution(getClientFields(showcaseProjectEntryFields)) :
-		await getLocationFieldsFromInstitution(getEmployerFields(showcaseProjectEntryFields));
+		await getLocationFieldsFromInstitution(
+			getClientFields(showcaseProjectEntryFields),
+		) :
+		await getLocationFieldsFromInstitution(
+			getEmployerFields(showcaseProjectEntryFields),
+		);
 
 const getClientFields = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
 	(showcaseProjectEntryFields.client as Entry<Institution, undefined, string> | undefined)?.fields as unknown as InstitutionFields | undefined;

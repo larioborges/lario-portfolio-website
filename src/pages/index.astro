@@ -14,8 +14,12 @@ import {
 	getPastEmployers,
 	getSkillCategories,
 	getCertifications,
+	getSeoFieldsById,
 } from '@/contentful/content';
 import getShowcaseProjects from '@/contentful/content/getShowcaseProjects';
+import type {
+	Asset, AssetFields,
+} from 'contentful';
 
 const [
 	personalInfo,
@@ -24,6 +28,7 @@ const [
 	skillCategories,
 	certifications,
 	showcaseProjects,
+	seoFields,
 ] = (await Promise.all(
 	[
 		getPersonalInfo(),
@@ -32,11 +37,12 @@ const [
 		getSkillCategories(),
 		getCertifications(),
 		getShowcaseProjects(),
+		getSeoFieldsById('4a3PYeoBpPFuf3MyhVTt8G'),
 	],
 ));
 ---
 
-<Layout>
+<Layout {...seoFields} siteName={seoFields.title} images={(seoFields.images?.map((image) => (image as Asset).fields) as AssetFields[])}>
 	<GlassHeader
 		name={personalInfo.name}
 		client:only='svelte'
