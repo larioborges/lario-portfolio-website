@@ -1,7 +1,7 @@
 import type {
 	Award,
 	AwardResponse,
-	InstitutionFields,
+	InstitutionResponse,
 	AwardFields,
 } from '@/contentful/contentTypes';
 import {
@@ -15,7 +15,7 @@ const getAwardEntries = async () =>
 		},
 	);
 
-const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntryFields: InstitutionFields): AwardResponse => ({
+const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntryFields: InstitutionResponse): AwardResponse => ({
 	name: awardsEntryFields.name,
 	issuerWebsiteUrl: issuerEntryFields.websiteUrl,
 	issuerName: issuerEntryFields.name,
@@ -23,7 +23,7 @@ const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntr
 	tags: awardsEntryFields.tags,
 });
 
-const getIssuerFields = (awardsEntryFields:AwardFields) => (awardsEntryFields.issuer as { fields: InstitutionFields }).fields
+const getIssuerFields = (awardsEntryFields:AwardFields) => (awardsEntryFields.issuer as { fields: InstitutionResponse }).fields
 
 export const getAwards = async () =>
 	await Promise.all(

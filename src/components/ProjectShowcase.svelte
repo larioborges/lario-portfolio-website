@@ -10,7 +10,11 @@ import MotionWrapper from '@/components/motion/MotionWrapper.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
 import MotionDiv from '@/components/motion/MotionDiv.svelte';
 import MotionSpan from '@/components/motion/MotionSpan.svelte';
-import MotionLi from '@/components/motion/MotionLi.svelte';
+	import HtmlElement from './ui/HtmlElement.svelte';
+
+const {
+	showcaseProjects,
+} = $props();
 </script>
 
 <section
@@ -43,19 +47,21 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 			</h2>
 		</MotionWrapper>
 		<div class="mb-8">
-			{#each projectShowcase as project, index (`${project.title}-${project.period}`)}
+			{#each showcaseProjects as project, index (`${project.title}-${project.period}`)}
 				<TimelineItem
-					title={`👨‍💻 ${project.title}`}
-					subtitle={`🌍 ${project.employer}`}
+					title={`👨‍💻 ${project.name}`}
+					subtitle={`🌍 ${project.employerName}`}
+					subtitleHref={project.employerWebsiteUrl}
 					location={project.location}
+					locationHref={project.locationGoogleMapsUrl}
 					date={project.period}
 					isLast={index === projectShowcase.length - 1}
 					{index}
 				>
 					<div class="flex flex-wrap justify-center gap-2 md:justify-start">
-						{#each project.tags as tag, index (`${tag}-${project.title}`)}
+						{#each project.skills as skill, index (`${skill}-${project.title}`)}
 							<SkillTag {index}>
-								{tag}
+								{skill}
 							</SkillTag>
 						{/each}
 					</div>
@@ -86,28 +92,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 							<h4 class="text-sm font-medium">Job Role</h4>
 						</div>
 						<div class="ml-4 list-none space-y-2 text-sm">
-							{#each project.description as role, i (`${role}-${i}`)}
-								<MotionLi
-									class="text-muted-foreground relative pl-2"
-									initial={{
-										opacity: 0,
-										x: -10,
-									}}
-									whileInView={{
-										opacity: 1,
-										x: 0,
-									}}
-									transition={{
-										duration: 0.3,
-										delay: 0.1 * i,
-									}}
-									viewport={{
-										once: true,
-									}}
-								>
-									{role}
-								</MotionLi>
-							{/each}
+							<HtmlElement content={project.description} />
 						</div>
 					</MotionDiv>
 					<MotionDiv
@@ -136,30 +121,7 @@ import MotionLi from '@/components/motion/MotionLi.svelte';
 							</div>
 							<h4 class="text-sm font-medium">Highlights</h4>
 						</div>
-						<ul class="list-circle ml-4 space-y-2 text-sm">
-							{#each project.highlights as highlight, i (`${highlight}-${project.period}`)}
-								<MotionLi
-									class="text-muted-foreground relative pl-2"
-									initial={{
-										opacity: 0,
-										x: -10,
-									}}
-									whileInView={{
-										opacity: 1,
-										x: 0,
-									}}
-									transition={{
-										duration: 0.3,
-										delay: 0.1 * i,
-									}}
-									viewport={{
-										once: true,
-									}}
-								>
-									{highlight}
-								</MotionLi>
-							{/each}
-						</ul>
+						<HtmlElement content={project.highlights} />
 					</MotionDiv>
 				</TimelineItem>
 			{/each}

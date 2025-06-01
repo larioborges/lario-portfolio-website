@@ -1,5 +1,5 @@
 import type {
-	InstitutionFields,
+	InstitutionResponse,
 	Location,
 	LocationFields,
 	PastEmployer,
@@ -20,7 +20,7 @@ const getPastEmployerEntries = async () =>
 		},
 	);
 
-const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionFields, locationEntryFields: LocationFields): PastEmployerResponse => ({
+const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionResponse, locationEntryFields: LocationFields): PastEmployerResponse => ({
 	companyName: companyEntryFields.name,
 	companyWebsiteUrl: companyEntryFields.websiteUrl,
 	companyLocation: locationEntryFields.name,
@@ -32,10 +32,10 @@ const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFiel
 	),
 });
 
-const getCompanyFields = (pastEmployerEntryFields: PastEmployerFields) => (pastEmployerEntryFields.company as { fields: InstitutionFields }).fields
+const getCompanyFields = (pastEmployerEntryFields: PastEmployerFields) => (pastEmployerEntryFields.company as { fields: InstitutionResponse }).fields
 
 const getLocationFields = async (pastEmployerEntryFields: PastEmployerFields) => (await contentfulClient.getEntry<Location>(
-	(pastEmployerEntryFields.company as { fields: InstitutionFields }).fields.location.sys.id,
+	(pastEmployerEntryFields.company as { fields: InstitutionResponse }).fields.location.sys.id,
 )).fields;
 
 export const getPastEmployers = async () =>
