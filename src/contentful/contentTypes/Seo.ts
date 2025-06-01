@@ -3,6 +3,11 @@ import type {
 } from 'contentful';
 
 export interface Seo {
-	title: EntryFieldTypes.Symbol<string>;
-	description: EntryFieldTypes.Symbol<string>;
-}
+	contentTypeId: 'skill';
+	fields: {
+		title: EntryFieldTypes.Symbol<string>;
+		description: EntryFieldTypes.Symbol<string>;
+		canonicalUrl: EntryFieldTypes.Symbol<string>;
+		images?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink> | undefined;
+	}
+};

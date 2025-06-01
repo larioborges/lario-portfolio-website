@@ -8,25 +8,51 @@ import {
 } from 'astro-google-analytics';
 import {
 	AstroSeo,
+	type OpenGraph,
 } from '@astrolib/seo';
 import favicon from '@/assets/images/favicon.webp';
 import {
 	Head,
 } from 'astro-capo';
+import type {
+	AssetFields,
+} from 'contentful';
 
 interface Props {
-	title?: string;
-	description?: string;
-	canonicalUrl?: string;
-	siteName?: string;
+	title: string;
+	description: string;
+	canonicalUrl: string;
+	siteName: string;
+	images?: AssetFields[] | undefined,
 }
 
 const {
-	title = 'Lario Borges - Full Stack Web Engineer',
-	description = 'Bright, experienced and diligent Web Engineer and web front end specialist. Get to know some the nut in this shell (AKA Lario Borges).',
-	canonicalUrl = 'https://lariocpt.biz',
-	siteName = 'Lario Borges - Full Stack Web Engineer',
+	title,
+	description,
+	canonicalUrl,
+	siteName,
+	images,
 } = Astro.props;
+
+const openGraph = images != undefined ? {
+	url: canonicalUrl,
+	title,
+	description,
+	site_name: siteName,
+	images: images.map(image => ({
+		url: image.file?.url,
+		width: image.file?.details.image?.width,
+		height: image.file?.details.image?.height,
+		alt: image.description,
+		type: image.file?.contentType,
+	})),
+} :
+	{
+		url: canonicalUrl,
+		title,
+		description,
+		site_name: siteName,
+	};
 ---
 
 <style>
@@ -68,35 +94,48 @@ const {
 			name='generator'
 			content={Astro.generator}
 		/>
+		<!--// TODO Lario - imtegrate images from the cnms
+
+		// ‍Key Points
+		// Why optimize images for SEO? Optimized images can improve page rankings, load speed, and accessibility, attracting more visitors.
+		// Best image formats for SEO: Use WebP for speed and compression. Use PNG for lossless quality and transparency. Use JPG for compatibility.
+		// Ideal image sizes and ratios:
+		// Open Graph:
+		// 1200px × 628px (1:1.9.1)
+		// 1600px x 900px (16:9)
+		// 1200px x 675px (16:9)
+		// 1200px x 1200px (1:1)
+		// 1200px x 900px (4:3)
+
+		// Recommended Aspect Ratios:
+		// 16:9: Commonly used for hero images, background images, and video content.
+		// 3:2: Suitable for landscape photos and blog images.
+		// 1:1: Ideal for square images and logos, offering more flexibility in cropping
+
+		// TODO Lario
+		// images: [
+		//   {
+		//     url: 'https://www.example.ie/og-image-01.jpg',
+		//     width: 800,
+		//     height: 600,
+		//     alt: 'Og Image Alt',
+		//     type: 'image/jpeg',
+		//   },
+		//   {
+		//     url: 'https://www.example.ie/og-image-02.jpg',
+		//     width: 900,
+		//     height: 800,
+		//     alt: 'Og Image Alt Second',
+		//     type: 'image/jpeg',
+		//   },
+		//   { url: 'https://www.example.ie/og-image-03.jpg' },
+		//   { url: 'https://www.example.ie/og-image-04.jpg' },
+		// ],--->
 		<AstroSeo
 			{title}
 			{description}
 			canonical={canonicalUrl}
-			openGraph={{
-				url: canonicalUrl,
-				title,
-				description,
-				// TODO Lario
-				// images: [
-				//   {
-				//     url: 'https://www.example.ie/og-image-01.jpg',
-				//     width: 800,
-				//     height: 600,
-				//     alt: 'Og Image Alt',
-				//     type: 'image/jpeg',
-				//   },
-				//   {
-				//     url: 'https://www.example.ie/og-image-02.jpg',
-				//     width: 900,
-				//     height: 800,
-				//     alt: 'Og Image Alt Second',
-				//     type: 'image/jpeg',
-				//   },
-				//   { url: 'https://www.example.ie/og-image-03.jpg' },
-				//   { url: 'https://www.example.ie/og-image-04.jpg' },
-				// ],
-				site_name: siteName,
-			}}
+			openGraph={openGraph as unknown as OpenGraph}
 		/>
 		<AstroFont
 			config={[
