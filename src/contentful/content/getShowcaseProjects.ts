@@ -2,9 +2,11 @@ import type {
 	InstitutionFields,
 	Location,
 	LocationFields,
-	PastEmployer,
-	PastEmployerFields,
-	PastEmployerResponse,
+	ShowcaseProject,
+	ShowcaseProjectResponse,
+	ShowcaseProjectEntryFieldValues,
+	SkillEntry,
+	Institution,
 } from '@/contentful/contentTypes';
 import {
 	documentToHtmlString,
@@ -12,43 +14,66 @@ import {
 import {
 	contentfulClient,
 } from '@/contentful';
+import type {
+	Entry,
+} from 'contentful';
 
-const getPastEmployerEntries = async () =>
-	await contentfulClient.getEntries<PastEmployer>(
+const getShowcaseProjectsEntries = async () =>
+	await contentfulClient.getEntries<ShowcaseProject>(
 		{
-			content_type: 'pastEmployer',
+			content_type: 'showcaseProject',
 		},
 	);
 
-const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionFields, locationEntryFields: LocationFields): PastEmployerResponse => ({
-	companyName: companyEntryFields.name,
-	companyWebsiteUrl: companyEntryFields.websiteUrl,
-	companyLocation: locationEntryFields.name,
-	companyGoogleMapsUrl: locationEntryFields.googleMapsUrl,
-	period: pastEmployerEntryFields.period,
-	position: pastEmployerEntryFields.position,
+const createShowcaseProjectResponseObj = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues, employerEntryFields: InstitutionFields, clientEntryFields: InstitutionFields | undefined, locationEntryFields: LocationFields): ShowcaseProjectResponse => ({
+	name: showcaseProjectEntryFields.name,
+	employerName: employerEntryFields.name,
+	employerWebsiteUrl: employerEntryFields.websiteUrl,
+	clientName: clientEntryFields?.name,
+	clientWebsiteUrl: clientEntryFields?.websiteUrl,
+	location: locationEntryFields.name,
+	locationGoogleMapsUrl: locationEntryFields.googleMapsUrl,
+	period: showcaseProjectEntryFields.period,
+	skills: showcaseProjectEntryFields.skills.map(skill => (skill as SkillEntry).fields.name),
 	description: documentToHtmlString(
-		pastEmployerEntryFields.description,
+		showcaseProjectEntryFields.description,
+	),
+	highlights: documentToHtmlString(
+		showcaseProjectEntryFields.highlights,
 	),
 });
 
-const getCompanyFields = (pastEmployerEntryFields: PastEmployerFields) => (pastEmployerEntryFields.company as { fields: InstitutionFields }).fields
+const getLocationFieldsFromInstitution = async (institutionEntryFields: InstitutionFields | undefined) => (
+	await contentfulClient.getEntry<Location>(
+		(institutionEntryFields?.location as unknown as { sys: { id: string } }).sys.id,
+	)
+).fields;
 
-const getLocationFields = async (pastEmployerEntryFields: PastEmployerFields) => (await contentfulClient.getEntry<Location>(
-	(pastEmployerEntryFields.company as { fields: InstitutionFields }).fields.location.sys.id,
-)).fields;
+const getLocationFields = async (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
+	getClientFields(showcaseProjectEntryFields) != undefined ?
+		await getLocationFieldsFromInstitution(getClientFields(showcaseProjectEntryFields)) :
+		await getLocationFieldsFromInstitution(getEmployerFields(showcaseProjectEntryFields));
 
-export const getPastEmployers = async () =>
+const getClientFields = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
+	(showcaseProjectEntryFields.client as Entry<Institution, undefined, string> | undefined)?.fields as unknown as InstitutionFields | undefined;
+
+const getEmployerFields = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
+	(showcaseProjectEntryFields.employer as Entry<Institution, undefined, string>).fields as unknown as InstitutionFields;
+
+export const getShowcaseProjects: () => Promise<ShowcaseProjectResponse[]> = async () =>
 	await Promise.all(
-		(await getPastEmployerEntries()).items.map(
+		(await getShowcaseProjectsEntries()).items.map(
 			async ({
-				fields: pastEmployerEntryFields,
-			}) => createPastEmployerResponseObj(
-				pastEmployerEntryFields,
-				getCompanyFields(pastEmployerEntryFields),
-				await getLocationFields(pastEmployerEntryFields),
+				fields: showcaseProjectEntryFields,
+			}) => (
+				createShowcaseProjectResponseObj(
+					showcaseProjectEntryFields,
+					getEmployerFields(showcaseProjectEntryFields),
+					getClientFields(showcaseProjectEntryFields),
+					await getLocationFields(showcaseProjectEntryFields),
+				)
 			),
 		),
 	);
 
-export default getPastEmployers;
+export default getShowcaseProjects;

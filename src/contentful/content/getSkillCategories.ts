@@ -4,13 +4,8 @@ import {
 import type {
 	SkillCategory,
 	SkillCategoryResponse,
+	SkillEntry,
 } from '@/contentful/contentTypes';
-
-interface SkillEntry {
-	fields: {
-		name: string;
-	}
-}
 
 const getSkillCategoryEntries = async () =>
 	await contentfulClient.getEntries<SkillCategory>(

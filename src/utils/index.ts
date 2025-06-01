@@ -1,2 +1,2 @@
-export * from '@/utils/cn';
-export * from '@/utils/InitTheme';
+export * from './cn';
+export * from './InitTheme';

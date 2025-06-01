@@ -15,6 +15,7 @@ import {
 	getSkillCategories,
 	getCertifications,
 } from '@/contentful/content';
+import getShowcaseProjects from '@/contentful/content/getShowcaseProjects';
 
 const [
 	personalInfo,
@@ -22,6 +23,7 @@ const [
 	pastEmployers,
 	skillCategories,
 	certifications,
+	showcaseProjects,
 ] = (await Promise.all(
 	[
 		getPersonalInfo(),
@@ -29,6 +31,7 @@ const [
 		getPastEmployers(),
 		getSkillCategories(),
 		getCertifications(),
+		getShowcaseProjects(),
 	],
 ));
 ---
@@ -47,7 +50,7 @@ const [
 			{pastEmployers}
 			client:only='svelte'
 		/>
-		<ProjectShowcase client:only='svelte' />
+		<ProjectShowcase {showcaseProjects} client:only='svelte' />
 		<SkillsSection {skillCategories} client:only='svelte' />
 		<AwardsSection
 			{awards}

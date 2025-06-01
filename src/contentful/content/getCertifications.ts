@@ -1,6 +1,6 @@
 import type {
 	Certification,
-	InstitutionFields,
+	InstitutionResponse,
 	Location,
 	LocationFields,
 	CertificationFields,
@@ -20,7 +20,7 @@ const getCertificationEntries = async () =>
 		},
 	);
 
-const createCertResponseObj = (certEntryFields: CertificationFields, instutionEntryFields: InstitutionFields, locationEntryFields: LocationFields):CertificationResponse => ({
+const createCertResponseObj = (certEntryFields: CertificationFields, instutionEntryFields: InstitutionResponse, locationEntryFields: LocationFields):CertificationResponse => ({
 	institutionName: instutionEntryFields.name,
 	institutionWebsiteUrl: instutionEntryFields.websiteUrl,
 	institutionLocation: locationEntryFields.name,
@@ -32,10 +32,10 @@ const createCertResponseObj = (certEntryFields: CertificationFields, instutionEn
 	),
 });
 
-const getInstitutionFields = (certEntryFields: CertificationFields) => (certEntryFields.institution as { fields: InstitutionFields }).fields
+const getInstitutionFields = (certEntryFields: CertificationFields) => (certEntryFields.institution as { fields: InstitutionResponse }).fields
 
 const getLocationFields = async (certEntryFields: CertificationFields) => (await contentfulClient.getEntry<Location>(
-	(certEntryFields.institution as { fields: InstitutionFields }).fields.location.sys.id,
+	(certEntryFields.institution as { fields: InstitutionResponse }).fields.location.sys.id,
 )).fields;
 
 export const getCertifications = async ():Promise<CertificationResponse[]> =>

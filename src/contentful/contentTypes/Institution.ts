@@ -5,11 +5,22 @@ import type {
 	Location,
 } from './Location';
 
-export interface InstitutionFields {
+export interface InstitutionResponse {
+	insitutionKey?: string;
 	name: string;
 	websiteUrl: string;
-	location: UnresolvedLink<'Entry'> | Entry<Location, undefined, string>;
+	location: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 }
+
+export interface InstitutionFieldValuesWithoutLoication {
+	name: string;
+	websiteUrl?: string;
+};
+
+export interface InstitutionFields extends InstitutionFieldValuesWithoutLoication {
+	location: EntryFieldTypes.EntryLink<Location>;
+};
+
 export interface Institution {
 	contentTypeId: 'institution';
 	fields: {
