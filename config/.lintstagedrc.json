@@ -1,0 +1,9 @@
+{
+  "*.ts": "eslint --cache --fix --config ../tsconfig.json",
+  "*.js": "eslint --cache --fix --config ../tsconfig.json",
+  "*.mjs": "eslint --cache --fix --config ../tsconfig.json",
+  "*.cjs": "eslint --cache --fix --config ../tsconfig.json",
+  "*.astro": "eslint --cache --fix --config ../tsconfig.json",
+  "*.svelte": "eslint --cache --fix --config ../tsconfig.json",
+  "*.json": "eslint --cache --fix --config ../tsconfig.json"
+}

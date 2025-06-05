@@ -25,7 +25,9 @@ const getShowcaseProjectsEntries = () =>
 		},
 	);
 
-const createShowcaseProjectResponseObj = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues, employerEntryFields: InstitutionFields, clientEntryFields: InstitutionFields | undefined, locationEntryFields: LocationFields): ShowcaseProjectResponse => ({
+const createShowcaseProjectResponseObj = (
+	showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues, employerEntryFields: InstitutionFields, clientEntryFields: InstitutionFields | undefined, locationEntryFields: LocationFields,
+): ShowcaseProjectResponse => ({
 	name: showcaseProjectEntryFields.name,
 	employerName: employerEntryFields.name,
 	employerWebsiteUrl: employerEntryFields.websiteUrl,
@@ -34,7 +36,9 @@ const createShowcaseProjectResponseObj = (showcaseProjectEntryFields: ShowcasePr
 	location: locationEntryFields.name,
 	locationGoogleMapsUrl: locationEntryFields.googleMapsUrl,
 	period: showcaseProjectEntryFields.period,
-	skills: showcaseProjectEntryFields.skills.map(skill => (skill as SkillEntry).fields.name),
+	skills: showcaseProjectEntryFields.skills.map(
+		skill => (skill as SkillEntry).fields.name,
+	),
 	description: documentToHtmlString(
 		showcaseProjectEntryFields.description,
 	),
@@ -43,38 +47,60 @@ const createShowcaseProjectResponseObj = (showcaseProjectEntryFields: ShowcasePr
 	),
 });
 
-const getLocationFieldsFromInstitution = async (institutionEntryFields: InstitutionFields | undefined) => (
+const getLocationFieldsFromInstitution = async (
+	institutionEntryFields: InstitutionFields | undefined,
+) => (
 	await contentfulClient.getEntry<Location>(
 		(institutionEntryFields?.location as unknown as { sys: { id: string } }).sys.id,
 	)
 ).fields;
 
-const getLocationFields = async (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
-	getClientFields(showcaseProjectEntryFields) != undefined ?
+const getLocationFields = async (
+	showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues,
+) =>
+	getClientFields(
+		showcaseProjectEntryFields,
+	) != undefined ?
 		await getLocationFieldsFromInstitution(
-			getClientFields(showcaseProjectEntryFields),
+			getClientFields(
+				showcaseProjectEntryFields,
+			),
 		) :
 		await getLocationFieldsFromInstitution(
-			getEmployerFields(showcaseProjectEntryFields),
+			getEmployerFields(
+				showcaseProjectEntryFields,
+			),
 		);
 
-const getClientFields = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
+const getClientFields = (
+	showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues,
+) =>
 	(showcaseProjectEntryFields.client as Entry<Institution, undefined, string> | undefined)?.fields as unknown as InstitutionFields | undefined;
 
-const getEmployerFields = (showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues) =>
+const getEmployerFields = (
+	showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues,
+) =>
 	(showcaseProjectEntryFields.employer as Entry<Institution, undefined, string>).fields as unknown as InstitutionFields;
 
 export const getShowcaseProjects: () => Promise<ShowcaseProjectResponse[]> = async () =>
 	await Promise.all(
 		(await getShowcaseProjectsEntries()).items.map(
-			async ({
-				fields: showcaseProjectEntryFields,
-			}) => (
+			async (
+				{
+					fields: showcaseProjectEntryFields,
+				},
+			) => (
 				createShowcaseProjectResponseObj(
 					showcaseProjectEntryFields,
-					getEmployerFields(showcaseProjectEntryFields),
-					getClientFields(showcaseProjectEntryFields),
-					await getLocationFields(showcaseProjectEntryFields),
+					getEmployerFields(
+						showcaseProjectEntryFields,
+					),
+					getClientFields(
+						showcaseProjectEntryFields,
+					),
+					await getLocationFields(
+						showcaseProjectEntryFields,
+					),
 				)
 			),
 		),

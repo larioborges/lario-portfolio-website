@@ -110,7 +110,9 @@ export default tseslint.config(
 			'prettier/prettier': 'off',
 			'@stylistic/function-paren-newline': [
 				'error',
-				'multiline-arguments',
+				{
+					'minItems': 1,
+				},
 				// 'always',
 			],
 			'@stylistic/object-curly-newline': [

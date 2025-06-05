@@ -26,7 +26,7 @@ export default {
 	],
 	semi: true,
 	singleQuote: true,
-	tabWidth: 2,
+	tabWidth: 15,
 	useTabs: true,
 	arrowParens: 'avoid',
 	singleAttributePerLine: true,

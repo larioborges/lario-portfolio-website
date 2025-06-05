@@ -5,7 +5,9 @@ import {
 	contentfulClient,
 } from '..';
 
-export const getSeoFieldsById = async (id: string) => (
+export const getSeoFieldsById = async (
+	id: string,
+) => (
 	await contentfulClient.getEntry<Seo>(
 		id,
 	)

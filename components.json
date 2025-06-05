@@ -22,7 +22,8 @@
     "scripts": "@/scripts",
     "styles": "@/styles",
     "layouts": "@/layouts",
-    "images": "@/images"
+    "images": "@/images",
+    "config": "@/config"
   },
   "iconLibrary": "lucide"
 }

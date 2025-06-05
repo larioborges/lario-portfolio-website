@@ -4,6 +4,22 @@
 			"path": "."
 		}
 	],
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"type": "typescript",
+        "tsconfig": "./tsconfig.json",
+        "problemMatcher": [
+            "$tsc"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        }
+			}
+		]
+	},
 	"settings": {
 		"typescript.tsdk": "./node_modules/typescript/lib",
 		"files.insertFinalNewline": true,
@@ -64,6 +80,7 @@
 	  },
 		"[toml]": {
 	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-		}
+		},
+		"eslint.options": { "configFile": "./config/eslint.config.js" },
 	}
 }
