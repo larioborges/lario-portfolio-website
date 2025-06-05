@@ -1,1 +1,1 @@
-npx lint-staged --config '../config/.lintstagedrc.json.'
+npx lint-staged

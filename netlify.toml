@@ -34,8 +34,13 @@
     includeSubDomains,
     preload
     '''
-    Content-Security-Policy = "frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com"
-    object-src='none'
+    Content-Security-Policy = '''
+    frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com,
+    object-src='none',
+    script-src=https://*.googletagmanager.com 'self',
+    img-src='self' https://*.google-analytics.com https://*.googletagmanager.com,
+    connect-src='self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
+    '''
 
 [[headers]]
   for = "*.html"
