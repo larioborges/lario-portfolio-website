@@ -1,58 +1,123 @@
 ---
 import '@/styles/global.css';
 import {
+	pwaInfo,
+} from 'virtual:pwa-info';
+import {
 	AstroFont,
 } from 'astro-font';
 import {
 	GoogleAnalytics,
 } from 'astro-google-analytics';
 import {
-	AstroSeo,
-	type OpenGraph,
-} from '@astrolib/seo';
-import favicon from '@/assets/images/favicon.webp';
+	SEO,
+} from 'astro-seo';
+import favicon from '@/assets/favicons/favicon.webp';
 import {
 	Head,
 } from 'astro-capo';
-import type {
-	AssetFields,
-} from 'contentful';
+import {
+	seoConfig,
+} from '@/config/seoConfig'
+import
+HtmlElement from '@/ui/HtmlElement.svelte';
+import ReloadPrompt from '../components/ReloadPrompt.astro';
+
+interface OpenGraphProps {
+	basic: {
+		title: string;
+		type: string;
+		image: string;
+		url?: URL | string;
+	};
+	optional?: {
+		audio?: string;
+		description?: string;
+		determiner?: string;
+		locale?: string;
+		localeAlternate?: string[];
+		siteName?: string;
+		video?: string;
+	};
+	image?: {
+		url?: string;
+		secureUrl?: string;
+		type?: string;
+		width?: number;
+		height?: number;
+		alt?: string;
+	};
+	article?: {
+		publishedTime?: string;
+		modifiedTime?: string;
+		expirationTime?: string;
+		authors?: string[];
+		section?: string;
+		tags?: string[];
+	};
+}
 
 interface Props {
 	title: string;
 	description: string;
 	canonicalUrl: string;
 	siteName: string;
-	images?: AssetFields[] | undefined,
+	image?: {
+		url?: string;
+		alt?: string;
+		width?: number;
+		height?: number;
+		type?: string,
+	},
+	article?: {
+		publishedTime?: string,
+		modifiedTime?: string,
+		expirationTime?: string,
+		authors?: string[],
+		section?: string,
+		tags?: string[],
+	}
 }
 
 const {
-	title,
-	description,
-	canonicalUrl,
-	siteName,
-	images,
-} = Astro.props;
+	title = seoConfig.siteName,
+	description = seoConfig.description,
+	canonicalUrl = seoConfig.baseURL,
+	siteName = seoConfig.siteName,
+	image = seoConfig.image,
+	article,
+}: Props = Astro.props;
 
-const openGraph = images != undefined ? {
-	url: canonicalUrl,
-	title,
-	description,
-	site_name: siteName,
-	images: images.map(image => ({
-		url: image.file?.url,
-		width: image.file?.details.image?.width,
-		height: image.file?.details.image?.height,
-		alt: image.description,
-		type: image.file?.contentType,
-	})),
-} :
-	{
-		url: canonicalUrl,
+const openGraph: OpenGraphProps = {
+	basic: {
 		title,
+		type: 'website',
+		image: (image.url as string),
+		url: canonicalUrl,
+	},
+	optional: {
+		// audio?: string,
 		description,
-		site_name: siteName,
-	};
+		// determiner?: string,
+		locale: 'en_ZA',
+		localeAlternate: ['en_US'],
+		siteName,
+	},
+};
+
+if (image != undefined) {
+	openGraph.basic.image = image.url ? image.url : seoConfig.image.url as string;
+	openGraph.image = {};
+	if (image.url) openGraph.image.url = image.url;
+	if (image.url) openGraph.image.secureUrl = image.url;
+	if (image.width) openGraph.image.width = image.width;
+	if (image.height) openGraph.image.height = image.height;
+	if (image.alt) openGraph.image.alt = image.alt;
+}
+
+if (article) {
+	openGraph.article = article;
+}
 ---
 
 <style>
@@ -80,6 +145,20 @@ const openGraph = images != undefined ? {
 	<Head>
 		<GoogleAnalytics id='G-YW069N7W3X' />
 		<script src='@/scripts/BrowserInit.ts'></script>
+		<AstroFont
+			config={[
+				{
+					src: [],
+					name: 'Inter',
+					googleFontsURL:
+						'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+					preload: true,
+					display: 'swap',
+					selector: 'body',
+					fallback: 'sans-serif',
+				},
+			]}
+		/>
 		<meta charset='UTF-8' />
 		<meta
 			name='viewport'
@@ -131,34 +210,47 @@ const openGraph = images != undefined ? {
 		//   { url: 'https://www.example.ie/og-image-03.jpg' },
 		//   { url: 'https://www.example.ie/og-image-04.jpg' },
 		// ],--->
-		<AstroSeo
-			{title}
-			{description}
-			canonical={canonicalUrl}
-			openGraph={openGraph as unknown as OpenGraph}
+		<SEO
+      {title}
+      {description}
+      {openGraph}
+      twitter={{
+      	creator: '@jonasmerlins1',
+      }}
+      extend={{
+      	link: [{
+      		rel: 'icon',
+      		href: favicon.src,
+      	}],
+      	// TODO Lario replace image
+      	meta: [
+      		{
+      			name: 'twitter:image',
+      			content: 'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
+      		},
+      		{
+      			name: 'twitter:title',
+      			content: 'Tinker Tailor Soldier Spy',
+      		},
+      		{
+      			name: 'twitter:description',
+      			content: 'Agent',
+      		},
+      	],
+      }}
 		/>
-		<AstroFont
-			config={[
-				{
-					src: [],
-					name: 'Inter',
-					googleFontsURL:
-						'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
-					preload: true,
-					display: 'swap',
-					selector: 'body',
-					fallback: 'sans-serif',
-				},
-			]}
-		/>
+		{ pwaInfo != null && <HtmlElement content={pwaInfo.webManifest.linkTag} client:only='svelte' /> }
 	</Head>
 	<body
 		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'
 	>
-		<div
-			class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
-		>
-		</div>
-		<slot />
+		<main>
+			<div
+				class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
+			>
+			</div>
+			<slot/>
+		</main>
+		<ReloadPrompt />
 	</body>
 </html>

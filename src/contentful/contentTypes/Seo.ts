@@ -8,6 +8,6 @@ export interface Seo {
 		title: EntryFieldTypes.Symbol<string>;
 		description: EntryFieldTypes.Symbol<string>;
 		canonicalUrl: EntryFieldTypes.Symbol<string>;
-		images?: EntryFieldTypes.Array<EntryFieldTypes.AssetLink> | undefined;
+		image?: EntryFieldTypes.AssetLink | undefined;
 	}
 };

@@ -1,9 +1,8 @@
 {
-  "*.ts": "eslint --cache --fix",
-  "*.js": "eslint --cache --fix",
-  "*.mjs": "eslint --cache --fix",
-  "*.cjs": "eslint --cache --fix",
-  "*.astro": "eslint --cache --fix",
-  "*.svelte": "eslint --cache --fix",
-  "*.json": "eslint --cache --fix"
+  "*.ts": "eslint --cache --fix --config config/eslint.config.ts",
+  "*.js": "eslint --cache --fix --config config/eslint.config.ts",
+  "*.mjs": "eslint --cache --fix --config config/eslint.config.ts",
+  "*.cjs": "eslint --cache --fix --config config/eslint.config.ts",
+  "*.astro": "eslint --cache --fix --config config/eslint.config.ts",
+  "*.svelte": "eslint --cache --fix --config config/eslint.config.ts"
 }

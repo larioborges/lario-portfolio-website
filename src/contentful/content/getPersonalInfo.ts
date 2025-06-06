@@ -12,9 +12,13 @@ import {
 
 type getPersonalInfo = () => Promise<PersonalInfoResponse>;
 
-const getPersonalInfoResponse = (personalInfoFields: PersonalInfoFields) => ({
+const getPersonalInfoResponse = (
+	personalInfoFields: PersonalInfoFields,
+) => ({
 	...personalInfoFields,
-	intro: documentToHtmlString(personalInfoFields.intro),
+	intro: documentToHtmlString(
+		personalInfoFields.intro,
+	),
 });
 
 const getPersonalInfoFields = async () => (

@@ -20,7 +20,9 @@ const getPastEmployerEntries = async () =>
 		},
 	);
 
-const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionResponse, locationEntryFields: LocationFields): PastEmployerResponse => ({
+const createPastEmployerResponseObj = (
+	pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionResponse, locationEntryFields: LocationFields,
+): PastEmployerResponse => ({
 	companyName: companyEntryFields.name,
 	companyWebsiteUrl: companyEntryFields.websiteUrl,
 	companyLocation: locationEntryFields.name,
@@ -32,21 +34,31 @@ const createPastEmployerResponseObj = (pastEmployerEntryFields: PastEmployerFiel
 	),
 });
 
-const getCompanyFields = (pastEmployerEntryFields: PastEmployerFields) => (pastEmployerEntryFields.company as { fields: InstitutionResponse }).fields
+const getCompanyFields = (
+	pastEmployerEntryFields: PastEmployerFields,
+) => (pastEmployerEntryFields.company as { fields: InstitutionResponse }).fields
 
-const getLocationFields = async (pastEmployerEntryFields: PastEmployerFields) => (await contentfulClient.getEntry<Location>(
+const getLocationFields = async (
+	pastEmployerEntryFields: PastEmployerFields,
+) => (await contentfulClient.getEntry<Location>(
 	(pastEmployerEntryFields.company as { fields: InstitutionResponse }).fields.location.sys.id,
 )).fields;
 
 export const getPastEmployers = async () =>
 	await Promise.all(
 		(await getPastEmployerEntries()).items.map(
-			async ({
-				fields: pastEmployerEntryFields,
-			}) => createPastEmployerResponseObj(
+			async (
+				{
+					fields: pastEmployerEntryFields,
+				},
+			) => createPastEmployerResponseObj(
 				pastEmployerEntryFields,
-				getCompanyFields(pastEmployerEntryFields),
-				await getLocationFields(pastEmployerEntryFields),
+				getCompanyFields(
+					pastEmployerEntryFields,
+				),
+				await getLocationFields(
+					pastEmployerEntryFields,
+				),
 			),
 		),
 	);

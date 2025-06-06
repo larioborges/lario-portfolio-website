@@ -15,7 +15,9 @@ const getAwardEntries = async () =>
 		},
 	);
 
-const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntryFields: InstitutionResponse): AwardResponse => ({
+const createPastEmployerResponseObj = (
+	awardsEntryFields:AwardFields, issuerEntryFields: InstitutionResponse,
+): AwardResponse => ({
 	name: awardsEntryFields.name,
 	issuerWebsiteUrl: issuerEntryFields.websiteUrl,
 	issuerName: issuerEntryFields.name,
@@ -23,16 +25,22 @@ const createPastEmployerResponseObj = (awardsEntryFields:AwardFields, issuerEntr
 	tags: awardsEntryFields.tags,
 });
 
-const getIssuerFields = (awardsEntryFields:AwardFields) => (awardsEntryFields.issuer as { fields: InstitutionResponse }).fields
+const getIssuerFields = (
+	awardsEntryFields:AwardFields,
+) => (awardsEntryFields.issuer as { fields: InstitutionResponse }).fields
 
 export const getAwards = async () =>
 	await Promise.all(
 		(await getAwardEntries()).items.map(
-			async ({
-				fields: awardFields,
-			}):Promise<AwardResponse> => createPastEmployerResponseObj(
+			async (
+				{
+					fields: awardFields,
+				},
+			):Promise<AwardResponse> => createPastEmployerResponseObj(
 				awardFields,
-				getIssuerFields(awardFields),
+				getIssuerFields(
+					awardFields,
+				),
 			),
 		),
 	);

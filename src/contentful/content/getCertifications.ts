@@ -20,7 +20,9 @@ const getCertificationEntries = async () =>
 		},
 	);
 
-const createCertResponseObj = (certEntryFields: CertificationFields, instutionEntryFields: InstitutionResponse, locationEntryFields: LocationFields):CertificationResponse => ({
+const createCertResponseObj = (
+	certEntryFields: CertificationFields, instutionEntryFields: InstitutionResponse, locationEntryFields: LocationFields,
+):CertificationResponse => ({
 	institutionName: instutionEntryFields.name,
 	institutionWebsiteUrl: instutionEntryFields.websiteUrl,
 	institutionLocation: locationEntryFields.name,
@@ -32,22 +34,32 @@ const createCertResponseObj = (certEntryFields: CertificationFields, instutionEn
 	),
 });
 
-const getInstitutionFields = (certEntryFields: CertificationFields) => (certEntryFields.institution as { fields: InstitutionResponse }).fields
+const getInstitutionFields = (
+	certEntryFields: CertificationFields,
+) => (certEntryFields.institution as { fields: InstitutionResponse }).fields
 
-const getLocationFields = async (certEntryFields: CertificationFields) => (await contentfulClient.getEntry<Location>(
+const getLocationFields = async (
+	certEntryFields: CertificationFields,
+) => (await contentfulClient.getEntry<Location>(
 	(certEntryFields.institution as { fields: InstitutionResponse }).fields.location.sys.id,
 )).fields;
 
 export const getCertifications = async ():Promise<CertificationResponse[]> =>
 	await Promise.all(
 		(await getCertificationEntries()).items.map(
-			async ({
-				fields: certEntryFields,
-			}):Promise<CertificationResponse> =>
+			async (
+				{
+					fields: certEntryFields,
+				},
+			):Promise<CertificationResponse> =>
 				createCertResponseObj(
 					certEntryFields,
-					getInstitutionFields(certEntryFields),
-					await getLocationFields(certEntryFields),
+					getInstitutionFields(
+						certEntryFields,
+					),
+					await getLocationFields(
+						certEntryFields,
+					),
 				),
 		) as any,
 	);

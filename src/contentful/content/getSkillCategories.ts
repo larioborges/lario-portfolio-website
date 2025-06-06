@@ -17,12 +17,16 @@ const getSkillCategoryEntries = async () =>
 export const getSkillCategories = async () =>
 	await Promise.all(
 		(await getSkillCategoryEntries()).items.map(
-			({
-				fields: skillCatFields,
-			}):SkillCategoryResponse => ({
+			(
+				{
+					fields: skillCatFields,
+				},
+			):SkillCategoryResponse => ({
 				name: skillCatFields.name,
 				icon: skillCatFields.icon,
-				skills: skillCatFields.skills.map(skill => (skill as SkillEntry).fields.name),
+				skills: skillCatFields.skills.map(
+					skill => (skill as SkillEntry).fields.name,
+				),
 			}),
 		),
 	);

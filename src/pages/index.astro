@@ -17,9 +17,6 @@ import {
 	getSeoFieldsById,
 } from '@/contentful/content';
 import getShowcaseProjects from '@/contentful/content/getShowcaseProjects';
-import type {
-	Asset, AssetFields,
-} from 'contentful';
 
 const [
 	personalInfo,
@@ -28,7 +25,7 @@ const [
 	skillCategories,
 	certifications,
 	showcaseProjects,
-	seoFields,
+	seoField,
 ] = (await Promise.all(
 	[
 		getPersonalInfo(),
@@ -37,16 +34,18 @@ const [
 		getSkillCategories(),
 		getCertifications(),
 		getShowcaseProjects(),
-		getSeoFieldsById('4a3PYeoBpPFuf3MyhVTt8G'),
+		getSeoFieldsById(
+			'4a3PYeoBpPFuf3MyhVTt8G',
+		),
 	],
 ));
 ---
 
-<Layout {...seoFields} siteName={seoFields.title} images={(seoFields.images?.map((image) => (image as Asset).fields) as AssetFields[])}>
+<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields}>
 	<GlassHeader
 		name={personalInfo.name}
 		client:only='svelte'
-	/>
+	/>a
 	<main class='min-h-screen'>
 		<HeroSection
 			{...personalInfo}

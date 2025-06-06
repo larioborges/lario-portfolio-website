@@ -6,23 +6,33 @@
     "./src/**/*.astro",
     "./src/assets/**/*",
     "./src/**/*.d.ts",
-    ".astro/types.d.ts"
+    ".astro/types.d.ts",
+    "*.ts",
+    "config/**/*.ts",
+    "config/**/*.json",
   ],
   "exclude": [
-    "dist/**/*",
-    "node_modules/**/*",
+    "./dist/**/*",
+    "./node_modules/**/*",
     "*.js",
-    ".netlify/**/*",
-    "packages/**/*"
+    "./.netlify/**/*",
+    "./packages/**/*"
   ],
   "compilerOptions": {
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
-    "types": ["gtag.js"],
+    "types": [
+      "gtag.js",
+      "vite-plugin-pwa/info.d.ts",
+      "vite-plugin-pwa/client.d.ts"
+    ],
     "baseUrl": "./",
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@/config/*": [
+        "config/*"
       ],
       "@/motion/*": [
         "src/components/motion/*"

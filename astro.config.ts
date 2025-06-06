@@ -1,4 +1,5 @@
 // @ts-check
+import AstroPWA from '@vite-pwa/astro'
 import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
@@ -15,11 +16,14 @@ import {
 	globalStyle, typescript,
 } from 'svelte-preprocess';
 import devtoolsJson from 'vite-plugin-devtools-json';
+import {
+	manifest, seoConfig,
+} from './config/seoConfig';
 
 // TODO Lario PWA
 export default defineConfig(
 	{
-		site: 'https://lariocpt.biz',
+		site: seoConfig.baseURL,
 		adapter: netlify(
 			{
 				includeFiles: ['./src/data/**/*.json'],
@@ -53,11 +57,29 @@ export default defineConfig(
 			sitemap(),
 			astroRobotsTxt(),
 			playformInline(),
+			AstroPWA(
+				{
+					registerType: 'autoUpdate',
+					manifest,
+					workbox: {
+						globDirectory: 'dist',
+						globPatterns: [
+							'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+						],
+						// Don't fallback on document based (e.g. `/some-page`) requests
+						// This removes an errant console.log message from showing up.
+						navigateFallback: null,
+					},
+				},
+			),
 			compress(),
 			astroCompressor(),
 		],
 		vite: {
-			plugins: [tailwindcss(), devtoolsJson()],
+			plugins: [
+				tailwindcss(),
+				devtoolsJson(),
+			],
 			build: {
 				emptyOutDir: true,
 				cssMinify: true,
