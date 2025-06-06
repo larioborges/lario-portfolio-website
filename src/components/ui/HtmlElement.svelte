@@ -7,6 +7,8 @@ const {
 } = $props();
 </script>
 
-{@html DOMPurify.sanitize(
-	content,
-)}
+<div class="html-content">
+	{@html DOMPurify.sanitize(
+		content,
+	)}
+</div>

@@ -1,8 +1,5 @@
 <script lang="ts">
 import TimelineItem from '@/ui/TimelineItem.svelte';
-import {
-	Award,
-} from 'lucide-svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import HtmlElement from '@/ui/HtmlElement.svelte';
@@ -51,14 +48,6 @@ const {
 							once: true,
 						}}
 					>
-						<div class="mb-3 flex items-center">
-							<div
-								class="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10"
-							>
-								<Award class="h-4 w-4 text-yellow-500" />
-							</div>
-							<h4 class="text-sm font-medium">Achievements & Activities</h4>
-						</div>
 						<HtmlElement content={certification.description} />
 					</MotionDiv>
 				</TimelineItem>
