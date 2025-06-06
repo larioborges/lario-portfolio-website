@@ -1,7 +1,8 @@
 import type {
 	ManifestOptions,
 } from 'vite-plugin-pwa';
-import favicon from '../src/assets/favicons/favicon.webp';
+import favicon512 from '../src/assets/favicons/favicon-512x512.webp';
+import favicon192 from '../src/assets/favicons/favicon-192x192.webp';
 
 const DEFAULT_WEBSITE_NAME = 'Lario Borges - Full Stack Web Engineer',
 	DEFAULT_BASE_URL = 'https://lariocpt.biz',
@@ -11,6 +12,7 @@ export const seoConfig = {
 	baseURL: DEFAULT_BASE_URL,
 	description: DEFAULT_DESCRIPTION,
 	type: 'website',
+	// TODO Lario fix default open graph image
 	image: {
 		url: 'https://picsum.photos/1200/630',
 		alt: 'OpenGraph thumbnail description.',
@@ -32,16 +34,12 @@ export const manifest: Partial<ManifestOptions> = {
 	display: 'minimal-ui',
 	icons: [
 		{
-			// TODO Lario: get correct favicon asset
-			// src: '/favicons/favicon-192x192.png',
-			src: favicon.src,
+			src: favicon192.src,
 			sizes: '192x192',
 			type: 'image/png',
 		},
 		{
-			// TODO Lario: get correct favicon asset
-			// src: '/favicons/favicon-512x512.png',
-			src: favicon.src,
+			src: favicon512.src,
 			sizes: '512x512',
 			type: 'image/png',
 		},
