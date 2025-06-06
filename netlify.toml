@@ -37,9 +37,9 @@
     Content-Security-Policy = '''
     frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com,
     object-src 'none',
-    img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net/**/*,
     connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
     '''
+    # img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net/**/*,
 
 [[headers]]
   for = "*.html"
