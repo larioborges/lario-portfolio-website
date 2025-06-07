@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AwardsSection from '@/components/AwardsSection.svelte';
+import {
+	getAwards,
+	getSeoFieldsById,
+	getPersonalInfo,
+} from '@/contentful/content';
+
+const [
+	{
+		name,
+	},
+	awards,
+	seoField,
+] = (await Promise.all(
+	[
+		getPersonalInfo(),
+		getAwards(),
+		getSeoFieldsById(
+			'4a3PYeoBpPFuf3MyhVTt8G',
+		),
+	],
+));
+---
+
+<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
+	<AwardsSection
+		{awards}
+		client:only='svelte'
+	/>
+</Layout>

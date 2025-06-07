@@ -9,15 +9,20 @@ import {
 } from '@/contentful';
 
 const getAwardEntries = async () =>
-	await contentfulClient.getEntries<Award>(
+	(await contentfulClient.getEntries<Award>(
 		{
 			content_type: 'award',
 		},
+	)).items.sort(
+		(
+			a, b,
+		) => a.fields.listPriority - b.fields.listPriority,
 	);
 
 const createPastEmployerResponseObj = (
 	awardsEntryFields:AwardFields, issuerEntryFields: InstitutionResponse,
 ): AwardResponse => ({
+	listPriority: awardsEntryFields.listPriority,
 	name: awardsEntryFields.name,
 	issuerWebsiteUrl: issuerEntryFields.websiteUrl,
 	issuerName: issuerEntryFields.name,
@@ -31,7 +36,7 @@ const getIssuerFields = (
 
 export const getAwards = async () =>
 	await Promise.all(
-		(await getAwardEntries()).items.map(
+		(await getAwardEntries()).map(
 			async (
 				{
 					fields: awardFields,

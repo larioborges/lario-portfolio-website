@@ -1,39 +1,21 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import EmploymentHistory from '@/components/EmploymentHistory.svelte';
-import ProjectShowcase from '@/components/ProjectShowcase.svelte';
-import GlassHeader from '@/components/GlassHeader.svelte';
 import HeroSection from '@/components/HeroSection.svelte';
-import SkillsSection from '@/components/SkillsSection.svelte';
-import AwardsSection from '@/components/AwardsSection.svelte';
-import EducationSection from '@/components/EducationSection.svelte';
-import Footer from '@/components/Footer.svelte';
+import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 import {
-	getAwards,
 	getPersonalInfo,
-	getPastEmployers,
-	getSkillCategories,
-	getCertifications,
+	getFeaturedSkills,
 	getSeoFieldsById,
 } from '@/contentful/content';
-import getShowcaseProjects from '@/contentful/content/getShowcaseProjects';
 
 const [
 	personalInfo,
-	awards,
-	pastEmployers,
-	skillCategories,
-	certifications,
-	showcaseProjects,
+	featuredSkills,
 	seoField,
 ] = (await Promise.all(
 	[
 		getPersonalInfo(),
-		getAwards(),
-		getPastEmployers(),
-		getSkillCategories(),
-		getCertifications(),
-		getShowcaseProjects(),
+		getFeaturedSkills(),
 		getSeoFieldsById(
 			'4a3PYeoBpPFuf3MyhVTt8G',
 		),
@@ -41,30 +23,17 @@ const [
 ));
 ---
 
-<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields}>
-	<GlassHeader
-		name={personalInfo.name}
-		client:only='svelte'
-	/>
-	<main class='min-h-screen'>
-		<HeroSection
-			{...personalInfo}
-			client:only='svelte'
-		/>
-		<EmploymentHistory
-			{pastEmployers}
-			client:only='svelte'
-		/>
-		<ProjectShowcase {showcaseProjects} client:only='svelte' />
-		<SkillsSection {skillCategories} client:only='svelte' />
-		<AwardsSection
-			{awards}
-			client:only='svelte'
-		/>
-		<EducationSection {certifications} client:only='svelte' />
-	</main>
-	<Footer
-		name={personalInfo.name}
-		client:only='svelte'
-	/>
+<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} name={personalInfo.name}>
+	<section
+		id="experience"
+		class="from-muted/20 to-background bg-gradient-to-b py-12"
+	>
+		<div class="container mx-auto max-w-4xl px-6 md:px-4">
+			<HeroSection
+				{...personalInfo}
+				client:only='svelte'
+			/>
+			<SkillCategorySection {...featuredSkills} client:only='svelte' />
+		</div>
+	</section>
 </Layout>

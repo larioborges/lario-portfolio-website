@@ -1,7 +1,6 @@
 <script lang="ts">
 import MotionP from '@/motion/MotionP.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
-import MotionSpan from '@/motion/MotionSpan.svelte';
 const {
 	name,
 } = $props();
@@ -36,7 +35,7 @@ const {
 			>
 				&copy; {new Date()
 					.getFullYear()}
-				{name}. All rights reserved. ✨
+				{name}. All rights reserved.
 			</MotionP>
 			<MotionP
 				class="text-muted-foreground mt-2 text-center text-sm md:mt-0 md:text-left"
@@ -53,45 +52,10 @@ const {
 				viewport={{
 					once: true,
 				}}
-				whileHover={{
-					scale: 1.01,
-				}}
 			>
-				Built with&nbsp;
-				<MotionSpan
-					class="inline-block"
-					initial={{
-						rotate: 0,
-					}}
-					whileHover={{
-						rotate: 360,
-					}}
-					transition={{
-						duration: 0.5,
-					}}>💻</MotionSpan
-				>&nbsp; and&nbsp;
-				<MotionSpan
-					class="inline-block"
-					animate={{
-						scale: [1, 1.2, 1],
-					}}
-					transition={{
-						repeat: Infinity,
-						repeatType: 'reverse',
-						duration: 1.5,
-					}}
-				>
-					❤️
-				</MotionSpan>
+				Built using Astro &amp; svelte. View
+				<a href="https://github.com/larioborges/lario-portfolio-website" target="_blank">this repo</a>.
 			</MotionP>
-		</MotionDiv>
-		<MotionDiv>
-			<a
-				href="https://www.flaticon.com/free-icons/nerd"
-				title="nerd icons"
-			>
-				Nerd icons created by Smashicons - Flaticon
-			</a>
 		</MotionDiv>
 	</div>
 </footer>

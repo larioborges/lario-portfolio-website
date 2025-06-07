@@ -46,7 +46,7 @@
       "@/images/*": [
         "src/assets/images/*"
       ],
-       "@/contentful/*": [
+      "@/contentful/*": [
         "src/contentful/*"
       ]
     },

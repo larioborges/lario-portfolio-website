@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import EducationSection from '@/components/EducationSection.svelte';
+import {
+	getCertifications,
+	getSeoFieldsById,
+	getPersonalInfo,
+} from '@/contentful/content';
+
+const [
+	{
+		name,
+	},
+	certifications,
+	seoField,
+] = (await Promise.all(
+	[
+		getPersonalInfo(),
+		getCertifications(),
+		getSeoFieldsById(
+			'4a3PYeoBpPFuf3MyhVTt8G',
+		),
+	],
+));
+---
+
+<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
+	<EducationSection {certifications} client:only='svelte' />
+</Layout>
