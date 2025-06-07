@@ -14,15 +14,20 @@ import {
 } from '@/contentful';
 
 const getPastEmployerEntries = async () =>
-	await contentfulClient.getEntries<PastEmployer>(
+	(await contentfulClient.getEntries<PastEmployer>(
 		{
 			content_type: 'pastEmployer',
 		},
+	)).items.sort(
+		(
+			a, b,
+		)  => (a.fields.listPriority - b.fields.listPriority),
 	);
 
 const createPastEmployerResponseObj = (
 	pastEmployerEntryFields: PastEmployerFields, companyEntryFields: InstitutionResponse, locationEntryFields: LocationFields,
 ): PastEmployerResponse => ({
+	listPriority: pastEmployerEntryFields.listPriority,
 	companyName: companyEntryFields.name,
 	companyWebsiteUrl: companyEntryFields.websiteUrl,
 	companyLocation: locationEntryFields.name,
@@ -46,7 +51,7 @@ const getLocationFields = async (
 
 export const getPastEmployers = async () =>
 	await Promise.all(
-		(await getPastEmployerEntries()).items.map(
+		(await getPastEmployerEntries()).map(
 			async (
 				{
 					fields: pastEmployerEntryFields,
