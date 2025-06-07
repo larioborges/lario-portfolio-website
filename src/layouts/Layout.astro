@@ -249,18 +249,16 @@ if (article) {
 	<body
 		class='min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200'
 	>
-		<main>
-			<div
-				class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
-			>
-			</div>
-			<GlassHeader
-				name={name}
-				client:only='svelte'
-			/>
-			<main class='min-h-screen'>
-				<slot/>
-			</main>
+		<div
+			class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
+		>
+		</div>
+		<GlassHeader
+			name={name}
+			client:only='svelte'
+		/>
+		<main class='min-h-screen'>
+			<slot/>
 		</main>
 		<ReloadPrompt />
 		<Footer

@@ -1,17 +1,21 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import HeroSection from '@/components/HeroSection.svelte';
+import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 import {
 	getPersonalInfo,
+	getFeaturedSkills,
 	getSeoFieldsById,
 } from '@/contentful/content';
 
 const [
 	personalInfo,
+	featuredSkills,
 	seoField,
 ] = (await Promise.all(
 	[
 		getPersonalInfo(),
+		getFeaturedSkills(),
 		getSeoFieldsById(
 			'4a3PYeoBpPFuf3MyhVTt8G',
 		),
@@ -20,8 +24,16 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} name={personalInfo.name}>
-	<HeroSection
-		{...personalInfo}
-		client:only='svelte'
-	/>
+	<section
+		id="experience"
+		class="from-muted/20 to-background bg-gradient-to-b py-12"
+	>
+		<div class="container mx-auto max-w-4xl px-6 md:px-4">
+			<HeroSection
+				{...personalInfo}
+				client:only='svelte'
+			/>
+			<SkillCategorySection {...featuredSkills} client:only='svelte' />
+		</div>
+	</section>
 </Layout>

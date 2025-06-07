@@ -1,8 +1,7 @@
 <script lang="ts">
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
-import GlassCard from '@/ui/GlassCard.svelte';
-import SkillTag from '@/ui/SkillTag.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
+import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 
 const containerVariants = {
 	hidden: {
@@ -16,59 +15,10 @@ const containerVariants = {
 	},
 };
 
-const skillCategoryVariants = {
-	hidden: {
-		opacity: 0,
-		y: 20,
-	},
-	visible: {
-		opacity: 1,
-		y: 0,
-		transition: {
-			duration: 0.5,
-		},
-	},
-};
-
 const {
 	skillCategories,
 } = $props();
 </script>
-
-{#snippet categoryHeading(name: string, icon: string)}
-	<h3
-		class="mb-3 flex items-center text-center text-lg font-medium md:text-left"
-	>
-		{#if icon}
-			<span class="mr-2 text-xl">{icon}</span>
-		{/if}
-		{name}
-	</h3>
-{/snippet}
-
-{#snippet skillTags(skills: string[])}
-	<div class="flex flex-wrap justify-center gap-2 md:justify-start">
-		{#each skills as skill, index (`${skill}-${index}`)}
-			<SkillTag {index}>
-				{skill}
-			</SkillTag>
-		{/each}
-	</div>
-{/snippet}
-
-{#snippet categorySection(category: string, icon: string, skills: string[])}
-	<MotionDiv variants={skillCategoryVariants}>
-		<GlassCard className="p-4">
-			{@render categoryHeading(
-				category,
-				icon,
-			)}
-			{@render skillTags(
-				skills,
-			)}
-		</GlassCard>
-	</MotionDiv>
-{/snippet}
 
 <section
 	id="skills"
@@ -94,11 +44,7 @@ const {
 			{#each skillCategories as {
 				name, icon, skills,
 			}, index (`${name}-${index}`)}
-				{@render categorySection(
-					name,
-					icon,
-					skills,
-				)}
+				<SkillCategorySection {name} {icon} {skills} />
 			{/each}
 		</MotionDiv>
 	</div>
