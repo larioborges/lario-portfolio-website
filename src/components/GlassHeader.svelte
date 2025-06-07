@@ -21,22 +21,27 @@ const toggleMenu = () => {
 
 const navLinks = [
 	{
+		icon: '🛠️',
 		name: 'Skills',
 		href: '/skills',
 	},
 	{
+		icon: '💼',
 		name: 'Employment History',
 		href: '/employment-history',
 	},
 	{
+		icon: '🚀',
 		name: 'Project Showcase',
 		href: '/project-showcase',
 	},
 	{
+		icon: '🎓',
 		name: 'Education',
 		href: '/education',
 	},
 	{
+		icon: '🏆',
 		name: 'Awards',
 		href: '/awards',
 	},
@@ -82,29 +87,32 @@ const {
 
 		<nav class="hidden items-center space-x-6 text-sm font-medium md:flex">
 			{#each navLinks as {
-				name, href,
+				icon, name, href,
 			}, index (name)}
-				<MotionA
-					{href}
-					class="hover:text-foreground/80 text-foreground/60 transition-colors"
-					initial={{
-						opacity: 0,
-						y: -10,
-					}}
-					animate={{
-						opacity: 1,
-						y: 0,
-					}}
-					transition={{
-						duration: 0.2,
-						delay: index * 0.1,
-					}}
-					whileHover={{
-						y: -2,
-					}}
-				>
-					{name}
-				</MotionA>
+				<span>
+					{#if icon} {icon} {/if}
+					<MotionA
+						{href}
+						class="hover:text-foreground/80 text-foreground/60 transition-colors"
+						initial={{
+							opacity: 0,
+							y: -10,
+						}}
+						animate={{
+							opacity: 1,
+							y: 0,
+						}}
+						transition={{
+							duration: 0.2,
+							delay: index * 0.1,
+						}}
+						whileHover={{
+							y: -2,
+						}}
+					>
+						{name}
+					</MotionA>
+				</span>
 			{/each}
 		</nav>
 
@@ -150,27 +158,30 @@ const {
 			>
 				<nav class="flex flex-col space-y-4 text-sm font-medium">
 					{#each navLinks as {
-						name, href,
+						icon, name, href,
 					}, index (name)}
-						<MotionA
-							{href}
-							class="hover:text-foreground/80 text-foreground/60 py-2 transition-colors"
-							onclick={toggleMenu}
-							initial={{
-								opacity: 0,
-								x: -20,
-							}}
-							animate={{
-								opacity: 1,
-								x: 0,
-							}}
-							transition={{
-								duration: 0.2,
-								delay: index * 0.1,
-							}}
-						>
-							{name}
-						</MotionA>
+						<span>
+							{#if icon} {icon} {/if}
+							<MotionA
+								{href}
+								class="hover:text-foreground/80 text-foreground/60 py-2 transition-colors"
+								onclick={toggleMenu}
+								initial={{
+									opacity: 0,
+									x: -20,
+								}}
+								animate={{
+									opacity: 1,
+									x: 0,
+								}}
+								transition={{
+									duration: 0.2,
+									delay: index * 0.1,
+								}}
+							>
+								{name}
+							</MotionA>
+						</span>
 					{/each}
 				</nav>
 			</MotionDiv>
