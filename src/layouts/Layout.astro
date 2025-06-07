@@ -22,7 +22,7 @@ import {
 import
 HtmlElement from '@/ui/HtmlElement.svelte';
 import ReloadPrompt from '../components/ReloadPrompt.astro';
-import Footer from '@/components/Footer.svelte';
+import Footer from '@/components/Footer.astro';
 import GlassHeader from '@/components/GlassHeader.svelte';
 
 interface OpenGraphProps {
@@ -263,7 +263,6 @@ if (article) {
 		<ReloadPrompt />
 		<Footer
 			name={name}
-			client:only='svelte'
 		/>
 	</body>
 </html>
