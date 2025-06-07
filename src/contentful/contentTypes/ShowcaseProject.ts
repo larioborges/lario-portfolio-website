@@ -14,6 +14,7 @@ export type ShowcaseProjectKeyClientOrEmployer = 'client' | 'employer';
 export type ShowcaseProjectKeysWithoutClientOrEmployer = 'name' | 'period' | 'skills' | 'description' | 'highlights';
 
 export interface ShowcaseProjectResponse {
+	listPriority: number;
 	name: string;
 	employerName: string;
 	employerWebsiteUrl?: string | undefined;
@@ -61,6 +62,7 @@ export interface ShowcaseProjectEntryFieldsWithoutClientAndEmployer {
 
 
 export interface ShowcaseProjectEntryFieldValues {
+	listPriority: number;
 	name: string;
 	employer: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	client?: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string> | undefined;
@@ -71,6 +73,7 @@ export interface ShowcaseProjectEntryFieldValues {
 }
 
 export interface ShowcaseProjectEntryFields {
+	listPriority: EntryFieldTypes.Number;
 	name: EntryFieldTypes.Symbol<string>
 	employer:EntryFieldTypes.EntryLink<Institution>;
 	client?: EntryFieldTypes.EntryLink<Institution> | undefined;

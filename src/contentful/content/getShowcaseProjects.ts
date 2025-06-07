@@ -18,16 +18,21 @@ import type {
 	Entry,
 } from 'contentful';
 
-const getShowcaseProjectsEntries = () =>
-	contentfulClient.getEntries<ShowcaseProject>(
+const getShowcaseProjectsEntries = async () =>
+	(await contentfulClient.getEntries<ShowcaseProject>(
 		{
 			content_type: 'showcaseProject',
 		},
+	)).items.sort(
+		(
+			a, b,
+		) => a.fields.listPriority - b.fields.listPriority,
 	);
 
 const createShowcaseProjectResponseObj = (
 	showcaseProjectEntryFields: ShowcaseProjectEntryFieldValues, employerEntryFields: InstitutionFields, clientEntryFields: InstitutionFields | undefined, locationEntryFields: LocationFields,
 ): ShowcaseProjectResponse => ({
+	listPriority: showcaseProjectEntryFields.listPriority,
 	name: showcaseProjectEntryFields.name,
 	employerName: employerEntryFields.name,
 	employerWebsiteUrl: employerEntryFields.websiteUrl,
@@ -84,7 +89,7 @@ const getEmployerFields = (
 
 export const getShowcaseProjects: () => Promise<ShowcaseProjectResponse[]> = async () =>
 	await Promise.all(
-		(await getShowcaseProjectsEntries()).items.map(
+		(await getShowcaseProjectsEntries()).map(
 			async (
 				{
 					fields: showcaseProjectEntryFields,
