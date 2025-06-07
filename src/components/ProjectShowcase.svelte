@@ -1,7 +1,4 @@
 <script lang="ts">
-import {
-	projectShowcase,
-} from '@/data';
 import TimelineItem from '@/ui/TimelineItem.svelte';
 import {
 	Briefcase, Star,
@@ -55,7 +52,7 @@ const {
 					location={project.location}
 					locationHref={project.locationGoogleMapsUrl}
 					date={project.period}
-					isLast={index === projectShowcase.length - 1}
+					isLast={index === showcaseProjects.length - 1}
 					{index}
 				>
 					<div class="flex flex-wrap justify-center gap-2 md:justify-start">

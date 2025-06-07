@@ -21,24 +21,24 @@ const toggleMenu = () => {
 
 const navLinks = [
 	{
-		name: '💼 Experience',
-		href: '#experience',
+		name: 'Skills',
+		href: '/skills',
 	},
 	{
-		name: '🛠️ Skills',
-		href: '#skills',
+		name: 'Employment History',
+		href: '/employment-history',
 	},
 	{
-		name: '🚀 Projects',
-		href: '#projects',
+		name: 'Project Showcase',
+		href: '/project-showcase',
 	},
 	{
-		name: '🏆 Awards',
-		href: '#awards',
+		name: 'Education',
+		href: '/education',
 	},
 	{
-		name: '🎓 Education',
-		href: '#education',
+		name: 'Awards',
+		href: '/awards',
 	},
 ];
 

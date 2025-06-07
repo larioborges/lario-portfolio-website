@@ -1,0 +1,29 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SkillsSection from '@/components/SkillsSection.svelte';
+import {
+	getPersonalInfo,
+	getSkillCategories,
+	getSeoFieldsById,
+} from '@/contentful/content';
+
+const [
+	{
+		name,
+	},
+	skillCategories,
+	seoField,
+] = (await Promise.all(
+	[
+		getPersonalInfo(),
+		getSkillCategories(),
+		getSeoFieldsById(
+			'4a3PYeoBpPFuf3MyhVTt8G',
+		),
+	],
+));
+---
+
+<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
+	<SkillsSection {skillCategories} client:only='svelte' />
+</Layout>

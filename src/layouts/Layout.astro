@@ -22,6 +22,8 @@ import {
 import
 HtmlElement from '@/ui/HtmlElement.svelte';
 import ReloadPrompt from '../components/ReloadPrompt.astro';
+import Footer from '@/components/Footer.svelte';
+import GlassHeader from '@/components/GlassHeader.svelte';
 
 interface OpenGraphProps {
 	basic: {
@@ -76,7 +78,8 @@ interface Props {
 		authors?: string[],
 		section?: string,
 		tags?: string[],
-	}
+	},
+	name?: string,
 }
 
 const {
@@ -86,6 +89,7 @@ const {
 	siteName = seoConfig.siteName,
 	image = seoConfig.image,
 	article,
+	name,
 }: Props = Astro.props;
 
 const openGraph: OpenGraphProps = {
@@ -118,6 +122,7 @@ if (image != undefined) {
 if (article) {
 	openGraph.article = article;
 }
+
 ---
 
 <style>
@@ -249,8 +254,18 @@ if (article) {
 				class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
 			>
 			</div>
-			<slot/>
+			<GlassHeader
+				name={name}
+				client:only='svelte'
+			/>
+			<main class='min-h-screen'>
+				<slot/>
+			</main>
 		</main>
 		<ReloadPrompt />
+		<Footer
+			name={name}
+			client:only='svelte'
+		/>
 	</body>
 </html>

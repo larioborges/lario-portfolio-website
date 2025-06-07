@@ -8,6 +8,7 @@ import type {
 } from './Institution';
 
 export interface AwardResponse {
+	listPriority: number;
 	name: string;
 	issuerWebsiteUrl: string;
 	issuerName: string;
@@ -16,6 +17,7 @@ export interface AwardResponse {
 };
 
 export interface AwardFields {
+	listPriority: number;
 	name: string;
 	issuer: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	date: string;
@@ -24,6 +26,7 @@ export interface AwardFields {
 export interface Award {
 	contentTypeId: 'award';
 	fields: {
+		listPriority: EntryFieldTypes.Number;
 		name: EntryFieldTypes.Symbol<string>;
 		issuer: EntryFieldTypes.EntryLink<Institution>;
 		date: EntryFieldTypes.Symbol<string>;
