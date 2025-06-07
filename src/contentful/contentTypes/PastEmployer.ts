@@ -9,6 +9,7 @@ import type {
 } from './Institution';
 
 export interface PastEmployerResponse {
+	listPriority: number;
 	companyName: string;
 	companyWebsiteUrl: string;
 	companyLocation: string;
@@ -18,6 +19,7 @@ export interface PastEmployerResponse {
 	description: string;
 }
 export interface PastEmployerFields {
+	listPriority: number;
 	company: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	position: string;
 	period: string;
@@ -27,6 +29,7 @@ export interface PastEmployerFields {
 export interface PastEmployer {
 	contentTypeId: 'pastEmployer';
 	fields: {
+		listPriority: EntryFieldTypes.Number;
 		company: EntryFieldTypes.EntryLink<Institution>;
 		position: EntryFieldTypes.Symbol<string>;
 		period: EntryFieldTypes.Symbol<string>;

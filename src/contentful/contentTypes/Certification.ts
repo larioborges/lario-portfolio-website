@@ -11,6 +11,7 @@ import type {
 } from './Institution';
 
 export interface CertificationResponse {
+	listPriority: number;
 	institutionName: string,
 	institutionWebsiteUrl: string,
 	institutionLocation: string,
@@ -20,6 +21,7 @@ export interface CertificationResponse {
 	description: string,
 };
 export interface CertificationFields {
+	listPriority: number;
 	certification: string;
 	institution: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	timePeriod: string;
@@ -29,6 +31,7 @@ export interface CertificationFields {
 export interface Certification {
 	contentTypeId: 'certification';
 	fields: {
+		listPriority: EntryFieldTypes.Number;
 		certification: EntryFieldTypes.Symbol<string>;
 		institution: EntryFieldTypes.EntryLink<Institution>;
 		timePeriod: EntryFieldTypes.Symbol<string>;

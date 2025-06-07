@@ -14,15 +14,20 @@ import {
 } from '@/contentful';
 
 const getCertificationEntries = async () =>
-	await contentfulClient.getEntries<Certification>(
+	(await contentfulClient.getEntries<Certification>(
 		{
 			content_type: 'certification',
 		},
+	)).items.sort(
+		(
+			a, b,
+		) => a.fields.listPriority - b.fields.listPriority,
 	);
 
 const createCertResponseObj = (
 	certEntryFields: CertificationFields, instutionEntryFields: InstitutionResponse, locationEntryFields: LocationFields,
 ):CertificationResponse => ({
+	listPriority: certEntryFields.listPriority,
 	institutionName: instutionEntryFields.name,
 	institutionWebsiteUrl: instutionEntryFields.websiteUrl,
 	institutionLocation: locationEntryFields.name,
@@ -46,7 +51,7 @@ const getLocationFields = async (
 
 export const getCertifications = async ():Promise<CertificationResponse[]> =>
 	await Promise.all(
-		(await getCertificationEntries()).items.map(
+		(await getCertificationEntries()).map(
 			async (
 				{
 					fields: certEntryFields,
