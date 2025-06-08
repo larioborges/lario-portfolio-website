@@ -29,8 +29,8 @@ let {
 		y: 0,
 	}}
 	transition={{
-		duration: 0.5,
-		delay: index * 0.2,
+		duration: 0.3,
+		delay: index * 0.1,
 	}}
 	viewport={{
 		once: true,
@@ -144,7 +144,7 @@ let {
 							opacity: 1,
 						}}
 						transition={{
-							duration: 0.5,
+							duration: 0.3,
 							delay: index * 0.2 + 0.4,
 						}}
 						viewport={{

@@ -23,8 +23,8 @@ const containerVariants = {
 	visible: {
 		opacity: 1,
 		transition: {
-			staggerChildren: 0.2,
-			delayChildren: 0.3,
+			staggerChildren: 0.1,
+			delayChildren: 0.2,
 		},
 	},
 };
@@ -38,7 +38,7 @@ const childVariants = {
 		opacity: 1,
 		y: 0,
 		transition: {
-			duration: 0.5,
+			duration: 0.2,
 		},
 	},
 };
@@ -62,7 +62,7 @@ const {
 } = location;
 </script>
 
-<section class="relative overflow-hidden py-16 md:py-24">
+<section class="relative overflow-hidden py-4 md:py-8">
 	<div class="relative z-10 container mx-auto max-w-4xl px-6 md:px-4">
 		<MotionDiv
 			variants={containerVariants}
@@ -85,7 +85,7 @@ const {
 							rotate: 360,
 						}}
 						transition={{
-							duration: 0.5,
+							duration: 0.3,
 						}}
 					>
 						<img

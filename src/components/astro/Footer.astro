@@ -1,10 +1,11 @@
-<script lang="ts">
+---
 import MotionP from '@/motion/MotionP.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
+
 const {
 	name,
-} = $props();
-</script>
+} = Astro.props;
+---
 
 <footer
 	class="from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm"
@@ -26,15 +27,17 @@ const {
 			viewport={{
 				once: true,
 			}}
+			client:only='svelte'
 		>
 			<MotionP
 				class="text-muted-foreground text-center text-sm md:text-left"
 				whileHover={{
 					scale: 1.01,
 				}}
+				client:only='svelte'
 			>
 				&copy; {new Date()
-					.getFullYear()}
+					.getFullYear()}&nbsp;
 				{name}. All rights reserved.
 			</MotionP>
 			<MotionP
@@ -52,6 +55,7 @@ const {
 				viewport={{
 					once: true,
 				}}
+				client:only='svelte'
 			>
 				Built using Astro &amp; svelte. View
 				<a href="https://github.com/larioborges/lario-portfolio-website" target="_blank">this repo</a>.
