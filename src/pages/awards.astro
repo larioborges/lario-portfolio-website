@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import AwardsSection from '@/astro/AwardsSection.astro';
+import AwardsComponent from '@/astro/Awards.astro';
 import {
 	getAwards,
 	getSeoFieldsById,
@@ -25,7 +25,7 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<AwardsSection
+	<AwardsComponent
 		{awards}
 	/>
 </Layout>

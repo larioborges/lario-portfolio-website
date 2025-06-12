@@ -1,11 +1,12 @@
 // @ts-check
 import AstroPWA from '@vite-pwa/astro'
 import netlify from '@astrojs/netlify';
-import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import playformInline from '@playform/inline';
-import tailwindcss from '@tailwindcss/vite';
+import postcssNested from 'postcss-nested'
+import tailwindcss from '@tailwindcss/vite'
+import autoprefixer from 'autoprefixer'
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
 import astroRobotsTxt from 'astro-robots-txt';
@@ -47,13 +48,6 @@ export default defineConfig(
 					preprocess: [typescript(), globalStyle()],
 				},
 			),
-			partytown(
-				{
-					config: {
-						forward: ['dataLayer.push'],
-					},
-				},
-			),
 			sitemap(),
 			astroRobotsTxt(),
 			playformInline(),
@@ -64,7 +58,7 @@ export default defineConfig(
 					workbox: {
 						globDirectory: 'dist',
 						globPatterns: [
-							'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}',
+							'**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,md,mdx}',
 						],
 						// Don't fallback on document based (e.g. `/some-page`) requests
 						// This removes an errant console.log message from showing up.
@@ -80,6 +74,14 @@ export default defineConfig(
 				tailwindcss(),
 				devtoolsJson(),
 			],
+			css: {
+				postcss: {
+					plugins: [
+						postcssNested(),
+						autoprefixer(),
+					],
+				},
+			},
 			build: {
 				emptyOutDir: true,
 				cssMinify: true,

@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import SkillsSection from '@/astro/SkillsSection.astro';
+import SkillsComponent from '@/astro/Skills.astro';
 import {
 	getPersonalInfo,
 	getSkillCategories,
@@ -25,5 +25,5 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<SkillsSection {skillCategories} />
+	<SkillsComponent {skillCategories} />
 </Layout>

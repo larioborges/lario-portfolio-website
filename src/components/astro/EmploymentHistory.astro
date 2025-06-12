@@ -13,11 +13,22 @@ const {
 } = Astro.props;
 ---
 
+<style>
+	@reference "../../styles/global.css";
+
+	#experience {
+		@apply from-muted/20 to-background bg-gradient-to-b py-12;
+
+		> div {
+			@apply container mx-auto max-w-4xl px-6 md:px-4;
+		}
+	}
+</style>
+
 <section
 	id="experience"
-	class="from-muted/20 to-background bg-gradient-to-b py-12"
 >
-	<div class="container mx-auto max-w-4xl px-6 md:px-4">
+	<div>
 		<MotionWrapper client:only='svelte'>
 			<h2
 				class="mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left"
