@@ -37,6 +37,14 @@ const {
 					@apply underline;
 				}
 			}
+
+			.award-name {
+				@apply mb-2 flex items-center;
+
+				h3 {
+					@apply font-medium;
+				}
+			}
 		}
 	}
 </style>
@@ -61,7 +69,7 @@ const {
 							className="p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full"
 							client:only='svelte'
 						>
-							<div class="mb-2 flex items-center">
+							<div class="award-name">
 								<MotionDiv
 									whileHover={{
 										rotate: 20,
@@ -75,7 +83,7 @@ const {
 								>
 									<Trophy class="h-4 w-4 text-white" client:only='svelte' />
 								</MotionDiv>
-								<h3 class="font-medium">{award.name}</h3>
+								<h3>{award.name}</h3>
 							</div>
 							{award.issuerWebsiteUrl != null ?
 								<p class="issuer">
@@ -85,7 +93,7 @@ const {
 										target="_blank">{award.issuerName}</a>
 								&nbsp;-&nbsp;{award.date}
 								</p> :
-								<p class="text-muted-foreground mb-1 pl-8 text-xs">
+								<p class="issuer">
 									🏢 {`${award.issuerName} - ${award.date}`}
 								</p>
 							}
