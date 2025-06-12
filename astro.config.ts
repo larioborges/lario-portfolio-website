@@ -50,7 +50,13 @@ export default defineConfig(
 			),
 			sitemap(),
 			astroRobotsTxt(),
-			playformInline(),
+			playformInline(
+				{
+					Beasties: {
+						inlineFonts: false,
+					},
+				},
+			),
 			AstroPWA(
 				{
 					registerType: 'autoUpdate',
