@@ -38,7 +38,7 @@ const toggleTheme = () => {
 	variant="ghost"
 	size="icon"
 	onclick={toggleTheme}
-	className="rounded-full cursor-pointer"
+	class="rounded-full cursor-pointer"
 >
 	{#if theme === 'light'}
 		<Moon class="h-5 w-5" />

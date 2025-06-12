@@ -38,7 +38,7 @@ const buttonVariants = cva(
 
 let {
 	children,
-	className,
+	class: className,
 	variant,
 	size,
 	asChild = false,

@@ -46,7 +46,7 @@ const {
 {/snippet}
 
 <MotionDiv variants={skillCategoryVariants}>
-	<GlassCard className="p-4">
+	<GlassCard class="p-4">
 		{@render categoryHeading(
 			name,
 			icon,
