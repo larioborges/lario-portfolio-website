@@ -54,6 +54,8 @@ export default defineConfig(
 				{
 					Beasties: {
 						inlineFonts: false,
+						fonts: false,
+						preloadFonts: true,
 					},
 				},
 			),
