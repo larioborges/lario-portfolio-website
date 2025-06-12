@@ -16,7 +16,6 @@ import {
 import {
 	globalStyle, typescript,
 } from 'svelte-preprocess';
-import devtoolsJson from 'vite-plugin-devtools-json';
 import {
 	manifest, seoConfig,
 } from './config/seoConfig';
@@ -72,7 +71,6 @@ export default defineConfig(
 		vite: {
 			plugins: [
 				tailwindcss(),
-				devtoolsJson(),
 			],
 			css: {
 				postcss: {
