@@ -7,10 +7,19 @@ const {
 } = Astro.props;
 ---
 
-<footer
-	class="from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm"
->
-	<div class="container mx-auto max-w-4xl px-6 md:px-4">
+<style>
+	@reference "../../styles/global.css";
+
+	footer {
+		@apply from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm;
+
+		> div {
+			@apply container mx-auto max-w-4xl px-6 md:px-4
+		}
+	}
+</style>
+<footer>
+	<div>
 		<MotionDiv
 			class="flex flex-col items-center justify-between md:flex-row"
 			initial={{

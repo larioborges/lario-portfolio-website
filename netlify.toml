@@ -34,17 +34,17 @@
     includeSubDomains,
     preload
     '''
-    Content-Security-Policy = '''
-    frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com,
-    object-src 'none',
-    connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
-    '''
+    # Content-Security-Policy = '''
+    # frame-ancestors 'self' https://fonts.googleapis.com https://fonts.gstatic.com,
+    # object-src 'none',
+    # connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com
+    # '''
     # img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net/**/*,
 
 [[headers]]
   for = "*.html"
   [headers.values]
-    cache-control = '''
+    Cache-control = '''
     no-cache,
     no-store,
     must-revalidate'''
@@ -52,7 +52,7 @@
 [[headers]]
   for = "*.webp"
   [headers.values]
-    cache-control = '''
+    Cache-control = '''
     public,
     max-age=31536000
     '''
@@ -60,7 +60,7 @@
 [[headers]]
   for = "*.css"
   [headers.values]
-    cache-control = '''
+    Cache-control = '''
     public,
     max-age=31536000
     '''
@@ -68,7 +68,7 @@
 [[headers]]
   for = "*.js"
   [headers.values]
-    cache-control = '''
+    Cache-control = '''
     public,
     max-age=31536000
     '''
@@ -76,7 +76,7 @@
 [[headers]]
   for = "*.ts"
   [headers.values]
-    cache-control = '''
+    Cache-control = '''
     public,
     max-age=31536000
     '''

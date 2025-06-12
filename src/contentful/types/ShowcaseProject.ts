@@ -7,7 +7,7 @@ import type {
 import type {
 	Institution,
 	Skill,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 
 export type ShowcaseProjectKeyClientOrEmployer = 'client' | 'employer';
 

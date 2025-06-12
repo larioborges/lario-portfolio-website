@@ -8,25 +8,43 @@ import MotionDiv from '@/motion/MotionDiv.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
 import type {
 	AwardResponse,
-} from '@/contentful/contentTypes'
+} from '@/contentful/types'
 
 const {
 	awards,
 } = Astro.props;
 ---
 
+<style>
+	@reference "../../styles/global.css";
+  #awards {
+	  @apply from-background to-muted/10 bg-gradient-to-b py-12;
+
+		> div {
+			@apply container mx-auto max-w-4xl px-6 md:px-4;
+		}
+
+		.award-heading {
+			@apply mb-8 text-center text-2xl font-bold md:text-left;
+		}
+
+		.award-content {
+			@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
+		}
+	}
+</style>
+
 <section
 	id="awards"
-	class="from-background to-muted/10 bg-gradient-to-b py-12"
 >
-	<div class="container mx-auto max-w-4xl px-6 md:px-4">
+	<div>
 		<MotionWrapper client:only='svelte'>
-			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">
+			<h2 class="award-heading">
 				🏆 Awards
 			</h2>
 		</MotionWrapper>
 
-		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+		<div class="award-content">
 			{awards.map(
 				(
 					award: AwardResponse, index: number,

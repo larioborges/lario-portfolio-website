@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import EducationSection from '@/astro/EducationSection.astro';
+import EducationComponent from '@/astro/Education.astro';
 import {
 	getCertifications,
 	getSeoFieldsById,
@@ -25,5 +25,5 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<EducationSection {certifications} />
+	<EducationComponent {certifications} />
 </Layout>
