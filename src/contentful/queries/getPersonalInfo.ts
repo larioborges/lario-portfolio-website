@@ -5,7 +5,7 @@ import type {
 	PersonalInfoResponse,
 	PersonalInfo,
 	PersonalInfoFields,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 import {
 	documentToHtmlString,
 } from '@contentful/rich-text-html-renderer';

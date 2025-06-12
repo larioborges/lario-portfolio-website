@@ -34,6 +34,9 @@
       "@/config/*": [
         "config/*"
       ],
+      "@/layouts/*": [
+        "src/layouts/*"
+      ],
       "@/motion/*": [
         "src/components/motion/*"
       ],
@@ -42,6 +45,9 @@
       ],
       "@/ui/*": [
         "src/components/ui/*"
+      ],
+       "@/astro/*": [
+        "./src/components/astro/*"
       ],
       "@/images/*": [
         "src/assets/images/*"

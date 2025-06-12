@@ -3,7 +3,7 @@ import type {
 	AwardResponse,
 	InstitutionResponse,
 	AwardFields,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 import {
 	contentfulClient,
 } from '@/contentful';
