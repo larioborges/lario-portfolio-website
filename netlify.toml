@@ -1,7 +1,7 @@
 [build]
   base = "./"
   publish = "./dist"
-  command = "corepack enable && yarn build"
+  command = "bun run build"
   cssMinify = true
   assetsDir = "public"
   cssCodeSplit = true
