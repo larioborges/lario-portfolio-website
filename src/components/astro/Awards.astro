@@ -30,6 +30,13 @@ const {
 
 		.award-content {
 			@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
+
+			.issuer {
+				@apply text-muted-foreground mb-1 pl-8 text-xs;
+				a {
+					@apply underline;
+				}
+			}
 		}
 	}
 </style>
@@ -71,7 +78,7 @@ const {
 								<h3 class="font-medium">{award.name}</h3>
 							</div>
 							{award.issuerWebsiteUrl != null ?
-								<p class="text-muted-foreground mb-1 pl-8 text-xs">
+								<p class="issuer">
 									🏢 <a
 										href={award.issuerWebsiteUrl}
 										class="underline"
