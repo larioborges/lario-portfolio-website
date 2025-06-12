@@ -5,7 +5,7 @@ import {
 import MotionDiv from '@/motion/MotionDiv.svelte';
 
 let {
-	children, className, hoverEffect = true, ...props
+	children, class: className, hoverEffect = true, ...props
 } = $props();
 </script>
 

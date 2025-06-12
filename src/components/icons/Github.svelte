@@ -1,6 +1,6 @@
 <script lang="ts">
 let {
-	className = '',
+	class: className = '',
 } = $props();
 </script>
 

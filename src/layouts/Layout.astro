@@ -17,7 +17,6 @@ import {
 	seoConfig,
 } from '@/config/seoConfig'
 import HtmlElement from '@/ui/HtmlElement.svelte';
-import ReloadPrompt from '@/astro/ReloadPrompt.astro';
 import Footer from '@/astro/Footer.astro';
 import GlassHeader from '@/components/GlassHeader.svelte';
 import {
@@ -246,9 +245,9 @@ if (article) {
 		<main class='min-h-screen'>
 			<slot/>
 		</main>
-		<ReloadPrompt />
 		<Footer
 			name={name}
 		/>
+		<script src='@/scripts/pwa.ts'></script>
 	</body>
 </html>
