@@ -4,9 +4,6 @@ import {
 	pwaInfo,
 } from 'virtual:pwa-info';
 import {
-	AstroFont,
-} from 'astro-font';
-import {
 	GoogleAnalytics,
 } from 'astro-google-analytics';
 import {
@@ -23,6 +20,9 @@ import HtmlElement from '@/ui/HtmlElement.svelte';
 import ReloadPrompt from '@/astro/ReloadPrompt.astro';
 import Footer from '@/astro/Footer.astro';
 import GlassHeader from '@/components/GlassHeader.svelte';
+import {
+	GoogleFontsOptimizer,
+} from 'astro-google-fonts-optimizer';
 
 interface OpenGraphProps {
 	basic: {
@@ -149,20 +149,7 @@ if (article) {
 	<Head>
 		<GoogleAnalytics id='G-YW069N7W3X' />
 		<script src='@/scripts/BrowserInit.ts'></script>
-		<AstroFont
-			config={[
-				{
-					src: [],
-					name: 'Inter',
-					googleFontsURL:
-						'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
-					preload: true,
-					display: 'swap',
-					selector: 'body',
-					fallback: 'sans-serif',
-				},
-			]}
-		/>
+		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" />
 		<meta charset='UTF-8' />
 		<meta
 			name='viewport'
