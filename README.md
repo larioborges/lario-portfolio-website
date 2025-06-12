@@ -1,5 +1,9 @@
 # Astro Starter Kit: Basics
 
+INSTALL BUN
+https://bun.sh/docs/installation
+
+
 ```sh
 npm create astro@latest -- --template basics
 ```

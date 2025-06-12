@@ -32,6 +32,8 @@
 		// "editor.codeActionsOnSave": {
 		// 	"source.fixAll.eslint": "explicit"
 		// },
+		"eslint.runtime": "bun",
+ 		"eslint.execArgv": ["--bun"],
   	"editor.formatOnSave": false,
 		"editor.indentSize": "tabSize",
 		"yaml.format.bracketSpacing": false,

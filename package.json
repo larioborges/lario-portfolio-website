@@ -3,16 +3,16 @@
   "version": "0.0.1",
   "type": "module",
   "license": "UNLICENSED",
-  "packageManager": "yarn@4.9.1",
+  "packageManager": "bun@1.2.15",
   "scripts": {
-    "astro": "NODE_OPTIONS='--import=specifier-resolution-node/register' astro",
-    "build": "astro build",
-    "dev": "NODE_OPTIONS='--import=specifier-resolution-node/register' astro dev",
-    "lint": "NODE_OPTIONS='--trace-warnings' eslint . --cache --config ./config/eslint.config.ts",
-    "lint:fix": "yarn lint --fix",
-    "netlify:build": "NODE_OPTIONS='--import=specifier-resolution-node/register' netlify build",
-    "preview": "astro preview",
-    "postinstall": "husky install",
+    "astro": "bunx --bun astro",
+    "build": "bunx --bun astro build",
+    "dev": "bunx --bun astro dev",
+    "lint": "bunx --bun eslint . --cache --config ./config/eslint.config.ts",
+    "lint:fix": "bun lint --fix",
+    "netlify:build": "bunx --bun netlify build",
+    "preview": "bunx --bun astro preview",
+    "postinstall": "husky",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable"
   },
@@ -45,6 +45,7 @@
     "@playform/build": "^0.2.4",
     "@playform/inline": "^0.1.2",
     "@stylistic/eslint-plugin": "^4.4.0",
+    "@types/bun": "^1.2.15",
     "@types/eslint-plugin-jsx-a11y": "^6",
     "@types/gtag.js": "^0.0.20",
     "astro-compressor": "^1.0.0",
@@ -78,5 +79,10 @@
     "tw-animate-css": "^1.2.4",
     "typescript-eslint": "^8.32.0",
     "vite-plugin-devtools-json": "^0.1.0"
-  }
+  },
+  "trustedDependencies": [
+    "@parcel/watcher",
+    "@tailwindcss/oxide",
+    "svelte-preprocess"
+  ]
 }
