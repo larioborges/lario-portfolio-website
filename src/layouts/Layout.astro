@@ -22,6 +22,7 @@ import GlassHeader from '@/components/GlassHeader.svelte';
 import {
 	GoogleFontsOptimizer,
 } from 'astro-google-fonts-optimizer';
+import ReloadPrompt from '@/astro/ReloadPrompt.astro';
 
 interface OpenGraphProps {
 	basic: {
@@ -248,6 +249,6 @@ if (article) {
 		<Footer
 			name={name}
 		/>
-		<script src='@/scripts/pwa.ts'></script>
+		<ReloadPrompt />
 	</body>
 </html>
