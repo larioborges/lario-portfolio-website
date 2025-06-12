@@ -45,10 +45,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^2.0.0, @astrojs/compiler@npm:^2.10.3, @astrojs/compiler@npm:^2.11.0, @astrojs/compiler@npm:^2.9.1":
+"@astrojs/compiler@npm:^2.0.0, @astrojs/compiler@npm:^2.10.3, @astrojs/compiler@npm:^2.9.1":
   version: 2.12.0
   resolution: "@astrojs/compiler@npm:2.12.0"
   checksum: 10c0/8499c8cfae1c94ba5cbafe1fb645f6a6d1b8e431ca20e91386a76e39046c66dddc1cea84d75152d961752dc95bb45f9e933b54e7b1dd3746b98626f2878c1c79
+  languageName: node
+  linkType: hard
+
+"@astrojs/compiler@npm:^2.12.1":
+  version: 2.12.1
+  resolution: "@astrojs/compiler@npm:2.12.1"
+  checksum: 10c0/722ab975d900b51ccbd86c0835f14f10166477b946bd31dbbf6fb4d959934e75a03f130a0f23889caf946ad831f458a8a7fc21c1c3a223439991e24fabf81e15
   languageName: node
   linkType: hard
 
@@ -161,18 +168,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/sitemap@npm:^3.3.0":
-  version: 3.4.0
-  resolution: "@astrojs/sitemap@npm:3.4.0"
+"@astrojs/sitemap@npm:3.4.1":
+  version: 3.4.1
+  resolution: "@astrojs/sitemap@npm:3.4.1"
   dependencies:
     sitemap: "npm:^8.0.0"
     stream-replace-string: "npm:^2.0.0"
     zod: "npm:^3.24.2"
-  checksum: 10c0/f7b3811cc2eb14161b73933864ad0d525d103390626b4c7c7e42ab290bfe4acc53042e42fdf00cc6a64b7cf34bc5ca3c29ca11a09de85334949d399776f75f67
+  checksum: 10c0/d36ba848c753f1abcc9cc603d38be8cb355ed86c8481168b8405d822fbc07d2eb6b971fd25f2e8cb98b889e7d1c2bafb736808ab3f6ad25d6b2da46dd5173b7e
   languageName: node
   linkType: hard
 
-"@astrojs/svelte@npm:^7.0.13":
+"@astrojs/svelte@npm:7.1.0":
   version: 7.1.0
   resolution: "@astrojs/svelte@npm:7.1.0"
   dependencies:
@@ -5706,8 +5713,8 @@ __metadata:
   dependencies:
     "@astrojs/netlify": "npm:^6.3.4"
     "@astrojs/partytown": "npm:^2.1.4"
-    "@astrojs/sitemap": "npm:^3.3.0"
-    "@astrojs/svelte": "npm:^7.0.13"
+    "@astrojs/sitemap": "npm:3.4.1"
+    "@astrojs/svelte": "npm:7.1.0"
     "@contentful/rich-text-html-renderer": "npm:^17.0.0"
     "@netlify/plugin-lighthouse": "npm:^6.0.1"
     "@playform/build": "npm:^0.2.4"
@@ -5718,7 +5725,7 @@ __metadata:
     "@types/gtag.js": "npm:^0.0.20"
     "@vite-pwa/astro": "npm:^1.1.0"
     aos: "npm:^2.3.4"
-    astro: "npm:^5.4.2"
+    astro: "npm:5.9.1"
     astro-capo: "npm:^0.0.1"
     astro-compress: "npm:^2.3.8"
     astro-compressor: "npm:^1.0.0"
@@ -5766,11 +5773,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"astro@npm:^5.4.2":
-  version: 5.8.0
-  resolution: "astro@npm:5.8.0"
+"astro@npm:5.9.1":
+  version: 5.9.1
+  resolution: "astro@npm:5.9.1"
   dependencies:
-    "@astrojs/compiler": "npm:^2.11.0"
+    "@astrojs/compiler": "npm:^2.12.1"
     "@astrojs/internal-helpers": "npm:0.6.1"
     "@astrojs/markdown-remark": "npm:6.3.2"
     "@astrojs/telemetry": "npm:3.3.0"
@@ -5837,7 +5844,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 10c0/124d40e023d3126ecb307ccdc17f7a195ddac8d22a8ef826f5915ef2c41f38e63976a10738705afc1b60119dcd32f26a9e3a3799b297df611dfe75e2124273f5
+  checksum: 10c0/aa17f6d972009c457b23fddc2c120a3da78692bd39b23b32e3f784d9140337aaff3d67aed47d29d23e607cb05e2f2ba3731cb3262cc7f572152ff4c133ac0c07
   languageName: node
   linkType: hard
 

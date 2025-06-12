@@ -5,7 +5,7 @@ import type {
 	SkillCategory,
 	SkillCategoryResponse,
 	SkillEntry,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 
 const getSkillCategoryEntries = async () =>
 	(await contentfulClient.getEntries<SkillCategory>(

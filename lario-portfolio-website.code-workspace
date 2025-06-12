@@ -29,9 +29,9 @@
 		"editor.useTabStops": false,
 		"editor.tabSize": 2,
 		"editor.renderWhitespace": "all",
-		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": "explicit"
-		},
+		// "editor.codeActionsOnSave": {
+		// 	"source.fixAll.eslint": "explicit"
+		// },
   	"editor.formatOnSave": false,
 		"editor.indentSize": "tabSize",
 		"yaml.format.bracketSpacing": false,

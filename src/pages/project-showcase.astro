@@ -1,11 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import ProjectShowcase from '@/components/ProjectShowcase.svelte';
+import ProjectShowcaseComponent from '@/astro/ProjectShowcase.astro';
 import {
 	getSeoFieldsById,
 	getPersonalInfo,
 	getShowcaseProjects,
-} from '@/contentful/content';
+} from '@/contentful/queries';
 
 const [
 	{
@@ -25,5 +25,5 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<ProjectShowcase {showcaseProjects} client:only='svelte' />
+	<ProjectShowcaseComponent {showcaseProjects} />
 </Layout>

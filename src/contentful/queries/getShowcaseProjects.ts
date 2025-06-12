@@ -7,7 +7,7 @@ import type {
 	ShowcaseProjectEntryFieldValues,
 	SkillEntry,
 	Institution,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 import {
 	documentToHtmlString,
 } from '@contentful/rich-text-html-renderer';

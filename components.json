@@ -12,12 +12,12 @@
     "prefix": ""
   },
   "aliases": {
+    "astro": "@/astro",
     "components": "@/components",
     "icons": "@/icons",
     "motion": "@/motion",
     "ui": "@/ui",
     "contentful": "@/contentful",
-    "data": "@/data",
     "utils": "@/utils",
     "scripts": "@/scripts",
     "styles": "@/styles",

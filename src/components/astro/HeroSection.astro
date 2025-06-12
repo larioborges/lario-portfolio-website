@@ -1,4 +1,4 @@
-<script lang="ts">
+---
 import {
 	Mail, MapPin,
 } from 'lucide-svelte';
@@ -51,7 +51,7 @@ const {
 	githubUrl,
 	linkedInUrl,
 	intro,
-} = $props();
+} = Astro.props;
 const {
 	fields: profileImageFields,
 }: {
@@ -60,7 +60,7 @@ const {
 const {
 	fields: locationFields,
 } = location;
-</script>
+---
 
 <section class="relative overflow-hidden py-4 md:py-8">
 	<div class="relative z-10 container mx-auto max-w-4xl px-6 md:px-4">
@@ -69,11 +69,13 @@ const {
 			initial="hidden"
 			animate="visible"
 			class="mb-8 flex flex-col justify-between md:flex-row md:items-center"
+			client:only='svelte'
 		>
 			<div class="text-center md:text-left">
 				<MotionH1
 					class="mb-2 text-4xl font-bold"
 					variants={childVariants}
+					client:only='svelte'
 				>
 					{name} <span class="inline-block animate-pulse"></span>
 					<MotionSpan
@@ -87,6 +89,7 @@ const {
 						transition={{
 							duration: 0.3,
 						}}
+						client:only='svelte'
 					>
 						<img
 							alt="nerd"
@@ -100,33 +103,35 @@ const {
 
 				<MotionP
 					class="text-muted-foreground mb-6 text-xl"
-					variants={childVariants}>Senior Full Stack Web Engineer</MotionP
+					variants={childVariants}
+					client:only='svelte'>Senior Full Stack Web Engineer</MotionP
 				>
 
 				<MotionDiv
 					class="flex flex-col items-center gap-2 md:items-start"
 					variants={containerVariants}
+					client:only='svelte'
 				>
-					<MotionDiv
+					<MotionP
 						class="text-muted-foreground flex items-center text-sm"
 						variants={childVariants}
 						whileHover={{
 							scale: 1.05,
 							color: '#4b5563',
 						}}
+						client:only='svelte'
 					>
-						<MapPin class="mr-2 h-4 w-4 text-red-400" />
-						{#if locationFields.googleMapsUrl}
+						<MapPin class="mr-2 h-4 w-4 text-red-400" client:only='svelte' />
+						{locationFields.googleMapsUrl != null ? (
 							<a
 								href={locationFields.googleMapsUrl}
 								target="_blank"
 							>
 								{locationFields.name}
 							</a>
-						{:else}
-							{locationFields.name}
-						{/if}
-					</MotionDiv>
+						) : <span>{locationFields.name}</span>
+						}
+					</MotionP>
 
 					<MotionA
 						href={`mailto:${email}`}
@@ -136,8 +141,9 @@ const {
 							scale: 1.05,
 							color: '#4b5563',
 						}}
+						client:only='svelte'
 					>
-						<Mail class="mr-2 h-4 w-4 text-green-500" />
+						<Mail class="mr-2 h-4 w-4 text-green-500" client:only='svelte' />
 						{email}
 					</MotionA>
 
@@ -151,8 +157,9 @@ const {
 							scale: 1.05,
 							color: '#4b5563',
 						}}
+						client:only='svelte'
 					>
-						<GithubIcon className="h-4 w-4 mr-2 text-black dark:text-white" />
+						<GithubIcon className="h-4 w-4 mr-2 text-black dark:text-white" client:only='svelte' />
 						GitHub
 					</MotionA>
 
@@ -166,8 +173,9 @@ const {
 							scale: 1.05,
 							color: '#4b5563',
 						}}
+						client:only='svelte'
 					>
-						<LinkedInIcon className="h-4 w-4 mr-2 text-blue-600/90" />
+						<LinkedInIcon className="h-4 w-4 mr-2 text-blue-600/90" client:only='svelte' />
 						LinkedIn
 					</MotionA>
 				</MotionDiv>
@@ -182,12 +190,13 @@ const {
 					scale: 0.95,
 				}}
 				class="mt-6 flex justify-center md:mt-0"
+				client:only='svelte'
 			>
 				<div class="relative">
 					<div
 						class="from--500 absolute -inset-1 rounded-full bg-gradient-to-r to-yellow-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
 					></div>
-					{#if profileImageFields && profileImageFields.file}
+					{profileImageFields && profileImageFields.file && (
 						<img
 							height="192px"
 							width="192px"
@@ -196,12 +205,12 @@ const {
 							class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
 							style="objectFit: 'cover'"
 						/>
-					{/if}
+					)}
 				</div>
 			</MotionDiv>
 		</MotionDiv>
 
-		<MotionWrapper>
+		<MotionWrapper client:only='svelte'>
 			<div
 				class="rounded-lg border border-yellow-500/20 bg-gradient-to-r from-yellow-500/10 to-green-500/10 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 			>
@@ -209,7 +218,7 @@ const {
 					<span
 						class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
-					<HtmlElement content={intro} />
+					<HtmlElement content={intro} client:only='svelte' />
 				</div>
 			</div>
 		</MotionWrapper>

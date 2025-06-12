@@ -1,6 +1,6 @@
 import type {
 	Seo,
-} from '@/contentful/contentTypes';
+} from '@/contentful/types';
 import {
 	contentfulClient,
 } from '..';

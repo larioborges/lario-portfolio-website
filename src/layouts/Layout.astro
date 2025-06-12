@@ -20,8 +20,8 @@ import {
 	seoConfig,
 } from '@/config/seoConfig'
 import HtmlElement from '@/ui/HtmlElement.svelte';
-import ReloadPrompt from '@/components/ReloadPrompt.astro';
-import Footer from '@/components/astro/Footer.astro';
+import ReloadPrompt from '@/astro/ReloadPrompt.astro';
+import Footer from '@/astro/Footer.astro';
 import GlassHeader from '@/components/GlassHeader.svelte';
 
 interface OpenGraphProps {
@@ -253,8 +253,8 @@ if (article) {
 		>
 		</div>
 		<GlassHeader
-			name={name}
-			client:only='svelte'
+			{name}
+			client:only=svelte
 		/>
 		<main class='min-h-screen'>
 			<slot/>
