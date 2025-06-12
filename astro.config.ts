@@ -3,7 +3,7 @@ import AstroPWA from '@vite-pwa/astro'
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
-// import playformInline from '@playform/inline';
+import playformInline from '@playform/inline';
 import postcssNested from 'postcss-nested'
 import tailwindcss from '@tailwindcss/vite'
 import autoprefixer from 'autoprefixer'
@@ -50,7 +50,13 @@ export default defineConfig(
 			),
 			sitemap(),
 			astroRobotsTxt(),
-			// playformInline(),
+			playformInline(
+				{
+					Beasties: {
+						inlineFonts: false,
+					},
+				},
+			),
 			AstroPWA(
 				{
 					registerType: 'autoUpdate',
