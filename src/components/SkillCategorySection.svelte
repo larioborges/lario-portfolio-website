@@ -1,3 +1,19 @@
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	.category-heading {
+		@apply mb-3 flex items-center text-center text-lg font-medium md:text-left;
+
+		span {
+			@apply mr-2;
+		}
+	}
+
+	.skill-tag-wrapper {
+		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+</style>
+
 <script lang="ts">
 import GlassCard from '@/ui/GlassCard.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
@@ -25,18 +41,16 @@ const {
 </script>
 
 {#snippet categoryHeading(name: string, icon: string)}
-	<h3
-		class="mb-3 flex items-center text-center text-lg font-medium md:text-left"
-	>
+	<h3 class="category-heading">
 		{#if icon}
-			<span class="mr-2 text-xl">{icon}</span>
+			<span>{icon}</span>
 		{/if}
 		{name}
 	</h3>
 {/snippet}
 
 {#snippet skillTags(skills: string[])}
-	<div class="flex flex-wrap justify-center gap-2 md:justify-start">
+	<div class="skill-tag-wrapper">
 		{#each skills as skill, index (`${skill}-${index}`)}
 			<SkillTag {index}>
 				{skill}

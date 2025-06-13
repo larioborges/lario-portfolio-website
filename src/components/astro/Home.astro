@@ -1,5 +1,5 @@
 ---
-import HeroSection from '@/astro/HeroSection.astro';
+import HeroSection from '@/components/HeroSection.svelte';
 import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 
 const {
@@ -8,8 +8,8 @@ const {
 } = Astro.props;
 ---
 
-<style>
-	@reference "../../styles/global.css";
+<style lang="postcss">
+	@reference "@/styles/global.css";
   #experience {
 	  @apply from-muted/20 to-background bg-gradient-to-b py-12;
 	}
@@ -19,12 +19,11 @@ const {
 	}
 </style>
 
-<section
-	id="experience"
->
+<section id="experience">
 	<div class="home-page-wrapper">
 		<HeroSection
 			{...personalInfo}
+			client:only="svelte"
 		/>
 		<SkillCategorySection {...featuredSkills} client:only='svelte' />
 	</div>

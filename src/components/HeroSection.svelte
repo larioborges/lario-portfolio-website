@@ -1,4 +1,16 @@
----
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	.hero-wrapper {
+		@apply relative overflow-hidden py-4 md:py-8;
+
+		> div {
+			@apply relative z-10 container mx-auto max-w-4xl px-6 md:px-4;
+		}
+	}
+</style>
+
+<script lang="ts">
 import {
 	Mail, MapPin,
 } from 'lucide-svelte';
@@ -9,12 +21,14 @@ import MotionDiv from '@/motion/MotionDiv.svelte';
 import MotionH1 from '@/motion/MotionH1.svelte';
 import MotionSpan from '@/motion/MotionSpan.svelte';
 import MotionP from '@/motion/MotionP.svelte';
-import MotionA from '@/motion/MotionA.svelte';
 import nerd from '@/images/nerd.webp';
 import type {
 	AssetFields,
 } from 'contentful';
 import HtmlElement from '@/ui/HtmlElement.svelte';
+import {
+	Motion,
+} from 'svelte-motion';
 
 const containerVariants = {
 	hidden: {
@@ -51,31 +65,31 @@ const {
 	githubUrl,
 	linkedInUrl,
 	intro,
-} = Astro.props;
+} = $props();
+
 const {
 	fields: profileImageFields,
 }: {
 	fields: AssetFields
 } = profileImage;
+
 const {
 	fields: locationFields,
 } = location;
----
+</script>
 
-<section class="relative overflow-hidden py-4 md:py-8">
-	<div class="relative z-10 container mx-auto max-w-4xl px-6 md:px-4">
+<section class="hero-wrapper">
+	<div>
 		<MotionDiv
 			variants={containerVariants}
 			initial="hidden"
 			animate="visible"
 			class="mb-8 flex flex-col justify-between md:flex-row md:items-center"
-			client:only='svelte'
 		>
 			<div class="text-center md:text-left">
 				<MotionH1
 					class="mb-2 text-4xl font-bold"
 					variants={childVariants}
-					client:only='svelte'
 				>
 					{name} <span class="inline-block animate-pulse"></span>
 					<MotionSpan
@@ -89,7 +103,6 @@ const {
 						transition={{
 							duration: 0.3,
 						}}
-						client:only='svelte'
 					>
 						<img
 							alt="nerd"
@@ -103,14 +116,12 @@ const {
 
 				<MotionP
 					class="text-muted-foreground mb-6 text-xl"
-					variants={childVariants}
-					client:only='svelte'>Senior Full Stack Web Engineer</MotionP
-				>
+					variants={childVariants}>Senior Full Stack Web Engineer
+				</MotionP>
 
 				<MotionDiv
 					class="flex flex-col items-center gap-2 md:items-start"
 					variants={containerVariants}
-					client:only='svelte'
 				>
 					<MotionP
 						class="text-muted-foreground flex items-center text-sm"
@@ -119,65 +130,78 @@ const {
 							scale: 1.05,
 							color: '#4b5563',
 						}}
-						client:only='svelte'
 					>
-						<MapPin class="mr-2 h-4 w-4 text-red-400" client:only='svelte' />
-						{locationFields.googleMapsUrl != null ? (
+						<MapPin class="mr-2 h-4 w-4 text-red-400" />
+						{#if locationFields.googleMapsUrl != null}
 							<a
 								href={locationFields.googleMapsUrl}
 								target="_blank"
 							>
 								{locationFields.name}
 							</a>
-						) : <span>{locationFields.name}</span>
-						}
+						{:else}
+							<span>{locationFields.name}</span>
+						{/if}
 					</MotionP>
 
-					<MotionA
-						href={`mailto:${email}`}
-						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+					<Motion
 						variants={childVariants}
 						whileHover={{
 							scale: 1.05,
 							color: '#4b5563',
 						}}
-						client:only='svelte'
+						let:motion
 					>
-						<Mail class="mr-2 h-4 w-4 text-green-500" client:only='svelte' />
-						{email}
-					</MotionA>
+						<a
+							href={`mailto:${email}`}
+							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+							use:motion
+						>
+							<Mail class="mr-2 h-4 w-4 text-green-500" />
+							{email}
+						</a>
+					</Motion>
 
-					<MotionA
-						href={githubUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+					<Motion
 						variants={childVariants}
 						whileHover={{
 							scale: 1.05,
 							color: '#4b5563',
 						}}
-						client:only='svelte'
+						let:motion
 					>
-						<GithubIcon class="h-4 w-4 mr-2 text-black dark:text-white" client:only='svelte' />
-						GitHub
-					</MotionA>
+						<a
+							href={githubUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+							use:motion
+						>
+							<GithubIcon class="h-4 w-4 mr-2 text-black dark:text-white" />
+							GitHub
+						</a>
+					</Motion>
 
-					<MotionA
-						href={linkedInUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+					<Motion
+						let:motion
 						variants={childVariants}
 						whileHover={{
 							scale: 1.05,
 							color: '#4b5563',
 						}}
-						client:only='svelte'
 					>
-						<LinkedInIcon class="h-4 w-4 mr-2 text-blue-600/90" client:only='svelte' />
-						LinkedIn
-					</MotionA>
+						<a
+							href={linkedInUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+							use:motion
+						>
+							<LinkedInIcon class="h-4 w-4 mr-2 text-blue-600/90" />
+							LinkedIn
+						</a>
+					</Motion>
+
 				</MotionDiv>
 			</div>
 
@@ -190,13 +214,12 @@ const {
 					scale: 0.95,
 				}}
 				class="mt-6 flex justify-center md:mt-0"
-				client:only='svelte'
 			>
 				<div class="relative">
 					<div
 						class="from--500 absolute -inset-1 rounded-full bg-gradient-to-r to-yellow-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
 					></div>
-					{profileImageFields && profileImageFields.file && (
+					{#if profileImageFields && profileImageFields.file}
 						<img
 							height="192px"
 							width="192px"
@@ -205,12 +228,12 @@ const {
 							class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
 							style="objectFit: 'cover'"
 						/>
-					)}
+					{/if}
 				</div>
 			</MotionDiv>
 		</MotionDiv>
 
-		<MotionWrapper client:only='svelte'>
+		<MotionWrapper>
 			<div
 				class="rounded-lg border border-yellow-500/20 bg-gradient-to-r from-yellow-500/10 to-green-500/10 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
 			>
@@ -218,7 +241,7 @@ const {
 					<span
 						class="absolute top-0 left-0 h-full w-1 rounded-full bg-gradient-to-b from-yellow-500 to-green-500"
 					></span>
-					<HtmlElement content={intro} client:only='svelte' />
+					<HtmlElement content={intro} />
 				</div>
 			</div>
 		</MotionWrapper>

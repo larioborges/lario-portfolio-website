@@ -12,16 +12,33 @@ const {
 } = Astro.props
 ---
 
-<section
-	id="education"
-	class="from-muted/10 to-background bg-gradient-to-b py-12"
->
-	<div class="container mx-auto max-w-4xl px-6 md:px-4">
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	#education {
+		@apply from-muted/10 to-background bg-gradient-to-b py-12;
+
+		> div {
+			@apply container mx-auto max-w-4xl px-6 md:px-4;
+		}
+
+		h2 {
+			@apply mb-8 text-center text-2xl font-bold md:text-left;
+		}
+
+		.certs-wrapper {
+			@apply mb-8;
+		}
+	}
+</style>
+
+<section id="education">
+	<div>
 		<MotionWrapper client:only='svelte'>
-			<h2 class="mb-8 text-center text-2xl font-bold md:text-left">Education</h2>
+			<h2>Education</h2>
 		</MotionWrapper>
 
-		<div class="mb-8">
+		<div class="certs-wrapper">
 			{certifications.map(
 				(
 					certification: CertificationResponse, index: number,

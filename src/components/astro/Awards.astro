@@ -15,8 +15,8 @@ const {
 } = Astro.props;
 ---
 
-<style>
-	@reference "../../styles/global.css";
+<style lang="postcss">
+	@reference "@/styles/global.css";
   #awards {
 	  @apply from-background to-muted/10 bg-gradient-to-b py-12;
 
@@ -44,6 +44,14 @@ const {
 				h3 {
 					@apply font-medium;
 				}
+			}
+		}
+
+		.tags {
+			@apply mt-auto space-y-2;
+
+			> div {
+				@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
 			}
 		}
 	}
@@ -98,10 +106,8 @@ const {
 								</p>
 							}
 
-							<div class="mt-auto space-y-2">
-								<div
-									class="flex flex-wrap justify-center gap-2 md:justify-center-safe"
-								>
+							<div class="tags">
+								<div>
 									{award.tags.map(
 										(
 											tag: string, index: number,

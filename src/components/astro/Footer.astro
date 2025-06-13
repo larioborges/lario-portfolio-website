@@ -7,8 +7,8 @@ const {
 } = Astro.props;
 ---
 
-<style>
-	@reference "../../styles/global.css";
+<style lang="postcss">
+	@reference "@/styles/global.css";
 
 	footer {
 		@apply from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm;
