@@ -17,7 +17,6 @@ import {
 import GithubIcon from '@/icons/Github.svelte';
 import LinkedInIcon from '@/icons/LinkedIn.svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
-import MotionDiv from '@/motion/MotionDiv.svelte';
 import MotionH1 from '@/motion/MotionH1.svelte';
 import MotionSpan from '@/motion/MotionSpan.svelte';
 import MotionP from '@/motion/MotionP.svelte';
@@ -80,158 +79,172 @@ const {
 
 <section class="hero-wrapper">
 	<div>
-		<MotionDiv
+		<Motion
 			variants={containerVariants}
 			initial="hidden"
 			animate="visible"
-			class="mb-8 flex flex-col justify-between md:flex-row md:items-center"
+			let:motion
 		>
-			<div class="text-center md:text-left">
-				<MotionH1
-					class="mb-2 text-4xl font-bold"
-					variants={childVariants}
-				>
-					{name} <span class="inline-block animate-pulse"></span>
-					<MotionSpan
-						class="inline-block"
-						initial={{
-							rotate: 0,
-						}}
-						whileHover={{
-							rotate: 360,
-						}}
-						transition={{
-							duration: 0.3,
-						}}
-					>
-						<img
-							alt="nerd"
-							src={nerd.src}
-							width="45px"
-							height="45px"
-							class="ml-3 inline-block align-middle"
-						/>
-					</MotionSpan>
-				</MotionH1>
-
-				<MotionP
-					class="text-muted-foreground mb-6 text-xl"
-					variants={childVariants}>Senior Full Stack Web Engineer
-				</MotionP>
-
-				<MotionDiv
-					class="flex flex-col items-center gap-2 md:items-start"
-					variants={containerVariants}
-				>
-					<MotionP
-						class="text-muted-foreground flex items-center text-sm"
+			<div
+				class="mb-8 flex flex-col justify-between md:flex-row md:items-center"
+				use:motion
+			>
+				<div class="text-center md:text-left">
+					<MotionH1
+						class="mb-2 text-4xl font-bold"
 						variants={childVariants}
-						whileHover={{
-							scale: 1.05,
-							color: '#4b5563',
-						}}
 					>
-						<MapPin class="mr-2 h-4 w-4 text-red-400" />
-						{#if locationFields.googleMapsUrl != null}
-							<a
-								href={locationFields.googleMapsUrl}
-								target="_blank"
-							>
-								{locationFields.name}
-							</a>
-						{:else}
-							<span>{locationFields.name}</span>
-						{/if}
+						{name} <span class="inline-block animate-pulse"></span>
+						<MotionSpan
+							class="inline-block"
+							initial={{
+								rotate: 0,
+							}}
+							whileHover={{
+								rotate: 360,
+							}}
+							transition={{
+								duration: 0.3,
+							}}
+						>
+							<img
+								alt="nerd"
+								src={nerd.src}
+								width="45px"
+								height="45px"
+								class="ml-3 inline-block align-middle"
+							/>
+						</MotionSpan>
+					</MotionH1>
+
+					<MotionP
+						class="text-muted-foreground mb-6 text-xl"
+						variants={childVariants}>Senior Full Stack Web Engineer
 					</MotionP>
 
 					<Motion
-						variants={childVariants}
-						whileHover={{
-							scale: 1.05,
-							color: '#4b5563',
-						}}
+						variants={containerVariants}
 						let:motion
 					>
-						<a
-							href={`mailto:${email}`}
-							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+						<div
+							class="flex flex-col items-center gap-2 md:items-start"
 							use:motion
 						>
-							<Mail class="mr-2 h-4 w-4 text-green-500" />
-							{email}
-						</a>
+							<MotionP
+								class="text-muted-foreground flex items-center text-sm"
+								variants={childVariants}
+								whileHover={{
+									scale: 1.05,
+									color: '#4b5563',
+								}}
+							>
+								<MapPin class="mr-2 h-4 w-4 text-red-400" />
+								{#if locationFields.googleMapsUrl != null}
+									<a
+										href={locationFields.googleMapsUrl}
+										target="_blank"
+									>
+										{locationFields.name}
+									</a>
+								{:else}
+									<span>{locationFields.name}</span>
+								{/if}
+							</MotionP>
+
+							<Motion
+								variants={childVariants}
+								whileHover={{
+									scale: 1.05,
+									color: '#4b5563',
+								}}
+								let:motion
+							>
+								<a
+									href={`mailto:${email}`}
+									class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+									use:motion
+								>
+									<Mail class="mr-2 h-4 w-4 text-green-500" />
+									{email}
+								</a>
+							</Motion>
+
+							<Motion
+								variants={childVariants}
+								whileHover={{
+									scale: 1.05,
+									color: '#4b5563',
+								}}
+								let:motion
+							>
+								<a
+									href={githubUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+									use:motion
+								>
+									<GithubIcon class="h-4 w-4 mr-2 text-black dark:text-white" />
+									GitHub
+								</a>
+							</Motion>
+
+							<Motion
+								let:motion
+								variants={childVariants}
+								whileHover={{
+									scale: 1.05,
+									color: '#4b5563',
+								}}
+							>
+								<a
+									href={linkedInUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
+									use:motion
+								>
+									<LinkedInIcon class="h-4 w-4 mr-2 text-blue-600/90" />
+									LinkedIn
+								</a>
+							</Motion>
+						</div>
 					</Motion>
-
-					<Motion
-						variants={childVariants}
-						whileHover={{
-							scale: 1.05,
-							color: '#4b5563',
-						}}
-						let:motion
-					>
-						<a
-							href={githubUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
-							use:motion
-						>
-							<GithubIcon class="h-4 w-4 mr-2 text-black dark:text-white" />
-							GitHub
-						</a>
-					</Motion>
-
-					<Motion
-						let:motion
-						variants={childVariants}
-						whileHover={{
-							scale: 1.05,
-							color: '#4b5563',
-						}}
-					>
-						<a
-							href={linkedInUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors"
-							use:motion
-						>
-							<LinkedInIcon class="h-4 w-4 mr-2 text-blue-600/90" />
-							LinkedIn
-						</a>
-					</Motion>
-
-				</MotionDiv>
-			</div>
-
-			<MotionDiv
-				variants={childVariants}
-				whileHover={{
-					scale: 1.05,
-				}}
-				whileTap={{
-					scale: 0.95,
-				}}
-				class="mt-6 flex justify-center md:mt-0"
-			>
-				<div class="relative">
-					<div
-						class="from--500 absolute -inset-1 rounded-full bg-gradient-to-r to-yellow-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
-					></div>
-					{#if profileImageFields && profileImageFields.file}
-						<img
-							height="192px"
-							width="192px"
-							src={profileImageFields.file.url}
-							alt={profileImageFields.title}
-							class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
-							style="objectFit: 'cover'"
-						/>
-					{/if}
 				</div>
-			</MotionDiv>
-		</MotionDiv>
+
+				<Motion
+					variants={childVariants}
+					whileHover={{
+						scale: 1.05,
+					}}
+					whileTap={{
+						scale: 0.95,
+					}}
+					let:motion
+				>
+					<div
+						class="mt-6 flex justify-center md:mt-0"
+						use:motion
+					>
+						<div class="relative">
+							<div
+								class="from--500 absolute -inset-1 rounded-full bg-gradient-to-r to-yellow-500 opacity-30 blur transition duration-1000 group-hover:opacity-100 group-hover:duration-200"
+							></div>
+							{#if profileImageFields && profileImageFields.file}
+								<img
+									height="192px"
+									width="192px"
+									src={profileImageFields.file.url}
+									alt={profileImageFields.title}
+									class="relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60"
+									style="objectFit: 'cover'"
+								/>
+							{/if}
+						</div>
+					</div>
+				</Motion>
+			</div>
+		</Motion>
 
 		<MotionWrapper>
 			<div
