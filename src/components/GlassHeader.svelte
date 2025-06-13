@@ -9,34 +9,9 @@ import {
 } from 'svelte-motion';
 import southAfrica from '@/images/south-africa.webp';
 import luigiCap from '@/images/luigi-cap.webp';
-
-const NAV_LINKS = [
-	{
-		icon: '🛠️',
-		name: 'Skills',
-		href: '/skills',
-	},
-	{
-		icon: '💼',
-		name: 'Employment History',
-		href: '/employment-history',
-	},
-	{
-		icon: '🚀',
-		name: 'Project Showcase',
-		href: '/project-showcase',
-	},
-	{
-		icon: '🎓',
-		name: 'Education',
-		href: '/education',
-	},
-	{
-		icon: '🏆',
-		name: 'Awards',
-		href: '/awards',
-	},
-];
+import {
+	NAV_LINKS,
+} from '@/constants';
 
 let isMenuOpen = $state(
 	false,

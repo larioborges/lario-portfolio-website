@@ -83,6 +83,8 @@
 		"[toml]": {
 	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
 		},
-		"eslint.options": { "configFile": "./config/eslint.config.js" },
+		"eslint.options": {
+			"configFile": "./config/eslint.config.js"
+		},
 	}
 }

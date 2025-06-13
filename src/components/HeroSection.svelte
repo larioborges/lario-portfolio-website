@@ -16,10 +16,6 @@ import {
 } from 'lucide-svelte';
 import GithubIcon from '@/icons/Github.svelte';
 import LinkedInIcon from '@/icons/LinkedIn.svelte';
-import MotionWrapper from '@/motion/MotionWrapper.svelte';
-import MotionH1 from '@/motion/MotionH1.svelte';
-import MotionSpan from '@/motion/MotionSpan.svelte';
-import MotionP from '@/motion/MotionP.svelte';
 import nerd from '@/images/nerd.webp';
 import type {
 	AssetFields,
@@ -29,7 +25,7 @@ import {
 	Motion,
 } from 'svelte-motion';
 
-const containerVariants = {
+const CONTAINER_VARIANTS = {
 	hidden: {
 		opacity: 0,
 	},
@@ -42,7 +38,7 @@ const containerVariants = {
 	},
 };
 
-const childVariants = {
+const CHILD_VARIANTS = {
 	hidden: {
 		opacity: 0,
 		y: 20,
@@ -80,7 +76,7 @@ const {
 <section class="hero-wrapper">
 	<div>
 		<Motion
-			variants={containerVariants}
+			variants={CONTAINER_VARIANTS}
 			initial="hidden"
 			animate="visible"
 			let:motion
@@ -90,69 +86,87 @@ const {
 				use:motion
 			>
 				<div class="text-center md:text-left">
-					<MotionH1
-						class="mb-2 text-4xl font-bold"
-						variants={childVariants}
+					<Motion
+						variants={CHILD_VARIANTS}
+						let:motion
 					>
-						{name} <span class="inline-block animate-pulse"></span>
-						<MotionSpan
-							class="inline-block"
-							initial={{
-								rotate: 0,
-							}}
-							whileHover={{
-								rotate: 360,
-							}}
-							transition={{
-								duration: 0.3,
-							}}
+						<h1
+							class="mb-2 text-4xl font-bold"
+							use:motion
 						>
-							<img
-								alt="nerd"
-								src={nerd.src}
-								width="45px"
-								height="45px"
-								class="ml-3 inline-block align-middle"
-							/>
-						</MotionSpan>
-					</MotionH1>
-
-					<MotionP
-						class="text-muted-foreground mb-6 text-xl"
-						variants={childVariants}>Senior Full Stack Web Engineer
-					</MotionP>
+							{name} <span class="inline-block animate-pulse"></span>
+							<Motion
+								initial={{
+									rotate: 0,
+								}}
+								whileHover={{
+									rotate: 360,
+								}}
+								transition={{
+									duration: 0.3,
+								}}
+								let:motion
+							>
+								<img
+									alt="nerd"
+									src={nerd.src}
+									width="45px"
+									height="45px"
+									class="ml-3 inline-block align-middle"
+									use:motion
+								/>
+							</Motion>
+						</h1>
+					</Motion>
 
 					<Motion
-						variants={containerVariants}
+						variants={CHILD_VARIANTS}
+						let:motion
+					>
+						<p
+							class="text-muted-foreground mb-6 text-xl"
+							use:motion
+						>
+							Senior Full Stack Web Engineer
+						</p>
+					</Motion>
+
+					<Motion
+						variants={CONTAINER_VARIANTS}
 						let:motion
 					>
 						<div
 							class="flex flex-col items-center gap-2 md:items-start"
 							use:motion
 						>
-							<MotionP
-								class="text-muted-foreground flex items-center text-sm"
-								variants={childVariants}
+							<Motion
+								variants={CHILD_VARIANTS}
 								whileHover={{
 									scale: 1.05,
 									color: '#4b5563',
 								}}
+								let:motion
 							>
-								<MapPin class="mr-2 h-4 w-4 text-red-400" />
-								{#if locationFields.googleMapsUrl != null}
-									<a
-										href={locationFields.googleMapsUrl}
-										target="_blank"
-									>
-										{locationFields.name}
-									</a>
-								{:else}
-									<span>{locationFields.name}</span>
-								{/if}
-							</MotionP>
+								<p
+									class="text-muted-foreground flex items-center text-sm"
+									use:motion
+								>
+									<MapPin class="mr-2 h-4 w-4 text-red-400" />
+									{#if locationFields.googleMapsUrl != null}
+										<a
+											href={locationFields.googleMapsUrl}
+											target="_blank"
+										>
+											{locationFields.name}
+										</a>
+									{:else}
+										<span>{locationFields.name}</span>
+									{/if}
+								</p>
+							</Motion>
 
 							<Motion
-								variants={childVariants}
+								variants={CHILD_VARIANTS}
 								whileHover={{
 									scale: 1.05,
 									color: '#4b5563',
@@ -170,7 +184,7 @@ const {
 							</Motion>
 
 							<Motion
-								variants={childVariants}
+								variants={CHILD_VARIANTS}
 								whileHover={{
 									scale: 1.05,
 									color: '#4b5563',
@@ -191,7 +205,7 @@ const {
 
 							<Motion
 								let:motion
-								variants={childVariants}
+								variants={CHILD_VARIANTS}
 								whileHover={{
 									scale: 1.05,
 									color: '#4b5563',
@@ -213,7 +227,7 @@ const {
 				</div>
 
 				<Motion
-					variants={childVariants}
+					variants={CHILD_VARIANTS}
 					whileHover={{
 						scale: 1.05,
 					}}
@@ -246,9 +260,30 @@ const {
 			</div>
 		</Motion>
 
-		<MotionWrapper>
+		<Motion
+			initial="hidden"
+			variants={{
+				hidden: {
+					opacity: 0,
+					y: 20,
+				},
+				visible: (
+					delay = 0,
+				) => ({
+					opacity: 1,
+					y: 0,
+					transition: {
+						duration: 0.6,
+						delay: delay,
+						ease: 'easeOut',
+					},
+				}),
+			}}
+			let:motion
+		>
 			<div
 				class="rounded-lg border border-yellow-500/20 bg-gradient-to-r from-yellow-500/10 to-green-500/10 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10"
+				use:motion
 			>
 				<div class="text-muted-foreground relative mb-4 py-2 pl-4">
 					<span
@@ -257,6 +292,6 @@ const {
 					<HtmlElement content={intro} />
 				</div>
 			</div>
-		</MotionWrapper>
+		</Motion>
 	</div>
 </section>
