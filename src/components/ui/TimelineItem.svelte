@@ -2,7 +2,9 @@
 import {
 	cn,
 } from '@/utils';
-import MotionDiv from '@/motion/MotionDiv.svelte';
+import {
+	Motion,
+} from 'svelte-motion';
 
 let {
 	title,
@@ -18,144 +20,163 @@ let {
 } = $props();
 </script>
 
-<MotionDiv
-	class="relative flex gap-6"
+<!--
+whileInView={{
+	opacity: 1,
+	y: 0,
+}}
+viewport={{
+	once: true,
+	margin: '-50px',
+}}
+-->
+<Motion
 	initial={{
 		opacity: 0,
 		y: 20,
-	}}
-	whileInView={{
-		opacity: 1,
-		y: 0,
 	}}
 	transition={{
 		duration: 0.3,
 		delay: index * 0.1,
 	}}
-	viewport={{
-		once: true,
-		margin: '-50px',
-	}}
+	let:motion
 >
-	<div class="flex flex-col items-center">
-		<MotionDiv
-			class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50"
-			initial={{
-				scale: 0,
-			}}
+	<div class="relative flex gap-6" use:motion>
+		<div class="flex flex-col items-center">
+			<!--
 			whileInView={{
-				scale: 1,
-			}}
-			transition={{
-				type: 'spring',
-				stiffness: 300,
-				damping: 15,
-				delay: index * 0.2 + 0.2,
+					scale: 1,
 			}}
 			viewport={{
 				once: true,
 				margin: '-50px',
 			}}
-		></MotionDiv>
-		{#if !isLast}
-			<MotionDiv
-				class="w-px grow bg-gradient-to-b from-yellow-500/50 to-green-500/30 dark:from-yellow-500/30 dark:to-yellow-100/10"
+			-->
+			<Motion
 				initial={{
-					height: 0,
-				}}
-				whileInView={{
-					height: '100%',
+					scale: 0,
 				}}
 				transition={{
-					duration: 0.8,
-					delay: index * 0.2 + 0.3,
+					type: 'spring',
+					stiffness: 300,
+					damping: 15,
+					delay: index * 0.2 + 0.2,
+				}}
+			>
+				<div class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50" use:motion></div>
+			</Motion>
+			{#if !isLast}
+				<!--
+				whileInView={{
+					height: '100%',
 				}}
 				viewport={{
 					once: true,
 					margin: '-50px',
 				}}
-			></MotionDiv>
-		{/if}
-	</div>
-	<div class={cn(
-		'pb-8',
-		isLast ? 'pb-0' : '',
-	)}>
-		<MotionDiv
-			class="flex flex-col gap-0.5"
-			initial={{
-				opacity: 0,
-				x: -20,
-			}}
+				-->
+				<Motion
+					initial={{
+						height: 0,
+					}}
+					transition={{
+						duration: 0.8,
+						delay: index * 0.2 + 0.3,
+					}}
+					let:motion
+				>
+					<div class="w-px grow bg-gradient-to-b from-yellow-500/50 to-green-500/30 dark:from-yellow-500/30 dark:to-yellow-100/10" use:motion></div>
+				</Motion>
+			{/if}
+		</div>
+		<div class={cn(
+			'pb-8',
+			isLast ? 'pb-0' : '',
+		)}>
+			<!--
 			whileInView={{
 				opacity: 1,
 				x: 0,
-			}}
-			transition={{
-				duration: 0.5,
-				delay: index * 0.2 + 0.1,
-			}}
+		}}
 			viewport={{
 				once: true,
 				margin: '-50px',
 			}}
-		>
-			<h3 class="mb-2 text-xl font-extrabold">{`📅 ${date}`}</h3>
-			<div class="mb-6 pl-3">
-				{#if titleHref}
-					<a
-						href={titleHref}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<h3 class="font-medium">{title}</h3>
-					</a>
-				{:else}
-					<h3 class="font-medium">{title}</h3>
-				{/if}
-				{#if subtitleHref}
-					<a
-						href={subtitleHref}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<p class="text-muted-foreground text-sm">{subtitle}</p>
-					</a>
-				{:else}
-					<p class="text-muted-foreground text-sm">{subtitle}</p>
-				{/if}
-				{#if locationHref}
-					<a
-						href={locationHref}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<p class="text-muted-foreground text-sm">📍 {location}</p>
-					</a>
-				{:else}
-					<p class="text-muted-foreground text-sm">📍 {location}</p>
-				{/if}
-				<div>
-					<MotionDiv
-						initial={{
-							opacity: 0,
-						}}
-						whileInView={{
-							opacity: 1,
-						}}
-						transition={{
-							duration: 0.3,
-							delay: index * 0.2 + 0.4,
-						}}
-						viewport={{
-							once: true,
-							margin: '-50px',
-						}}
-					>
-						{@render children?.()}
-					</MotionDiv>
+			-->
+			<Motion
+				initial={{
+					opacity: 0,
+					x: -20,
+				}}
+				transition={{
+					duration: 0.5,
+					delay: index * 0.2 + 0.1,
+				}}
+			>
+				<div class="flex flex-col gap-0.5" use:motion>
+					<h3 class="mb-2 text-xl font-extrabold">{`📅 ${date}`}</h3>
+					<div class="mb-6 pl-3">
+						{#if titleHref}
+							<a
+								href={titleHref}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<h3 class="font-medium">{title}</h3>
+							</a>
+						{:else}
+							<h3 class="font-medium">{title}</h3>
+						{/if}
+						{#if subtitleHref}
+							<a
+								href={subtitleHref}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<p class="text-muted-foreground text-sm">{subtitle}</p>
+							</a>
+						{:else}
+							<p class="text-muted-foreground text-sm">{subtitle}</p>
+						{/if}
+						{#if locationHref}
+							<a
+								href={locationHref}
+								target="_blank"
+								rel="noreferrer"
+							>
+								<p class="text-muted-foreground text-sm">📍 {location}</p>
+							</a>
+						{:else}
+							<p class="text-muted-foreground text-sm">📍 {location}</p>
+						{/if}
+						<div>
+							<!--
+							whileInView={{
+								opacity: 1,
+							}}
+							viewport={{
+								once: true,
+								margin: '-50px',
+							}}
+							-->
+							<Motion
+								initial={{
+									opacity: 0,
+								}}
+								transition={{
+									duration: 0.3,
+									delay: index * 0.2 + 0.4,
+								}}
+								let:motion
+							>
+								<div use:motion>
+									{@render children?.()}
+								</div>
+							</Motion>
+						</div>
+					</div>
 				</div>
-			</div>
-		</MotionDiv>
+			</Motion>
+		</div>
 	</div>
-</MotionDiv>
+</Motion>
