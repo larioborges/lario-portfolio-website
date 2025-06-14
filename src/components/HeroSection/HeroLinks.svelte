@@ -20,6 +20,14 @@
 	:global(.hero-icon.map-pin) {
 		@apply text-red-400;
 	}
+
+  .location-wrapper {
+    @apply text-muted-foreground flex items-center text-sm;
+  }
+
+  .wrapper {
+    @pply flex flex-col items-center gap-2 md:items-start;
+  }
 </style>
 
 <script>
@@ -47,7 +55,7 @@
 	let:motion
 >
 	<div
-		class="flex flex-col items-center gap-2 md:items-start"
+		class="wrapper"
 		use:motion
 	>
 		<Motion
@@ -59,7 +67,7 @@
 			let:motion
 		>
 			<p
-				class="text-muted-foreground flex items-center text-sm"
+				class="location-wrapper"
 				use:motion
 			>
 				<MapPin class="hero-icon map-pin" />

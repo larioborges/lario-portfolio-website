@@ -11,6 +11,10 @@
 
 	.hero-links-wrapper {
 		@apply mb-8 flex flex-col justify-between md:flex-row md:items-center;
+
+		> div {
+			@apply text-center md:text-left;
+		}
 	}
 </style>
 
@@ -63,7 +67,7 @@ const {
 				class="hero-links-wrapper"
 				use:motion
 			>
-				<div class="text-center md:text-left">
+				<div>
 					<HeroName {name} jobTitle="Senior Full Stack Web Engineer" img={nerd}  />
 					<HeroLinks {email} {linkedInUrl} {githubUrl} {locationFields} />
 				</div>

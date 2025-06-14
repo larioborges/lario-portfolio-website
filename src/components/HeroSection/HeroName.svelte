@@ -4,6 +4,18 @@
   .job-title {
     @apply text-muted-foreground mb-6 text-xl;
   }
+
+  img {
+    @apply ml-3 inline-block align-middle;
+  }
+
+  h1 {
+    @apply mb-2 text-4xl font-bold;
+
+    span {
+      @apply inline-block animate-pulse;
+    }
+  }
 </style>
 
 <script lang="ts">
@@ -27,10 +39,9 @@ const {
 	let:motion
 >
 	<h1
-		class="mb-2 text-4xl font-bold"
 		use:motion
 	>
-		{name} <span class="inline-block animate-pulse"></span>
+		{name} <span></span>
 		<Motion
 			initial={{
 				rotate: 0,
@@ -48,7 +59,6 @@ const {
 				src={img.src}
 				width="45px"
 				height="45px"
-				class="ml-3 inline-block align-middle"
 				use:motion
 			/>
 		</Motion>
