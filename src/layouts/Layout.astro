@@ -17,7 +17,7 @@ import {
 	seoConfig,
 } from '@/config/seoConfig'
 import HtmlElement from '@/ui/HtmlElement.svelte';
-import Footer from '@/astro/Footer.astro';
+import Footer from '@/components/Footer.svelte';
 import GlassHeader from '@/components/GlassHeader.svelte';
 import {
 	GoogleFontsOptimizer,
@@ -248,6 +248,7 @@ if (article) {
 		</main>
 		<Footer
 			name={name}
+			client:only="svelte"
 		/>
 		<ReloadPrompt />
 	</body>

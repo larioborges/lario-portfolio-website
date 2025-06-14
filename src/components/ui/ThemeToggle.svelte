@@ -1,19 +1,29 @@
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	:global(.icon) {
+		@apply h-5 w-5;
+	}
+
+	.toggle-theme {
+		@apply sr-only;
+	}
+</style>
+
 <script lang="ts">
 import {
 	Moon, Sun,
 } from 'lucide-svelte';
 import Button from '@/ui/Button.svelte';
 
-const getTheme = () => {
-	if (localStorage.getItem(
+const getTheme = () =>
+	localStorage.getItem(
 		'theme',
-	)) {
-		return localStorage.getItem(
+	) ?
+		localStorage.getItem(
 			'theme',
-		);
-	}
-	return 'dark';
-};
+		) :
+		'dark';
 
 let theme = $state(
 	getTheme(),
@@ -41,9 +51,9 @@ const toggleTheme = () => {
 	class="rounded-full cursor-pointer"
 >
 	{#if theme === 'light'}
-		<Moon class="h-5 w-5" />
+		<Moon class="icon" />
 	{:else}
-		<Sun class="h-5 w-5" />
+		<Sun class="icon" />
 	{/if}
-	<span class="sr-only">Toggle theme</span>
+	<span class="toggle-theme">Toggle theme</span>
 </Button>

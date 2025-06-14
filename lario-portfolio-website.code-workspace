@@ -42,7 +42,8 @@
 	  "files.associations": {
 	    "*.yaml": "yaml",
 			"*.svelte": "svelte",
-			"*.astro": "astro"
+			"*.astro": "astro",
+			"*.css": "postcss"
 	  },
 	  "typescript.updateImportsOnFileMove.enabled": "always",
 	  "javascript.updateImportsOnFileMove.enabled": "always",
