@@ -26,7 +26,7 @@
   }
 
   .wrapper {
-    @pply flex flex-col items-center gap-2 md:items-start;
+    @apply flex flex-col items-center gap-2 md:items-start;
   }
 </style>
 
@@ -35,8 +35,10 @@
 		CHILD_VARIANTS, CONTAINER_VARIANTS,
 	} from '@/constants';
 	import {
-		GithubIcon, LinkedinIcon, Mail, MapPin,
+		Mail, MapPin,
 	} from 'lucide-svelte';
+  import GithubIcon from '@/icons/Github.svelte';
+  import LinkedinIcon from '@/icons/LinkedIn.svelte';
 	import {
 		Motion,
 	} from 'svelte-motion';
