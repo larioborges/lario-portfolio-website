@@ -1,20 +1,29 @@
+<style lang="postcss">
+@reference "@/styles/global.css";
+.linked-in {
+	@apply text-blue-600/90;
+}
+</style>
+
 <script lang="ts">
 let {
+	width = 24,
+	height = 24,
 	class: className = '',
 } = $props();
 </script>
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width="24"
-	height="24"
+	{width}
+	{height}
 	viewBox="0 0 24 24"
 	fill="none"
 	stroke="currentColor"
 	stroke-width="2"
 	stroke-linecap="round"
 	stroke-linejoin="round"
-	class={`${className}`}
+	class={`${className} linked-in`}
 >
 	<path
 		d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"

@@ -2,6 +2,7 @@
 import {
 	Trophy,
 } from 'lucide-svelte';
+import Heading from '@/ui/Heading.svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
@@ -62,11 +63,8 @@ const {
 >
 	<div>
 		<MotionWrapper client:only='svelte'>
-			<h2 class="award-heading">
-				🏆 Awards
-			</h2>
+			<Heading icon="🏆" text="Awards" client:only='svelte' />
 		</MotionWrapper>
-
 		<div class="award-content">
 			{awards.map(
 				(
@@ -86,7 +84,7 @@ const {
 										type: 'spring',
 										stiffness: 500,
 									}}
-									class="mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5"
+									class="award-name-icon-wrapper"
 									client:only='svelte'
 								>
 									<Trophy class="h-4 w-4 text-white" client:only='svelte' />

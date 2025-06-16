@@ -41,16 +41,6 @@ let {
 } = $props();
 </script>
 
-<!--
-whileInView={{
-	opacity: 1,
-	y: 0,
-}}
-viewport={{
-	once: true,
-	margin: '-50px',
-}}
--->
 <div
 	use:inview="{options}"
 	oninview_change="{handleChange}"
@@ -69,15 +59,6 @@ viewport={{
 		>
 			<div class="relative flex gap-6" use:motion>
 				<div class="flex flex-col items-center">
-					<!--
-					whileInView={{
-							scale: 1,
-					}}
-					viewport={{
-						once: true,
-						margin: '-50px',
-					}}
-					-->
 					<Motion
 						initial={{
 							scale: 0,
@@ -92,15 +73,6 @@ viewport={{
 						<div class="bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50" use:motion></div>
 					</Motion>
 					{#if !isLast}
-						<!--
-						whileInView={{
-							height: '100%',
-						}}
-						viewport={{
-							once: true,
-							margin: '-50px',
-						}}
-						-->
 						<Motion
 							initial={{
 								height: 0,
@@ -119,16 +91,6 @@ viewport={{
 					'pb-8',
 					isLast ? 'pb-0' : '',
 				)}>
-					<!--
-					whileInView={{
-						opacity: 1,
-						x: 0,
-				}}
-					viewport={{
-						once: true,
-						margin: '-50px',
-					}}
-					-->
 					<Motion
 						initial={{
 							opacity: 0,
@@ -176,15 +138,6 @@ viewport={{
 									<p class="text-muted-foreground text-sm">📍 {location}</p>
 								{/if}
 								<div>
-									<!--
-									whileInView={{
-										opacity: 1,
-									}}
-									viewport={{
-										once: true,
-										margin: '-50px',
-									}}
-									-->
 									<Motion
 										initial={{
 											opacity: 0,
