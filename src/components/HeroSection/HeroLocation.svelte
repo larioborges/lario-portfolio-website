@@ -22,7 +22,7 @@ const {
 	class="location-wrapper"
 >
 	<span class="hero-icon">
-		<MapPoint />
+		<MapPoint class="hero-icon" />
 	</span>
 	{#if locationFields.googleMapsUrl != null}
 		<a
