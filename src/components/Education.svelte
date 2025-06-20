@@ -1,17 +1,3 @@
----
-import TimelineItem from '@/ui/TimelineItem.svelte';
-import MotionWrapper from '@/motion/MotionWrapper.svelte';
-import ContentBlock from '@/ui/ContentBlock.svelte';
-import Heading from '@/ui/Heading.svelte';
-import type {
-	CertificationResponse,
-} from '@/contentful/types';
-
-const {
-	certifications,
-} = Astro.props
----
-
 <style lang="postcss">
 	@reference "@/styles/global.css";
 
@@ -30,19 +16,31 @@ const {
 			@apply mb-8;
 		}
 	}
+	.heading-wrapper {
+		@apply mb-3 flex items-center;
+	}
 </style>
+
+<script lang="ts">
+import TimelineItem from '@/ui/TimelineItem.svelte';
+import ContentBlock from '@/ui/ContentBlock.svelte';
+import Heading from '@/ui/Heading.svelte';
+
+const {
+	certifications,
+} = $props();
+</script>
 
 <section id="education">
 	<div>
-		<MotionWrapper client:only='svelte'>
-			<Heading icon="🎓" text="Education" client:only='svelte' />
-		</MotionWrapper>
+		<div class="heading-wrapper">
+			<Heading icon="🎓" text="Education" />
+		</div>
 
 		<div class="certs-wrapper">
-			{certifications.map(
-				(
-					certification: CertificationResponse, index: number,
-				) => (
+			{#each certifications as {
+				certification,  index,
+			} (`${certification.certification}-${certification.timePeriod}`)}
 					<TimelineItem
 						title={`🎓 ${certification.certification}`}
 						subtitle={`🏛️ ${certification.institutionName}`}
@@ -52,13 +50,10 @@ const {
 						date={certification.timePeriod}
 						isLast={index === certifications.length - 1}
 						{index}
-						key={`${certification.institutionName}${certification.timePeriod}${index}`}
-						client:only='svelte'
 					>
-						<ContentBlock content={certification.description} client:only='svelte' />
+						<ContentBlock content={certification.description} />
 					</TimelineItem>
-				),
-			)}
+			{/each}
 		</div>
 	</div>
 </section>

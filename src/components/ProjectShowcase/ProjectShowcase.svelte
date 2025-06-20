@@ -11,17 +11,14 @@
 			@apply mb-8;
 		}
 	}
+	.heading-wrapper {
+		@apply mb-3 flex items-center;
+	}
 </style>
 
 <script lang="ts">
-import {
-	DEFAULT_ANIMATIONS,
-} from '@/constants';
 import Heading from '../ui/Heading.svelte';
 import ShowCase from './ShowCase.svelte';
-import {
-	Motion,
-} from 'svelte-motion';
 
 const {
 	showcaseProjects,
@@ -30,15 +27,9 @@ const {
 
 <section id="projects">
 	<div>
-		<Motion
-			variants={DEFAULT_ANIMATIONS}
-			custom={0}
-			let:motion
-		>
-			<div use:motion>
-				<Heading icon="🚀" text="Project Showcase" />
-			</div>
-		</Motion>
+		<div class="heading-wrapper">
+			<Heading icon="🚀" text="Project Showcase" />
+		</div>
 		<div class="showcases-wrapper">
 			{#each showcaseProjects as project, index (`${project.name}-${index}`)}
 					<ShowCase {showcaseProjects} {project} {index} />

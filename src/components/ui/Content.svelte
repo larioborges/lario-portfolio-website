@@ -12,12 +12,9 @@
 	.heading {
 		@apply text-sm font-medium;
 	}
-	:global(.content-heading-icon) {
-		@apply h-4 w-4 text-yellow-500;
-	}
 </style>
 
-<script>
+<script lang="ts">
 import HtmlElement from '@/ui/HtmlElement.svelte';
 const {
 	content,

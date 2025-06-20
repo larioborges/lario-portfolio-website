@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import SkillsComponent from '@/astro/Skills.astro';
+import SkillsComponent from '@/components/Skills.svelte';
 import {
 	getPersonalInfo,
 	getSkillCategories,
@@ -25,5 +25,5 @@ const [
 ---
 
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<SkillsComponent {skillCategories} />
+	<SkillsComponent {skillCategories} client:only="svelte"/>
 </Layout>

@@ -11,9 +11,8 @@
 </style>
 
 <script lang="ts">
-import {
-	Moon, Sun,
-} from 'lucide-svelte';
+import Sun from 'lucide-svelte/icons/sun';
+import Moon from 'lucide-svelte/icons/moon';
 import Button from '@/ui/Button.svelte';
 
 const getTheme = () =>

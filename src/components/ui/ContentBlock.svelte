@@ -13,8 +13,8 @@ import {
 
 const {
 	content,
-	heading,
-	HeadingIcon,
+	heading = null,
+	HeadingIcon = null,
 } = $props();
 </script>
 

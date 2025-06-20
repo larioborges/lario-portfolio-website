@@ -1,11 +1,14 @@
----
-import MotionWrapper from '@/motion/MotionWrapper.svelte';
+<style lang="postcss">
+@reference "@/styles/global.css";
+.heading-wrapper {
+	@apply mb-3 flex items-center;
+}
+</style>
+
+<script lang="ts">
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import Heading from '@/ui/Heading.svelte';
 import SkillCategorySection from '@/components/SkillCategorySection.svelte';
-import type {
-	SkillCategoryResponse,
-} from '@/contentful/types';
 
 const containerVariants = {
 	hidden: {
@@ -21,17 +24,17 @@ const containerVariants = {
 
 const {
 	skillCategories,
-} = Astro.props;
----
+} = $props();
+</script>
 
 <section
 	id="skills"
 	class="from-background to-muted/20 bg-gradient-to-b py-12"
 >
 	<div class="container mx-auto max-w-4xl px-6 md:px-4">
-		<MotionWrapper client:only="svelte" >
-			<Heading icon="🛠️" text="Skills" client:only='svelte' />
-		</MotionWrapper>
+		<div class="heading-wrapper">
+			<Heading icon="🛠️" text="Skills" />
+		</div>
 
 		<MotionDiv
 			class="space-y-6"
@@ -42,15 +45,12 @@ const {
 				once: true,
 				margin: '-50px',
 			}}
-			client:only="svelte"
 		>
-			{skillCategories.map(
-				(
-					{
-						name, icon, skills,
-					}:SkillCategoryResponse,
-				) => <SkillCategorySection {name} {icon} {skills} client:only="svelte"/>,
-			)}
+			{#each skillCategories as {
+				name, icon, skills,
+			}, index (`${name}-${index}`)}
+				<SkillCategorySection {name} {icon} {skills} />,
+			{/each}
 		</MotionDiv>
 	</div>
 </section>

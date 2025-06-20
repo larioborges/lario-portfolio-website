@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import EmploymentHistoryComponent from '@/astro/EmploymentHistory.astro';
+import EmploymentHistoryComponent from '@/components/EmploymentHistory.svelte';
 import {
 	getPastEmployers,
 	getSeoFieldsById,
@@ -27,5 +27,6 @@ const [
 <Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
 	<EmploymentHistoryComponent
 		{pastEmployers}
+		client:only="svelte"
 	/>
 </Layout>

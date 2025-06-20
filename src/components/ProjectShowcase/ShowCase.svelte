@@ -6,9 +6,8 @@
 </style>
 
 <script lang="ts">
-import {
-	Briefcase, Star,
-} from 'lucide-svelte';
+import Briefcase from 'lucide-svelte/icons/briefcase';
+import Star from 'lucide-svelte/icons/star';
 import SkillTag from '@/ui/SkillTag.svelte';
 import TimelineItem from '@/ui/TimelineItem.svelte';
 import ContentBlock from '@/ui/ContentBlock.svelte';
@@ -34,7 +33,7 @@ const {
     {#each project.skills as skill, index (`${skill}-${index}`)}
       <SkillTag {index}>
 				{skill}
-			</SkillTag>,
+			</SkillTag>
     {/each}
 	</div>
 

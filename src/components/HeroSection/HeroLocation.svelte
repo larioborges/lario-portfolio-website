@@ -21,9 +21,8 @@ const {
 <p
 	class="location-wrapper"
 >
-	<span class="hero-icon">
-		<MapPoint class="hero-icon" />
-	</span>
+	<MapPoint class="hero-icon" />
+
 	{#if locationFields.googleMapsUrl != null}
 		<a
 			href={locationFields.googleMapsUrl}
