@@ -6,9 +6,7 @@ const defaultAnimations = {
 		opacity: 0,
 		y: 20,
 	},
-	visible: (
-		delay = 0,
-	) => ({
+	visible: (delay = 0) => ({
 		opacity: 1,
 		y: 0,
 		transition: {
@@ -19,9 +17,7 @@ const defaultAnimations = {
 	}),
 };
 
-let {
-	children, delay = 0, ...props
-} = $props();
+const { children, delay = 0, ...props } = $props();
 </script>
 
 <MotionDiv

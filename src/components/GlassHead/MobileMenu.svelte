@@ -6,14 +6,10 @@
 </style>
 
 <script lang="ts">
-import {
-	AnimatePresence, Motion,
-} from 'svelte-motion';
+import { AnimatePresence, Motion } from 'svelte-motion';
 import NavLinks from './NavLinks.svelte';
 
-const {
-	isMenuOpen,
-} = $props();
+const { isMenuOpen } = $props();
 </script>
 <AnimatePresence>
 	{#if isMenuOpen}

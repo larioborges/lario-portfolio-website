@@ -9,16 +9,12 @@
 </style>
 
 <script lang="ts">
-import ThemeToggle from '@/ui/ThemeToggle.svelte';
 import Menu from 'lucide-svelte/icons/menu';
 import X from 'lucide-svelte/icons/x';
-import {
-	Motion,
-} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
+import ThemeToggle from '@/ui/ThemeToggle.svelte';
 
-const {
-	toggleMenu, isMenuOpen,
-} = $props();
+const { toggleMenu, isMenuOpen } = $props();
 </script>
 
 <div class="wrapper">

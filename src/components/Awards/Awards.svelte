@@ -17,16 +17,14 @@
 </style>
 
 <script lang="ts">
-import Heading from '@/ui/Heading.svelte';
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
+import Heading from '@/ui/Heading.svelte';
 import AwardName from './AwardName.svelte';
 import Issuer from './Issuer.svelte';
 import Tags from './Tags.svelte';
 
-const {
-	awards,
-} = $props();
+const { awards } = $props();
 </script>
 
 <section

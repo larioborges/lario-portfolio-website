@@ -1,6 +1,4 @@
-import type {
-	EntryFieldTypes,
-} from 'contentful';
+import type { EntryFieldTypes } from 'contentful';
 
 export interface LocationFields {
 	name: string;

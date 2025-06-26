@@ -19,14 +19,10 @@
 </style>
 
 <script lang="ts">
-import {
-	Motion,
-} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
 import Trophy from '../icons/Trophy.svelte';
 
-const {
-	award,
-} = $props();
+const { award } = $props();
 </script>
 
 <div class="award-name">

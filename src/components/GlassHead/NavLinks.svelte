@@ -19,50 +19,44 @@
 </style>
 
 <script lang="ts">
-	import {
-		NAV_LINKS,
-	} from '@/constants';
-	import {
-		Motion,
-	} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
+import { NAV_LINKS } from '@/constants';
 
-  const {
-  	isMobile = false,
-  } = $props();
+const { isMobile = false } = $props();
 
-  const motionProps = (
-  	index:number,
-  ) => isMobile ?
-  	{
-  		initial: {
-  			opacity: 0,
-  			x: -20,
-  		},
-  		animate: {
-  			opacity: 1,
-  			x: 0,
-  		},
-  		transition: {
-  			duration: 0.2,
-  			delay: index * 0.1,
-  		},
-  	} : {
-  		initial: {
-  			opacity: 0,
-  			y: -10,
-  		},
-  		animate: {
-  			opacity: 1,
-  			y: 0,
-  		},
-  		transition: {
-  			duration: 0.2,
-  			delay: index * 0.1,
-  		},
-  		whileHover: {
-  			y: -2,
-  		},
-  	};
+const motionProps = (index: number) =>
+	isMobile
+		? {
+				initial: {
+					opacity: 0,
+					x: -20,
+				},
+				animate: {
+					opacity: 1,
+					x: 0,
+				},
+				transition: {
+					duration: 0.2,
+					delay: index * 0.1,
+				},
+			}
+		: {
+				initial: {
+					opacity: 0,
+					y: -10,
+				},
+				animate: {
+					opacity: 1,
+					y: 0,
+				},
+				transition: {
+					duration: 0.2,
+					delay: index * 0.1,
+				},
+				whileHover: {
+					y: -2,
+				},
+			};
 </script>
 
 <nav class={`nav-links ${isMobile ? 'mobile': 'desktop'}`}>

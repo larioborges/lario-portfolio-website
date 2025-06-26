@@ -11,33 +11,20 @@
 </style>
 
 <script lang="ts">
-import Sun from 'lucide-svelte/icons/sun';
 import Moon from 'lucide-svelte/icons/moon';
+import Sun from 'lucide-svelte/icons/sun';
 import Button from '@/ui/Button.svelte';
 
 const getTheme = () =>
-	localStorage.getItem(
-		'theme',
-	) ?
-		localStorage.getItem(
-			'theme',
-		) :
-		'dark';
+	localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark';
 
-let theme = $state(
-	getTheme(),
-);
+let theme = $state(getTheme());
 
 const toggleTheme = () => {
-	const newTheme = getTheme() == 'dark' ? 'light' : 'dark';
-	localStorage.setItem(
-		'theme',
-		newTheme,
-	);
-	if (theme != newTheme) {
-		document.documentElement.classList.toggle(
-			'dark',
-		);
+	const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
+	localStorage.setItem('theme', newTheme);
+	if (theme !== newTheme) {
+		document.documentElement.classList.toggle('dark');
 	}
 	theme = newTheme;
 };

@@ -1,6 +1,4 @@
-import {
-	contentfulClient,
-} from '@/contentful';
+import { contentfulClient } from '@/contentful';
 import type {
 	SkillCategory,
 	SkillCategoryResponse,
@@ -8,24 +6,16 @@ import type {
 } from '@/contentful/types';
 
 const getSkillCategoryEntries = async () =>
-	(await contentfulClient.getEntries<SkillCategory>(
-		{
+	(
+		await contentfulClient.getEntries<SkillCategory>({
 			content_type: 'skillCategory',
-		},
-	)).items.sort(
-		(
-			a, b,
-		) => a.fields.listPriority - b.fields.listPriority,
-	);
+		})
+	).items.sort((a, b) => a.fields.listPriority - b.fields.listPriority);
 
 export const getSkillCategories = async () =>
 	await Promise.all(
 		(await getSkillCategoryEntries()).map(
-			(
-				{
-					fields: skillCatFields,
-				},
-			):SkillCategoryResponse => ({
+			({ fields: skillCatFields }): SkillCategoryResponse => ({
 				listPriority: skillCatFields.listPriority,
 				name: skillCatFields.name,
 				icon: skillCatFields.icon,
@@ -37,22 +27,21 @@ export const getSkillCategories = async () =>
 	);
 
 export const getFeaturedSkills = async () =>
-	[(await contentfulClient.getEntry<SkillCategory>(
-		'52rmWmLPH8xh6KeamXXb5b',
-	))].map(
-		(
-			{
-				fields,
-			},
-		) => (
-			{
-				name: fields.name,
-				icon: fields.icon,
-				skills: fields.skills.map(
-					skill => (skill as unknown as { fields: any }).fields.name,
-				),
-			}
+	[
+		await contentfulClient.getEntry<SkillCategory>('52rmWmLPH8xh6KeamXXb5b'),
+	].map(({ fields }) => ({
+		name: fields.name,
+		icon: fields.icon,
+		skills: fields.skills.map(
+			skill =>
+				(
+					skill as unknown as {
+						fields: {
+							name: string;
+						};
+					}
+				).fields.name,
 		),
-	)[0];
+	}))[0];
 
 export default getSkillCategories;

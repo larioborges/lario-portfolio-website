@@ -1,27 +1,17 @@
 ---
-import Layout from '@/layouts/Layout.astro';
 import EmploymentHistoryComponent from '@/components/EmploymentHistory.svelte';
 import {
 	getPastEmployers,
-	getSeoFieldsById,
 	getPersonalInfo,
+	getSeoFieldsById,
 } from '@/contentful/queries';
+import Layout from '@/layouts/Layout.astro';
 
-const [
-	{
-		name,
-	},
-	pastEmployers,
-	seoField,
-] = (await Promise.all(
-	[
-		getPersonalInfo(),
-		getPastEmployers(),
-		getSeoFieldsById(
-			'4a3PYeoBpPFuf3MyhVTt8G',
-		),
-	],
-));
+const [{ name }, pastEmployers, seoField] = await Promise.all([
+	getPersonalInfo(),
+	getPastEmployers(),
+	getSeoFieldsById('4a3PYeoBpPFuf3MyhVTt8G'),
+]);
 ---
 
 <Layout

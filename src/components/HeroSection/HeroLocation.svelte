@@ -13,9 +13,7 @@
 <script lang="ts">
 import MapPoint from '@/icons/MapPoint.svelte';
 
-const {
-	locationFields,
-} = $props();
+const { locationFields } = $props();
 </script>
 
 <p

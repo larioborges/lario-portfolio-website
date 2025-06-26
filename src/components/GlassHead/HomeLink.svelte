@@ -15,15 +15,11 @@
 </style>
 
 <script lang=ts>
-import southAfrica from '@/images/south-africa.webp';
+import { Motion } from 'svelte-motion';
 import luigiCap from '@/images/luigi-cap.webp';
-import {
-	Motion,
-} from 'svelte-motion';
+import southAfrica from '@/images/south-africa.webp';
 
-const {
-	name,
-} = $props();
+const { name } = $props();
 </script>
 
 <Motion

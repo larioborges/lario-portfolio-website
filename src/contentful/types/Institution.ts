@@ -1,9 +1,5 @@
-import type {
-	Entry, EntryFieldTypes, UnresolvedLink,
-} from 'contentful';
-import type {
-	Location,
-} from './Location';
+import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
+import type { Location } from './Location';
 
 export interface InstitutionResponse {
 	insitutionKey?: string;
@@ -15,11 +11,12 @@ export interface InstitutionResponse {
 export interface InstitutionFieldValuesWithoutLoication {
 	name: string;
 	websiteUrl?: string;
-};
+}
 
-export interface InstitutionFields extends InstitutionFieldValuesWithoutLoication {
+export interface InstitutionFields
+	extends InstitutionFieldValuesWithoutLoication {
 	location: EntryFieldTypes.EntryLink<Location>;
-};
+}
 
 export interface Institution {
 	contentTypeId: 'institution';

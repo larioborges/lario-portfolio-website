@@ -9,9 +9,7 @@
 </style>
 
 <script lang="ts">
-  const {
-  	award,
-  } = $props()
+const { award } = $props();
 </script>
 
 {#if award.issuerWebsiteUrl != null}

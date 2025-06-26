@@ -2,9 +2,7 @@
 /* eslint svelte/no-at-html-tags: "off" */
 import DOMPurify from 'dompurify';
 
-const {
-	content,
-} = $props();
+const { content } = $props();
 </script>
 
 <div class="html-content">

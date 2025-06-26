@@ -1,12 +1,11 @@
-import type {
-	ManifestOptions,
-} from 'vite-plugin-pwa';
-import favicon512 from '../src/assets/favicons/favicon-512x512.webp';
+import type { ManifestOptions } from 'vite-plugin-pwa';
 import favicon192 from '../src/assets/favicons/favicon-192x192.webp';
+import favicon512 from '../src/assets/favicons/favicon-512x512.webp';
 
 const DEFAULT_WEBSITE_NAME = 'Lario Borges - Full Stack Web Engineer',
 	DEFAULT_BASE_URL = 'https://lariocpt.biz',
-	DEFAULT_DESCRIPTION = 'Bright, seasoned and diligent Full Stack Web Engineer who specializes in JavaScript and Front-End development. Get to know some the nut in this shell!';
+	DEFAULT_DESCRIPTION =
+		'Bright, seasoned and diligent Full Stack Web Engineer who specializes in JavaScript and Front-End development. Get to know some the nut in this shell!';
 
 export const seoConfig = {
 	baseURL: DEFAULT_BASE_URL,
@@ -23,7 +22,7 @@ export const seoConfig = {
 	twitter: {
 		card: 'summary_large_image',
 	},
-}
+};
 
 export const manifest: Partial<ManifestOptions> = {
 	name: DEFAULT_WEBSITE_NAME,
@@ -44,4 +43,4 @@ export const manifest: Partial<ManifestOptions> = {
 			type: 'image/png',
 		},
 	],
-}
+};

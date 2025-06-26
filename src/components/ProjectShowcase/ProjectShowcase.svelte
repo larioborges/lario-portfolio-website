@@ -20,9 +20,7 @@
 import Heading from '../ui/Heading.svelte';
 import ShowCase from './ShowCase.svelte';
 
-const {
-	showcaseProjects,
-} = $props();
+const { showcaseProjects } = $props();
 </script>
 
 <section id="projects">

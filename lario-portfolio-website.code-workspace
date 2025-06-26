@@ -29,12 +29,12 @@
 		"editor.useTabStops": false,
 		"editor.tabSize": 2,
 		"editor.renderWhitespace": "all",
-		// "editor.codeActionsOnSave": {
-		// 	"source.fixAll.eslint": "explicit"
-		// },
+		"editor.codeActionsOnSave": {
+        "source.fixAll.biome": "explicit"
+    },
 		"eslint.runtime": "bun",
  		"eslint.execArgv": ["--bun"],
-  	"editor.formatOnSave": false,
+  	"editor.formatOnSave": true,
 		"editor.indentSize": "tabSize",
 		"yaml.format.bracketSpacing": false,
   	"yaml.format.singleQuote": true,
@@ -57,35 +57,25 @@
 	    "dist/": true,
 			"packages/": true
 	  },
-	  "eslint.validate": [
-	    "javascript",
-	    "astro",
-	    "typescript",
-	    "svelte",
-	    "json",
-			"html"
-	  ],
-		"eslint.onIgnoredFiles": "off",
 	  "[astro]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	    "editor.defaultFormatter": "biomejs.biome"
 	  },
 		"[javascript]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	    "editor.defaultFormatter": "biomejs.biome"
 	  },
 		"[typescript]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	    "editor.defaultFormatter": "biomejs.biome"
 	  },
 		"[svelte]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	    "editor.defaultFormatter": "biomejs.biome"
 	  },
 		"[json]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	  },
-		"[toml]": {
-	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-		},
-		"eslint.options": {
-			"configFile": "./config/eslint.config.js"
-		},
+	    "editor.defaultFormatter": "biomejs.biome"
+	  }
+	},
+	"extensions": {
+		"recommendations": [
+			"biomejs.biome"
+		]
 	}
 }

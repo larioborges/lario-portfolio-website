@@ -13,9 +13,7 @@
 <script lang="ts">
 import SkillTag from '@/ui/SkillTag.svelte';
 
-const {
-	award,
-} = $props();
+const { award } = $props();
 </script>
 
 <div class="tags">

@@ -13,9 +13,9 @@
 </style>
 
 <script lang="ts">
+import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import Heading from '@/ui/Heading.svelte';
-import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 
 const containerVariants = {
 	hidden: {
@@ -29,9 +29,7 @@ const containerVariants = {
 	},
 };
 
-const {
-	skillCategories,
-} = $props();
+const { skillCategories } = $props();
 </script>
 
 <section

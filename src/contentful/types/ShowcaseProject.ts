@@ -1,17 +1,15 @@
-import type {
-	Document,
-} from '@contentful/rich-text-types';
-import type {
-	Entry, EntryFieldTypes, UnresolvedLink,
-} from 'contentful';
-import type {
-	Institution,
-	Skill,
-} from '@/contentful/types';
+import type { Document } from '@contentful/rich-text-types';
+import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
+import type { Institution, Skill } from '@/contentful/types';
 
 export type ShowcaseProjectKeyClientOrEmployer = 'client' | 'employer';
 
-export type ShowcaseProjectKeysWithoutClientOrEmployer = 'name' | 'period' | 'skills' | 'description' | 'highlights';
+export type ShowcaseProjectKeysWithoutClientOrEmployer =
+	| 'name'
+	| 'period'
+	| 'skills'
+	| 'description'
+	| 'highlights';
 
 export interface ShowcaseProjectResponse {
 	listPriority: number;
@@ -30,7 +28,10 @@ export interface ShowcaseProjectResponse {
 export interface ShowcaseProjectFields {
 	name: string;
 	employer: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
-	client?: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string> | undefined;
+	client?:
+		| UnresolvedLink<'Entry'>
+		| Entry<Institution, undefined, string>
+		| undefined;
 	period: string;
 	skills: string[];
 	description: Document;
@@ -49,23 +50,25 @@ export interface ShowcaseProjectEntryFieldsWithClientAndEmployer {
 	period: EntryFieldTypes.Symbol<string>;
 	skills: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<Skill>>;
 	description: EntryFieldTypes.RichText;
-	highlights: EntryFieldTypes.RichText
-};
+	highlights: EntryFieldTypes.RichText;
+}
 
 export interface ShowcaseProjectEntryFieldsWithoutClientAndEmployer {
 	name: EntryFieldTypes.Symbol<string>;
 	period: EntryFieldTypes.Symbol<string>;
 	skills: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<Skill>>;
 	description: EntryFieldTypes.RichText;
-	highlights: EntryFieldTypes.RichText
-};
-
+	highlights: EntryFieldTypes.RichText;
+}
 
 export interface ShowcaseProjectEntryFieldValues {
 	listPriority: number;
 	name: string;
 	employer: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
-	client?: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string> | undefined;
+	client?:
+		| UnresolvedLink<'Entry'>
+		| Entry<Institution, undefined, string>
+		| undefined;
 	period: string;
 	skills: (UnresolvedLink<'Entry'> | Entry<Skill, undefined, string>)[];
 	description: Document;
@@ -74,8 +77,8 @@ export interface ShowcaseProjectEntryFieldValues {
 
 export interface ShowcaseProjectEntryFields {
 	listPriority: EntryFieldTypes.Number;
-	name: EntryFieldTypes.Symbol<string>
-	employer:EntryFieldTypes.EntryLink<Institution>;
+	name: EntryFieldTypes.Symbol<string>;
+	employer: EntryFieldTypes.EntryLink<Institution>;
 	client?: EntryFieldTypes.EntryLink<Institution> | undefined;
 	period: EntryFieldTypes.Symbol<string>;
 	skills: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<Skill>>;

@@ -1,12 +1,6 @@
-import type {
-	Document,
-} from '@contentful/rich-text-types';
-import type {
-	Entry, EntryFieldTypes, UnresolvedLink,
-} from 'contentful';
-import type {
-	Institution,
-} from './Institution';
+import type { Document } from '@contentful/rich-text-types';
+import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
+import type { Institution } from './Institution';
 
 export interface PastEmployerResponse {
 	listPriority: number;

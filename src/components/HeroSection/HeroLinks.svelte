@@ -11,24 +11,15 @@
 </style>
 
 <script lang=ts>
-import {
-	CONTAINER_VARIANTS,
-} from '@/constants';
-import Mail from '@/icons/Mail.svelte';
+import { Motion } from 'svelte-motion';
+import { CONTAINER_VARIANTS } from '@/constants';
 import GithubIcon from '@/icons/Github.svelte';
 import LinkedinIcon from '@/icons/LinkedIn.svelte';
-import {
-	Motion,
-} from 'svelte-motion';
+import Mail from '@/icons/Mail.svelte';
 import HeroLink from './HeroLink.svelte';
 import HeroLocation from './HeroLocation.svelte';
 
-const {
-	locationFields,
-	email,
-	githubUrl,
-	linkedInUrl,
-} = $props();
+const { locationFields, email, githubUrl, linkedInUrl } = $props();
 </script>
 
 <Motion
