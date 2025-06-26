@@ -1,6 +1,4 @@
-import type {
-	EntryFieldTypes,
-} from 'contentful';
+import type { EntryFieldTypes } from 'contentful';
 
 export interface Seo {
 	contentTypeId: 'skill';
@@ -9,5 +7,5 @@ export interface Seo {
 		description: EntryFieldTypes.Symbol<string>;
 		canonicalUrl: EntryFieldTypes.Symbol<string>;
 		image?: EntryFieldTypes.AssetLink | undefined;
-	}
-};
+	};
+}

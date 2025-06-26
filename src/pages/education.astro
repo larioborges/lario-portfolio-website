@@ -1,27 +1,17 @@
 ---
-import Layout from '@/layouts/Layout.astro';
 import EducationComponent from '@/components/Education.svelte';
 import {
 	getCertifications,
-	getSeoFieldsById,
 	getPersonalInfo,
+	getSeoFieldsById,
 } from '@/contentful/queries';
+import Layout from '@/layouts/Layout.astro';
 
-const [
-	{
-		name,
-	},
-	certifications,
-	seoField,
-] = (await Promise.all(
-	[
-		getPersonalInfo(),
-		getCertifications(),
-		getSeoFieldsById(
-			'4a3PYeoBpPFuf3MyhVTt8G',
-		),
-	],
-));
+const [{ name }, certifications, seoField] = await Promise.all([
+	getPersonalInfo(),
+	getCertifications(),
+	getSeoFieldsById('4a3PYeoBpPFuf3MyhVTt8G'),
+]);
 ---
 
 <Layout

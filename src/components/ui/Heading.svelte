@@ -11,14 +11,9 @@
 </style>
 
 <script lang="ts">
-	import {
-		Motion,
-	} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
 
-  const {
-  	icon,
-  	text,
-  } = $props();
+const { icon, text } = $props();
 </script>
 
 <h2>

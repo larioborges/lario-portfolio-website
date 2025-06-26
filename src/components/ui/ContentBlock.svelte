@@ -6,16 +6,10 @@
 </style>
 
 <script lang="ts">
+import { Motion } from 'svelte-motion';
 import Content from './Content.svelte';
-import {
-	Motion,
-} from 'svelte-motion';
 
-const {
-	content,
-	heading = null,
-	HeadingIcon = null,
-} = $props();
+const { content, heading = null, HeadingIcon = null } = $props();
 </script>
 
 <!--

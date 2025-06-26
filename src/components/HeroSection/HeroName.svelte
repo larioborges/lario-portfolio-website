@@ -19,12 +19,8 @@
 </style>
 
 <script lang="ts">
-import {
-	CHILD_VARIANTS,
-} from '@/constants';
-import {
-	Motion,
-} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
+import { CHILD_VARIANTS } from '@/constants';
 import nerd from '@/images/nerd.webp';
 
 const {

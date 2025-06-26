@@ -5,6 +5,6 @@ export * from './Location';
 export * from './PastEmployer';
 export * from './PersonalInfo';
 export * from './Seo';
+export * from './ShowcaseProject';
 export * from './Skill';
 export * from './SkillCategory';
-export * from './ShowcaseProject';

@@ -1,35 +1,23 @@
-import {
-	contentfulClient,
-} from '@/contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { contentfulClient } from '@/contentful';
 import type {
-	PersonalInfoResponse,
 	PersonalInfo,
 	PersonalInfoFields,
+	PersonalInfoResponse,
 } from '@/contentful/types';
-import {
-	documentToHtmlString,
-} from '@contentful/rich-text-html-renderer';
 
 type getPersonalInfo = () => Promise<PersonalInfoResponse>;
 
-const getPersonalInfoResponse = (
-	personalInfoFields: PersonalInfoFields,
-) => ({
+const getPersonalInfoResponse = (personalInfoFields: PersonalInfoFields) => ({
 	...personalInfoFields,
-	intro: documentToHtmlString(
-		personalInfoFields.intro,
-	),
+	intro: documentToHtmlString(personalInfoFields.intro),
 });
 
-const getPersonalInfoFields = async () => (
-	await contentfulClient.getEntry<PersonalInfo>(
-		'3VUcnT1kxkcTnaxAwSVaHf',
-	)
-).fields;
+const getPersonalInfoFields = async () =>
+	(await contentfulClient.getEntry<PersonalInfo>('3VUcnT1kxkcTnaxAwSVaHf'))
+		.fields;
 
-export const getPersonalInfo: getPersonalInfo =
-	async () => getPersonalInfoResponse(
-		await getPersonalInfoFields(),
-	);
+export const getPersonalInfo: getPersonalInfo = async () =>
+	getPersonalInfoResponse(await getPersonalInfoFields());
 
 export default getPersonalInfo;

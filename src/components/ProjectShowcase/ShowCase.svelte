@@ -8,15 +8,11 @@
 <script lang="ts">
 import Briefcase from 'lucide-svelte/icons/briefcase';
 import Star from 'lucide-svelte/icons/star';
+import ContentBlock from '@/ui/ContentBlock.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
 import TimelineItem from '@/ui/TimelineItem.svelte';
-import ContentBlock from '@/ui/ContentBlock.svelte';
 
-const {
-	showcaseProjects,
-	project,
-	index,
-} = $props();
+const { showcaseProjects, project, index } = $props();
 </script>
 
 <TimelineItem

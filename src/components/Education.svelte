@@ -18,13 +18,11 @@
 </style>
 
 <script lang="ts">
-import TimelineItem from '@/ui/TimelineItem.svelte';
 import ContentBlock from '@/ui/ContentBlock.svelte';
 import Heading from '@/ui/Heading.svelte';
+import TimelineItem from '@/ui/TimelineItem.svelte';
 
-const {
-	certifications,
-} = $props();
+const { certifications } = $props();
 </script>
 
 <section id="education">

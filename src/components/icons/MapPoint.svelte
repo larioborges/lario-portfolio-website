@@ -6,11 +6,7 @@
 </style>
 
 <script lang=ts>
-  const {
-  	width = 24,
-  	height = 24,
-  	class:className = '',
-  } = $props();
+const { width = 24, height = 24, class: className = '' } = $props();
 </script>
 
 

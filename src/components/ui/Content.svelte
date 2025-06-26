@@ -16,11 +16,8 @@
 
 <script lang="ts">
 import HtmlElement from '@/ui/HtmlElement.svelte';
-const {
-	content,
-	heading,
-	HeadingIcon,
-} = $props();
+
+const { content, heading, HeadingIcon } = $props();
 </script>
 
 {#if heading}

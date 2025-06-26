@@ -1,11 +1,7 @@
 <script lang="ts">
-import {
-	Motion,
-} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
 
-const {
-	name,
-} = $props();
+const { name } = $props();
 </script>
 
 <style lang="postcss">

@@ -1,29 +1,29 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
-  "rsc": false,
-  "tsx": false,
-  "svelte": true,
-  "tailwind": {
-    "config": "",
-    "css": "src/styles/global.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "aliases": {
-    "astro": "@/astro",
-    "components": "@/components",
-    "icons": "@/icons",
-    "motion": "@/motion",
-    "ui": "@/ui",
-    "contentful": "@/contentful",
-    "utils": "@/utils",
-    "scripts": "@/scripts",
-    "styles": "@/styles",
-    "layouts": "@/layouts",
-    "images": "@/images",
-    "config": "@/config"
-  },
-  "iconLibrary": "lucide"
+	"$schema": "https://ui.shadcn.com/schema.json",
+	"style": "new-york",
+	"rsc": false,
+	"tsx": false,
+	"svelte": true,
+	"tailwind": {
+		"config": "",
+		"css": "src/styles/global.css",
+		"baseColor": "neutral",
+		"cssVariables": true,
+		"prefix": ""
+	},
+	"aliases": {
+		"astro": "@/astro",
+		"components": "@/components",
+		"icons": "@/icons",
+		"motion": "@/motion",
+		"ui": "@/ui",
+		"contentful": "@/contentful",
+		"utils": "@/utils",
+		"scripts": "@/scripts",
+		"styles": "@/styles",
+		"layouts": "@/layouts",
+		"images": "@/images",
+		"config": "@/config"
+	},
+	"iconLibrary": "lucide"
 }

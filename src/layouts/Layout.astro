@@ -1,28 +1,16 @@
 ---
 import '@/styles/global.css';
-import {
-	pwaInfo,
-} from 'virtual:pwa-info';
-import {
-	GoogleAnalytics,
-} from 'astro-google-analytics';
-import {
-	SEO,
-} from 'astro-seo';
+import { pwaInfo } from 'virtual:pwa-info';
+import { Head } from 'astro-capo';
+import { GoogleAnalytics } from 'astro-google-analytics';
+import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
+import { SEO } from 'astro-seo';
 import favicon from '@/assets/favicons/favicon.webp';
-import {
-	Head,
-} from 'astro-capo';
-import {
-	seoConfig,
-} from '@/config/seoConfig'
-import HtmlElement from '@/ui/HtmlElement.svelte';
+import ReloadPrompt from '@/astro/ReloadPrompt.astro';
 import Footer from '@/components/Footer.svelte';
 import GlassHeader from '@/components/GlassHead/GlassHeader.svelte';
-import {
-	GoogleFontsOptimizer,
-} from 'astro-google-fonts-optimizer';
-import ReloadPrompt from '@/astro/ReloadPrompt.astro';
+import { seoConfig } from '@/config/seoConfig';
+import HtmlElement from '@/ui/HtmlElement.svelte';
 
 interface OpenGraphProps {
 	basic: {
@@ -68,17 +56,17 @@ interface Props {
 		alt?: string;
 		width?: number;
 		height?: number;
-		type?: string,
-	},
+		type?: string;
+	};
 	article?: {
-		publishedTime?: string,
-		modifiedTime?: string,
-		expirationTime?: string,
-		authors?: string[],
-		section?: string,
-		tags?: string[],
-	},
-	name?: string,
+		publishedTime?: string;
+		modifiedTime?: string;
+		expirationTime?: string;
+		authors?: string[];
+		section?: string;
+		tags?: string[];
+	};
+	name?: string;
 }
 
 const {
@@ -95,7 +83,7 @@ const openGraph: OpenGraphProps = {
 	basic: {
 		title,
 		type: 'website',
-		image: (image.url as string),
+		image: image.url as string,
 		url: canonicalUrl,
 	},
 	optional: {
@@ -103,13 +91,17 @@ const openGraph: OpenGraphProps = {
 		description,
 		// determiner?: string,
 		locale: 'en_ZA',
-		localeAlternate: ['en_US'],
+		localeAlternate: [
+			'en_US',
+		],
 		siteName,
 	},
 };
 
-if (image != undefined) {
-	openGraph.basic.image = image.url ? image.url : seoConfig.image.url as string;
+if (image !== undefined) {
+	openGraph.basic.image = image.url
+		? image.url
+		: (seoConfig.image.url as string);
 	openGraph.image = {};
 	if (image.url) openGraph.image.url = image.url;
 	if (image.url) openGraph.image.secureUrl = image.url;

@@ -1,26 +1,21 @@
+import { contentfulClient } from '@/contentful';
 import type {
 	Award,
+	AwardFields,
 	AwardResponse,
 	InstitutionResponse,
-	AwardFields,
 } from '@/contentful/types';
-import {
-	contentfulClient,
-} from '@/contentful';
 
 const getAwardEntries = async () =>
-	(await contentfulClient.getEntries<Award>(
-		{
+	(
+		await contentfulClient.getEntries<Award>({
 			content_type: 'award',
-		},
-	)).items.sort(
-		(
-			a, b,
-		) => a.fields.listPriority - b.fields.listPriority,
-	);
+		})
+	).items.sort((a, b) => a.fields.listPriority - b.fields.listPriority);
 
 const createPastEmployerResponseObj = (
-	awardsEntryFields:AwardFields, issuerEntryFields: InstitutionResponse,
+	awardsEntryFields: AwardFields,
+	issuerEntryFields: InstitutionResponse,
 ): AwardResponse => ({
 	listPriority: awardsEntryFields.listPriority,
 	name: awardsEntryFields.name,
@@ -30,23 +25,21 @@ const createPastEmployerResponseObj = (
 	tags: awardsEntryFields.tags,
 });
 
-const getIssuerFields = (
-	awardsEntryFields:AwardFields,
-) => (awardsEntryFields.issuer as { fields: InstitutionResponse }).fields
+const getIssuerFields = (awardsEntryFields: AwardFields) =>
+	(
+		awardsEntryFields.issuer as {
+			fields: InstitutionResponse;
+		}
+	).fields;
 
 export const getAwards = async () =>
 	await Promise.all(
 		(await getAwardEntries()).map(
-			async (
-				{
-					fields: awardFields,
-				},
-			):Promise<AwardResponse> => createPastEmployerResponseObj(
-				awardFields,
-				getIssuerFields(
+			async ({ fields: awardFields }): Promise<AwardResponse> =>
+				createPastEmployerResponseObj(
 					awardFields,
+					getIssuerFields(awardFields),
 				),
-			),
 		),
 	);
 

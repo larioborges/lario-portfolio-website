@@ -7,16 +7,10 @@
 </style>
 
 <script>
-  import {
-  	CHILD_VARIANTS,
-  } from '@/constants';
-	import {
-		Motion,
-	} from 'svelte-motion';
+import { Motion } from 'svelte-motion';
+import { CHILD_VARIANTS } from '@/constants';
 
-  const {
-  	href, children,
-  } = $props();
+const { href, children } = $props();
 </script>
 
 <Motion

@@ -13,10 +13,7 @@
 import HeroSection from '@/components/HeroSection/HeroSection.svelte';
 import SkillCategorySection from '@/components/SkillCategorySection.svelte';
 
-const {
-	personalInfo,
-	featuredSkills,
-} = $props();
+const { personalInfo, featuredSkills } = $props();
 </script>
 
 <section id="experience">

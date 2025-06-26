@@ -6,9 +6,7 @@
 </style>
 
 <script lang="ts">
-let {
-	class: className = '',
-} = $props();
+const { class: className = '' } = $props();
 </script>
 
 <svg

@@ -15,14 +15,10 @@
 </style>
 
 <script>
-	import {
-		Motion,
-	} from 'svelte-motion';
-	import HtmlElement from '../ui/HtmlElement.svelte';
+import { Motion } from 'svelte-motion';
+import HtmlElement from '../ui/HtmlElement.svelte';
 
-const {
-	intro,
-} = $props();
+const { intro } = $props();
 </script>
 
 <Motion

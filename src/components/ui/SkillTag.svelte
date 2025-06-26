@@ -1,10 +1,7 @@
 <script lang="ts">
-import {
-	Motion,
-} from 'svelte-motion';
-let {
-	children, index = 1,
-} = $props();
+import { Motion } from 'svelte-motion';
+
+const { children, index = 1 } = $props();
 </script>
 
 <!-- <MotionDiv

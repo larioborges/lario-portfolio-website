@@ -1,11 +1,5 @@
-import type {
-	Entry,
-	EntryFieldTypes,
-	UnresolvedLink,
-} from 'contentful';
-import type {
-	Institution,
-} from './Institution';
+import type { Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
+import type { Institution } from './Institution';
 
 export interface AwardResponse {
 	listPriority: number;
@@ -14,7 +8,7 @@ export interface AwardResponse {
 	issuerName: string;
 	date: string;
 	tags: string[];
-};
+}
 
 export interface AwardFields {
 	listPriority: number;
@@ -22,7 +16,7 @@ export interface AwardFields {
 	issuer: UnresolvedLink<'Entry'> | Entry<Institution, undefined, string>;
 	date: string;
 	tags: string[];
-};
+}
 export interface Award {
 	contentTypeId: 'award';
 	fields: {
@@ -32,4 +26,4 @@ export interface Award {
 		date: EntryFieldTypes.Symbol<string>;
 		tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol<string>>;
 	};
-};
+}

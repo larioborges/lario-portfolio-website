@@ -11,22 +11,18 @@
 </style>
 
 <script lang="ts">
-import HomeLink from './HomeLink.svelte';
-import NavLinks from './NavLinks.svelte';
 import ActionButtons from './ActionButtons.svelte';
+import HomeLink from './HomeLink.svelte';
 import MobileMenu from './MobileMenu.svelte';
+import NavLinks from './NavLinks.svelte';
 
-let isMenuOpen = $state(
-	false,
-);
+let isMenuOpen = $state(false);
 
 const toggleMenu = () => {
 	isMenuOpen = !isMenuOpen;
 };
 
-const {
-	name,
-} = $props();
+const { name } = $props();
 </script>
 
 <header

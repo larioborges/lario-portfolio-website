@@ -1,33 +1,20 @@
 <script lang="ts">
-import {
-	cn,
-} from '@/utils';
-import {
-	Motion,
-} from 'svelte-motion';
-import {
-	inview,
-} from 'svelte-inview';
-import type {
-	ObserverEventDetails, Options,
-} from 'svelte-inview';
+import type { ObserverEventDetails, Options } from 'svelte-inview';
+import { inview } from 'svelte-inview';
+import { Motion } from 'svelte-motion';
+import { cn } from '@/utils';
 
-let isInView = $state(
-	false,
-);
+let isInView = $state(false);
 const options: Options = {
 	rootMargin: '50px',
 	unobserveOnEnter: true,
 };
 
-const handleChange = (
-	{
-		detail,
-	}: CustomEvent<ObserverEventDetails>,
-) =>
-	(isInView = detail.inView);
+const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+	isInView = detail.inView;
+};
 
-let {
+const {
 	title,
 	titleHref = null,
 	subtitle,

@@ -15,9 +15,9 @@
 </style>
 
 <script lang="ts">
+import MotionDiv from '@/motion/MotionDiv.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
 import SkillTag from '@/ui/SkillTag.svelte';
-import MotionDiv from '@/motion/MotionDiv.svelte';
 
 const skillCategoryVariants = {
 	hidden: {
@@ -33,11 +33,7 @@ const skillCategoryVariants = {
 	},
 };
 
-const {
-	name,
-	icon,
-	skills,
-} = $props();
+const { name, icon, skills } = $props();
 </script>
 
 {#snippet categoryHeading(name: string, icon: string)}

@@ -19,40 +19,25 @@
 </style>
 
 <script lang="ts">
+import type { AssetFields } from 'contentful';
+import { Motion } from 'svelte-motion';
+import { CONTAINER_VARIANTS } from '@/constants';
 import nerd from '@/images/nerd.webp';
-import type {
-	AssetFields,
-} from 'contentful';
-import {
-	Motion,
-} from 'svelte-motion';
-import {
-	CONTAINER_VARIANTS,
-} from '@/constants';
-	import HeroName from './HeroName.svelte';
-	import HeroProfilePic from './HeroProfilePic.svelte';
-	import HeroIntro from './HeroIntro.svelte';
-	import HeroLinks from './HeroLinks.svelte';
+import HeroIntro from './HeroIntro.svelte';
+import HeroLinks from './HeroLinks.svelte';
+import HeroName from './HeroName.svelte';
+import HeroProfilePic from './HeroProfilePic.svelte';
 
-const {
-	name,
-	profileImage,
-	location,
-	email,
-	githubUrl,
-	linkedInUrl,
-	intro,
-} = $props();
+const { name, profileImage, location, email, githubUrl, linkedInUrl, intro } =
+	$props();
 
 const {
 	fields: profileImageFields,
 }: {
-	fields: AssetFields
+	fields: AssetFields;
 } = profileImage;
 
-const {
-	fields: locationFields,
-} = location;
+const { fields: locationFields } = location;
 </script>
 
 <section class="hero-wrapper">

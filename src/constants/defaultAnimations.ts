@@ -1,15 +1,11 @@
-import type {
-	Variants,
-} from 'svelte-motion';
+import type { Variants } from 'svelte-motion';
 
-export const DEFAULT_ANIMATIONS:Variants = {
+export const DEFAULT_ANIMATIONS: Variants = {
 	hidden: {
 		opacity: 0,
 		y: 20,
 	},
-	visible: (
-		delay = 0,
-	) => ({
+	visible: (delay = 0) => ({
 		opacity: 1,
 		y: 0,
 		transition: {

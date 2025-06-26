@@ -1,12 +1,8 @@
 <script lang="ts">
-import {
-	cn,
-} from '@/utils';
 import MotionDiv from '@/motion/MotionDiv.svelte';
+import { cn } from '@/utils';
 
-let {
-	children, class: className, hoverEffect = true, ...props
-} = $props();
+const { children, class: className, hoverEffect = true, ...props } = $props();
 </script>
 
 <MotionDiv
