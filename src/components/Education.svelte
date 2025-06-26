@@ -8,10 +8,6 @@
 			@apply container mx-auto max-w-4xl px-6 md:px-4;
 		}
 
-		.heading {
-			@apply mb-8 text-center text-2xl font-bold md:text-left;
-		}
-
 		.certs-wrapper {
 			@apply mb-8;
 		}

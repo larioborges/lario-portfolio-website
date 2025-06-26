@@ -87,7 +87,7 @@ const {
 					let:motion
 				>
 					<p class="footer-text built-by" use:motion>
-						Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a href="https://svelte.dev/" target="_blank">Svelte</a> & <a href="https://www.contentful.com/" target="_blank">Contentful</a>. View
+						Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a href="https://svelte.dev/" target="_blank">Svelte</a>, <a href="https://tailwindcss.com" target="_blank">Tailwind</a> & <a href="https://www.contentful.com/" target="_blank">Contentful</a>. View
 						<a href="https://github.com/larioborges/lario-portfolio-website" target="_blank">this repo</a>.
 					</p>
 				</Motion>

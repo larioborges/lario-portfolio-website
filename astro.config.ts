@@ -10,6 +10,7 @@ import autoprefixer from 'autoprefixer'
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
 import astroRobotsTxt from 'astro-robots-txt';
+import purgecss from 'astro-purgecss';
 import {
 	defineConfig,
 } from 'astro/config';
@@ -65,6 +66,7 @@ export default defineConfig(
 					},
 				},
 			),
+			purgecss(),
 			compress(),
 			astroCompressor(),
 		],

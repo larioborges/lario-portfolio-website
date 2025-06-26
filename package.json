@@ -51,6 +51,7 @@
     "astro-eslint-parser": "^1.2.2",
     "astro-google-analytics": "^1.0.3",
     "astro-google-fonts-optimizer": "^0.2.2",
+    "astro-purgecss": "^5.2.3",
     "astro-robots-txt": "^1.0.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.27.0",
