@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import AwardsComponent from '@/astro/Awards.astro';
+import AwardsComponent from '@/components/Awards/Awards.svelte';
 import {
 	getAwards,
 	getSeoFieldsById,
@@ -24,8 +24,14 @@ const [
 ));
 ---
 
-<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
+<Layout
+	{...seoField}
+	siteName={seoField.title}
+	image={(seoField.image as { fields: any }).fields}
+	{name}
+>
 	<AwardsComponent
 		{awards}
+		client:only="svelte"
 	/>
 </Layout>

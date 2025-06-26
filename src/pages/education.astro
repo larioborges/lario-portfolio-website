@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import EducationComponent from '@/astro/Education.astro';
+import EducationComponent from '@/components/Education.svelte';
 import {
 	getCertifications,
 	getSeoFieldsById,
@@ -24,6 +24,11 @@ const [
 ));
 ---
 
-<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<EducationComponent {certifications} />
+<Layout
+	{...seoField}
+	siteName={seoField.title}
+	image={(seoField.image as { fields: any }).fields}
+	{name}
+>
+	<EducationComponent {certifications} client:only="svelte" />
 </Layout>

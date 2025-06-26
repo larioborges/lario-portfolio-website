@@ -17,8 +17,8 @@ import {
 	seoConfig,
 } from '@/config/seoConfig'
 import HtmlElement from '@/ui/HtmlElement.svelte';
-import Footer from '@/astro/Footer.astro';
-import GlassHeader from '@/components/GlassHeader.svelte';
+import Footer from '@/components/Footer.svelte';
+import GlassHeader from '@/components/GlassHead/GlassHeader.svelte';
 import {
 	GoogleFontsOptimizer,
 } from 'astro-google-fonts-optimizer';
@@ -121,7 +121,6 @@ if (image != undefined) {
 if (article) {
 	openGraph.article = article;
 }
-
 ---
 
 <style>
@@ -248,6 +247,7 @@ if (article) {
 		</main>
 		<Footer
 			name={name}
+			client:only="svelte"
 		/>
 		<ReloadPrompt />
 	</body>

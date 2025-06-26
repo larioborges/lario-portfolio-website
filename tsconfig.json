@@ -38,8 +38,14 @@
       "@/config/*": [
         "config/*"
       ],
+      "@/components/*": [
+        "src/components/*"
+      ],
       "@/layouts/*": [
         "src/layouts/*"
+      ],
+      "@/constants/*": [
+        "src/constants/*"
       ],
       "@/motion/*": [
         "src/components/motion/*"

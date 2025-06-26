@@ -42,7 +42,8 @@
 	  "files.associations": {
 	    "*.yaml": "yaml",
 			"*.svelte": "svelte",
-			"*.astro": "astro"
+			"*.astro": "astro",
+			"*.css": "postcss"
 	  },
 	  "typescript.updateImportsOnFileMove.enabled": "always",
 	  "javascript.updateImportsOnFileMove.enabled": "always",
@@ -83,6 +84,8 @@
 		"[toml]": {
 	    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
 		},
-		"eslint.options": { "configFile": "./config/eslint.config.js" },
+		"eslint.options": {
+			"configFile": "./config/eslint.config.js"
+		},
 	}
 }
