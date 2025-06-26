@@ -20,9 +20,9 @@ const {
 
 <div class="tags">
 	<div>
-    {#each award.tags as {
-    	tag, index,
-    } (`${tag}-${index}`)}
+    {#each award.tags as
+    	tag, index
+    (`${tag}-${index}`)}
 			<SkillTag>
 				{tag}
 			</SkillTag>

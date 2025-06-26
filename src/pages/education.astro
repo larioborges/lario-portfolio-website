@@ -24,6 +24,11 @@ const [
 ));
 ---
 
-<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
-	<EducationComponent {certifications} />
+<Layout
+	{...seoField}
+	siteName={seoField.title}
+	image={(seoField.image as { fields: any }).fields}
+	{name}
+>
+	<EducationComponent {certifications} client:only="svelte" />
 </Layout>

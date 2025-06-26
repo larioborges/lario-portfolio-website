@@ -24,6 +24,11 @@ const [
 ));
 ---
 
-<Layout {...seoField} siteName={seoField.title} image={(seoField.image as { fields: any }).fields} {name}>
+<Layout
+	{...seoField}
+	siteName={seoField.title}
+	image={(seoField.image as { fields: any }).fields}
+	{name}
+>
 	<SkillsComponent {skillCategories} client:only="svelte"/>
 </Layout>

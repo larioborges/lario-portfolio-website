@@ -7,6 +7,10 @@
 	> div {
 		@apply container mx-auto max-w-4xl px-6 md:px-4;
 	}
+
+	.content-wrapper {
+		@apply mb-8;
+	}
 }
 </style>
 
@@ -27,10 +31,16 @@ const {
 		<div class="heading-wrapper">
 			<Heading icon="💼" text="Employment History" />
 		</div>
-		<div class="mb-8">
+		<div class="content-wrapper">
 			{#each pastEmployers as {
-				companyName, companyWebsiteUrl, companyLocation, companyGoogleMapsUrl, period, position, description, index,
-			} (`${companyName}-${period}-${index}`)}
+				companyName,
+				companyWebsiteUrl,
+				companyLocation,
+				companyGoogleMapsUrl,
+				period,
+				position,
+				description,
+			}, index (`${companyName}-${period}-${index}`)}
 				<TimelineItem
 					title={`👨‍💻 ${position}`}
 					subtitle={companyName}

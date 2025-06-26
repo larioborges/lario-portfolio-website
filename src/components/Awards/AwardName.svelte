@@ -44,5 +44,5 @@ const {
 			<Trophy class="trophy-icon" />
 		</div>
 	</Motion>
-	<h3>{award.name}</h3>
+	<h3>{award?.name}</h3>
 </div>

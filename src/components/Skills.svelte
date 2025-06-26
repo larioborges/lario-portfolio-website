@@ -1,5 +1,12 @@
 <style lang="postcss">
 @reference "@/styles/global.css";
+#skills {
+	@aply from-background to-muted/20 bg-gradient-to-b py-12;
+
+	.skills-content-wrappper {
+		@apply container mx-auto max-w-4xl px-6 md:px-4;
+	}
+}
 .heading-wrapper {
 	@apply mb-3 flex items-center;
 }
@@ -29,9 +36,8 @@ const {
 
 <section
 	id="skills"
-	class="from-background to-muted/20 bg-gradient-to-b py-12"
 >
-	<div class="container mx-auto max-w-4xl px-6 md:px-4">
+	<div class="skills-content-wrappper">
 		<div class="heading-wrapper">
 			<Heading icon="🛠️" text="Skills" />
 		</div>

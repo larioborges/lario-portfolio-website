@@ -5,7 +5,7 @@
 		@apply h-5 w-5;
 	}
 
-	.toggle-theme {
+	:global(.toggle-theme) {
 		@apply sr-only;
 	}
 </style>

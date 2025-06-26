@@ -38,20 +38,21 @@ const {
 		</div>
 
 		<div class="certs-wrapper">
-			{#each certifications as {
-				certification,  index,
-			} (`${certification.certification}-${certification.timePeriod}`)}
+			{#each certifications as
+				{
+					certification, timePeriod, institutionName, institutionWebsiteUrl, institutionLocation, institutionGoogleMapsUrl, description,
+				}, index (`${certification}-${timePeriod}`)}
 					<TimelineItem
-						title={`🎓 ${certification.certification}`}
-						subtitle={`🏛️ ${certification.institutionName}`}
-						subtitleHref={certification.institutionWebsiteUrl}
-						location={certification.institutionLocation}
-						locationHref={certification.institutionGoogleMapsUrl}
-						date={certification.timePeriod}
+						title={`🎓 ${certification}`}
+						subtitle={`🏛️ ${institutionName}`}
+						subtitleHref={institutionWebsiteUrl}
+						location={institutionLocation}
+						locationHref={institutionGoogleMapsUrl}
+						date={timePeriod}
 						isLast={index === certifications.length - 1}
 						{index}
 					>
-						<ContentBlock content={certification.description} />
+						<ContentBlock content={description} />
 					</TimelineItem>
 			{/each}
 		</div>

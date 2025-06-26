@@ -1,12 +1,12 @@
 <style lang="postcss">
 @reference "@/styles/global.css";
-:gloabl(img) {
+:global(img) {
   @apply mr-2.5 inline-block align-middle;
 }
-:gloabl(img.light) {
+:global(.light-icon) {
   @apply dark:hidden;
 }
-:gloabl(img.dark) {
+:global(.dark-icon){
   @apply hidden dark:inline-block;
 }
 :global(.home-link) {
@@ -45,14 +45,14 @@ const {
       height="36px"
       alt="South Africa"
       src={southAfrica.src}
-      class="light"
+      class="light-icon"
     />
     <img
       width="35px"
       height="35px"
       alt="Luigi Cap"
       src={luigiCap.src}
-      class="dark"
+      class="dark-icon"
     />
     {name}
   </a>
