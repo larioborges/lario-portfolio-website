@@ -48,8 +48,5 @@ window.addEventListener('load', () => {
 				}
 				showPwaToast(false);
 			},
-			onRegisteredSW(swScriptUrl) {
-				console.log('SW registered: ', swScriptUrl);
-			},
 		});
 });

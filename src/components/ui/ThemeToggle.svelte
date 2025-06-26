@@ -4,27 +4,25 @@
 	:global(.icon) {
 		@apply h-5 w-5;
 	}
-
-	:global(.toggle-theme) {
-		@apply sr-only;
-	}
 </style>
-
 <script lang="ts">
 import Moon from 'lucide-svelte/icons/moon';
 import Sun from 'lucide-svelte/icons/sun';
+import { DARK_THEME, LIGHT_THEME, THEME_STORAGE_KEY } from '@/constants';
 import Button from '@/ui/Button.svelte';
 
 const getTheme = () =>
-	localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark';
+	localStorage.getItem(THEME_STORAGE_KEY)
+		? localStorage.getItem(THEME_STORAGE_KEY)
+		: DARK_THEME;
 
 let theme = $state(getTheme());
 
 const toggleTheme = () => {
-	const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
-	localStorage.setItem('theme', newTheme);
+	const newTheme = getTheme() === DARK_THEME ? LIGHT_THEME : DARK_THEME;
+	localStorage.setItem(THEME_STORAGE_KEY, newTheme);
 	if (theme !== newTheme) {
-		document.documentElement.classList.toggle('dark');
+		document.documentElement.classList.toggle(DARK_THEME);
 	}
 	theme = newTheme;
 };
@@ -36,10 +34,9 @@ const toggleTheme = () => {
 	onclick={toggleTheme}
 	class="rounded-full cursor-pointer"
 >
-	{#if theme === 'light'}
+	{#if theme === LIGHT_THEME}
 		<Moon class="icon" />
 	{:else}
 		<Sun class="icon" />
 	{/if}
-	<span class="toggle-theme">Toggle theme</span>
 </Button>
