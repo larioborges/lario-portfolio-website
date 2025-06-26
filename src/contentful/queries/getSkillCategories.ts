@@ -36,7 +36,9 @@ export const getFeaturedSkills = async () =>
 			skill =>
 				(
 					skill as unknown as {
-						fields: any;
+						fields: {
+							name: string;
+						};
 					}
 				).fields.name,
 		),

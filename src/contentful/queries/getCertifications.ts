@@ -58,7 +58,7 @@ export const getCertifications = async (): Promise<CertificationResponse[]> =>
 					getInstitutionFields(certEntryFields),
 					await getLocationFields(certEntryFields),
 				),
-		) as any,
+		) as unknown as CertificationResponse[],
 	);
 
 export default getCertifications;
