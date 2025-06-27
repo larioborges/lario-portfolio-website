@@ -75,7 +75,8 @@
 	},
 	"extensions": {
 		"recommendations": [
-			"biomejs.biome"
+			"biomejs.biome",
+			"ardenivanov.svelte-intellisense"
 		]
 	}
 }

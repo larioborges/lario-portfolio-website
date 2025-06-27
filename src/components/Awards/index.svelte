@@ -1,25 +1,8 @@
-<style lang="postcss">
-	@reference "@/styles/global.css";
-  #awards {
-	  @apply from-background to-muted/10 bg-gradient-to-b py-12;
-
-		> div {
-			@apply container mx-auto max-w-4xl px-6 md:px-4;
-		}
-
-		.award-content {
-			@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
-		}
-	}
-	.heading-wrapper {
-		@apply mb-3 flex items-center;
-	}
-</style>
-
 <script lang="ts">
 import MotionWrapper from '@/motion/MotionWrapper.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
 import Heading from '@/ui/Heading.svelte';
+import PageSection from '@/ui/PageSection.svelte';
 import AwardName from './AwardName.svelte';
 import Issuer from './Issuer.svelte';
 import Tags from './Tags.svelte';
@@ -27,13 +10,12 @@ import Tags from './Tags.svelte';
 const { awards } = $props();
 </script>
 
-<section
-	id="awards"
->
-	<div>
-		<div class="heading-wrapper">
-			<Heading icon="🏆" text="Awards" />
-		</div>
+<PageSection>
+	{#snippet heading()}
+		<Heading icon="🏆" text="Awards" />
+	{/snippet}
+
+	{#snippet content()}
 		<div class="award-content">
 			{#each awards as
 				award,  index (`${award?.name}-${award?.date}`)}
@@ -48,5 +30,12 @@ const { awards } = $props();
 				</MotionWrapper>
 			{/each}
 		</div>
-	</div>
-</section>
+	{/snippet}
+</PageSection>
+
+<style lang="postcss">
+@reference '@/styles/global.css';
+:global(.award-content) {
+	@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
+}
+</style>

@@ -1,10 +1,3 @@
-<style lang="postcss">
-	@reference "@/styles/global.css";
-
-	:global(.icon) {
-		@apply h-5 w-5;
-	}
-</style>
 <script lang="ts">
 import Moon from 'lucide-svelte/icons/moon';
 import Sun from 'lucide-svelte/icons/sun';
@@ -29,8 +22,8 @@ const toggleTheme = () => {
 </script>
 
 <Button
-	variant="ghost"
-	size="icon"
+	variant={'ghost'}
+	size={'icon'}
 	onclick={toggleTheme}
 	class="rounded-full cursor-pointer"
 >
@@ -40,3 +33,11 @@ const toggleTheme = () => {
 		<Sun class="icon" />
 	{/if}
 </Button>
+
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	:global(.icon) {
+		@apply h-5 w-5;
+	}
+</style>

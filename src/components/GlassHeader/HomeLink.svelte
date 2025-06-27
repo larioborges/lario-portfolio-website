@@ -1,19 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-:global(img) {
-  @apply mr-2.5 inline-block align-middle;
-}
-:global(.light-icon) {
-  @apply dark:hidden;
-}
-:global(.dark-icon){
-  @apply hidden dark:inline-block;
-}
-:global(.home-link) {
-  @apply flex items-center text-lg font-medium;
-}
-</style>
-
 <script lang=ts>
 import { Motion } from 'svelte-motion';
 import luigiCap from '@/images/luigi-cap.webp';
@@ -53,3 +37,23 @@ const { name } = $props();
     {name}
   </a>
 </Motion>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+:global(img) {
+  @apply mr-2.5 inline-block align-middle;
+}
+:global(.light-icon) {
+  @apply dark:hidden;
+  width: 50px;
+  height: 36px;
+}
+:global(.dark-icon){
+  @apply hidden dark:inline-block;
+  width: 35px;
+  height: 35px;
+}
+:global(.home-link) {
+  @apply flex items-center text-lg font-medium;
+}
+</style>

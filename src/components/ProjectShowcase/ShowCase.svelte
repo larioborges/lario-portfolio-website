@@ -1,10 +1,3 @@
-<style lang="postcss">
-  @reference "@/styles/global.css";
-  .project-skills {
-    @apply flex flex-wrap justify-center gap-2 md:justify-start;
-  }
-</style>
-
 <script lang="ts">
 import Briefcase from 'lucide-svelte/icons/briefcase';
 import Star from 'lucide-svelte/icons/star';
@@ -45,3 +38,10 @@ const { showcaseProjects, project, index } = $props();
     HeadingIcon={Star}
   />
 </TimelineItem>
+
+<style lang="postcss">
+  @reference "@/styles/global.css";
+  .project-skills {
+    @apply flex flex-wrap justify-center gap-2 md:justify-start;
+  }
+</style>

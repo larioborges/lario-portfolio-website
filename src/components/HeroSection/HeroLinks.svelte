@@ -1,15 +1,3 @@
-<style lang="postcss">
-  @reference "@/styles/global.css";
-
-  :global(.hero-icon) {
-		@apply mr-2 h-4 w-4;
-	}
-
-  .wrapper {
-    @apply flex flex-col items-center gap-2 md:items-start;
-  }
-</style>
-
 <script lang=ts>
 import { Motion } from 'svelte-motion';
 import { CONTAINER_VARIANTS } from '@/constants';
@@ -54,3 +42,15 @@ const { locationFields, email, githubUrl, linkedInUrl } = $props();
 		</HeroLink>
 	</div>
 </Motion>
+
+<style lang="postcss">
+  @reference "@/styles/global.css";
+
+  :global(.hero-icon) {
+		@apply mr-2 h-4 w-4;
+	}
+
+  .wrapper {
+    @apply flex flex-col items-center gap-2 md:items-start;
+  }
+</style>

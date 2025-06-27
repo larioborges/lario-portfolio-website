@@ -1,13 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-.issuer {
-	@apply text-muted-foreground mb-1 pl-8 text-xs;
-	a {
-		@apply underline;
-	}
-}
-</style>
-
 <script lang="ts">
 const { award } = $props();
 </script>
@@ -24,3 +14,13 @@ const { award } = $props();
 		🏢 {`${award.issuerName} - ${award.date}`}
 	</p>
 {/if}
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+.issuer {
+	@apply text-muted-foreground mb-1 pl-8 text-xs;
+	a {
+		@apply underline;
+	}
+}
+</style>

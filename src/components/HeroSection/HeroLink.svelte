@@ -1,11 +1,3 @@
-<style lang="postcss">
-	@reference "@/styles/global.css";
-
-	.hero-link {
-		@apply text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors;
-	}
-</style>
-
 <script>
 import { Motion } from 'svelte-motion';
 import { CHILD_VARIANTS } from '@/constants';
@@ -31,3 +23,11 @@ const { href, children } = $props();
 		{@render children?.()}
 	</a>
 </Motion>
+
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	.hero-link {
+		@apply text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors;
+	}
+</style>

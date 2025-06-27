@@ -14,6 +14,7 @@
     "prettierrc.js",
     "config/**/*.ts",
     "config/**/*.json",
+    "config/svelte.config.js",
   ],
   "exclude": [
     "./dist/**/*",

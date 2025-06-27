@@ -4,17 +4,15 @@ import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import playformInline from '@playform/inline';
-import tailwindcss from '@tailwindcss/vite';
 import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
 import purgecss from 'astro-purgecss';
 import astroRobotsTxt from 'astro-robots-txt';
-import autoprefixer from 'autoprefixer';
-import postcssNested from 'postcss-nested';
-import { globalStyle, typescript } from 'svelte-preprocess';
+
 import { manifest, seoConfig } from './config/seoConfig';
+import viteConfig from './config/vite.config';
 
 // TODO Lario PWA
 export default defineConfig({
@@ -35,15 +33,19 @@ export default defineConfig({
 			'./*.ts',
 		],
 	}),
+	image: {
+		domains: [
+			'images.ctfassets.net',
+		],
+		remotePatterns: [
+			{
+				protocol: 'https',
+			},
+		],
+	},
 	integrations: [
 		svelte({
-			extensions: [
-				'.svelte',
-			],
-			preprocess: [
-				typescript(),
-				globalStyle(),
-			],
+			configFile: './config/svelte.config.ts',
 		}),
 		sitemap(),
 		astroRobotsTxt(),
@@ -65,22 +67,5 @@ export default defineConfig({
 		compress(),
 		astroCompressor(),
 	],
-	vite: {
-		plugins: [
-			tailwindcss(),
-		],
-		css: {
-			postcss: {
-				plugins: [
-					postcssNested(),
-					autoprefixer(),
-				],
-			},
-		},
-		build: {
-			emptyOutDir: true,
-			cssMinify: true,
-			minify: 'esbuild',
-		},
-	},
+	vite: viteConfig,
 });

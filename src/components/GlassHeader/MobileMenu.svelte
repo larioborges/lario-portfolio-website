@@ -1,10 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-:global(.nav-links-wrapper-mobile) {
-	@apply border-border/10 bg-background/80 dark:bg-background/40 border-t px-4 py-4 backdrop-blur-md backdrop-filter md:hidden;
-}
-</style>
-
 <script lang="ts">
 import { AnimatePresence, Motion } from 'svelte-motion';
 import NavLinks from './NavLinks.svelte';
@@ -40,3 +33,10 @@ const { isMenuOpen } = $props();
 		</Motion>
 	{/if}
 </AnimatePresence>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+:global(.nav-links-wrapper-mobile) {
+	@apply border-border/10 bg-background/80 dark:bg-background/40 border-t px-4 py-4 backdrop-blur-md backdrop-filter md:hidden;
+}
+</style>

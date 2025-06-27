@@ -1,10 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-.map-pin {
-	@apply text-red-400;
-}
-</style>
-
 <script lang=ts>
 const { width = 24, height = 24, class: className = '' } = $props();
 </script>
@@ -20,3 +13,10 @@ const { width = 24, height = 24, class: className = '' } = $props();
 
   </circle><!----><!----><!---->
 </svg>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+.map-pin {
+	@apply text-red-400;
+}
+</style>

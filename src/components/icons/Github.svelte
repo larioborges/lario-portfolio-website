@@ -1,10 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-.github {
-	@apply text-black dark:text-white;
-}
-</style>
-
 <script lang="ts">
 const { class: className = '' } = $props();
 </script>
@@ -26,3 +19,10 @@ const { class: className = '' } = $props();
 	/>
 	<path d="M9 18c-4.51 2-5-2-7-2" />
 </svg>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+.github {
+	@apply text-black dark:text-white;
+}
+</style>

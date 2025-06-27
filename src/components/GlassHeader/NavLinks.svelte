@@ -1,23 +1,3 @@
-<style lang="postcss">
-  @reference "@/styles/global.css";
-  .nav-links {
-    @apply text-sm font-medium;
-  }
-  .nav-links.desktop {
-    @apply hidden items-center space-x-6 md:flex;
-  }
-  .nav-links.mobile {
-    @apply flex flex-col space-y-4;
-  }
-
-  .nav-link {
-    @apply hover:text-foreground/80 text-foreground/60 transition-colors;
-  }
-  .nav-link.mobile {
-    @apply py-2;
-  }
-</style>
-
 <script lang="ts">
 import { Motion } from 'svelte-motion';
 import { NAV_LINKS } from '@/constants';
@@ -84,3 +64,23 @@ const motionProps = (index: number) =>
 		</span>
 	{/each}
 </nav>
+
+<style lang="postcss">
+  @reference "@/styles/global.css";
+  .nav-links {
+    @apply text-sm font-medium;
+  }
+  .nav-links.desktop {
+    @apply hidden items-center space-x-6 md:flex;
+  }
+  .nav-links.mobile {
+    @apply flex flex-col space-y-4;
+  }
+
+  .nav-link {
+    @apply hover:text-foreground/80 text-foreground/60 transition-colors;
+  }
+  .nav-link.mobile {
+    @apply py-2;
+  }
+</style>
