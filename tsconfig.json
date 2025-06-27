@@ -11,10 +11,10 @@
     "components.json",
     "package.json",
     ".lintstagedrc.json",
-    "prettierrc.js",
     "config/**/*.ts",
     "config/**/*.json",
     "config/svelte.config.js",
+    "config/vite.config.js",
   ],
   "exclude": [
     "./dist/**/*",
