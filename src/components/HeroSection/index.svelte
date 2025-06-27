@@ -1,23 +1,3 @@
-<style lang="postcss">
-	@reference "@/styles/global.css";
-
-	.hero-wrapper {
-		@apply relative overflow-hidden py-4 md:py-8;
-
-		> div {
-			@apply relative z-10 container mx-auto max-w-4xl px-6 md:px-4;
-		}
-	}
-
-	.hero-links-wrapper {
-		@apply mb-8 flex flex-col justify-between md:flex-row md:items-center;
-
-		> div {
-			@apply text-center md:text-left;
-		}
-	}
-</style>
-
 <script lang="ts">
 import type { AssetFields } from 'contentful';
 import { Motion } from 'svelte-motion';
@@ -64,3 +44,23 @@ const { fields: locationFields } = location;
 		<HeroIntro {intro} />
 	</div>
 </section>
+
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	.hero-wrapper {
+		@apply relative overflow-hidden py-4 md:py-8;
+
+		> div {
+			@apply relative z-10 container mx-auto max-w-4xl px-6 md:px-4;
+		}
+	}
+
+	.hero-links-wrapper {
+		@apply mb-8 flex flex-col justify-between md:flex-row md:items-center;
+
+		> div {
+			@apply text-center md:text-left;
+		}
+	}
+</style>

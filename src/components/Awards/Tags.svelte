@@ -1,15 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-
-.tags {
-	@apply mt-auto space-y-2;
-
-	> div {
-		@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
-	}
-}
-</style>
-
 <script lang="ts">
 import SkillTag from '@/ui/SkillTag.svelte';
 
@@ -27,3 +15,15 @@ const { award } = $props();
 		{/each}
 	</div>
 </div>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+
+.tags {
+	@apply mt-auto space-y-2;
+
+	> div {
+		@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
+	}
+}
+</style>

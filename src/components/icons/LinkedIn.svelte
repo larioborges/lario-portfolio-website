@@ -1,10 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-.linked-in {
-	@apply text-blue-600/90;
-}
-</style>
-
 <script lang="ts">
 const { width = 24, height = 24, class: className = '' } = $props();
 </script>
@@ -36,3 +29,10 @@ const { width = 24, height = 24, class: className = '' } = $props();
 		r="2"
 	/>
 </svg>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+.linked-in {
+	@apply text-blue-600/90;
+}
+</style>

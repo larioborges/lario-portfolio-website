@@ -1,13 +1,3 @@
-<style lang="postcss">
-@reference "@/styles/global.css";
-.wrapper {
-  @apply flex items-center space-x-2;
-}
-:global(.menu-button) {
-  @apply text-foreground p-2 md:hidden;
-}
-</style>
-
 <script lang="ts">
 import Menu from 'lucide-svelte/icons/menu';
 import X from 'lucide-svelte/icons/x';
@@ -40,3 +30,13 @@ const { toggleMenu, isMenuOpen } = $props();
 		</button>
 	</Motion>
 </div>
+
+<style lang="postcss">
+@reference "@/styles/global.css";
+.wrapper {
+  @apply flex items-center space-x-2;
+}
+:global(.menu-button) {
+  @apply text-foreground p-2 md:hidden;
+}
+</style>

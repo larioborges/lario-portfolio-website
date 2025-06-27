@@ -1,15 +1,3 @@
-<style lang="postcss">
-  @reference "@/styles/global.css";
-
-  .location-wrapper {
-    @apply text-muted-foreground flex items-center text-sm;
-  }
-
-  :global(.hero-icon) {
-		@apply mr-2 h-4 w-4;
-	}
-</style>
-
 <script lang="ts">
 import MapPoint from '@/icons/MapPoint.svelte';
 
@@ -32,3 +20,15 @@ const { locationFields } = $props();
 		<span>{locationFields.name}</span>
 	{/if}
 </p>
+
+<style lang="postcss">
+  @reference "@/styles/global.css";
+
+  .location-wrapper {
+    @apply text-muted-foreground flex items-center text-sm;
+  }
+
+  :global(.hero-icon) {
+		@apply mr-2 h-4 w-4;
+	}
+</style>

@@ -1,5 +1,4 @@
 [build]
-assetsDir = "public"
 base = "./"
 command = "bun run build"
 cssCodeSplit = true

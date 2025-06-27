@@ -1,19 +1,3 @@
-<style lang="postcss">
-	@reference "@/styles/global.css";
-
-	.category-heading {
-		@apply mb-3 flex items-center text-center text-lg font-medium md:text-left;
-
-		span {
-			@apply mr-2;
-		}
-	}
-
-	.skill-tag-wrapper {
-		@apply flex flex-wrap justify-center gap-2 md:justify-start;
-	}
-</style>
-
 <script lang="ts">
 import MotionDiv from '@/motion/MotionDiv.svelte';
 import GlassCard from '@/ui/GlassCard.svelte';
@@ -66,3 +50,19 @@ const { name, icon, skills } = $props();
 		)}
 	</GlassCard>
 </MotionDiv>
+
+<style lang="postcss">
+	@reference "@/styles/global.css";
+
+	.category-heading {
+		@apply mb-3 flex items-center text-center text-lg font-medium md:text-left;
+
+		span {
+			@apply mr-2;
+		}
+	}
+
+	.skill-tag-wrapper {
+		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+</style>

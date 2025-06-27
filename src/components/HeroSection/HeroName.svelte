@@ -1,33 +1,8 @@
-<style lang="postcss">
-  @reference "@/styles/global.css";
-
-  .job-title {
-    @apply text-muted-foreground mb-6 text-xl;
-  }
-
-  img {
-    @apply ml-3 inline-block align-middle;
-  }
-
-  h1 {
-    @apply mb-2 text-4xl font-bold;
-
-    span {
-      @apply inline-block animate-pulse;
-    }
-  }
-</style>
-
 <script lang="ts">
 import { Motion } from 'svelte-motion';
 import { CHILD_VARIANTS } from '@/constants';
-import nerd from '@/images/nerd.webp';
 
-const {
-	name,
-	img = nerd,
-	jobTitle = 'Senior Full Stack Web Engineer',
-} = $props();
+const { name, img, jobTitle = 'Senior Full Stack Web Engineer' } = $props();
 </script>
 
 <Motion
@@ -38,26 +13,26 @@ const {
 		use:motion
 	>
 		{name} <span></span>
-		<Motion
-			initial={{
-				rotate: 0,
-			}}
-			whileHover={{
-				rotate: 360,
-			}}
-			transition={{
-				duration: 0.3,
-			}}
-			let:motion
-		>
-			<img
-				alt={img.alt}
-				src={img.src}
-				width="45px"
-				height="45px"
-				use:motion
-			/>
-		</Motion>
+		{#if img}
+			<Motion
+				initial={{
+					rotate: 0,
+				}}
+				whileHover={{
+					rotate: 360,
+				}}
+				transition={{
+					duration: 0.3,
+				}}
+				let:motion
+			>
+				<ehanced:img
+					src={img}
+					class="heading-image"
+					use:motion
+				/>
+			</Motion>
+		{/if}
 	</h1>
 </Motion>
 
@@ -72,3 +47,25 @@ const {
 		{jobTitle}
 	</p>
 </Motion>
+
+<style lang="postcss">
+  @reference "@/styles/global.css";
+
+  .job-title {
+    @apply text-muted-foreground mb-6 text-xl;
+  }
+	
+  h1 {
+    @apply mb-2 text-4xl font-bold;
+
+    span {
+      @apply inline-block animate-pulse;
+    }
+  }
+
+	:global(.heading-image) {
+		width: 45px;
+		height: 45px;
+		@apply ml-3 inline-block align-middle;
+	}
+</style>
