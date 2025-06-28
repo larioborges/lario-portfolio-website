@@ -1,0 +1,38 @@
+---
+const { class: className = '', hoverEffect = true, ...props } = Astro.props;
+---
+
+{hoverEffect && <p class="hover-effect" />}
+
+<script>
+	import { animate, hover } from 'motion';
+
+	const hoverEffect = document.querySelector('.hover-effect') === null ? false : true;
+
+	if (hoverEffect) {
+		hover('.glass-card', (element => {
+			animate(element, {y: -5}, { duration: 0.2 });
+			return () => animate(element, {y: 0}, { duration: 0.2 });
+		}));
+	}
+</script>
+
+<div class:list={['glass-card', className, { hover: hoverEffect }]} {...props}>
+	<slot />
+</div>
+
+<style>
+	@reference "@/styles/global.css";
+
+	.glass-card {
+		@apply border-border/50 bg-background/80 dark:bg-card/30 rounded-lg border shadow-sm backdrop-blur-md backdrop-filter dark:backdrop-blur-md;
+
+		&.hover {
+			@apply transition-all duration-300 ease-in-out hover:shadow-md;
+		}
+	}
+
+	.hover-effect {
+		display: none;
+	}
+</style>

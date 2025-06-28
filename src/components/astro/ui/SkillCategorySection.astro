@@ -1,0 +1,48 @@
+---
+import GlassCard from './GlassCard.astro';
+import SkillTag from './SkillTag.astro';
+
+const { name, icon, skills } = Astro.props;
+---
+
+<script>
+	import { animate, inView } from 'motion';
+
+	inView(
+	  'wrapper',
+	  (element => {
+			animate(element, {opacity: [0, 1], y: [20, 0]}, { duration: 0.3 });
+		}),
+	);
+</script>
+
+<div class="wrapper"></div>
+	<GlassCard class="p-4">
+		<h3 class="category-heading">
+			{icon && <span>{icon}</span>}
+			{name}
+		</h3>
+		<div class="skill-tag-wrapper">
+			{skills.map((skill: string, index: number) =>
+				<SkillTag {index} key={`${index}-${skill}`}>
+					{skill}
+				</SkillTag>)}
+		</div>
+	</GlassCard>
+</div>
+
+<style>
+	@reference "@/styles/global.css";
+
+	.category-heading {
+		@apply mb-3 flex items-center text-center text-lg font-medium md:text-left;
+
+		span {
+			@apply mr-2;
+		}
+	}
+
+	.skill-tag-wrapper {
+		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+</style>

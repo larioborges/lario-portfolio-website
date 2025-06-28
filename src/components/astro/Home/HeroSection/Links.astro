@@ -1,0 +1,53 @@
+---
+import GithubIcon from '@/astro/icons/Github.astro';
+import LinkedinIcon from '@/astro/icons/LinkedIn.astro';
+import Mail from '@/astro/icons/Mail.astro';
+import Link from './Link.astro';
+import Location from './Location.astro';
+
+const { locationFields, email, githubUrl, linkedInUrl } = Astro.props;
+---
+
+<script>
+	import { animate, inView } from 'motion';
+
+	inView(
+	  '.home-links-wrapper',
+	  (element) => {
+	    animate(element, { opacity: [0, 1] }, { duration: 0.2, staggerChildren: 0.1, delayChildren: 0.1 });
+		}
+	);
+</script>
+
+<div
+	class="home-links-wrapper"
+>
+	<Location {locationFields} />
+
+	<Link href={`mailto:${email}`}>
+		<Fragment>
+			<Mail class="hero-icon" />
+			{email}
+		</Fragment>
+	<Link href={githubUrl}>
+		<Fragment>
+			<GithubIcon class="hero-icon" />
+			GitHub
+		</Fragment>
+	</Link>
+
+	<Link href={linkedInUrl}>
+		<Fragment>
+			<LinkedinIcon class="hero-icon" />
+			LinkedIn
+		</Fragment>
+	</Link>
+</div>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .home-links-wrapper {
+    @apply flex flex-col items-center gap-2 md:items-start;
+  }
+</style>

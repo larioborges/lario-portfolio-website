@@ -29,11 +29,6 @@
 		"editor.useTabStops": false,
 		"editor.tabSize": 2,
 		"editor.renderWhitespace": "all",
-		"editor.codeActionsOnSave": {
-        "source.fixAll.biome": "explicit"
-    },
-		"eslint.runtime": "bun",
- 		"eslint.execArgv": ["--bun"],
   	"editor.formatOnSave": true,
 		"editor.indentSize": "tabSize",
 		"yaml.format.bracketSpacing": false,
@@ -50,12 +45,13 @@
 		"astro.updateImportsOnFileMove.enabled": true,
 	  "taskExplorer.enableSideBar": true,
 		"search.exclude": {
-	    ".yarn/": true,
-	    "node_modules/": true,
-			".astro/": true,
-	    ".netlify/": true,
-	    "dist/": true,
-			"packages/": true
+			"**/.astro/": true,
+	    "**/.netlify/": true,
+	    "**/dist/": true,
+			"**/packages/": true,
+			"**/.yarn": true,
+	    "**/.pnp.*": true,
+	    "**/node_modules": true
 	  },
 	  "[astro]": {
 	    "editor.defaultFormatter": "biomejs.biome"
@@ -75,8 +71,21 @@
 	},
 	"extensions": {
 		"recommendations": [
+			"mechatroner.rainbow-csv",
+			"astro-build.astro-vscode",
 			"biomejs.biome",
-			"ardenivanov.svelte-intellisense"
+			"mikestead.dotenv",
+			"eliostruyf.vscode-front-matter",
+			"ecmel.vscode-html-css",
+			"unifiedjs.vscode-mdx",
+			"christian-kohler.npm-intellisense",
+			"walnuts1018.oklch-vscode",
+			"csstools.postcss",
+			"svelte.svelte-vscode",
+			"ardenivanov.svelte-intellisense",
+			"bradlc.vscode-tailwindcss",
+			"spmeesseman.vscode-taskexplorer",
+			"be5invis.toml"
 		]
 	}
 }

@@ -1,3 +1,4 @@
+import { animate } from 'motion';
 import type { Variants } from 'svelte-motion';
 
 export const DEFAULT_ANIMATIONS: Variants = {
@@ -17,3 +18,22 @@ export const DEFAULT_ANIMATIONS: Variants = {
 };
 
 export const DEFAULT_DELAY = 0;
+
+export const APPEAR_ANIMATION = (element: Element) => {
+	animate(
+		element,
+		{
+			opacity: [
+				0,
+				1,
+			],
+			y: [
+				20,
+				0,
+			],
+		},
+		{
+			duration: 0.2,
+		},
+	);
+};

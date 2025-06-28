@@ -1,15 +1,10 @@
 ---
-import Home from '@/components/Home.svelte';
-import {
-	getFeaturedSkills,
-	getPersonalInfo,
-	getSeoFieldsById,
-} from '@/contentful/queries';
+import Home from '@/astro/Home/index.astro';
+import { getPersonalInfo, getSeoFieldsById } from '@/contentful/queries';
 import Layout from '@/layouts/Layout.astro';
 
-const [personalInfo, featuredSkills, seoField] = await Promise.all([
+const [personalInfo, seoField] = await Promise.all([
 	getPersonalInfo(),
-	getFeaturedSkills(),
 	getSeoFieldsById('4a3PYeoBpPFuf3MyhVTt8G'),
 ]);
 ---
@@ -19,5 +14,5 @@ const [personalInfo, featuredSkills, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	name={personalInfo.name}
 >
-	<Home {personalInfo} {featuredSkills} client:only="svelte" />
+	<Home />
 </Layout>

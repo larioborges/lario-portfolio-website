@@ -1,0 +1,78 @@
+---
+import type { AssetFields, Entry } from 'contentful';
+import { getPersonalInfo } from '@/contentful/queries';
+import type { PersonalInfoResponse } from '@/contentful/types';
+import Intro from './Intro.astro';
+import Links from './Links.astro';
+import Name from './Name.astro';
+import ProfilePic from './ProfilePic.astro';
+
+const {
+	name,
+	profileImage,
+	location,
+	email,
+	githubUrl,
+	linkedInUrl,
+	intro,
+}: PersonalInfoResponse = await getPersonalInfo();
+Astro.props;
+
+profileImage.sys.type;
+
+const {
+	fields: profileImageFields,
+}: {
+	fields: AssetFields;
+} = profileImage as {
+	fields: AssetFields;
+};
+
+const { fields: locationFields } = location as Entry;
+---
+
+<script>
+	import { animate, inView } from 'motion';
+
+	inView(
+	  '.hero-links-wrapper',
+	  (element) => {
+	    animate(element, { opacity: [0, 1], visibility: ['hidden', 'visible'] }, { staggerChildren: 0.1, delayChildren: 0.2 });
+		}
+	);
+</script>
+
+<section>
+	<div>
+		<div class="hero-links-wrapper">
+			<div class="details">
+				<Name {name} jobTitle="Senior Full Stack Web Engineer" />
+				<Links {email} {linkedInUrl} {githubUrl} {locationFields} />
+			</div>
+
+			<ProfilePic {profileImageFields} />
+		</div>
+
+		<Intro {intro} />
+	</div>
+</section>
+
+<style>
+	@reference "@/styles/global.css";
+
+	section {
+		@apply relative overflow-hidden py-4 md:py-8;
+
+		> div {
+			@apply relative z-10 container mx-auto max-w-4xl px-6 md:px-4;
+		}
+	}
+
+	.hero-links-wrapper {
+		@apply mb-8 flex flex-col justify-between md:flex-row md:items-center;
+
+		.details {
+			@apply text-center md:text-left;
+		}
+	}
+</style>

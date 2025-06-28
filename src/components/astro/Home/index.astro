@@ -1,0 +1,25 @@
+---
+import SkillCategorySection from '@/astro/ui/SkillCategorySection.astro';
+import { getFeaturedSkills } from '@/contentful/queries';
+import HeroSection from './HeroSection/index.astro';
+
+const featuredSkills = await getFeaturedSkills();
+---
+
+<section>
+	<div>
+		<HeroSection />
+		<SkillCategorySection {...featuredSkills} />
+	</div>
+</section>
+
+<style>
+@reference "@/styles/global.css";
+section {
+  @apply from-muted/20 to-background bg-gradient-to-b py-12;
+}
+
+section > div {
+	@apply container mx-auto max-w-4xl px-6 md:px-4;
+}
+</style>
