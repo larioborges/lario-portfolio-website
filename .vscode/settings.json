@@ -4,14 +4,8 @@
     "**/.pnp.*": true,
     "**/node_modules": true
   },
-  "eslint.validate": [
-      "javascript",
-      "astro", // Enable .astro
-      "typescript", // Enable .ts
-      "svelte",
-      "json"
-    ],
-    "[astro]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  "biome.requireConfiguration": true,
+  "biome.lsp.bin": {
+    "darwin-arm64": "/path/to/biome",
+  }
 }

@@ -1,0 +1,33 @@
+---
+import Moon from '@/astro/icons/Moon.astro';
+import Sun from '@/astro/icons/Sun.astro';
+import Button from '@/astro/ui/Button.astro';
+import { isDarkTheme } from '@/store/theme';
+---
+
+<script>
+	import { $theme, toggleTheme } from "@/store/theme";
+
+	$theme.listen(() => {
+		document.querySelector('.moon')?.classList.toggle('hidden');
+		document.querySelector('.sun')?.classList.toggle('hidden');
+	});
+
+	document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
+</script>
+
+<Button
+	variant="ghost"
+	size="icon"
+	class="toggle-theme rounded-full cursor-pointer"
+>
+	<Moon class:list={['icon', 'moon', { hidden: !isDarkTheme() }]} />
+	<Sun class:list={['icon', 'sun',  { hidden: isDarkTheme() }]} />
+</Button>
+
+<style is:global>
+	@reference '@/styles/global.css';
+	.sun, .moon {
+		@apply h-5 w-5;
+	}
+</style>

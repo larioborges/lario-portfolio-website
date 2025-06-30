@@ -9,14 +9,12 @@
 		"tasks": [
 			{
 				"type": "typescript",
-        "tsconfig": "./tsconfig.json",
-        "problemMatcher": [
-            "$tsc"
-        ],
-        "group": {
-            "kind": "build",
-            "isDefault": true
-        }
+				"tsconfig": "./tsconfig.json",
+				"problemMatcher": ["$tsc"],
+				"group": {
+					"kind": "build",
+					"isDefault": true
+				}
 			}
 		]
 	},
@@ -29,45 +27,42 @@
 		"editor.useTabStops": false,
 		"editor.tabSize": 2,
 		"editor.renderWhitespace": "all",
-  	"editor.formatOnSave": true,
+		"editor.formatOnSave": true,
 		"editor.indentSize": "tabSize",
-		"yaml.format.bracketSpacing": false,
-  	"yaml.format.singleQuote": true,
-	  "yaml.format.enable": true,
-	  "files.associations": {
-	    "*.yaml": "yaml",
+		"files.associations": {
+			"*.yaml": "yaml",
 			"*.svelte": "svelte",
 			"*.astro": "astro",
 			"*.css": "postcss"
-	  },
-	  "typescript.updateImportsOnFileMove.enabled": "always",
-	  "javascript.updateImportsOnFileMove.enabled": "always",
+		},
+		"typescript.updateImportsOnFileMove.enabled": "always",
+		"javascript.updateImportsOnFileMove.enabled": "always",
 		"astro.updateImportsOnFileMove.enabled": true,
-	  "taskExplorer.enableSideBar": true,
+		"taskExplorer.enableSideBar": true,
 		"search.exclude": {
 			"**/.astro/": true,
-	    "**/.netlify/": true,
-	    "**/dist/": true,
+			"**/.netlify/": true,
+			"**/dist/": true,
 			"**/packages/": true,
 			"**/.yarn": true,
-	    "**/.pnp.*": true,
-	    "**/node_modules": true
-	  },
-	  "[astro]": {
-	    "editor.defaultFormatter": "biomejs.biome"
-	  },
+			"**/.pnp.*": true,
+			"**/node_modules": true
+		},
+		"[astro]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
 		"[javascript]": {
-	    "editor.defaultFormatter": "biomejs.biome"
-	  },
+			"editor.defaultFormatter": "biomejs.biome"
+		},
 		"[typescript]": {
-	    "editor.defaultFormatter": "biomejs.biome"
-	  },
+			"editor.defaultFormatter": "biomejs.biome"
+		},
 		"[svelte]": {
-	    "editor.defaultFormatter": "biomejs.biome"
-	  },
+			"editor.defaultFormatter": "biomejs.biome"
+		},
 		"[json]": {
-	    "editor.defaultFormatter": "biomejs.biome"
-	  }
+			"editor.defaultFormatter": "biomejs.biome"
+		}
 	},
 	"extensions": {
 		"recommendations": [
@@ -79,7 +74,6 @@
 			"ecmel.vscode-html-css",
 			"unifiedjs.vscode-mdx",
 			"christian-kohler.npm-intellisense",
-			"walnuts1018.oklch-vscode",
 			"csstools.postcss",
 			"svelte.svelte-vscode",
 			"ardenivanov.svelte-intellisense",

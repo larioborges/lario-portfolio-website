@@ -1,6 +1,6 @@
 <script>
 /* eslint svelte/no-at-html-tags: "off" */
-import DOMPurify from 'dompurify';
+import DOMPurify from 'isomorphic-dompurify';
 
 const { content } = $props();
 </script>

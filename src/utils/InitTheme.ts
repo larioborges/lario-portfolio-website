@@ -1,24 +1,8 @@
-import {
-	DARK_THEME,
-	DEFAULT_THEME,
-	THEME_STORAGE_KEY,
-	THEMES_ARRAY,
-} from '@/constants';
-
-const storedThemeDefaulted = () =>
-	localStorage.getItem(THEME_STORAGE_KEY)
-		? localStorage.getItem(THEME_STORAGE_KEY)
-		: DEFAULT_THEME;
+import { DARK_THEME } from '@/constants';
+import { isDarkTheme } from '@/store/theme';
 
 export const InitTheme = () => {
-	const currentTheme = storedThemeDefaulted() as string;
-	const theme = THEMES_ARRAY.includes(currentTheme)
-		? currentTheme
-		: DEFAULT_THEME;
-
-	localStorage.setItem(THEME_STORAGE_KEY, theme);
-
-	if (theme === DARK_THEME) {
+	if (isDarkTheme()) {
 		document.documentElement.classList.add(DARK_THEME);
 	}
 };

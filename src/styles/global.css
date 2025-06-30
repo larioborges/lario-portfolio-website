@@ -148,7 +148,3 @@ a {
 		margin-bottom: calc(var(--spacing) * 2);
 	}
 }
-
-.hero-icon {
-	@apply mr-2 h-4 w-4;
-}

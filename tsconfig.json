@@ -1,72 +1,51 @@
 {
-  "extends":["astro/tsconfigs/strict", "astro-compress/tsconfig"],
-  "include": [
-    "./src/**/*.ts",
-    "./src/**/*.svelte",
-    "./src/**/*.astro",
-    "./src/assets/**/*",
-    "./src/**/*.d.ts",
-    ".astro/types.d.ts",
-    "astro.config.ts",
-    "components.json",
-    "package.json",
-    ".lintstagedrc.json",
-    "config/**/*.ts",
-    "config/**/*.json",
-    "config/svelte.config.js",
-    "config/vite.config.js",
-  ],
-  "exclude": [
-    "./dist/**/*",
-    "./node_modules/**/*",
-    "*.js",
-    "./.netlify/**/*",
-    "./packages/**/*"
-  ],
-  "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "dist",
-    "types": [
-      "gtag.js",
-      "vite-plugin-pwa/info.d.ts",
-      "vite-plugin-pwa/client.d.ts"
-    ],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@/config/*": [
-        "config/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/layouts/*": [
-        "src/layouts/*"
-      ],
-      "@/constants/*": [
-        "src/constants/*"
-      ],
-      "@/motion/*": [
-        "src/components/motion/*"
-      ],
-      "@/icons/*": [
-        "src/components/icons/*"
-      ],
-      "@/ui/*": [
-        "src/components/ui/*"
-      ],
-       "@/astro/*": [
-        "./src/components/astro/*"
-      ],
-      "@/images/*": [
-        "src/assets/images/*"
-      ],
-      "@/contentful/*": [
-        "src/contentful/*"
-      ]
-    },
-    "resolveJsonModule": true
-  }
+	"extends": ["astro/tsconfigs/strict", "astro-compress/tsconfig"],
+	"include": [
+		"./src/**/*.ts",
+		"./src/**/*.svelte",
+		"./src/**/*.astro",
+		"./src/assets/**/*",
+		"./src/**/*.d.ts",
+		".astro/types.d.ts",
+		"astro.config.ts",
+		"components.json",
+		"package.json",
+		".lintstagedrc.json",
+		"config/**/*.ts",
+		"config/**/*.json",
+		"config/svelte.config.js",
+		"config/vite.config.js"
+	],
+	"exclude": [
+		"./dist/**/*",
+		"./node_modules/**/*",
+		"*.js",
+		"./.netlify/**/*",
+		"./packages/**/*"
+	],
+	"compilerOptions": {
+		"rootDir": ".",
+		"outDir": "dist",
+		"types": [
+			"gtag.js",
+			"vite-plugin-pwa/info.d.ts",
+			"vite-plugin-pwa/client.d.ts"
+		],
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"@/config/*": ["config/*"],
+			"@/components/*": ["src/components/*"],
+			"@/layouts/*": ["src/layouts/*"],
+			"@/store/*": ["src/store/*"],
+			"@/constants/*": ["src/constants/*"],
+			"@/motion/*": ["src/components/motion/*"],
+			"@/icons/*": ["src/components/icons/*"],
+			"@/ui/*": ["src/components/ui/*"],
+			"@/astro/*": ["./src/components/astro/*"],
+			"@/images/*": ["src/assets/images/*"],
+			"@/contentful/*": ["src/contentful/*"]
+		},
+		"resolveJsonModule": true
+	}
 }

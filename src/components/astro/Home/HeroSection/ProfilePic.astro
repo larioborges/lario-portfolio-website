@@ -16,11 +16,9 @@ const { profileImageFields } = Astro.props;
 	}), { passive: false });
 </script>
 <!-- 
-<Motion
-	whileTap={{
-		scale: 0.95,
-	}}
-	let:motion
+whileTap={{
+	scale: 0.95,
+}}
 > -->
 <div
 	class="wrapper"
@@ -37,7 +35,6 @@ const { profileImageFields } = Astro.props;
 		}
 	</div>
 </div>
-<!-- </Motion> -->
 
 <style>
 @reference "@/styles/global.css";

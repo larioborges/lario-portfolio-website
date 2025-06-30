@@ -1,19 +1,18 @@
 {
-  "recommendations": [
-    "mechatroner.rainbow-csv",
-    "astro-build.astro-vscode",
-    "biomejs.biome",
-    "mikestead.dotenv",
-    "eliostruyf.vscode-front-matter",
-    "ecmel.vscode-html-css",
-    "unifiedjs.vscode-mdx",
-    "christian-kohler.npm-intellisense",
-    "walnuts1018.oklch-vscode",
-    "csstools.postcss",
-    "svelte.svelte-vscode",
-    "ardenivanov.svelte-intellisense",
-    "bradlc.vscode-tailwindcss",
-    "spmeesseman.vscode-taskexplorer",
-    "be5invis.toml"
-  ]
+	"recommendations": [
+		"mechatroner.rainbow-csv",
+		"astro-build.astro-vscode",
+		"biomejs.biome",
+		"mikestead.dotenv",
+		"eliostruyf.vscode-front-matter",
+		"ecmel.vscode-html-css",
+		"unifiedjs.vscode-mdx",
+		"christian-kohler.npm-intellisense",
+		"csstools.postcss",
+		"svelte.svelte-vscode",
+		"ardenivanov.svelte-intellisense",
+		"bradlc.vscode-tailwindcss",
+		"spmeesseman.vscode-taskexplorer",
+		"be5invis.toml"
+	]
 }

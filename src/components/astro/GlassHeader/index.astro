@@ -1,17 +1,11 @@
-<script lang="ts">
-import ActionButtons from './ActionButtons.svelte';
-import HomeLink from './HomeLink.svelte';
-import MobileMenu from './MobileMenu.svelte';
-import NavLinks from './NavLinks.svelte';
+---
+import ActionButtons from './ActionButtons.astro';
+import HomeLink from './HomeLink.astro';
+import MobileMenu from './MobileMenu.astro';
+import NavLinks from './NavLinks.astro';
 
-let isMenuOpen = $state(false);
-
-const toggleMenu = () => {
-	isMenuOpen = !isMenuOpen;
-};
-
-const { name } = $props();
-</script>
+const { name } = Astro.props;
+---
 
 <header
 	class="heading"
@@ -21,13 +15,13 @@ const { name } = $props();
 
 		<NavLinks isMobile={false} />
 
-		<ActionButtons {isMenuOpen} {toggleMenu} />
+		<ActionButtons />
 	</div>
 
-	<MobileMenu {isMenuOpen} />
+	<MobileMenu />
 </header>
 
-<style lang="postcss">
+<style>
 @reference "@/styles/global.css";
 
 .heading {
