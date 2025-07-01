@@ -9,7 +9,7 @@ import { GoogleFontsOptimizer } from 'astro-google-fonts-optimizer';
 import { SEO } from 'astro-seo';
 import DOMPurify from 'isomorphic-dompurify';
 import favicon from '@/assets/favicons/favicon.webp';
-import Footer from '@/components/Footer.svelte';
+import Footer from '@/astro/Footer.astro';
 import { seoConfig } from '@/config/seoConfig';
 
 interface OpenGraphProps {
@@ -248,10 +248,7 @@ if (article) {
 		<main class='min-h-screen'>
 			<slot/>
 		</main>
-		<Footer
-			name={name}
-			client:only="svelte"
-		/>
+		<Footer name={name} />
 		<ReloadPrompt />
 	</body>
 </html>
