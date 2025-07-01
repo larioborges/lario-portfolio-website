@@ -1,5 +1,12 @@
 ---
-const { href, isMobile, icon, index, name } = Astro.props;
+const {
+	href,
+	isMobile,
+	icon,
+	index,
+	name,
+	mobileTopBorder = true,
+} = Astro.props;
 ---
 
 <script>
@@ -34,15 +41,15 @@ const { href, isMobile, icon, index, name } = Astro.props;
 
 {isMobile && <span class="is-mobile" />}
 <span class="index">{index}</span>
-<span>
+<div class:list={['nav-link-wrapper', { 'mobile': isMobile}, { 'with-border': mobileTopBorder }]}>
 	{icon !== null && icon !== undefined && <span class="nav-icon">{icon}</span>}
 	<a
 		{href}
-		class={`nav-link ${isMobile ? 'mobile' : ''}`}
+		class:list={['nav-link', { 'mobile': isMobile}]}
 	>
 		{name}
 	</a>
-</span>
+</div>
 
 <style>
 	@reference "@/styles/global.css";
@@ -51,5 +58,14 @@ const { href, isMobile, icon, index, name } = Astro.props;
 	}
 	.nav-icon {
 		@apply pr-1.5;
+	}
+	.is-mobile {
+		margin: 0;
+	}
+	.nav-link-wrapper.mobile {
+		@apply pt-3 pb-3 mb-0;
+		&.with-border {
+			@apply border-t-1;
+		}
 	}
 </style>

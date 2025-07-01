@@ -1,31 +1,62 @@
 ---
+import Button from '@/astro/ui/Button.astro';
+import Close from '../icons/Close.astro';
 import NavLinks from './NavLinks.astro';
 ---
 
 <script>
-	import { $menuOpen } from '@/store/menu';
-	import { inView, animate } from 'motion';
+	import { $menuOpen, toggleMenu } from '@/store/menu';
 
-	inView(
-	  ".nav-links-wrapper-mobile",
-	  (element) => {
-	    animate(element, { opacity: [0, 1], height: [0, 'auto'] }, { duration: 0.3 });
-			return () => animate(element, { opacity: [1, 0], height: ['auto', 0] }, { duration: 0.3 });
-		}
-	);
-
-	$menuOpen.subscribe(() => {
-		document.querySelector('.nav-links-wrapper-mobile')?.classList.toggle('hidden');
+	$menuOpen.listen(() => {
+		document.querySelector('.nav-links-wrapper-mobile')?.classList.toggle('open');
 	});
+
+	document.querySelector('.menu-button.close')?.addEventListener('click', toggleMenu);
 </script>
 
 <div class="nav-links-wrapper-mobile">
+  <div>
+    <Button
+  		aria-label="Toggle menu"
+      class:list={['menu-button', 'close']}
+  	>
+      <Close class="icon" />
+    </Button>
+  </div>
 	<NavLinks isMobile={true} />
 </div>
 
 <style>
 @reference "@/styles/global.css";
+
 .nav-links-wrapper-mobile {
-	@apply border-border/10 bg-background/80 dark:bg-background/40 border-t px-4 py-4 backdrop-blur-md backdrop-filter md:hidden;
+	@apply 
+    fixed
+    top-0
+    left-0
+    w-full
+    h-screen
+    transition-transform
+    duration-300
+    transform
+    -translate-y-full
+    z-50
+    border-border/10
+    bg-background
+    dark:bg-background
+    border-t
+    px-4
+    py-4
+    backdrop-blur-md
+    backdrop-filter
+    md:hidden;
+
+  > div {
+    @apply text-right;
+  }
+
+  &.open {
+    @apply translate-y-0;
+  }
 }
 </style>

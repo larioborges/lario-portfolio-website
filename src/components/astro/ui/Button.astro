@@ -1,6 +1,7 @@
 ---
 interface Props {
-	class: string;
+	class?: string;
+	'class:list'?: (Record<string, boolean> | string)[];
 	variant?:
 		| 'default'
 		| 'destructive'
@@ -13,7 +14,8 @@ interface Props {
 }
 
 const {
-	class: className,
+	class: className = '',
+	'class:list': classList = [],
 	variant = 'default',
 	size = 'default',
 	asChild = false,
@@ -25,6 +27,7 @@ const {
 	<slot {...props} /> :
 	<button
 		class={`${className} ${variant} size-${size}`}
+		class:list={classList}
 		{...props}
 	>
 		<slot />
@@ -35,6 +38,8 @@ const {
 	@reference '@/styles/global.css'
 
 	button {
+		@apply hover:cursor-pointer;
+
 		&.default {
 			@apply bg-primary text-primary-foreground shadow hover:bg-primary/90;
 		}

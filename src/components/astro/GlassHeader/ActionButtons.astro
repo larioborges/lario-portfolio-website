@@ -1,19 +1,12 @@
 ---
-import Close from '@/astro/icons/Close.astro';
 import Menu from '@/astro/icons/Menu.astro';
 import Button from '@/astro/ui/Button.astro';
 import ThemeToggle from '@/astro/ui/ThemeToggle.astro';
-import { $menuOpen } from '@/store/menu';
 ---
 <script>
-import { $menuOpen, toggleMenu } from "@/store/menu";
+import { toggleMenu } from "@/store/menu";
 
-$menuOpen.listen(() => {
-	document.querySelector('.close-icon')?.classList.toggle('hidden');
-	document.querySelector('.menu-icon')?.classList.toggle('hidden');
-});
-
-document.querySelector('.menu-button')?.addEventListener('click', toggleMenu);
+document.querySelector('.menu-button.open')?.addEventListener('click', toggleMenu);
 </script>
 
 <div class="wrapper">
@@ -27,19 +20,11 @@ document.querySelector('.menu-button')?.addEventListener('click', toggleMenu);
 	> -->
 	<Button
 		aria-label="Toggle menu"
-		class="menu-button"
+		class:list={['menu-button', 'open']}
 	>
-		<Close class:list={['icon', 'close-icon', { 'hidden': !$menuOpen.get() }]} />
-		<Menu class:list={['icon', 'menu-icon', { 'hidden': $menuOpen.get() }]} />
+		<Menu class="icon" />
 	</Button>
 </div>
-
-<style is:global>
-@reference "@/styles/global.css";
-.menu-button {
-  @apply text-foreground p-2 md:hidden;
-}
-</style>
 
 <style>
 @reference "@/styles/global.css";

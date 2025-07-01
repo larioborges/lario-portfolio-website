@@ -1,8 +1,24 @@
 ---
-const { width = 24, height = 24, class: className = '' } = Astro.props;
+const {
+	width = 24,
+	height = 24,
+	class: className = '',
+	'class:list': classList = [],
+} = Astro.props;
 ---
 
-<svg xmlns="http://www.w3.org/2000/svg" {width} {height} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`${className} trophy`} data-astro-cid-5etgkhek="true">
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  {width}
+  {height}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={[...classList, ...['trophy', className]]}
+ >
   <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
   <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
   <path d="M4 22h16"></path>
@@ -14,9 +30,6 @@ const { width = 24, height = 24, class: className = '' } = Astro.props;
 <style>
 @reference "@/styles/global.css";
 .trophy {
-	@apply text-white;
-}
-.icon-wapper {
-  @apply mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5;
+	@apply sfill-white;
 }
 </style>
