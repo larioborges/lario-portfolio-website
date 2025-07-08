@@ -1,11 +1,11 @@
 ---
-import ProjectShowcaseComponent from '@/components/ProjectShowcase/index.svelte';
+import ProjectShowcaseComponent from '@/astro/ProjectShowcase/index.astro';
 import {
 	getPersonalInfo,
 	getSeoFieldsById,
 	getShowcaseProjects,
 } from '@/contentful/queries';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/Layout/index.astro';
 
 const [{ name }, showcaseProjects, seoField] = await Promise.all([
 	getPersonalInfo(),
@@ -20,5 +20,5 @@ const [{ name }, showcaseProjects, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	{name}
 >
-	<ProjectShowcaseComponent {showcaseProjects} client:only="svelte" />
+	<ProjectShowcaseComponent {showcaseProjects} />
 </Layout>

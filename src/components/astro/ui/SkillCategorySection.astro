@@ -6,12 +6,13 @@ const { name, icon, skills } = Astro.props;
 ---
 
 <script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
 	inView(
-	  'wrapper',
+	  '.wrapper',
 	  (element => {
-			animate(element, {opacity: [0, 1], y: [20, 0]}, { duration: 0.3 });
+			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
 		}),
 	);
 </script>

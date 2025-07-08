@@ -1,0 +1,25 @@
+---
+import Heading from '@/astro/ui/Heading.astro';
+import PageSection from '@/astro/ui/PageSection.astro';
+import type { AwardFields } from '@/contentful/types';
+import Content from './Content.astro';
+
+const { awards } = Astro.props;
+---
+
+<PageSection>
+	<Heading slot="heading" icon="🏆" text="Awards" />
+
+	<div slot="content" class="award-content">
+		{awards.map((award:AwardFields, index: number) =>
+			<Content {award} {index} key={`${award?.name}-${award?.date}`}/>
+		)}
+	</div>
+</PageSection>
+
+<style>
+@reference '@/styles/global.css';
+.award-content {
+	@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
+}
+</style>

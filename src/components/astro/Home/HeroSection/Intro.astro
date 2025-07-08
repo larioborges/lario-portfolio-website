@@ -5,12 +5,13 @@ const { intro } = Astro.props;
 ---
 
 <script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
 	inView(
 	  ".wrapper",
 	  (element) => {
-	    animate(element, { opacity: [0, 1], y: [20, 0] }, { ease: 'easeOut', duration: 0.6 });
+	    animate(element, APPEAR_STYLE_TRANISITIONS, { ease: 'easeOut', duration: 0.6 });
 		}
 	);
 </script>

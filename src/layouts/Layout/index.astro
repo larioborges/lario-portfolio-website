@@ -1,7 +1,5 @@
 ---
-import GlassHeader from '@/astro/GlassHeader/index.astro';
-import ReloadPrompt from '@/astro/ui/ReloadPrompt.astro';
-import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import { pwaInfo } from 'virtual:pwa-info';
 import { Head } from 'astro-capo';
 import { GoogleAnalytics } from 'astro-google-analytics';
@@ -10,6 +8,8 @@ import { SEO } from 'astro-seo';
 import DOMPurify from 'isomorphic-dompurify';
 import favicon from '@/assets/favicons/favicon.webp';
 import Footer from '@/astro/Footer.astro';
+import GlassHeader from '@/astro/GlassHeader/index.astro';
+import ReloadPrompt from '@/astro/ui/ReloadPrompt.astro';
 import { seoConfig } from '@/config/seoConfig';
 
 interface OpenGraphProps {
@@ -114,34 +114,31 @@ if (article) {
 	openGraph.article = article;
 }
 ---
-<html lang='en'>
+<html lang='en' transition:animate="none">
 	<Head>
-		<script src='@/scripts/BrowserInit.ts' />
-		<GoogleAnalytics id='G-YW069N7W3X' />
-		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" />
-		<meta charset='UTF-8' />
+		<ClientRouter />
+		<GoogleAnalytics id='G-YW069N7W3X' transition:persist transition:persist-props />
+		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" transition:persist transition:persist-props />
+		<meta charset='UTF-8' transition:persist />
 		<meta
 			name='viewport'
 			content='width=device-width'
+			transition:persist
 		/>
 		<link
 			rel='icon'
 			type='image/svg+xml'
 			href={favicon.src}
+			transition:persist
 		/>
-		<style is:global>
-			@reference '@/styles/global.css';
-			.icon {
-				@apply  dark:fill-white;
-			}
-			.menu-button {
-				@apply text-foreground p-2 md:hidden hover:cursor-pointer;
-			}
+		<style is:global transition:persist>
+			@import './style.css';
 		</style>
 
 		<meta
 			name='generator'
 			content={Astro.generator}
+			transition:persist
 		/>
 		<!--// TODO Lario - imtegrate images from the cnms
 
@@ -209,46 +206,24 @@ if (article) {
       	],
       }}
 		/>
+		<script src='@/scripts/BrowserInit.ts' />
+		<script is:inline>
+			document.addEventListener('astro:after-swap', () => {
+				if (localStorage.getItem('dark') === 'dark') {
+					document.documentElement.classList.add('dark');
+				}
+			});
+		</script>
 		{ pwaInfo != null && <Fragment set:html={DOMPurify.sanitize(pwaInfo.webManifest.linkTag)} /> }
-		<style>
-			@reference '@/styles/global.css';
-
-			html,
-			body {
-				margin: 0;
-				padding: 0;
-				width: 100%;
-				height: 100%;
-				scroll-behavior: smooth;
-			}
-
-			:root {
-				--transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-			}
-
-			body {
-				transition:
-					background-color var(--transition-standard),
-					color var(--transition-standard);
-			}
-
-			body {
-				@apply min-h-screen bg-background font-sans antialiased dark:selection:bg-yellow-200/20 dark:selection:text-yellow-200;
-			}
-		</style>
 	</Head>
+	
 	<body>
-		<div
-			class='fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]'
-		>
-		</div>
-		<GlassHeader
-			{name}
-		/>
-		<main class='min-h-screen'>
+		<div class='background' transition:persist />
+		<GlassHeader {name} transition:persist-props transition:persist />
+		<main transition:animate="slide">
 			<slot/>
 		</main>
-		<Footer name={name} />
-		<ReloadPrompt />
+		<Footer name={name} transition:persist-props/>
+		<ReloadPrompt transition:persist />
 	</body>
 </html>

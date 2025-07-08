@@ -1,0 +1,196 @@
+---
+import InfoText from './InfoText.astro';
+
+// let isInView = $state(false);
+// const options: Options = {
+// 	rootMargin: '50px',
+// 	unobserveOnEnter: true,
+// };
+
+// const handleChange = ({ detail }: CustomEvent<ObserverEventDetails>) => {
+// 	isInView = detail.inView;
+// };
+
+const {
+	title,
+	titleHref = null,
+	subtitle,
+	subtitleHref = null,
+	location,
+	locationHref = null,
+	date,
+	isLast = false,
+	index = 0,
+} = Astro.props;
+---
+
+<script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
+	import { animate, inView } from 'motion';
+
+	const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
+	const index = (indexValue ? indexValue : 0);
+
+	inView(
+	  ".timeline-item-wrapper",
+	  (element) => {
+	    animate(
+				element,
+				APPEAR_STYLE_TRANISITIONS,
+				{ duration: 0.3, delay: index * 0.1 },
+			);
+		}
+	);
+
+	inView(".bg-panel-wrapper",
+	  (element) => {
+	    animate(
+				element,
+				{ scale: 0 },
+				{
+					type: 'spring',
+					stiffness: 300,
+					damping: 15,
+					delay: index * 0.2 + 0.2,
+				},
+			);
+		})
+
+		inView(".bg-panel",
+		(element) => {
+	    animate(
+				element,
+				{
+					scale: 0,
+				},
+				{
+					type: 'spring',
+					stiffness: 300,
+					damping: 15,
+					delay: index * 0.2 + 0.2,
+				},
+			);
+		});
+
+		inView(".bg-panel-last",
+		element => {
+	    animate(
+				element,
+				{
+					height: 0,
+				},
+				{
+					duration: 0.8,
+					delay: index * 0.2 + 0.3,
+				},
+			);
+		});
+
+		inView('.content',
+		element => {
+			animate(
+				element,
+				{
+					opacity: [0, 1],
+					x: [-20, 0]
+				},
+				{
+					duration: 0.5,
+					delay: index * 0.2 + 0.1,
+				},
+			);
+		});
+
+		inView('.content .text',
+		element => {
+			animate(
+				element,
+				{ opacity: [0, 1] },
+				{
+					duration: 0.3,
+					delay: index * 0.2 + 0.4,
+				},
+			);
+		});
+</script>
+
+<span class="index hidden">{index}</span>
+
+<div class="timeline-item-wrapper">
+	<div class="bg-panel-wrapper">
+		<div class="bg-panel" />
+		{!isLast && <div class="bg-panel-last" />}
+	</div>
+	<div class:list={['content-wrapper', { last: isLast }]}>
+		<div class="content">
+			<h3>{`📅 ${date}`}</h3>
+			<div class="links">
+				<InfoText
+					href={titleHref}
+					target="_blank"
+					rel="noreferrer"
+					text={title}
+					isTitle={true}
+				/>
+
+				<InfoText
+					href={subtitleHref}
+					target="_blank"
+					rel="noreferrer"
+					text={subtitle}
+				/>
+
+				<InfoText
+					href={locationHref}
+					target="_blank"
+					rel="noreferrer"
+					text={location}
+					icon="📍"
+				/>
+			<div>
+			<div class="text">
+				<slot />
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	@reference "@/styles/global.css";
+
+	.timeline-item-wrapper {
+		@apply relative flex gap-6;
+	}
+
+	.bg-panel-wrapper {
+		@apply flex flex-col items-center;
+	}
+
+	.bg-panel {
+		@apply bg-background dark:bg-muted z-10 flex h-[18px] w-[18px] rounded-full border border-yellow-500/50;
+	}
+
+	.bg-panel-last {
+		@apply w-px grow bg-gradient-to-b from-yellow-500/50 to-green-500/30 dark:from-yellow-500/30 dark:to-yellow-100/10;
+	}
+
+	.content-wrapper:not(.last) {
+		@apply pb-8;
+	}
+
+	.content-wrapper.last {
+		@apply pb-0;
+	}
+
+	.content {
+		@apply flex flex-col gap-0.5;
+
+		> h3 {
+			@apply mb-2 text-xl font-extrabold;
+		}
+
+		.links {
+			@apply mb-6 pl-3;
+		}
+	}
+</style>

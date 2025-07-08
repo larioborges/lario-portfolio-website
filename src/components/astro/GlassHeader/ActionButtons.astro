@@ -6,17 +6,20 @@ import ThemeToggle from '@/astro/ui/ThemeToggle.astro';
 <script>
 import { toggleMenu } from "@/store/menu";
 
-document.querySelector('.menu-button.open')?.addEventListener('click', toggleMenu);
+document.addEventListener("astro:after-swap", () => {
+	document.querySelector('.menu-button.open')?.addEventListener('click', toggleMenu);
+});
 </script>
 
 <div class="wrapper">
 	<ThemeToggle />
 
-	<!-- <Motion
+	<!--
+	TODO Lario
+	<Motion
 		whileTap={{
 			scale: 0.95,
 		}}
-		let:motion
 	> -->
 	<Button
 		aria-label="Toggle menu"

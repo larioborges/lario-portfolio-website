@@ -10,7 +10,7 @@ const { isMobile = false } = Astro.props;
 	{NAV_LINKS.map(({
 		icon, name, href,
 	}, index) => 
-		<NavLink {href} {isMobile} {icon} {index} {name} />
+		<NavLink {href} {isMobile} {icon} {index} {name} key={`${name}-${index}`}/>
 	)}
 </nav>
 

@@ -4,15 +4,15 @@ const { href } = Astro.props;
 
 <script>
 	import { animate, inView, hover } from 'motion';
-	import { APPEAR_ANIMATION, DEFAULT_LINK_COLOUR, HOVER_LINK_COLOUR } from '@/constants';
+	import { APPEAR_ANIMATION, LINK_HOVER_ON_TRANSITIONS, LINK_HOVER_OFF_TRANSITIONS } from '@/constants';
 
 	inView(
 	  '.hero-link',
 	  APPEAR_ANIMATION,
 	);
 	hover('.hero-link', (element => {
-		animate(element, {scale: [1, 1.05], color: [DEFAULT_LINK_COLOUR, HOVER_LINK_COLOUR]});
-		return () => animate(element, {scale: [1.05, 1], color: [HOVER_LINK_COLOUR, DEFAULT_LINK_COLOUR]});
+		animate(element, LINK_HOVER_ON_TRANSITIONS);
+		return () => animate(element, LINK_HOVER_OFF_TRANSITIONS);
 	}));
 </script>
 

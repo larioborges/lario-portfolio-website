@@ -1,3 +1,3 @@
-import { InitTheme } from '@/utils';
+import { InitTheme } from './InitTheme';
 
 InitTheme();

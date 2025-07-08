@@ -1,0 +1,26 @@
+---
+import SkillTag from '@/astro/ui/SkillTag.astro';
+
+const { award } = Astro.props;
+---
+
+<div class="tags">
+	<div>
+    {award.tags.map((tag: string, index: number) =>
+		<SkillTag key={`${tag}-${index}`}>
+			{tag}
+		</SkillTag>)}
+	</div>
+</div>
+
+<style>
+@reference "@/styles/global.css";
+
+.tags {
+	@apply mt-auto space-y-2;
+
+	> div {
+		@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
+	}
+}
+</style>

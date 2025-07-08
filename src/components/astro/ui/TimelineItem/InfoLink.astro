@@ -1,0 +1,14 @@
+---
+const { href, text, rel, target } = Astro.props;
+---
+
+{href ?
+	<a
+		{href}
+		{target}
+		{rel}
+	>
+    {text}
+	</a> :
+	<span>{text}</span>
+}

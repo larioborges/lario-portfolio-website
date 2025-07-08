@@ -1,0 +1,33 @@
+---
+import DOMPurify from 'isomorphic-dompurify';
+import ContentBlock from '@/astro/ui/ContentBlock.astro';
+import Heading from '@/astro/ui/Heading.astro';
+import PageSection from '@/astro/ui/PageSection.astro';
+import TimelineItem from '@/astro/ui/TimelineItem/index.astro';
+import type { CertificationResponse } from '@/contentful/types/Certification';
+
+const { certifications } = Astro.props;
+---
+
+<PageSection>
+	<Heading slot="heading" icon="🎓" text="Education" />
+	<Fragment slot="content">
+		{certifications.map(({
+			certification, timePeriod, institutionName, institutionWebsiteUrl, institutionLocation, institutionGoogleMapsUrl, description,
+		}: CertificationResponse, index: number) =>
+			<TimelineItem
+				key={`${certification}-${timePeriod}`}
+				title={`🎓 ${certification}`}
+				subtitle={`🏛️ ${institutionName}`}
+				subtitleHref={institutionWebsiteUrl}
+				location={institutionLocation}
+				locationHref={institutionGoogleMapsUrl}
+				date={timePeriod}
+				isLast={index === certifications.length - 1}
+				{index}
+			>
+				<ContentBlock>
+					<Fragment slot="content" set:html={DOMPurify.sanitize(description)} />
+				</ContentBlock>
+			</TimelineItem>)}
+</PageSection>
