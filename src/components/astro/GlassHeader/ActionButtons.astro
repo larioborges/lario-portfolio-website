@@ -4,9 +4,9 @@ import Button from '@/astro/ui/Button.astro';
 import ThemeToggle from '@/astro/ui/ThemeToggle.astro';
 ---
 <script>
-import { toggleMenu } from "@/store/menu";
+import { toggleMenu } from '@/store/menu';
 
-document.addEventListener("astro:after-swap", () => {
+document.addEventListener('astro:after-swap', () => {
 	document.querySelector('.menu-button.open')?.addEventListener('click', toggleMenu);
 });
 </script>

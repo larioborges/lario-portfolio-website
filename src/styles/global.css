@@ -119,39 +119,3 @@
 		@apply bg-background text-foreground;
 	}
 }
-
-a {
-	text-decoration: underline;
-}
-
-h3 {
-	font-size: var(--text-xl);
-	line-height: var(--tw-leading, var(--text-xl--line-height));
-	margin-top: calc(var(--spacing) * 6);
-	margin-bottom: calc(var(--spacing) * 2);
-}
-
-h3:first-child {
-	margin-top: calc(var(--spacing) * 2);
-}
-
-ul {
-	list-style-type: disc;
-	margin-bottom: calc(var(--spacing) * 4);
-	margin-left: calc(var(--spacing) * 4);
-
-	li {
-		margin-top: calc(var(--spacing));
-		margin-bottom: calc(var(--spacing));
-	}
-}
-p:not(:last-child) {
-	margin-bottom: calc(var(--spacing) * 2);
-}
-
-.icon {
-	@apply dark:fill-white;
-}
-.menu-button {
-	@apply text-foreground p-2 md:hidden hover:cursor-pointer;
-}

@@ -7,56 +7,27 @@ import Button from '@/astro/ui/Button.astro';
 <script>
 	import { $theme, toggleTheme } from "@/store/theme";
 
-	// document.addEventListener("astro:after-swap", () => {
-	// 	$theme.subscribe(() => {
-	// 		document.querySelector('.moon')?.classList.toggle('hidden');
-	// 		document.querySelector('.sun')?.classList.toggle('hidden');
-	// 	});
-
-	// 	document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
-	// });
-
 	const isDarkTheme = () => localStorage.getItem('dark') === 'dark';
 
 	const showCorrectThemeButton = (showSelector: string, hideSelector: string) => {
-		document.querySelector(hideSelector)?.classList.add('hidden');
-		document.querySelector(showSelector)?.classList.remove('hidden');
-	}
+		document.querySelector(hideSelector)?.classList.add('hide');
+		document.querySelector(showSelector)?.classList.remove('hide');
+	};
 
-	const showThemeButtonsBaseOnState =  () => {
+	const showThemeButtonsBasedOnState =  () => {
 		if (isDarkTheme()) {
 			showCorrectThemeButton('.sun', '.moon');
-		} else {
-			showCorrectThemeButton('.moon', '.sun');
+			return;
 		}
-	}
+		showCorrectThemeButton('.moon', '.sun');
+	};
 
 	document.addEventListener("astro:page-load", () => {
-		showThemeButtonsBaseOnState();
-		document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
-	});
-	
-	document.addEventListener("astro:after-swap", () => {
-		// const isDarkTheme = () => localStorage.getItem('dark') === 'dark';
-
-		// const showCorrectThemeButton = (showSelector: string, hideSelector: string) => {
-		// 	document.querySelector(hideSelector)?.classList.add('hidden');
-		// 	document.querySelector(showSelector)?.classList.remove('hidden');
-		// }
-
-		// const showThemeButtonsBaseOnState =  () => {
-		// 	if (isDarkTheme()) {
-		// 		showCorrectThemeButton('.sun', '.moon');
-		// 	} else {
-		// 		showCorrectThemeButton('.moon', '.sun');
-		// 	}
-		// }
-		
-		$theme.subscribe(() => {
-			showThemeButtonsBaseOnState();
+		$theme.listen(() => {
+			showThemeButtonsBasedOnState();
 		});
-
-		showThemeButtonsBaseOnState();
+		
+		showThemeButtonsBasedOnState();
 		document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
 	});
 </script>
@@ -67,62 +38,17 @@ import Button from '@/astro/ui/Button.astro';
 	class="toggle-theme rounded-full cursor-pointer"
 >
 	<Fragment>
-		<Moon class:list={['icon', 'moon', 'hidden']} />
-		<Sun class:list={['icon', 'sun', 'hidden']} />
+		<Moon class:list={['icon', 'moon']} />
+		<Sun class:list={['icon', 'sun', 'hide']} />
 	</Fragment>
 </Button>
-
-<script>
-	import { $theme, toggleTheme } from "@/store/theme";
-
-	// document.addEventListener("astro:after-swap", () => {
-	// 	$theme.subscribe(() => {
-	// 		document.querySelector('.moon')?.classList.toggle('hidden');
-	// 		document.querySelector('.sun')?.classList.toggle('hidden');
-	// 	});
-
-	// 	document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
-	// });
-
-	const isDarkTheme = () => localStorage.getItem('dark') === 'dark';
-
-	const showCorrectThemeButton = (showSelector: string, hideSelector: string) => {
-		document.querySelector(hideSelector)?.classList.add('hidden');
-		document.querySelector(showSelector)?.classList.remove('hidden');
-	}
-
-	const showThemeButtonsBasedOnState =  () => {
-		if (isDarkTheme()) {
-			showCorrectThemeButton('.sun', '.moon');
-		} else {
-			showCorrectThemeButton('.moon', '.sun');
-		}
-	}
-
-	document.addEventListener("astro:page-load", () => {
-		showThemeButtonsBasedOnState();
-		document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
-	});
-	
-		document.addEventListener
-		("astro:after-swap",
-		() => {
-			$theme.subscribe(() => {
-				showThemeButtonsBasedOnState();
-			});
-
-			showThemeButtonsBasedOnState();
-
-			document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
-	});
-</script>
 
 <style is:global>
 	@reference '@/styles/global.css';
 	.sun, .moon {
 		@apply h-5 w-5;
 
-		&.hidden {
+		&.hide {
 			display: none;
 		}
 	}
