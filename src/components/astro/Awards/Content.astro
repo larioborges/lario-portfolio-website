@@ -1,0 +1,66 @@
+---
+import GlassCard from '@/astro/ui/GlassCard.astro';
+import type { AwardFields } from '@/contentful/types';
+import Issuer from './Issuer.astro';
+import AwardName from './Name.astro';
+import Tags from './Tags.astro';
+
+interface AwardContentProps {
+	index?: number;
+	award?: AwardFields;
+}
+const { index, award }: AwardContentProps = Astro.props;
+---
+
+<script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
+	import { animate, inView } from 'motion';
+
+	document.addEventListener("astro:page-load", () => {
+		const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
+
+		inView(
+		  ".wrapper",
+		  (element) => {
+		    animate(
+					element,
+					APPEAR_STYLE_TRANISITIONS,
+					{ ease: 'easeOut', duration: 0.6, delay: (indexValue ? indexValue : 0) * 0.1 },
+				);
+			}
+		);
+	});
+</script>
+
+<span class="index">{index}</span>
+<div class="wrapper">
+	<GlassCard
+		class="award-card"
+	>
+		<Fragment>
+			<AwardName {award} />
+			<Issuer {award} />
+			<Tags {award}/>
+		</Fragment>
+	</GlassCard>
+</div>
+
+<style is:global>
+@reference '@/styles/global.css';
+
+.award-card {
+	@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
+}
+
+.index {
+	@apply hidden;
+}
+</style>
+
+<style>
+@reference '@/styles/global.css';
+
+.index {
+	@apply hidden;
+}
+</style>

@@ -1,11 +1,11 @@
 ---
-import AwardsComponent from '@/components/Awards/index.svelte';
+import AwardsComponent from '@/astro/Awards/index.astro';
 import {
 	getAwards,
 	getPersonalInfo,
 	getSeoFieldsById,
 } from '@/contentful/queries';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/Layout/index.astro';
 
 const [{ name }, awards, seoField] = await Promise.all([
 	getPersonalInfo(),
@@ -20,8 +20,5 @@ const [{ name }, awards, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	{name}
 >
-	<AwardsComponent
-		{awards}
-		client:only="svelte"
-	/>
+	<AwardsComponent {awards} />
 </Layout>

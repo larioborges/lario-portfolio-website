@@ -1,11 +1,11 @@
 ---
-import SkillsComponent from '@/components/Skills.svelte';
+import SkillsComponent from '@/astro/Skills.astro';
 import {
 	getPersonalInfo,
 	getSeoFieldsById,
 	getSkillCategories,
 } from '@/contentful/queries';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/Layout/index.astro';
 
 const [{ name }, skillCategories, seoField] = await Promise.all([
 	getPersonalInfo(),
@@ -20,5 +20,7 @@ const [{ name }, skillCategories, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	{name}
 >
-	<SkillsComponent {skillCategories} client:only="svelte"/>
+	<SkillsComponent
+		{skillCategories}
+	/>
 </Layout>

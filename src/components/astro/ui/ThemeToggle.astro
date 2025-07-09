@@ -2,32 +2,58 @@
 import Moon from '@/astro/icons/Moon.astro';
 import Sun from '@/astro/icons/Sun.astro';
 import Button from '@/astro/ui/Button.astro';
-import { isDarkTheme } from '@/store/theme';
 ---
 
 <script>
 	import { $theme, toggleTheme } from "@/store/theme";
 
-	$theme.listen(() => {
-		document.querySelector('.moon')?.classList.toggle('hidden');
-		document.querySelector('.sun')?.classList.toggle('hidden');
-	});
+	const isDarkTheme = () => localStorage.getItem('dark') === 'dark';
 
-	document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
+	const showCorrectThemeButton = (showSelector: string, hideSelector: string) => {
+		document.querySelector(hideSelector)?.classList.add('hide');
+		document.querySelector(showSelector)?.classList.remove('hide');
+	};
+
+	const showThemeButtonsBasedOnState =  () => {
+		if (isDarkTheme()) {
+			showCorrectThemeButton('.sun', '.moon');
+			return;
+		}
+		showCorrectThemeButton('.moon', '.sun');
+	};
+
+	document.addEventListener("astro:page-load", () => {
+		$theme.listen(() => {
+			showThemeButtonsBasedOnState();
+		});
+		
+		showThemeButtonsBasedOnState();
+		document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
+	});
 </script>
 
 <Button
 	variant="ghost"
 	size="icon"
-	class="toggle-theme rounded-full cursor-pointer"
+	class="toggle-theme"
 >
-	<Moon class:list={['icon', 'moon', { hidden: !isDarkTheme() }]} />
-	<Sun class:list={['icon', 'sun',  { hidden: isDarkTheme() }]} />
+	<Fragment>
+		<Moon class:list={['icon', 'moon']} />
+		<Sun class:list={['icon', 'sun', 'hide']} />
+	</Fragment>
 </Button>
 
 <style is:global>
 	@reference '@/styles/global.css';
 	.sun, .moon {
 		@apply h-5 w-5;
+
+		&.hide {
+			display: none;
+		}
+	}
+
+	.toggle-theme {
+		@apply rounded-full cursor-pointer;
 	}
 </style>

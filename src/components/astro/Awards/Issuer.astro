@@ -1,19 +1,18 @@
-<script lang="ts">
-const { award } = $props();
-</script>
+---
+const { award } = Astro.props;
+---
 
-{#if award.issuerWebsiteUrl != null}
+{award.issuerWebsiteUrl ?
 	<p class="issuer">
 		🏢 <a
 			href={award.issuerWebsiteUrl}
 			target="_blank">{award.issuerName}</a>
 	&nbsp;-&nbsp;{award.date}
-	</p>
-{:else}
+	</p> :
 	<p class="issuer">
 		🏢 {`${award.issuerName} - ${award.date}`}
 	</p>
-{/if}
+}
 
 <style lang="postcss">
 @reference "@/styles/global.css";

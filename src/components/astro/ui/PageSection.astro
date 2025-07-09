@@ -1,19 +1,15 @@
-<!-- <script lang="ts">
-const { heading, content } = $props();
-</script>
-
 <section class="page-section">
 	<div>
 		<div class="heading-wrapper">
-      {@render heading()}
+			<slot name="heading" />
 		</div>
 		<div class="content-wrapper">
-			{@render content()}
+			<slot name="content" />
 		</div>
 	</div>
 </section>
 
-<style lang="postcss">
+<style>
 @reference '@/styles/global.css';
 
 .page-section {
@@ -31,4 +27,4 @@ const { heading, content } = $props();
   	@apply mb-3 flex items-center;
   }
 }
-</style> -->
+</style>

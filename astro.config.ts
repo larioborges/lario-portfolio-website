@@ -2,7 +2,6 @@
 
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
-import svelte from '@astrojs/svelte';
 import playformInline from '@playform/inline';
 import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
@@ -16,6 +15,9 @@ import viteConfig from './config/vite.config';
 
 // TODO Lario PWA
 export default defineConfig({
+	prefetch: {
+		prefetchAll: true,
+	},
 	site: seoConfig.baseURL,
 	adapter: netlify({
 		includeFiles: [
@@ -44,9 +46,6 @@ export default defineConfig({
 		],
 	},
 	integrations: [
-		svelte({
-			configFile: './config/svelte.config.ts',
-		}),
 		sitemap(),
 		astroRobotsTxt(),
 		playformInline(),

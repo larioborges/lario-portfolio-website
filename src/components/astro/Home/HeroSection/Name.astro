@@ -16,21 +16,23 @@ const {
 	} from 'motion';
 	import { APPEAR_ANIMATION } from '@/constants';
 
-	inView(
-	  'h1',
-	  APPEAR_ANIMATION,
-	);
-	inView(
-	  '.job-title',
-	  APPEAR_ANIMATION,
-	);
-	hover(
-	  '.heading-image',
-	  (element: Element) => {
-	    animate(element, { rotate: [0, 360] }, { duration: 0.3 });
-			return () => animate(element, { rotate: [360, 0] }, { duration: 0.3 });
-		},
-	);
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  'h1',
+		  APPEAR_ANIMATION,
+		);
+		inView(
+		  '.job-title',
+		  APPEAR_ANIMATION,
+		);
+		hover(
+		  '.heading-image',
+		  (element: Element) => {
+		    animate(element, { rotate: [0, 360] }, { duration: 0.3 });
+				return () => animate(element, { rotate: [360, 0] }, { duration: 0.3 });
+			},
+		);
+	});
 </script>
 
 <h1>
@@ -44,9 +46,7 @@ const {
 	}
 </h1>
 
-<p
-	class="job-title"
->
+<p class="job-title">
 	{jobTitle}
 </p>
 

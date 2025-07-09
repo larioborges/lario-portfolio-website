@@ -1,0 +1,39 @@
+---
+import InfoLink from './InfoLink.astro';
+
+const {
+	href = null,
+	rel = null,
+	target = null,
+	icon = null,
+	isTitle = false,
+	text,
+} = Astro.props;
+---
+
+{isTitle ?
+	<h3>
+    {icon && <span class="icon">{icon}</span>}
+    <InfoLink {href} {rel} {target} {text} />
+  </h3> :
+	<p>
+    {icon && <span class="icon">{icon}</span>}
+    <InfoLink {href} {rel} {target} {text} />
+  </p>
+}
+
+<style>
+  @reference "@/styles/global.css";
+  
+  h3 {
+    @apply font-medium;
+  }
+
+  p {
+    @apply text-muted-foreground text-sm;
+  }
+
+  .icon {
+    @apply pr-1.5;
+  }
+</style>

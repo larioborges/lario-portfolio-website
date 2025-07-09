@@ -6,25 +6,28 @@ const { name, icon, skills } = Astro.props;
 ---
 
 <script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	inView(
-	  'wrapper',
-	  (element => {
-			animate(element, {opacity: [0, 1], y: [20, 0]}, { duration: 0.3 });
-		}),
-	);
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.wrapper',
+		  (element => {
+				animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
+			}),
+		);
+	});
 </script>
 
-<div class="wrapper"></div>
-	<GlassCard class="p-4">
+<div class="wrapper">
+	<GlassCard class="skill-cat-section">
 		<h3 class="category-heading">
 			{icon && <span>{icon}</span>}
 			{name}
 		</h3>
 		<div class="skill-tag-wrapper">
 			{skills.map((skill: string, index: number) =>
-				<SkillTag {index} key={`${index}-${skill}`}>
+				<SkillTag {index}>
 					{skill}
 				</SkillTag>)}
 		</div>
@@ -44,5 +47,17 @@ const { name, icon, skills } = Astro.props;
 
 	.skill-tag-wrapper {
 		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+
+	.skill-cat-section {
+		@apply p-4;
+	}
+</style>
+
+<style is:global>
+	@reference "@/styles/global.css";
+
+	.skill-cat-section {
+		@apply p-4;
 	}
 </style>

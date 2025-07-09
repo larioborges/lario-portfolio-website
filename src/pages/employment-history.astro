@@ -1,11 +1,11 @@
 ---
-import EmploymentHistoryComponent from '@/components/EmploymentHistory.svelte';
+import EmploymentHistoryComponent from '@/astro/EmploymentHistory.astro';
 import {
 	getPastEmployers,
 	getPersonalInfo,
 	getSeoFieldsById,
 } from '@/contentful/queries';
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/Layout/index.astro';
 
 const [{ name }, pastEmployers, seoField] = await Promise.all([
 	getPersonalInfo(),
@@ -20,8 +20,5 @@ const [{ name }, pastEmployers, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	{name}
 >
-	<EmploymentHistoryComponent
-		{pastEmployers}
-		client:only="svelte"
-	/>
+	<EmploymentHistoryComponent {pastEmployers} />
 </Layout>

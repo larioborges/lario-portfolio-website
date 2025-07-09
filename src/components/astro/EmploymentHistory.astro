@@ -1,0 +1,40 @@
+---
+import DOMPurify from 'isomorphic-dompurify';
+import ContentBlock from '@/astro/ui/ContentBlock.astro';
+import Heading from '@/astro/ui/Heading.astro';
+import PageSection from '@/astro/ui/PageSection.astro';
+import TimelineItem from '@/components/astro/ui/TimelineItem/index.astro';
+import type { PastEmployerResponse } from '@/contentful/types';
+
+const { pastEmployers } = Astro.props;
+---
+
+<PageSection>
+	<Heading slot="heading" icon="💼" text="Employment History" />
+
+	<Fragment slot="content">
+		{pastEmployers.map(({
+			companyName,
+			companyWebsiteUrl,
+			companyLocation,
+			companyGoogleMapsUrl,
+			period,
+			position,
+			description,
+		}: PastEmployerResponse, index: number) => 
+			<TimelineItem
+				title={`👨‍💻 ${position}`}
+				subtitle={companyName}
+				subtitleHref={companyWebsiteUrl}
+				location={companyLocation}
+				locationHref={companyGoogleMapsUrl}
+				date={`${period}`}
+				isLast={index === pastEmployers.length - 1}
+				{index}
+			>
+				<ContentBlock>
+					<Fragment slot="content" set:html={DOMPurify.sanitize(description)} />
+				</ContentBlock>
+			</TimelineItem>)}
+		</Fragment>
+</PageSection>

@@ -10,15 +10,16 @@ const {
 ---
 
 <script>
+	import { LINK_HOVER_ON_TRANSITIONS, LINK_HOVER_OFF_TRANSITIONS } from '@/constants';
 	import { inView, animate, hover } from 'motion';
 
 	const index = document.querySelector('.index')?.innerHTML as unknown as number;
 	const isMobile = document.querySelector('.is-mobile') === null ? false : true; 
 
-	const animationDelay = ({ duration: 0.2, delay: index * 0.1 });
+	const animationDelay = ({ delay: index * 0.1 });
 
 	inView(
-	  'a',
+	  '.nav-link',
 	  isMobile ? 
 			(element:Element) => {
 				animate(element, { opacity: [0, 1], x: [-20, 0] }, animationDelay);
@@ -31,12 +32,14 @@ const {
 		},
 	);
 
-	if (!isMobile) {
-		hover('a', (element:Element) => {
-			animate(element, {y: [0, -2]}, animationDelay);
-			return () => animate(element, {y: [-2, 0]}, animationDelay);
-		});
-	}
+	document.addEventListener("astro:page-load", () => {
+		if (!isMobile) {
+			hover('.nav-link-wrapper', (element:Element) => {
+				animate(element, { y: [-2, 0], ...LINK_HOVER_ON_TRANSITIONS });
+				return () => animate(element, { y: [-2, 0], ...LINK_HOVER_OFF_TRANSITIONS });
+			});
+		}
+	});
 </script>
 
 {isMobile && <span class="is-mobile" />}
@@ -67,5 +70,8 @@ const {
 		&.with-border {
 			@apply border-t-1;
 		}
+	}
+	.nav-link-wrapper {
+		@apply text-muted-foreground hover:text-foreground transition-colors;
 	}
 </style>

@@ -1,0 +1,46 @@
+---
+import Heading from '@/astro/ui/Heading.astro';
+import PageSection from '@/astro/ui/PageSection.astro';
+import SkillCategorySection from '@/astro/ui/SkillCategorySection.astro';
+import type { SkillCategoryResponse } from '@/contentful/types';
+
+const { skillCategories } = Astro.props;
+---
+
+<script>
+	import { animate, inView } from 'motion';
+
+// viewport={{
+// 		once: true,
+// 		margin: '-50px',
+// }}
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.skills-wrapper',
+			(element => {
+				animate(
+					element,
+					{ opacity: [0, 1] },
+					{ staggerChildren: 0.1 },
+				);
+			}),
+		);
+	});
+</script>
+
+<PageSection>
+	<Heading slot="heading" icon="🛠️" text="Skills" />
+		<div slot="content" class="skills-wrapper">
+			{skillCategories.map(({name, icon, skills}:SkillCategoryResponse) =>
+				<SkillCategorySection {name} {icon} {skills} />
+			)}
+		</div>
+</PageSection>
+
+<style>
+	@reference '@/styles/global.css';
+	
+	.skills-wrapper {
+		@apply space-y-6;
+	}
+</style>

@@ -1,0 +1,47 @@
+---
+import DOMPurify from 'isomorphic-dompurify';
+import Briefcase from '@/astro/icons/Briefcase.astro';
+import Star from '@/astro/icons/Star.astro';
+import ContentBlock from '@/astro/ui/ContentBlock.astro';
+import SkillTag from '@/astro/ui/SkillTag.astro';
+import TimelineItem from '@/astro/ui/TimelineItem/index.astro';
+
+const { isLast, project, index } = Astro.props;
+---
+
+<TimelineItem
+	title={`👨‍💻 ${project.name}`}
+	subtitle={`🌍 ${project.employerName}`}
+	subtitleHref={project.employerWebsiteUrl}
+	location={project.location}
+	locationHref={project.locationGoogleMapsUrl}
+	date={project.period}
+	{isLast}
+  {index}
+ >
+ <Fragment>
+  	<div class="project-skills">
+      {project.skills.map((skill: string, index: number) =>
+      <SkillTag {index}>
+  			{skill}
+  		</SkillTag>)}
+    </div>
+
+    <ContentBlock heading="Job Role">
+      <Briefcase slot="icon"/>
+      <Fragment slot="content" set:html={DOMPurify.sanitize(project.description)} />
+    </ContentBlock>
+
+    <ContentBlock heading="Highlights">
+      <Star slot="icon">
+      <Fragment slot="content" set:html={DOMPurify.sanitize(project.highlights)} />
+    </ContentBlock>
+  </Fragment>
+</TimelineItem>
+
+<style>
+  @reference "@/styles/global.css";
+  .project-skills {
+    @apply flex flex-wrap justify-center gap-2 md:justify-start;
+  }
+</style>

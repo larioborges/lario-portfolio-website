@@ -1,0 +1,17 @@
+---
+import Heading from '@/astro/ui/Heading.astro';
+import PageSection from '@/astro/ui/PageSection.astro';
+import type { ShowcaseProjectEntryFields } from '@/contentful/types';
+import ShowCase from './ShowCase.astro';
+
+const { showcaseProjects } = Astro.props;
+---
+
+<PageSection>
+	<Heading slot="heading" icon="🚀" text="Project Showcase" />
+
+	<Fragment slot="content">
+		{showcaseProjects.map((project: ShowcaseProjectEntryFields, index: number) =>
+			<ShowCase isLast={index === showcaseProjects.length - 1} {project} {index} />)}
+	</Fragment>
+</PageSection>
