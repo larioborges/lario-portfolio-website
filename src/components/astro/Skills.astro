@@ -14,16 +14,18 @@ const { skillCategories } = Astro.props;
 // 		once: true,
 // 		margin: '-50px',
 // }}
-	inView(
-	  '.skills-wrapper',
-		(element => {
-			animate(
-				element,
-				{ opacity: [0, 1] },
-				{ staggerChildren: 0.1 },
-			);
-		}),
-	);
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.skills-wrapper',
+			(element => {
+				animate(
+					element,
+					{ opacity: [0, 1] },
+					{ staggerChildren: 0.1 },
+				);
+			}),
+		);
+	});
 </script>
 
 <PageSection>

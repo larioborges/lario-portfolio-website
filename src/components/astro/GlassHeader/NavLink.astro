@@ -32,12 +32,14 @@ const {
 		},
 	);
 
-	if (!isMobile) {
-		hover('.nav-link-wrapper', (element:Element) => {
-			animate(element, { y: [-2, 0], ...LINK_HOVER_ON_TRANSITIONS });
-			return () => animate(element, { y: [-2, 0], ...LINK_HOVER_OFF_TRANSITIONS });
-		});
-	}
+	document.addEventListener("astro:page-load", () => {
+		if (!isMobile) {
+			hover('.nav-link-wrapper', (element:Element) => {
+				animate(element, { y: [-2, 0], ...LINK_HOVER_ON_TRANSITIONS });
+				return () => animate(element, { y: [-2, 0], ...LINK_HOVER_OFF_TRANSITIONS });
+			});
+		}
+	});
 </script>
 
 {isMobile && <span class="is-mobile" />}

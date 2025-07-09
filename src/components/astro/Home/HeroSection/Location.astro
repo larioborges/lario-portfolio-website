@@ -8,16 +8,17 @@ const { locationFields } = Astro.props;
 	import { animate, inView, hover } from 'motion';
 	import { APPEAR_ANIMATION, DEFAULT_LINK_COLOUR, HOVER_LINK_COLOUR } from '@/constants';
 
-	inView(
-	  '.location-wrapper',
-	  APPEAR_ANIMATION,
-	);
-	hover('.location-wrapper', (element => {
-		animate(element, {scale: [1, 1.05], color: HOVER_LINK_COLOUR});
-		return () => animate(element, {scale: [1.05, 1], color: DEFAULT_LINK_COLOUR});
-	}));
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.location-wrapper',
+		  APPEAR_ANIMATION,
+		);
+		hover('.location-wrapper', (element => {
+			animate(element, {scale: [1, 1.05], color: HOVER_LINK_COLOUR});
+			return () => animate(element, {scale: [1.05, 1], color: DEFAULT_LINK_COLOUR});
+		}));
+	});
 </script>
-
 
 <p
 	class="location-wrapper"

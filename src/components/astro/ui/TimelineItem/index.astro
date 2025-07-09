@@ -28,90 +28,97 @@ const {
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
-	const index = (indexValue ? indexValue : 0);
+	document.addEventListener("astro:page-load", () => {
+		const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
+		const index = (indexValue ? indexValue : 0);
 
-	inView(
-	  ".timeline-item-wrapper",
-	  (element) => {
-	    animate(
-				element,
-				APPEAR_STYLE_TRANISITIONS,
-				{ duration: 0.3, delay: index * 0.1 },
-			);
-		}
-	);
+		inView(
+		  ".timeline-item-wrapper",
+		  (element) => {
+		    animate(
+					element,
+					APPEAR_STYLE_TRANISITIONS,
+					{ duration: 0.3, delay: index * 0.1 },
+				);
+			}
+		);
 
-	inView(".bg-panel-wrapper",
-	  (element) => {
-	    animate(
-				element,
-				{ scale: 0 },
-				{
-					type: 'spring',
-					stiffness: 300,
-					damping: 15,
-					delay: index * 0.2 + 0.2,
-				},
-			);
-		})
+		inView(".bg-panel-wrapper",
+		  (element) => {
+		    animate(
+					element,
+					{ scale: [0, 1] },
+					{
+						type: 'spring',
+						stiffness: 300,
+						damping: 15,
+						delay: index * 0.2 + 0.2,
+					},
+				);
+			},
+		);
 
 		inView(".bg-panel",
-		(element) => {
-	    animate(
-				element,
-				{
-					scale: 0,
-				},
-				{
-					type: 'spring',
-					stiffness: 300,
-					damping: 15,
-					delay: index * 0.2 + 0.2,
-				},
-			);
-		});
+			(element) => {
+		    animate(
+					element,
+					{
+						scale: [0, 1],
+					},
+					{
+						type: 'spring',
+						stiffness: 300,
+						damping: 15,
+						delay: index * 0.2 + 0.2,
+					},
+				);
+			},
+		);
 
 		inView(".bg-panel-last",
-		element => {
-	    animate(
-				element,
-				{
-					height: 0,
-				},
-				{
-					duration: 0.8,
-					delay: index * 0.2 + 0.3,
-				},
-			);
-		});
+			element => {
+		    animate(
+					element,
+					{
+						height: [0, 1],
+					},
+					{
+						duration: 0.8,
+						delay: index * 0.2 + 0.3,
+					},
+				);
+			},
+		);
 
 		inView('.content',
-		element => {
-			animate(
-				element,
-				{
-					opacity: [0, 1],
-					x: [-20, 0]
-				},
-				{
-					duration: 0.5,
-					delay: index * 0.2 + 0.1,
-				},
-			);
-		});
+			element => {
+				animate(
+					element,
+					{
+						opacity: [0, 1],
+						x: [-20, 0]
+					},
+					{
+						duration: 0.5,
+						delay: index * 0.2 + 0.1,
+					},
+				);
+			},
+		);
 
 		inView('.content .text',
-		element => {
-			animate(
-				element,
-				{ opacity: [0, 1] },
-				{
-					duration: 0.3,
-					delay: index * 0.2 + 0.4,
-				},
-			);
-		});
+			element => {
+				animate(
+					element,
+					{ opacity: [0, 1] },
+					{
+						duration: 0.3,
+						delay: index * 0.2 + 0.4,
+					},
+				);
+			},
+		);
+	});
 </script>
 
 <span class="index hidden">{index}</span>

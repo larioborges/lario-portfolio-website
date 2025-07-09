@@ -16,18 +16,20 @@ const { index, award }: AwardContentProps = Astro.props;
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
+	document.addEventListener("astro:page-load", () => {
+		const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
 
-	inView(
-	  ".wrapper",
-	  (element) => {
-	    animate(
-				element,
-				APPEAR_STYLE_TRANISITIONS,
-				{ ease: 'easeOut', duration: 0.6, delay: (indexValue ? indexValue : 0) * 0.1 },
-			);
-		}
-	);
+		inView(
+		  ".wrapper",
+		  (element) => {
+		    animate(
+					element,
+					APPEAR_STYLE_TRANISITIONS,
+					{ ease: 'easeOut', duration: 0.6, delay: (indexValue ? indexValue : 0) * 0.1 },
+				);
+			}
+		);
+	});
 </script>
 
 <span class="hidden index">{index}</span>

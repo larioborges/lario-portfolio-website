@@ -6,14 +6,16 @@ const { profileImageFields } = Astro.props;
 	import { APPEAR_ANIMATION } from '@/constants';
 	import { animate, inView, hover } from 'motion';
 
-	inView(
-	  '.wrapper',
-	  APPEAR_ANIMATION,
-	);
-	hover('.wrapper', (element => {
-		animate(element, {scale: [1, 1.05]});
-		return () => animate(element, {scale: [1.05, 1]});
-	}), { passive: false });
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.wrapper',
+		  APPEAR_ANIMATION,
+		);
+		hover('.wrapper', (element => {
+			animate(element, {scale: [1, 1.05]});
+			return () => animate(element, {scale: [1.05, 1]});
+		}), { passive: false });
+	});
 </script>
 <!--
 TODO Lario

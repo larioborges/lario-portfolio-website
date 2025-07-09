@@ -6,14 +6,16 @@ const { href } = Astro.props;
 	import { animate, inView, hover } from 'motion';
 	import { APPEAR_ANIMATION, LINK_HOVER_ON_TRANSITIONS, LINK_HOVER_OFF_TRANSITIONS } from '@/constants';
 
-	inView(
-	  '.hero-link',
-	  APPEAR_ANIMATION,
-	);
-	hover('.hero-link', (element => {
-		animate(element, LINK_HOVER_ON_TRANSITIONS);
-		return () => animate(element, LINK_HOVER_OFF_TRANSITIONS);
-	}));
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.hero-link',
+		  APPEAR_ANIMATION,
+		);
+		hover('.hero-link', (element => {
+			animate(element, LINK_HOVER_ON_TRANSITIONS);
+			return () => animate(element, LINK_HOVER_OFF_TRANSITIONS);
+		}));
+	});
 </script>
 
 <a

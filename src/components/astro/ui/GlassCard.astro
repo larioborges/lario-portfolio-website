@@ -7,14 +7,16 @@ const { class: className = '', hoverEffect = true, ...props } = Astro.props;
 <script>
 	import { animate, hover } from 'motion';
 
-	const hoverEffect = document.querySelector('.hover-effect') === null ? false : true;
+	document.addEventListener("astro:page-load", () => {
+		const hoverEffect = document.querySelector('.hover-effect') === null ? false : true;
 
-	if (hoverEffect) {
-		hover('.glass-card', (element => {
-			animate(element, {y: -5}, { duration: 0.2 });
-			return () => animate(element, {y: 0}, { duration: 0.2 });
-		}));
-	}
+		if (hoverEffect) {
+			hover('.glass-card', (element => {
+				animate(element, {y: -5}, { duration: 0.2 });
+				return () => animate(element, {y: 0}, { duration: 0.2 });
+			}));
+		}
+	});
 </script>
 
 <div class:list={['glass-card', className, { hover: hoverEffect }]} {...props}>

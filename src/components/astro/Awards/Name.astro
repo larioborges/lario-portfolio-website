@@ -6,13 +6,15 @@ const { award } = Astro.props;
 
 <script>
 	import { animate, hover } from 'motion';
-	hover(
-	  '.award-name-icon-wrapper',
-	  (element) => {
-	    animate(element, { rotate: 20}, { type: 'spring', stiffness: 500 });
-			return () => animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
-		}
-	);
+	document.addEventListener("astro:page-load", () => {
+		hover(
+		  '.award-name-icon-wrapper',
+		  (element) => {
+		    animate(element, { rotate: 20}, { type: 'spring', stiffness: 500 });
+				return () => animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
+			}
+		);
+	});
 </script>
 
 <div class="award-name">

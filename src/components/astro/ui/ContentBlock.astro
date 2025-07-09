@@ -6,21 +6,23 @@ const { heading = null } = Astro.props;
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	inView(
-	  '.content-block-wrapper',
-	  (element => {
-			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.5, delay: 0.2 });
-		}),
-	);
+	document.addEventListener("astro:page-load", () => {
+		inView(
+		  '.content-block-wrapper',
+		  (element => {
+				animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.5, delay: 0.2 });
+			}),
+		);
 
-	inView(
-		'.heading-wrapper',
-		(element => {
-			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.6, ease: 'easeIn'});
-		}),
+		inView(
+			'.heading-wrapper',
+			(element => {
+				animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.6, ease: 'easeIn'});
+			}),
 
-  // ease: "easeOut",
-	);
+	  // ease: "easeOut",
+		);
+	});
 </script>
 
 <div class="content-block-wrapper">

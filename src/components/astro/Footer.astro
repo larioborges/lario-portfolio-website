@@ -6,35 +6,37 @@ const { name } = Astro.props;
   import { APPEAR_ANIMATION } from '@/constants';
   import { inView, animate, hover } from 'motion';
 
-  inView(
-    '.footer-content',
-    APPEAR_ANIMATION,
-  );
+	document.addEventListener("astro:page-load", () => {
+	  inView(
+	    '.footer-content',
+	    APPEAR_ANIMATION,
+	  );
 
-  hover(
-    '.rights-reserved',
-    element => {
-  		animate(element, {scale: [1, 1.01]});
-  		return () => animate(element, {scale: [1.01, 1]});
-	  },
-    { passive: false }
-  );
+	  hover(
+	    '.rights-reserved',
+	    element => {
+	  		animate(element, {scale: [1, 1.01]});
+	  		return () => animate(element, {scale: [1.01, 1]});
+		  },
+	    { passive: false }
+	  );
 
-  inView(
-    '.built-by',
-    element => {
-      animate(
-        element,
-        {
-          opacity: [0, 1],
-        },
-        {
-          delay: 0.2,
-          duration:0.5,
-        }
-      );
-    },
-  );
+	  inView(
+	    '.built-by',
+	    element => {
+	      animate(
+	        element,
+	        {
+	          opacity: [0, 1],
+	        },
+	        {
+	          delay: 0.2,
+	          duration:0.5,
+	        }
+	      );
+	    },
+	  );
+	});
 </script>
 
 <footer>
