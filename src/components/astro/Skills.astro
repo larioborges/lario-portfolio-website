@@ -31,8 +31,8 @@ const { skillCategories } = Astro.props;
 <PageSection>
 	<Heading slot="heading" icon="🛠️" text="Skills" />
 		<div slot="content" class="skills-wrapper">
-			{skillCategories.map(({name, icon, skills}:SkillCategoryResponse, index:number) =>
-				<SkillCategorySection {name} {icon} {skills} key={`${name}-${index}`} />
+			{skillCategories.map(({name, icon, skills}:SkillCategoryResponse) =>
+				<SkillCategorySection {name} {icon} {skills} />
 			)}
 		</div>
 </PageSection>

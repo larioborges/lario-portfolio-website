@@ -27,7 +27,7 @@ const { name, icon, skills } = Astro.props;
 		</h3>
 		<div class="skill-tag-wrapper">
 			{skills.map((skill: string, index: number) =>
-				<SkillTag {index} key={`${index}-${skill}`}>
+				<SkillTag {index}>
 					{skill}
 				</SkillTag>)}
 		</div>

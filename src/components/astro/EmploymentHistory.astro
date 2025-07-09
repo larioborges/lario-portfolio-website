@@ -23,7 +23,6 @@ const { pastEmployers } = Astro.props;
 			description,
 		}: PastEmployerResponse, index: number) => 
 			<TimelineItem
-				key={`${companyName}-${period}-${index}`}
 				title={`👨‍💻 ${position}`}
 				subtitle={companyName}
 				subtitleHref={companyWebsiteUrl}

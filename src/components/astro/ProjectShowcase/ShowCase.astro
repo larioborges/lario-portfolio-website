@@ -22,7 +22,7 @@ const { isLast, project, index } = Astro.props;
  <Fragment>
   	<div class="project-skills">
       {project.skills.map((skill: string, index: number) =>
-      <SkillTag key={`${skill}-${index}`} {index}>
+      <SkillTag {index}>
   			{skill}
   		</SkillTag>)}
     </div>

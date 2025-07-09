@@ -6,8 +6,8 @@ const { award } = Astro.props;
 
 <div class="tags">
 	<div>
-    {award.tags.map((tag: string, index: number) =>
-		<SkillTag key={`${tag}-${index}`}>
+    {award.tags.map((tag: string) =>
+		<SkillTag>
 			{tag}
 		</SkillTag>)}
 	</div>

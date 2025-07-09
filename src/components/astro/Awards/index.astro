@@ -12,7 +12,7 @@ const { awards } = Astro.props;
 
 	<div slot="content" class="award-content">
 		{awards.map((award:AwardFields, index: number) =>
-			<Content {award} {index} key={`${award?.name}-${award?.date}`}/>
+			<Content {award} {index} />
 		)}
 	</div>
 </PageSection>

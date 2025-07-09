@@ -16,7 +16,6 @@ const { certifications } = Astro.props;
 			certification, timePeriod, institutionName, institutionWebsiteUrl, institutionLocation, institutionGoogleMapsUrl, description,
 		}: CertificationResponse, index: number) =>
 			<TimelineItem
-				key={`${certification}-${timePeriod}`}
 				title={`🎓 ${certification}`}
 				subtitle={`🏛️ ${institutionName}`}
 				subtitleHref={institutionWebsiteUrl}
