@@ -19,8 +19,8 @@ const { name, icon, skills } = Astro.props;
 	});
 </script>
 
-<div class="wrapper"></div>
-	<GlassCard class="p-4">
+<div class="wrapper">
+	<GlassCard class="skill-cat-section">
 		<h3 class="category-heading">
 			{icon && <span>{icon}</span>}
 			{name}
@@ -47,5 +47,17 @@ const { name, icon, skills } = Astro.props;
 
 	.skill-tag-wrapper {
 		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+
+	.skill-cat-section {
+		@apply p-4;
+	}
+</style>
+
+<style is:global>
+	@reference "@/styles/global.css";
+
+	.skill-cat-section {
+		@apply p-4;
 	}
 </style>

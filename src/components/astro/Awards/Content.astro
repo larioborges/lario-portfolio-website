@@ -32,7 +32,7 @@ const { index, award }: AwardContentProps = Astro.props;
 	});
 </script>
 
-<span class="hidden index">{index}</span>
+<span class="index">{index}</span>
 <div class="wrapper">
 	<GlassCard
 		class="award-card"
@@ -50,5 +50,17 @@ const { index, award }: AwardContentProps = Astro.props;
 
 .award-card {
 	@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
+}
+
+.index {
+	@apply hidden;
+}
+</style>
+
+<style>
+@reference '@/styles/global.css';
+
+.index {
+	@apply hidden;
 }
 </style>

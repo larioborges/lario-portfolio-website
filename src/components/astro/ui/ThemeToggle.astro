@@ -35,7 +35,7 @@ import Button from '@/astro/ui/Button.astro';
 <Button
 	variant="ghost"
 	size="icon"
-	class="toggle-theme rounded-full cursor-pointer"
+	class="toggle-theme"
 >
 	<Fragment>
 		<Moon class:list={['icon', 'moon']} />
@@ -51,5 +51,9 @@ import Button from '@/astro/ui/Button.astro';
 		&.hide {
 			display: none;
 		}
+	}
+
+	.toggle-theme {
+		@apply rounded-full cursor-pointer;
 	}
 </style>
