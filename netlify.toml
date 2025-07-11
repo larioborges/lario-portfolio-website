@@ -60,6 +60,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 [[headers]]
 for = "*.js"
 [headers.values]
@@ -68,6 +69,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 [[headers]]
 for = "*.ts"
 [headers.values]
@@ -85,6 +87,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 [[headers]]
 for = "*.jpg"
 [headers.values]
@@ -93,6 +96,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 [[headers]]
 for = "*.jpeg"
 [headers.values]
@@ -101,6 +105,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 [[headers]]
 for = "*.png"
 [headers.values]
@@ -118,6 +123,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 for = "*.otf"
 [headers.values]
 Cache-control = '''
@@ -125,6 +131,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 for = "*.woff"
 [headers.values]
 Cache-control = '''
@@ -139,6 +146,7 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
 for = "*.eot"
 [headers.values]
 Cache-control = '''
