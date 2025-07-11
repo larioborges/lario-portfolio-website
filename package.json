@@ -39,6 +39,7 @@
 		"@astrojs/netlify": "6.4.0",
 		"@astrojs/sitemap": "3.4.1",
 		"@biomejs/biome": "^2.0.5",
+		"@playform/build": "^0.2.4",
 		"@types/bun": "^1.2.15",
 		"@types/gtag.js": "^0.0.20",
 		"astro-compressor": "^1.0.0",
