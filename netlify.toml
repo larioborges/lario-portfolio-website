@@ -124,6 +124,7 @@ Cache-control = '''
     immutable
     '''
 
+[[headers]]
 for = "*.otf"
 [headers.values]
 Cache-control = '''
@@ -132,6 +133,7 @@ Cache-control = '''
     immutable
     '''
 
+[[headers]]
 for = "*.woff"
 [headers.values]
 Cache-control = '''
@@ -139,6 +141,8 @@ Cache-control = '''
     max-age=31536000,
     immutable
     '''
+
+[[headers]]
 for = "*.woff2"
 [headers.values]
 Cache-control = '''
@@ -147,6 +151,7 @@ Cache-control = '''
     immutable
     '''
 
+[[headers]]
 for = "*.eot"
 [headers.values]
 Cache-control = '''
