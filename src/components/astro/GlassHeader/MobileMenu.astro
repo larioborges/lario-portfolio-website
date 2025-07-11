@@ -9,9 +9,14 @@ import NavLinks from './NavLinks.astro';
 
   document.addEventListener("astro:page-load", () => {
   	$menuOpen.listen(() => {
-  		document.querySelector('.nav-links-wrapper-mobile')?.classList.toggle('open');
+      if ($menuOpen.get()) {
+        document.querySelector('.nav-links-wrapper-mobile')?.classList.add('open');
+        return;
+      }
+      document.querySelector('.nav-links-wrapper-mobile')?.classList.remove('open');;
   	});
 
+    $menuOpen.set(false);
   	document.querySelector('.menu-button.close')?.addEventListener('click', toggleMenu);
   });
 </script>
