@@ -2,8 +2,8 @@
 
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
-import playformInline from '@playform/inline';
 import AstroPWA from '@vite-pwa/astro';
+import type { AstroUserConfig } from 'astro';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
@@ -13,28 +13,11 @@ import astroRobotsTxt from 'astro-robots-txt';
 import { manifest, seoConfig } from './config/seoConfig';
 import viteConfig from './config/vite.config';
 
-// TODO Lario PWA
-export default defineConfig({
+const config: AstroUserConfig<never, never, never> = {
 	prefetch: {
 		prefetchAll: true,
 	},
 	site: seoConfig.baseURL,
-	adapter: netlify({
-		includeFiles: [
-			'./src/data/**/*.json',
-		],
-		excludeFiles: [
-			'/node_modules/**/*',
-			'./node_modules/**/*',
-			'./packages/**/*',
-			'./.astro/**/*',
-			'./.netlify/**/*',
-			'./src/**/*.test.js',
-			'./public/*',
-			'/styles/global.css',
-			'./*.ts',
-		],
-	}),
 	image: {
 		domains: [
 			'images.ctfassets.net',
@@ -48,7 +31,6 @@ export default defineConfig({
 	integrations: [
 		sitemap(),
 		astroRobotsTxt(),
-		playformInline(),
 		purgecss(),
 		AstroPWA({
 			registerType: 'autoUpdate',
@@ -67,4 +49,34 @@ export default defineConfig({
 		astroCompressor(),
 	],
 	vite: viteConfig,
-});
+};
+
+// console.log(process.env.NETLIFY);
+
+if (
+	(
+		process.env as {
+			NETLIFY: string;
+		}
+	).NETLIFY !== 'disabled'
+) {
+	config.adapter = netlify({
+		includeFiles: [
+			'./src/data/**/*.json',
+		],
+		excludeFiles: [
+			'/node_modules/**/*',
+			'./node_modules/**/*',
+			'./packages/**/*',
+			'./.astro/**/*',
+			'./.netlify/**/*',
+			'./src/**/*.test.js',
+			'./public/*',
+			'/styles/global.css',
+			'./*.ts',
+		],
+	});
+}
+
+// TODO Lario PWA
+export default defineConfig(config);

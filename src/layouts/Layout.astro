@@ -1,4 +1,6 @@
 ---
+import '@/styles/global.css';
+import '@/styles/layout.css';
 import { ClientRouter } from 'astro:transitions';
 import { pwaInfo } from 'virtual:pwa-info';
 import { Head } from 'astro-capo';
@@ -131,9 +133,6 @@ if (article) {
 			href={favicon.src}
 			transition:persist
 		/>
-		<style is:global transition:persist>
-			@import './style.css';
-		</style>
 
 		<meta
 			name='generator'

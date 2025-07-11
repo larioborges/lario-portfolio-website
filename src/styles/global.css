@@ -37,6 +37,7 @@
 	--sidebar-accent-foreground: #171717;
 	--sidebar-border: #e5e5e5;
 	--sidebar-ring: #a1a1a1;
+	--transition-standard: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark {
@@ -109,13 +110,4 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
-}
-
-@layer base {
-	* {
-		@apply border-border outline-ring/50;
-	}
-	body {
-		@apply bg-background text-foreground;
-	}
 }

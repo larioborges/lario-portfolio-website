@@ -1,7 +1,7 @@
 ---
 import Home from '@/astro/Home/index.astro';
 import { getPersonalInfo, getSeoFieldsById } from '@/contentful/queries';
-import Layout from '@/layouts/Layout/index.astro';
+import Layout from '@/layouts/Layout.astro';
 
 const [personalInfo, seoField] = await Promise.all([
 	getPersonalInfo(),

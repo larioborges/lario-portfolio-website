@@ -7,11 +7,12 @@
 	"scripts": {
 		"astro": "bunx --bun astro",
 		"build": "bunx --bun astro build",
+		"build:local": "NETLIFY=disabled bunx --bun astro build",
 		"dev": "bunx --bun astro dev",
 		"lint": "bunx --bun @biomejs/biome ci ./src",
 		"lint:fix": "bunx --bun @biomejs/biome check --write ./src",
 		"netlify:build": "bunx netlify build",
-		"preview": "bunx --bun astro preview",
+		"preview": "NETLIFY=disabled bunx --bun astro preview",
 		"postinstall": "husky",
 		"prepublishOnly": "pinst --disable",
 		"postpublish": "pinst --enable"
@@ -38,8 +39,6 @@
 		"@astrojs/netlify": "6.4.0",
 		"@astrojs/sitemap": "3.4.1",
 		"@biomejs/biome": "^2.0.5",
-		"@playform/build": "^0.2.4",
-		"@playform/inline": "^0.1.2",
 		"@types/bun": "^1.2.15",
 		"@types/gtag.js": "^0.0.20",
 		"astro-compressor": "^1.0.0",

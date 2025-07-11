@@ -5,7 +5,7 @@ import {
 	getSeoFieldsById,
 	getShowcaseProjects,
 } from '@/contentful/queries';
-import Layout from '@/layouts/Layout/index.astro';
+import Layout from '@/layouts/Layout.astro';
 
 const [{ name }, showcaseProjects, seoField] = await Promise.all([
 	getPersonalInfo(),
