@@ -44,7 +44,7 @@ X-XSS-Protection = '''
 # img-src 'self' https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net/**/*,
 
 [[headers]]
-for = "*"
+for = "*![.(css|js|ts|webp|jpg|jpeg|png|ttf|otf|woff|woff2|eot)]"
 [headers.values]
 Cache-control = '''
     public,
