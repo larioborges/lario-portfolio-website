@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const { profileImageFields } = Astro.props;
 ---
 
@@ -31,9 +33,13 @@ whileTap={{
 			class="img-decoration"
 		/>
 		{profileImageFields && profileImageFields.file && 
-			<img
+			<Image
 				src={profileImageFields.file.url}
 				alt={profileImageFields.title}
+				width={364}
+				height={364}
+				fit="cover"
+				class="profile-img"
 			/>
 		}
 	</div>
@@ -50,9 +56,8 @@ whileTap={{
   }
 }
 
-img {
+:global(.profile-img) {
   @apply relative w-48 rounded-full ring-2 ring-yellow-500/50 md:w-60;
-  "object-fit": cover;
 	width: 192px;
 	height: 192px;
 }
