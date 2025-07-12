@@ -1,5 +1,6 @@
 ---
 import '@fontsource-variable/inter';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
 import '@/styles/global.css';
 import '@/styles/layout.css';
 import { ClientRouter } from 'astro:transitions';
@@ -128,6 +129,7 @@ if (article) {
 		  gtag('js', new Date());
 		  gtag('config', 'G-YW069N7W3X');
 		</script>
+		<link rel="preload" as="font" type="font/woff2" href={interWoff2} transition:persist />
 		<meta charset='UTF-8' transition:persist />
 		<meta
 			name='viewport'
@@ -140,7 +142,6 @@ if (article) {
 			href={favicon.src}
 			transition:persist
 		/>
-
 		<meta
 			name='generator'
 			content={Astro.generator}
