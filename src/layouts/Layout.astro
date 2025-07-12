@@ -118,8 +118,8 @@ if (article) {
 ---
 <html lang='en' transition:animate="none">
 	<Head>
-		<ClientRouter />
 		<!-- <GoogleAnalytics id='G-YW069N7W3X' transition:persist transition:persist-props /> -->
+		<link rel="preconnect" href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X">
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X" transition:persist transition:persist-props is:inline />
 		<script transition:persist is:inline>
 		  window.dataLayer = window.dataLayer || [];
@@ -130,6 +130,7 @@ if (article) {
 
 		  gtag('config', 'G-YW069N7W3X');
 		</script>
+		<ClientRouter />
 		<GoogleFontsOptimizer url="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&display=swap" transition:persist transition:persist-props />
 		<meta charset='UTF-8' transition:persist />
 		<meta
