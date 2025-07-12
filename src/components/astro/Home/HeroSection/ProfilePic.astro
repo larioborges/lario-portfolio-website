@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-
-const { profileImageFields } = Astro.props;
+import profileImg from '@/images/profile.png';
 ---
 
 <script>
@@ -31,18 +30,16 @@ whileTap={{
 	<div>
 		<div
 			class="img-decoration"
+		/> 
+		<Image
+			src={profileImg}
+			alt="Luigi"
+			width={364}
+			height={364}
+			fit="cover"
+			class="profile-img"
+			quality={72}
 		/>
-		{profileImageFields && profileImageFields.file && 
-			<Image
-				src={profileImageFields.file.url}
-				alt={profileImageFields.title}
-				width={364}
-				height={364}
-				fit="cover"
-				class="profile-img"
-				quality={72}
-			/>
-		}
 	</div>
 </div>
 

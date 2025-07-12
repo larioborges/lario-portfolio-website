@@ -1,5 +1,5 @@
 ---
-import type { AssetFields, Entry } from 'contentful';
+import type { Entry } from 'contentful';
 import { getPersonalInfo } from '@/contentful/queries';
 import type { PersonalInfoResponse } from '@/contentful/types';
 import Intro from './Intro.astro';
@@ -9,7 +9,6 @@ import ProfilePic from './ProfilePic.astro';
 
 const {
 	name,
-	profileImage,
 	location,
 	email,
 	githubUrl,
@@ -17,16 +16,6 @@ const {
 	intro,
 }: PersonalInfoResponse = await getPersonalInfo();
 Astro.props;
-
-profileImage.sys.type;
-
-const {
-	fields: profileImageFields,
-}: {
-	fields: AssetFields;
-} = profileImage as {
-	fields: AssetFields;
-};
 
 const { fields: locationFields } = location as Entry;
 ---
@@ -52,7 +41,7 @@ const { fields: locationFields } = location as Entry;
 				<Links {email} {linkedInUrl} {githubUrl} {locationFields} />
 			</div>
 
-			<ProfilePic {profileImageFields} />
+			<ProfilePic />
 		</div>
 
 		<Intro {intro} />
