@@ -12,7 +12,7 @@
 		"lint": "bunx --bun @biomejs/biome ci ./src",
 		"lint:fix": "bunx --bun @biomejs/biome check --write ./src",
 		"netlify:build": "bunx netlify build",
-		"preview": "NETLIFY=disabled bunx --bun astro preview",
+		"preview:local": "NETLIFY=disabled bunx --bun astro preview",
 		"postinstall": "husky",
 		"prepublishOnly": "pinst --disable",
 		"postpublish": "pinst --enable"

@@ -1,5 +1,6 @@
 ---
-import nerd from '@/images/smiley.webp';
+import { Image } from 'astro:assets';
+import nerd from '@/images/nerd.png';
 
 const {
 	name,
@@ -38,9 +39,14 @@ const {
 <h1>
 	{name} <span></span>
 	{img &&
-		<img
-			src={img.src}
+		<Image
+			src={img}
 			alt={img.alt ? img.alt : 'Nerd'}
+			quality="mid"
+			width={90}
+			height={90}
+			format="webp"
+			quality={72}
 			class="heading-image"
 		/>
 	}
@@ -65,7 +71,7 @@ const {
     }
   }
 
-	.heading-image {
+	:global(.heading-image) {
 		width: 45px;
 		height: 45px;
 		@apply ml-3 inline-block align-middle;

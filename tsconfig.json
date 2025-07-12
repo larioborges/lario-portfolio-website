@@ -26,11 +26,6 @@
 	"compilerOptions": {
 		"rootDir": ".",
 		"outDir": "dist",
-		"types": [
-			"gtag.js",
-			"vite-plugin-pwa/info.d.ts",
-			"vite-plugin-pwa/client.d.ts"
-		],
 		"baseUrl": "./",
 		"paths": {
 			"@/*": ["src/*"],
