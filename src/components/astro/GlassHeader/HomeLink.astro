@@ -18,8 +18,8 @@ const { name } = Astro.props;
     alt="South Africa"
     src={southAfrica}
     quality={72}
-    width={70}
-    height={70}
+    width={35}
+    height={35}
     format='webp'
     class="light-icon"
   />
@@ -27,8 +27,8 @@ const { name } = Astro.props;
     alt="Luigi Cap"
     src={luigiCap}
     quality={72}
-    width={70}
-    height={70}
+    width={35}
+    height={35}
     format='webp'
     class="dark-icon"
   />
@@ -42,13 +42,9 @@ const { name } = Astro.props;
   }
   :global(.light-icon) {
     @apply dark:hidden;
-    width: 35px;
-    height: 35px;
   }
   :global(.dark-icon) {
     @apply hidden dark:inline-block;
-    width: 35px;
-    height: 35px;
   }
   .home-link {
     @apply flex items-center text-lg font-medium;
