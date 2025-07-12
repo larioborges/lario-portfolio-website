@@ -1,6 +1,6 @@
 ---
 import '@fontsource-variable/inter';
-import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import '@/styles/global.css';
 import '@/styles/layout.css';
 import { ClientRouter } from 'astro:transitions';
@@ -129,7 +129,7 @@ if (article) {
 		  gtag('js', new Date());
 		  gtag('config', 'G-YW069N7W3X');
 		</script>
-		<link rel="preload" as="font" type="font/woff2" href={interWoff2} transition:persist />
+		<link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" transition:persist />
 		<meta charset='UTF-8' transition:persist />
 		<meta
 			name='viewport'
