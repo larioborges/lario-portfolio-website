@@ -19,6 +19,7 @@
 	},
 	"dependencies": {
 		"@contentful/rich-text-html-renderer": "^17.0.0",
+		"@fontsource-variable/inter": "^5.2.6",
 		"@nanostores/persistent": "^1.0.0",
 		"@tailwindcss/vite": "^4.1.10",
 		"aos": "^2.3.4",
@@ -42,7 +43,6 @@
 		"@types/bun": "^1.2.15",
 		"@types/gtag.js": "^0.0.20",
 		"astro-compressor": "^1.0.0",
-		"astro-google-fonts-optimizer": "^0.2.2",
 		"astro-purgecss": "^5.2.3",
 		"astro-robots-txt": "^1.0.0",
 		"autoprefixer": "^10.4.21",
