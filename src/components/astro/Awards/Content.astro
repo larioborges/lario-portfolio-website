@@ -45,20 +45,12 @@ const { index, award }: AwardContentProps = Astro.props;
 	</GlassCard>
 </div>
 
-<style is:global>
-@reference '@/styles/global.css';
-
-.award-card {
-	@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
-}
-
-.index {
-	@apply hidden;
-}
-</style>
-
 <style>
 @reference '@/styles/global.css';
+
+:global(.award-card) {
+	@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
+}
 
 .index {
 	@apply hidden;

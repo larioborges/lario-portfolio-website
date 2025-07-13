@@ -44,16 +44,12 @@ const { locationFields, email, githubUrl, linkedInUrl } = Astro.props;
 	</Link>
 </div>
 
-<style is:global>
-	@reference "@/styles/global.css";
-
-	.hero-icon {
-		@apply mr-2 h-4 w-4;
-	}
-</style>
-
 <style>
   @reference "@/styles/global.css";
+
+	:global(.hero-icon) {
+		@apply mr-2 h-4 w-4;
+	}
 
   .home-links-wrapper {
     @apply flex flex-col items-center gap-2 md:items-start;

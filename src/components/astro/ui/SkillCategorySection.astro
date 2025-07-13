@@ -52,12 +52,8 @@ const { name, icon, skills } = Astro.props;
 	.skill-cat-section {
 		@apply p-4;
 	}
-</style>
 
-<style is:global>
-	@reference "@/styles/global.css";
-
-	.skill-cat-section {
+	:global(.skill-cat-section) {
 		@apply p-4;
 	}
 </style>

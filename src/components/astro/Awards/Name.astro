@@ -38,12 +38,8 @@ const { award } = Astro.props;
 .award-name-icon-wrapper {
   @apply mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5;
 }
-</style>
 
-<style is:global>
-@reference "@/styles/global.css";
-
-.trophy-icon {
+:global(.trophy-icon) {
 	@apply h-4 w-4;
 }
 </style>
