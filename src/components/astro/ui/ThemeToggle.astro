@@ -17,8 +17,10 @@ import Button from '@/astro/ui/Button.astro';
 	const showThemeButtonsBasedOnState =  () => {
 		if (isDarkTheme()) {
 			showCorrectThemeButton('.sun', '.moon');
+			document.querySelector('.toggle-theme')?.setAttribute('name', 'Light Mode');
 			return;
 		}
+		document.querySelector('.toggle-theme')?.setAttribute('name', 'Dark Mode');
 		showCorrectThemeButton('.moon', '.sun');
 	};
 
@@ -36,6 +38,7 @@ import Button from '@/astro/ui/Button.astro';
 	variant="ghost"
 	size="icon"
 	class="toggle-theme"
+	name="Toggle Theme"
 >
 	<Fragment>
 		<Moon class:list={['icon', 'moon']} />

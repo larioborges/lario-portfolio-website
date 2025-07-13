@@ -11,6 +11,7 @@ interface Props {
 		| 'link';
 	size?: 'default' | 'sm' | 'lg' | 'icon';
 	asChild?: boolean | undefined;
+	name?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
 	variant = 'default',
 	size = 'default',
 	asChild = false,
+	name = '',
 	...props
 }: Props = Astro.props as Props;
 ---
@@ -26,8 +28,8 @@ const {
 {asChild ?
 	<slot {...props} /> :
 	<button
-		class={`${className} ${variant} size-${size}`}
-		class:list={classList}
+		class:list={[className, variant, `size-${size}`, ...classList]}
+		{name}
 		{...props}
 	>
 		<slot />
