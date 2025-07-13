@@ -30,8 +30,6 @@
 		"editor.formatOnSave": true,
 		"editor.indentSize": "tabSize",
 		"files.associations": {
-			"*.yaml": "yaml",
-			"*.svelte": "svelte",
 			"*.astro": "astro",
 			"*.css": "postcss"
 		},
@@ -44,8 +42,6 @@
 			"**/.netlify/": true,
 			"**/dist/": true,
 			"**/packages/": true,
-			"**/.yarn": true,
-			"**/.pnp.*": true,
 			"**/node_modules": true
 		},
 		"[astro]": {
@@ -55,9 +51,6 @@
 			"editor.defaultFormatter": "biomejs.biome"
 		},
 		"[typescript]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[svelte]": {
 			"editor.defaultFormatter": "biomejs.biome"
 		},
 		"[json]": {
@@ -75,8 +68,6 @@
 			"unifiedjs.vscode-mdx",
 			"christian-kohler.npm-intellisense",
 			"csstools.postcss",
-			"svelte.svelte-vscode",
-			"ardenivanov.svelte-intellisense",
 			"bradlc.vscode-tailwindcss",
 			"spmeesseman.vscode-taskexplorer",
 			"be5invis.toml"
