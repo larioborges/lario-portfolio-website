@@ -16,7 +16,7 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-			 "a11y": "off"
+			"a11y": "off"
 		}
 	},
 	"javascript": {
@@ -38,20 +38,22 @@
 		}
 	},
 	"css": {
-    "formatter": {
-      "enabled": true,
+		"formatter": {
+			"enabled": true,
 			"quoteStyle": "single"
-    }
-  },
-	"overrides": [{
-    "includes": ["**/*.astro", "**/*.svelte"],
-		"linter": {
-	    "rules": {
-	      "correctness": {
-	        "noUnusedImports": "off",
-					"noUnusedVariables": "off"
-	      }
-	    }
-	  }
-  }]
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro", "**/*.svelte"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		}
+	]
 }
