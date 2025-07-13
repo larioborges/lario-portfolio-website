@@ -6,6 +6,7 @@
 	"packageManager": "bun@1.2.15",
 	"scripts": {
 		"astro": "bunx --bun astro",
+		"build:production": "ROBOTS=on bunx --bun astro build",
 		"build": "bunx --bun astro build",
 		"build:local": "NETLIFY=disabled bunx --bun astro build",
 		"dev": "bunx --bun astro dev",
@@ -46,6 +47,7 @@
 		"astro-purgecss": "^5.2.3",
 		"astro-robots-txt": "^1.0.0",
 		"autoprefixer": "^10.4.21",
+		"cssnano": "^7.0.7",
 		"globals": "^16.1.0",
 		"husky": ">=6",
 		"isomorphic-dompurify": "^2.25.0",

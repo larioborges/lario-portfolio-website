@@ -1,6 +1,6 @@
 ---
-import '@fontsource-variable/inter';
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import fontCssUrl from '@fontsource-variable/inter?url';
 import '@/styles/global.css';
 import '@/styles/layout.css';
 import { ClientRouter } from 'astro:transitions';
@@ -121,6 +121,8 @@ if (article) {
 		<ClientRouter />
 		<link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X" transition:persist>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X" transition:persist transition:persist-props is:inline />
+		<link rel="preload" href={fontCssUrl} as="style">
+		<link rel="stylesheet" href={fontCssUrl}>
 		<script transition:persist is:inline>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag() {

@@ -11,12 +11,13 @@ import astroRobotsTxt from 'astro-robots-txt';
 import { /*manifest,*/ seoConfig } from './config/seoConfig';
 import viteConfig from './config/vite.config';
 
+interface COMMAND_ENV {
+	NETLIFY?: 'enabled' | 'disabled';
+	ROBOTS: 'on' | 'off';
+}
+
 const netlifyAdapter =
-	(
-		process.env as {
-			NETLIFY: string;
-		}
-	).NETLIFY !== 'disabled'
+	(process.env as unknown as COMMAND_ENV).NETLIFY !== 'disabled'
 		? {
 				adapter: netlify({
 					includeFiles: [
@@ -37,6 +38,13 @@ const netlifyAdapter =
 			}
 		: {};
 
+const robots =
+	(process.env as unknown as COMMAND_ENV).ROBOTS === 'on'
+		? [
+				astroRobotsTxt(),
+			]
+		: [];
+
 // TODO Lario PWA
 export default defineConfig({
 	prefetch: {
@@ -56,7 +64,7 @@ export default defineConfig({
 	},
 	integrations: [
 		sitemap(),
-		astroRobotsTxt(),
+		...robots,
 		purgecss(),
 		// @vite-pwa/astro
 		// AstroPWA({
