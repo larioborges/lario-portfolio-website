@@ -2,6 +2,7 @@
 import DOMPurify from 'isomorphic-dompurify';
 
 const { intro } = Astro.props;
+const introClean = DOMPurify.sanitize(intro);
 ---
 
 <script>
@@ -21,7 +22,7 @@ const { intro } = Astro.props;
 <div class="wrapper">
 	<div>
 		<span></span>
-		<Fragment set:html={DOMPurify.sanitize(intro)} />
+		<Fragment set:html={introClean} />
 	</div>
 </div>
 

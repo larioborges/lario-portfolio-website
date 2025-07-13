@@ -1,7 +1,8 @@
 ---
 import DOMPurify from 'isomorphic-dompurify';
 
-const { content, heading, HeadingIcon } = Astro.props;
+const { content: contentDirty, heading, HeadingIcon } = Astro.props;
+const content = DOMPurify.sanitize(contentDirty);
 ---
 
 {heading &&
@@ -16,7 +17,7 @@ const { content, heading, HeadingIcon } = Astro.props;
 }
 {content &&
 	<div class="content-wrapper">
-		<Fragment set:html={DOMPurify.sanitize(content)} />
+		<Fragment set:html={content} />
 	</div>
 }
 

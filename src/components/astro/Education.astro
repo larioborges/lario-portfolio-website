@@ -7,12 +7,16 @@ import TimelineItem from '@/astro/ui/TimelineItem/index.astro';
 import type { CertificationResponse } from '@/contentful/types/Certification';
 
 const { certifications } = Astro.props;
+const certs = certifications.map((cert: CertificationResponse) => ({
+	...cert,
+	description: DOMPurify.sanitize(cert.description),
+}));
 ---
 
 <PageSection>
 	<Heading slot="heading" icon="🎓" text="Education" />
 	<Fragment slot="content">
-		{certifications.map(({
+		{certs.map(({
 			certification, timePeriod, institutionName, institutionWebsiteUrl, institutionLocation, institutionGoogleMapsUrl, description,
 		}: CertificationResponse, index: number) =>
 			<TimelineItem
@@ -26,7 +30,7 @@ const { certifications } = Astro.props;
 				{index}
 			>
 				<ContentBlock>
-					<Fragment slot="content" set:html={DOMPurify.sanitize(description)} />
+					<Fragment slot="content" set:html={description} />
 				</ContentBlock>
 			</TimelineItem>)}
 </PageSection>

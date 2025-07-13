@@ -6,7 +6,12 @@ import ContentBlock from '@/astro/ui/ContentBlock.astro';
 import SkillTag from '@/astro/ui/SkillTag.astro';
 import TimelineItem from '@/astro/ui/TimelineItem/index.astro';
 
-const { isLast, project, index } = Astro.props;
+const { isLast, project: projectProp, index } = Astro.props;
+const project = {
+	...projectProp,
+	description: DOMPurify.sanitize(projectProp.description),
+	highlights: DOMPurify.sanitize(projectProp.highlights),
+};
 ---
 
 <TimelineItem
@@ -29,12 +34,12 @@ const { isLast, project, index } = Astro.props;
 
     <ContentBlock heading="Job Role">
       <Briefcase slot="icon"/>
-      <Fragment slot="content" set:html={DOMPurify.sanitize(project.description)} />
+      <Fragment slot="content" set:html={project.description} />
     </ContentBlock>
 
     <ContentBlock heading="Highlights">
       <Star slot="icon">
-      <Fragment slot="content" set:html={DOMPurify.sanitize(project.highlights)} />
+      <Fragment slot="content" set:html={project.highlights} />
     </ContentBlock>
   </Fragment>
 </TimelineItem>
