@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
+import preload from 'astro-preload';
 import purgecss from 'astro-purgecss';
 import astroRobotsTxt from 'astro-robots-txt';
 
@@ -47,9 +48,9 @@ const robots =
 
 // TODO Lario PWA
 export default defineConfig({
-	prefetch: {
-		prefetchAll: true,
-	},
+	// prefetch: {
+	// 	prefetchAll: true,
+	// },
 	site: seoConfig.baseURL,
 	...netlifyAdapter,
 	image: {
@@ -66,6 +67,7 @@ export default defineConfig({
 		sitemap(),
 		...robots,
 		purgecss(),
+		preload(),
 		// @vite-pwa/astro
 		// AstroPWA({
 		// 	registerType: 'autoUpdate',
