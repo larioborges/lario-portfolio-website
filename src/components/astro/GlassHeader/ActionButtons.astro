@@ -3,11 +3,14 @@ import Menu from '@/astro/icons/Menu.astro';
 import Button from '@/astro/ui/Button.astro';
 import ThemeToggle from '@/astro/ui/ThemeToggle.astro';
 ---
+
 <script>
 	import { toggleMenu } from '@/store/menu';
 
 	document.addEventListener('astro:page-load', () => {
-		document.querySelector('.menu-button.open')?.addEventListener('click', toggleMenu);
+		document
+			.querySelector('.menu-button.open')
+			?.addEventListener('click', toggleMenu);
 	});
 </script>
 
@@ -31,8 +34,8 @@ import ThemeToggle from '@/astro/ui/ThemeToggle.astro';
 </div>
 
 <style>
-@reference "@/styles/global.css";
-.wrapper {
-  @apply flex items-center space-x-2;
-}
+	@reference "@/styles/global.css";
+	.wrapper {
+		@apply flex items-center space-x-2;
+	}
 </style>

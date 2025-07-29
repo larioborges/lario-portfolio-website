@@ -16,21 +16,36 @@ const certs = certifications.map((cert: CertificationResponse) => ({
 <PageSection>
 	<Heading slot="heading" icon="🎓" text="Education" />
 	<Fragment slot="content">
-		{certs.map(({
-			certification, timePeriod, institutionName, institutionWebsiteUrl, institutionLocation, institutionGoogleMapsUrl, description,
-		}: CertificationResponse, index: number) =>
-			<TimelineItem
-				title={`🎓 ${certification}`}
-				subtitle={`🏛️ ${institutionName}`}
-				subtitleHref={institutionWebsiteUrl}
-				location={institutionLocation}
-				locationHref={institutionGoogleMapsUrl}
-				date={timePeriod}
-				isLast={index === certifications.length - 1}
-				{index}
-			>
-				<ContentBlock>
-					<Fragment slot="content" set:html={description} />
-				</ContentBlock>
-			</TimelineItem>)}
+		{
+			certs.map(
+				(
+					{
+						certification,
+						timePeriod,
+						institutionName,
+						institutionWebsiteUrl,
+						institutionLocation,
+						institutionGoogleMapsUrl,
+						description,
+					}: CertificationResponse,
+					index: number,
+				) => (
+					<TimelineItem
+						title={`🎓 ${certification}`}
+						subtitle={`🏛️ ${institutionName}`}
+						subtitleHref={institutionWebsiteUrl}
+						location={institutionLocation}
+						locationHref={institutionGoogleMapsUrl}
+						date={timePeriod}
+						isLast={index === certifications.length - 1}
+						{index}
+					>
+						<ContentBlock>
+							<Fragment slot="content" set:html={description} />
+						</ContentBlock>
+					</TimelineItem>
+				),
+			)
+		}
+	</Fragment>
 </PageSection>

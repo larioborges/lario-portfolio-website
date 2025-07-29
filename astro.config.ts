@@ -5,7 +5,8 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
-import preload from 'astro-preload';
+// TODO Lario: preload assets
+// import preload from 'astro-preload';
 import purgecss from 'astro-purgecss';
 import astroRobotsTxt from 'astro-robots-txt';
 
@@ -67,7 +68,8 @@ export default defineConfig({
 		sitemap(),
 		...robots,
 		purgecss(),
-		preload(),
+		// TODO Lario: preload
+		// preload(),
 		// @vite-pwa/astro
 		// AstroPWA({
 		// 	registerType: 'autoUpdate',

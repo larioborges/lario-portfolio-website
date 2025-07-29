@@ -2,24 +2,26 @@
 const { award } = Astro.props;
 ---
 
-{award.issuerWebsiteUrl ?
-	<p class="issuer">
-		🏢 <a
-			href={award.issuerWebsiteUrl}
-			target="_blank">{award.issuerName}</a>
-	&nbsp;-&nbsp;{award.date}
-	</p> :
-	<p class="issuer">
-		🏢 {`${award.issuerName} - ${award.date}`}
-	</p>
+{
+	award.issuerWebsiteUrl ? (
+		<p class="issuer">
+			🏢{' '}
+			<a href={award.issuerWebsiteUrl} target="_blank">
+				{award.issuerName}
+			</a>
+			&nbsp;-&nbsp;{award.date}
+		</p>
+	) : (
+		<p class="issuer">🏢 {`${award.issuerName} - ${award.date}`}</p>
+	)
 }
 
-<style lang="postcss">
-@reference "@/styles/global.css";
-.issuer {
-	@apply text-muted-foreground mb-1 pl-8 text-xs;
-	a {
-		@apply underline;
+<style>
+	@reference "@/styles/global.css";
+	.issuer {
+		@apply text-muted-foreground mb-1 pl-8 text-xs;
+		a {
+			@apply underline;
+		}
 	}
-}
 </style>

@@ -5,31 +5,42 @@ import NavLink from './NavLink.astro';
 const { isMobile = false } = Astro.props;
 ---
 
-<nav class:list={['nav-links', {mobile: isMobile}, {desktop: !isMobile}]}>
-  { isMobile && <NavLink href="/" {isMobile} icon="🏠" index={0} name="Home" mobileTopBorder={false} /> }
-	{NAV_LINKS.map(({
-		icon, name, href,
-	}, index) => 
-		<NavLink {href} {isMobile} {icon} {index} {name}/>
-	)}
+<nav class:list={['nav-links', { mobile: isMobile }, { desktop: !isMobile }]}>
+	{
+		isMobile && (
+			<NavLink
+				href="/"
+				{isMobile}
+				icon="🏠"
+				index={0}
+				name="Home"
+				mobileTopBorder={false}
+			/>
+		)
+	}
+	{
+		NAV_LINKS.map(({ icon, name, href }, index) => (
+			<NavLink {href} {isMobile} {icon} {index} {name} />
+		))
+	}
 </nav>
 
 <style>
-  @reference "@/styles/global.css";
-  
-  .nav-links {
-    @apply text-sm font-medium;
-  }
+	@reference "@/styles/global.css";
 
-  .nav-links.desktop {
-    @apply hidden items-center space-x-6 md:flex;
-  }
+	.nav-links {
+		@apply text-sm font-medium;
+	}
 
-  .nav-links.mobile {
-    @apply flex flex-col space-y-4;
-  }
+	.nav-links.desktop {
+		@apply hidden items-center space-x-6 md:flex;
+	}
 
-  .nav-link {
-    @apply hover:text-foreground/80 text-foreground/60 transition-colors;
-  }
+	.nav-links.mobile {
+		@apply flex flex-col space-y-4;
+	}
+
+	.nav-link {
+		@apply hover:text-foreground/80 text-foreground/60 transition-colors;
+	}
 </style>

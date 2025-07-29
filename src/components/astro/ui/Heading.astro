@@ -3,22 +3,22 @@ const { icon, text } = Astro.props;
 ---
 
 <h2>
-  <span class="project-showcase-heading-icon">
-	  {icon}&nbsp;
-  </span>
-  <span>
-    {text}
-  </span>
+	<span class="project-showcase-heading-icon">
+		{icon}&nbsp;
+	</span>
+	<span>
+		{text}
+	</span>
 </h2>
 
 <style>
-  @reference "@/styles/global.css";
+	@reference "@/styles/global.css";
 
-  h2 {
-    @apply mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left;
-  }
+	h2 {
+		@apply mb-8 flex items-center text-center text-2xl font-bold md:inline-block md:text-left;
+	}
 
-  .project-showcase-heading-icon {
-    @apply mr-2 inline-block;
-  }
+	.project-showcase-heading-icon {
+		@apply mr-2 inline-block;
+	}
 </style>

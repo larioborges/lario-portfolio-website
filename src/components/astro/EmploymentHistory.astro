@@ -17,28 +17,36 @@ const employers = pastEmployers.map((pe: PastEmployerResponse) => ({
 	<Heading slot="heading" icon="💼" text="Employment History" />
 
 	<Fragment slot="content">
-		{employers.map(({
-			companyName,
-			companyWebsiteUrl,
-			companyLocation,
-			companyGoogleMapsUrl,
-			period,
-			position,
-			description,
-		}: PastEmployerResponse, index: number) => 
-			<TimelineItem
-				title={`👨‍💻 ${position}`}
-				subtitle={companyName}
-				subtitleHref={companyWebsiteUrl}
-				location={companyLocation}
-				locationHref={companyGoogleMapsUrl}
-				date={`${period}`}
-				isLast={index === pastEmployers.length - 1}
-				{index}
-			>
-				<ContentBlock>
-					<Fragment slot="content" set:html={description} />
-				</ContentBlock>
-			</TimelineItem>)}
-		</Fragment>
+		{
+			employers.map(
+				(
+					{
+						companyName,
+						companyWebsiteUrl,
+						companyLocation,
+						companyGoogleMapsUrl,
+						period,
+						position,
+						description,
+					}: PastEmployerResponse,
+					index: number,
+				) => (
+					<TimelineItem
+						title={`👨‍💻 ${position}`}
+						subtitle={companyName}
+						subtitleHref={companyWebsiteUrl}
+						location={companyLocation}
+						locationHref={companyGoogleMapsUrl}
+						date={`${period}`}
+						isLast={index === pastEmployers.length - 1}
+						{index}
+					>
+						<ContentBlock>
+							<Fragment slot="content" set:html={description} />
+						</ContentBlock>
+					</TimelineItem>
+				),
+			)
+		}
+	</Fragment>
 </PageSection>

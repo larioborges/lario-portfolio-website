@@ -3,39 +3,33 @@ const { name } = Astro.props;
 ---
 
 <script>
-  import { APPEAR_ANIMATION } from '@/constants';
-  import { inView, animate, hover } from 'motion';
+	import { APPEAR_ANIMATION } from '@/constants';
+	import { inView, animate, hover } from 'motion';
 
-	document.addEventListener("astro:page-load", () => {
-	  inView(
-	    '.footer-content',
-	    APPEAR_ANIMATION,
-	  );
+	document.addEventListener('astro:page-load', () => {
+		inView('.footer-content', APPEAR_ANIMATION);
 
-	  hover(
-	    '.rights-reserved',
-	    element => {
-	  		animate(element, {scale: [1, 1.01]});
-	  		return () => animate(element, {scale: [1.01, 1]});
-		  },
-	    { passive: false }
-	  );
+		hover(
+			'.rights-reserved',
+			(element) => {
+				animate(element, { scale: [1, 1.01] });
+				return () => animate(element, { scale: [1.01, 1] });
+			},
+			{ passive: false },
+		);
 
-	  inView(
-	    '.built-by',
-	    element => {
-	      animate(
-	        element,
-	        {
-	          opacity: [0, 1],
-	        },
-	        {
-	          delay: 0.2,
-	          duration:0.5,
-	        }
-	      );
-	    },
-	  );
+		inView('.built-by', (element) => {
+			animate(
+				element,
+				{
+					opacity: [0, 1],
+				},
+				{
+					delay: 0.2,
+					duration: 0.5,
+				},
+			);
+		});
 	});
 </script>
 
@@ -43,13 +37,19 @@ const { name } = Astro.props;
 	<div>
 		<div class="footer-content">
 			<p class="footer-text rights-reserved">
-				&copy; {new Date()
-					.getFullYear()}&nbsp;
+				&copy; {new Date().getFullYear()}&nbsp;
 				{name}. All rights reserved.
 			</p>
 			<p class="footer-text built-by">
-				Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a href="https://tailwindcss.com" target="_blank">Tailwind</a> & <a href="https://www.contentful.com/" target="_blank">Contentful</a>. View
-				<a href="https://github.com/larioborges/lario-portfolio-website" target="_blank">this repo</a>.
+				Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a
+					href="https://tailwindcss.com"
+					target="_blank">Tailwind</a
+				> & <a href="https://www.contentful.com/" target="_blank">Contentful</a
+				>. View
+				<a
+					href="https://github.com/larioborges/lario-portfolio-website"
+					target="_blank">this repo</a
+				>.
 			</p>
 		</div>
 	</div>

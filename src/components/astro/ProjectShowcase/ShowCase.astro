@@ -22,31 +22,33 @@ const project = {
 	locationHref={project.locationGoogleMapsUrl}
 	date={project.period}
 	{isLast}
-  {index}
- >
- <Fragment>
-  	<div class="project-skills">
-      {project.skills.map((skill: string, index: number) =>
-      <SkillTag {index}>
-  			{skill}
-  		</SkillTag>)}
-    </div>
+	{index}
+>
+	<Fragment>
+		<div class="project-skills">
+			{
+				project.skills.map((skill: string, index: number) => (
+					<SkillTag {index}>{skill}</SkillTag>
+				))
+			}
+		</div>
 
-    <ContentBlock heading="Job Role">
-      <Briefcase slot="icon"/>
-      <Fragment slot="content" set:html={project.description} />
-    </ContentBlock>
+		<ContentBlock heading="Job Role">
+			<Briefcase slot="icon" />
+			<Fragment slot="content" set:html={project.description} />
+		</ContentBlock>
 
-    <ContentBlock heading="Highlights">
-      <Star slot="icon">
-      <Fragment slot="content" set:html={project.highlights} />
-    </ContentBlock>
-  </Fragment>
+		<ContentBlock heading="Highlights">
+			<Star slot="icon">
+				<Fragment slot="content" set:html={project.highlights} />
+			</Star>
+		</ContentBlock>
+	</Fragment>
+
+	<style>
+		@reference "@/styles/global.css";
+		.project-skills {
+			@apply flex flex-wrap justify-center gap-2 md:justify-start;
+		}
+	</style>
 </TimelineItem>
-
-<style>
-  @reference "@/styles/global.css";
-  .project-skills {
-    @apply flex flex-wrap justify-center gap-2 md:justify-start;
-  }
-</style>

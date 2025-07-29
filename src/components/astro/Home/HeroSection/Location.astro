@@ -6,40 +6,40 @@ const { locationFields } = Astro.props;
 
 <script>
 	import { animate, inView, hover } from 'motion';
-	import { APPEAR_ANIMATION, DEFAULT_LINK_COLOUR, HOVER_LINK_COLOUR } from '@/constants';
+	import {
+		APPEAR_ANIMATION,
+		DEFAULT_LINK_COLOUR,
+		HOVER_LINK_COLOUR,
+	} from '@/constants';
 
-	document.addEventListener("astro:page-load", () => {
-		inView(
-		  '.location-wrapper',
-		  APPEAR_ANIMATION,
-		);
-		hover('.location-wrapper', (element => {
-			animate(element, {scale: [1, 1.05], color: HOVER_LINK_COLOUR});
-			return () => animate(element, {scale: [1.05, 1], color: DEFAULT_LINK_COLOUR});
-		}));
+	document.addEventListener('astro:page-load', () => {
+		inView('.location-wrapper', APPEAR_ANIMATION);
+		hover('.location-wrapper', (element) => {
+			animate(element, { scale: [1, 1.05], color: HOVER_LINK_COLOUR });
+			return () =>
+				animate(element, { scale: [1.05, 1], color: DEFAULT_LINK_COLOUR });
+		});
 	});
 </script>
 
-<p
-	class="location-wrapper"
->
+<p class="location-wrapper">
 	<MapPoint class="hero-icon" />
 
-	{locationFields.googleMapsUrl != null ? 
-		<a
-			href={locationFields.googleMapsUrl}
-			target="_blank"
-		>
-			{locationFields.name}
-		</a> : 
-		<span>{locationFields.name}</span>
+	{
+		locationFields.googleMapsUrl != null ? (
+			<a href={locationFields.googleMapsUrl} target="_blank">
+				{locationFields.name}
+			</a>
+		) : (
+			<span>{locationFields.name}</span>
+		)
 	}
 </p>
 
-<style >
-  @reference "@/styles/global.css";
+<style>
+	@reference "@/styles/global.css";
 
-  .location-wrapper {
-    @apply text-muted-foreground flex items-center text-sm;
-  }
+	.location-wrapper {
+		@apply text-muted-foreground flex items-center text-sm;
+	}
 </style>

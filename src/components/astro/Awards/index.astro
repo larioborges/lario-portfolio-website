@@ -11,15 +11,17 @@ const { awards } = Astro.props;
 	<Heading slot="heading" icon="🏆" text="Awards" />
 
 	<div slot="content" class="award-content">
-		{awards.map((award:AwardFields, index: number) =>
-			<Content {award} {index} />
-		)}
+		{
+			awards.map((award: AwardFields, index: number) => (
+				<Content {award} {index} />
+			))
+		}
 	</div>
 </PageSection>
 
 <style>
-@reference '@/styles/global.css';
-.award-content {
-	@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
-}
+	@reference '@/styles/global.css';
+	.award-content {
+		@apply grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3;
+	}
 </style>

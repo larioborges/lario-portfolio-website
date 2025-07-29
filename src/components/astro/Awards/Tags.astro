@@ -6,21 +6,18 @@ const { award } = Astro.props;
 
 <div class="tags">
 	<div>
-    {award.tags.map((tag: string) =>
-		<SkillTag>
-			{tag}
-		</SkillTag>)}
+		{award.tags.map((tag: string) => <SkillTag>{tag}</SkillTag>)}
 	</div>
 </div>
 
 <style>
-@reference "@/styles/global.css";
+	@reference "@/styles/global.css";
 
-.tags {
-	@apply mt-auto space-y-2;
+	.tags {
+		@apply mt-auto space-y-2;
 
-	> div {
-		@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
+		> div {
+			@apply flex flex-wrap justify-center gap-2 md:justify-center-safe;
+		}
 	}
-}
 </style>

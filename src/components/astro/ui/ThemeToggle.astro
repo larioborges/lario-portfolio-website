@@ -5,41 +5,43 @@ import Button from '@/astro/ui/Button.astro';
 ---
 
 <script>
-	import { $theme, toggleTheme } from "@/store/theme";
+	import { $theme, toggleTheme } from '@/store/theme';
 
 	const isDarkTheme = () => localStorage.getItem('dark') === 'dark';
 
-	const showCorrectThemeButton = (showSelector: string, hideSelector: string) => {
+	const showCorrectThemeButton = (
+		showSelector: string,
+		hideSelector: string,
+	) => {
 		document.querySelector(hideSelector)?.classList.add('hide');
 		document.querySelector(showSelector)?.classList.remove('hide');
 	};
 
-	const showThemeButtonsBasedOnState =  () => {
+	const showThemeButtonsBasedOnState = () => {
 		if (isDarkTheme()) {
 			showCorrectThemeButton('.sun', '.moon');
-			document.querySelector('.toggle-theme')?.setAttribute('name', 'Light Mode');
+			document
+				.querySelector('.toggle-theme')
+				?.setAttribute('name', 'Light Mode');
 			return;
 		}
 		document.querySelector('.toggle-theme')?.setAttribute('name', 'Dark Mode');
 		showCorrectThemeButton('.moon', '.sun');
 	};
 
-	document.addEventListener("astro:page-load", () => {
+	document.addEventListener('astro:page-load', () => {
 		$theme.listen(() => {
 			showThemeButtonsBasedOnState();
 		});
-		
+
 		showThemeButtonsBasedOnState();
-		document.querySelector('.toggle-theme')?.addEventListener('click', toggleTheme);
+		document
+			.querySelector('.toggle-theme')
+			?.addEventListener('click', toggleTheme);
 	});
 </script>
 
-<Button
-	variant="ghost"
-	size="icon"
-	class="toggle-theme"
-	name="Toggle Theme"
->
+<Button variant="ghost" size="icon" class="toggle-theme" name="Toggle Theme">
 	<Fragment>
 		<Moon class:list={['icon', 'moon']} />
 		<Sun class:list={['icon', 'sun', 'hide']} />
@@ -48,7 +50,8 @@ import Button from '@/astro/ui/Button.astro';
 
 <style is:global>
 	@reference '@/styles/global.css';
-	.sun, .moon {
+	.sun,
+	.moon {
 		@apply h-5 w-5;
 
 		&.hide {

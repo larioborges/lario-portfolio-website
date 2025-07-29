@@ -116,39 +116,49 @@ if (article) {
 	openGraph.article = article;
 }
 ---
-<html lang='en' transition:animate="none">
+
+<html lang="en" transition:animate="none">
 	<Head>
 		<ClientRouter />
-		<link rel="preload" as="script" href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X" transition:persist>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X" transition:persist transition:persist-props is:inline />
-		<link rel="preload" href={fontCssUrl} as="style">
-		<link rel="stylesheet" href={fontCssUrl}>
-		<script transition:persist is:inline>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag() {
-				window.dataLayer?.push(arguments);
-			}
-		  gtag('js', new Date());
-		  gtag('config', 'G-YW069N7W3X');
-		</script>
-		<link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" transition:persist />
-		<meta charset='UTF-8' transition:persist />
-		<meta
-			name='viewport'
-			content='width=device-width'
+		<link
+			rel="preload"
+			as="script"
+			href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
 			transition:persist
 		/>
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
+			transition:persist
+			transition:persist-props
+			is:inline></script>
+		<link rel="preload" href={fontCssUrl} as="style" />
+		<link rel="stylesheet" href={fontCssUrl} />
+		<script transition:persist is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				window.dataLayer?.push(arguments);
+			}
+			gtag('js', new Date());
+			gtag('config', 'G-YW069N7W3X');
+		</script>
 		<link
-			rel='icon'
-			type='image/svg+xml'
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={interWoff2}
+			crossorigin="anonymous"
+			transition:persist
+		/>
+		<meta charset="UTF-8" transition:persist />
+		<meta name="viewport" content="width=device-width" transition:persist />
+		<link
+			rel="icon"
+			type="image/svg+xml"
 			href={favicon.src}
 			transition:persist
 		/>
-		<meta
-			name='generator'
-			content={Astro.generator}
-			transition:persist
-		/>
+		<meta name="generator" content={Astro.generator} transition:persist />
 		<!--// TODO Lario - imtegrate images from the cnms
 
 		// ‍Key Points
@@ -187,35 +197,38 @@ if (article) {
 		//   { url: 'https://www.example.ie/og-image-04.jpg' },
 		// ],--->
 		<SEO
-      {title}
-      {description}
-      {openGraph}
-      twitter={{
-      	creator: '@jonasmerlins1',
-      }}
-      extend={{
-      	link: [{
-      		rel: 'icon',
-      		href: favicon.src,
-      	}],
-      	// TODO Lario replace image
-      	meta: [
-      		{
-      			name: 'twitter:image',
-      			content: 'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
-      		},
-      		{
-      			name: 'twitter:title',
-      			content: 'Tinker Tailor Soldier Spy',
-      		},
-      		{
-      			name: 'twitter:description',
-      			content: 'Agent',
-      		},
-      	],
-      }}
+			{title}
+			{description}
+			{openGraph}
+			twitter={{
+				creator: '@jonasmerlins1',
+			}}
+			extend={{
+				link: [
+					{
+						rel: 'icon',
+						href: favicon.src,
+					},
+				],
+				// TODO Lario replace image
+				meta: [
+					{
+						name: 'twitter:image',
+						content:
+							'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
+					},
+					{
+						name: 'twitter:title',
+						content: 'Tinker Tailor Soldier Spy',
+					},
+					{
+						name: 'twitter:description',
+						content: 'Agent',
+					},
+				],
+			}}
 		/>
-		<script src='@/scripts/BrowserInit.ts' />
+		<script src="@/scripts/BrowserInit.ts"></script>
 		<script is:inline>
 			document.addEventListener('astro:after-swap', () => {
 				if (localStorage.getItem('dark') === 'dark') {
@@ -225,14 +238,14 @@ if (article) {
 		</script>
 		<!-- TODO Lario PWA { pwaInfo != null && <Fragment set:html={DOMPurify.sanitize(pwaInfo.webManifest.linkTag)} /> } -->
 	</Head>
-	
+
 	<body>
-		<div class='background' transition:persist />
+		<div class="background" transition:persist></div>
 		<GlassHeader {name} transition:persist-props transition:persist />
 		<main transition:animate="slide">
-			<slot/>
+			<slot />
 		</main>
-		<Footer name={name} transition:persist-props/>
+		<Footer name={name} transition:persist-props />
 		<!-- TODO Lario PWA <ReloadPrompt transition:persist /> -->
 	</body>
 </html>

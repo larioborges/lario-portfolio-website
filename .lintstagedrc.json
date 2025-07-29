@@ -1,8 +1,8 @@
 {
-  "*.ts": "bunx --bun @biomejs/biome check --write ./src",
-  "*.js": "bunx --bun @biomejs/biome check --write ./src",
-  "*.mjs": "bunx --bun @biomejs/biome check --write ./src",
-  "*.cjs": "bunx --bun @biomejs/biome check --write ./src",
-  "*.astro": "bunx --bun @biomejs/biome check --write ./src",
-  "*.svelte": "bunx --bun @biomejs/biome check --write ./src"
+	"*.ts": "bun run lint:fix",
+	"*.js": "bun run lint:fix",
+	"*.mjs": "bun run lint:fix",
+	"*.cjs": "bun run lint:fix",
+	"*.css": "bun run lint:fix",
+	"*.astro": "bun run lint:fixall"
 }

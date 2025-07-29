@@ -10,33 +10,39 @@ const {
 ---
 
 <script>
-	import { LINK_HOVER_ON_TRANSITIONS, LINK_HOVER_OFF_TRANSITIONS } from '@/constants';
+	import {
+		LINK_HOVER_ON_TRANSITIONS,
+		LINK_HOVER_OFF_TRANSITIONS,
+	} from '@/constants';
 	import { inView, animate, hover } from 'motion';
 
-	const index = document.querySelector('.index')?.innerHTML as unknown as number;
-	const isMobile = document.querySelector('.is-mobile') === null ? false : true; 
+	const index = document.querySelector('.index')
+		?.innerHTML as unknown as number;
+	const isMobile = document.querySelector('.is-mobile') === null ? false : true;
 
-	const animationDelay = ({ delay: index * 0.1 });
+	const animationDelay = { delay: index * 0.1 };
 
 	inView(
-	  '.nav-link',
-	  isMobile ? 
-			(element:Element) => {
-				animate(element, { opacity: [0, 1], x: [-20, 0] }, animationDelay);
-				return () => animate(element, { opacity: [1, 0], x: [0, -20] }, animationDelay);
-			}
-		:
-		(element:Element) => {
-			animate(element, { opacity: [0, 1], y: [-10, 0] }, animationDelay);
-			return () => animate(element, { opacity: [1, 0], y: [0, -10] }, animationDelay);
-		},
+		'.nav-link',
+		isMobile
+			? (element: Element) => {
+					animate(element, { opacity: [0, 1], x: [-20, 0] }, animationDelay);
+					return () =>
+						animate(element, { opacity: [1, 0], x: [0, -20] }, animationDelay);
+				}
+			: (element: Element) => {
+					animate(element, { opacity: [0, 1], y: [-10, 0] }, animationDelay);
+					return () =>
+						animate(element, { opacity: [1, 0], y: [0, -10] }, animationDelay);
+				},
 	);
 
-	document.addEventListener("astro:page-load", () => {
+	document.addEventListener('astro:page-load', () => {
 		if (!isMobile) {
-			hover('.nav-link-wrapper', (element:Element) => {
+			hover('.nav-link-wrapper', (element: Element) => {
 				animate(element, { y: [-2, 0], ...LINK_HOVER_ON_TRANSITIONS });
-				return () => animate(element, { y: [-2, 0], ...LINK_HOVER_OFF_TRANSITIONS });
+				return () =>
+					animate(element, { y: [-2, 0], ...LINK_HOVER_OFF_TRANSITIONS });
 			});
 		}
 	});
@@ -44,12 +50,15 @@ const {
 
 {isMobile && <span class="is-mobile" />}
 <span class="index">{index}</span>
-<div class:list={['nav-link-wrapper', { 'mobile': isMobile}, { 'with-border': mobileTopBorder }]}>
+<div
+	class:list={[
+		'nav-link-wrapper',
+		{ mobile: isMobile },
+		{ 'with-border': mobileTopBorder },
+	]}
+>
 	{icon !== null && icon !== undefined && <span class="nav-icon">{icon}</span>}
-	<a
-		{href}
-		class:list={['nav-link', { 'mobile': isMobile}]}
-	>
+	<a {href} class:list={['nav-link', { mobile: isMobile }]}>
 		{name}
 	</a>
 </div>

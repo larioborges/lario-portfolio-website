@@ -7,15 +7,17 @@ const { index = 1 } = Astro.props;
 <script>
 	import { animate, inView } from 'motion';
 
-	document.addEventListener("astro:page-load", () => {
-		const index = document.querySelector('.index')?.innerHTML as unknown as number;
+	document.addEventListener('astro:page-load', () => {
+		const index = document.querySelector('.index')
+			?.innerHTML as unknown as number;
 
-		inView(
-		  '.skill-tag',
-		  (element => {
-				animate(element, {opacity: [0, 1], scale: [0.8, 1]}, { delay: 0.05 * index, damping: 20, stiffness: 260, type: 'spring' });
-			}),
-		);
+		inView('.skill-tag', (element) => {
+			animate(
+				element,
+				{ opacity: [0, 1], scale: [0.8, 1] },
+				{ delay: 0.05 * index, damping: 20, stiffness: 260, type: 'spring' },
+			);
+		});
 	});
 </script>
 
@@ -24,13 +26,13 @@ const { index = 1 } = Astro.props;
 </div>
 
 <style>
-@reference "@/styles/global.css";
+	@reference "@/styles/global.css";
 
-.skill-tag {
-  @apply bg-yellow-500/10 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm;
-}
+	.skill-tag {
+		@apply bg-yellow-500/10 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm;
+	}
 
-.index {
-	display: none;
-}
+	.index {
+		display: none;
+	}
 </style>

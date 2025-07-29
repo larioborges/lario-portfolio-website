@@ -9,13 +9,10 @@ const { name, icon, skills } = Astro.props;
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	document.addEventListener("astro:page-load", () => {
-		inView(
-		  '.wrapper',
-		  (element => {
-				animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
-			}),
-		);
+	document.addEventListener('astro:page-load', () => {
+		inView('.wrapper', (element) => {
+			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
+		});
 	});
 </script>
 
@@ -26,10 +23,11 @@ const { name, icon, skills } = Astro.props;
 			{name}
 		</h3>
 		<div class="skill-tag-wrapper">
-			{skills.map((skill: string, index: number) =>
-				<SkillTag {index}>
-					{skill}
-				</SkillTag>)}
+			{
+				skills.map((skill: string, index: number) => (
+					<SkillTag {index}>{skill}</SkillTag>
+				))
+			}
 		</div>
 	</GlassCard>
 </div>

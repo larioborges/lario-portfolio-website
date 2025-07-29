@@ -33,9 +33,26 @@
 			"*.astro": "astro",
 			"*.css": "postcss"
 		},
+		"editor.codeActionsOnSave": {
+			"source.fixAll.biome": "explicit"
+		},
+		"[astro]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[css]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
+		"[json]": {
+			"editor.defaultFormatter": "biomejs.biome"
+		},
 		"typescript.updateImportsOnFileMove.enabled": "always",
 		"javascript.updateImportsOnFileMove.enabled": "always",
-		"astro.updateImportsOnFileMove.enabled": true,
 		"taskExplorer.enableSideBar": true,
 		"search.exclude": {
 			"**/.astro/": true,
@@ -44,18 +61,19 @@
 			"**/packages/": true,
 			"**/node_modules": true
 		},
-		"[astro]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[javascript]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[typescript]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		},
-		"[json]": {
-			"editor.defaultFormatter": "biomejs.biome"
-		}
+		"prettier.documentSelectors": [
+			"**/*.astro"
+		],
+		"astro.trace.server": "messages",
+		"astro.updateImportsOnFileMove.enabled": true,
+		"astro.content-intellisense": true,
+		"astro.language-server.ls-path": "node_modules/@astrojs/language-server/dist/astro-language-server.js",
+		"biome.requireConfiguration": true,
+		"biome.lsp.trace.server": "messages",
+		"biome.configurationPath": "biome.json",
+		"biome.suggestInstallingGlobally": true,
+		"biome.runFromTemporaryLocation": true,
+		"biome.lsp.bin": "node_modules/.bin/biome",
 	},
 	"extensions": {
 		"recommendations": [
@@ -70,7 +88,8 @@
 			"csstools.postcss",
 			"bradlc.vscode-tailwindcss",
 			"spmeesseman.vscode-taskexplorer",
-			"be5invis.toml"
+			"be5invis.toml",
+			"esbenp.prettier-vscode"
 		]
 	}
 }

@@ -20,7 +20,5 @@ const [{ name }, skillCategories, seoField] = await Promise.all([
 	image={(seoField.image as { fields: any }).fields}
 	{name}
 >
-	<SkillsComponent
-		{skillCategories}
-	/>
+	<SkillsComponent {skillCategories} />
 </Layout>

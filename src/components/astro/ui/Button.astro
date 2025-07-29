@@ -25,15 +25,18 @@ const {
 }: Props = Astro.props as Props;
 ---
 
-{asChild ?
-	<slot {...props} /> :
-	<button
-		class:list={[className, variant, `size-${size}`, ...classList]}
-		aria-label={name}
-		{...props}
-	>
-		<slot />
-	</button>
+{
+	asChild ? (
+		<slot {...props} />
+	) : (
+		<button
+			class:list={[className, variant, `size-${size}`, ...classList]}
+			aria-label={name}
+			{...props}
+		>
+			<slot />
+		</button>
+	)
 }
 
 <style>
@@ -63,13 +66,13 @@ const {
 		&.size-default {
 			@apply h-9 px-4 py-2;
 		}
-		&.size-sm{
+		&.size-sm {
 			@apply h-8 rounded-md px-3 text-xs;
 		}
-		&.size-lg{
+		&.size-lg {
 			@apply h-10 rounded-md px-8;
 		}
-		&.size-icon{
+		&.size-icon {
 			@apply h-9 w-9;
 		}
 	}

@@ -6,40 +6,38 @@ const { award } = Astro.props;
 
 <script>
 	import { animate, hover } from 'motion';
-	document.addEventListener("astro:page-load", () => {
-		hover(
-		  '.award-name-icon-wrapper',
-		  (element) => {
-		    animate(element, { rotate: 20}, { type: 'spring', stiffness: 500 });
-				return () => animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
-			}
-		);
+	document.addEventListener('astro:page-load', () => {
+		hover('.award-name-icon-wrapper', (element) => {
+			animate(element, { rotate: 20 }, { type: 'spring', stiffness: 500 });
+			return () =>
+				animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
+		});
 	});
 </script>
 
 <div class="award-name">
-		<div class="award-name-icon-wrapper">
-			<Trophy class="trophy-icon" />
-		</div>
+	<div class="award-name-icon-wrapper">
+		<Trophy class="trophy-icon" />
+	</div>
 	<h3>{award?.name}</h3>
 </div>
 
 <style>
-@reference "@/styles/global.css";
+	@reference "@/styles/global.css";
 
-.award-name {
-	@apply mb-2 flex items-center;
+	.award-name {
+		@apply mb-2 flex items-center;
 
-	h3 {
-		@apply font-medium;
+		h3 {
+			@apply font-medium;
+		}
 	}
-}
 
-.award-name-icon-wrapper {
-  @apply mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5;
-}
+	.award-name-icon-wrapper {
+		@apply mr-2 flex items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 p-1.5;
+	}
 
-:global(.trophy-icon) {
-	@apply h-4 w-4;
-}
+	:global(.trophy-icon) {
+		@apply h-4 w-4;
+	}
 </style>

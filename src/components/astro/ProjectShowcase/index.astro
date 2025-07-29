@@ -11,7 +11,16 @@ const { showcaseProjects } = Astro.props;
 	<Heading slot="heading" icon="🚀" text="Project Showcase" />
 
 	<Fragment slot="content">
-		{showcaseProjects.map((project: ShowcaseProjectEntryFields, index: number) =>
-			<ShowCase isLast={index === showcaseProjects.length - 1} {project} {index} />)}
+		{
+			showcaseProjects.map(
+				(project: ShowcaseProjectEntryFields, index: number) => (
+					<ShowCase
+						isLast={index === showcaseProjects.length - 1}
+						{project}
+						{index}
+					/>
+				),
+			)
+		}
 	</Fragment>
 </PageSection>

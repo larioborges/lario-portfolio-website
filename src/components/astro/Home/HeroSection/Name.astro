@@ -10,46 +10,36 @@ const {
 ---
 
 <script>
-	import {
-		animate,
-		hover,
-		inView,
-	} from 'motion';
+	import { animate, hover, inView } from 'motion';
 	import { APPEAR_ANIMATION } from '@/constants';
 
-	document.addEventListener("astro:page-load", () => {
-		inView(
-		  'h1',
-		  APPEAR_ANIMATION,
-		);
-		inView(
-		  '.job-title',
-		  APPEAR_ANIMATION,
-		);
-		hover(
-		  '.heading-image',
-		  (element: Element) => {
-		    animate(element, { rotate: [0, 360] }, { duration: 0.3 });
-				return () => animate(element, { rotate: [360, 0] }, { duration: 0.3 });
-			},
-		);
+	document.addEventListener('astro:page-load', () => {
+		inView('h1', APPEAR_ANIMATION);
+		inView('.job-title', APPEAR_ANIMATION);
+		hover('.heading-image', (element: Element) => {
+			animate(element, { rotate: [0, 360] }, { duration: 0.3 });
+			return () => animate(element, { rotate: [360, 0] }, { duration: 0.3 });
+		});
 	});
 </script>
 
 <h1>
-	{name} <span></span>
-	{img &&
-		<Image
-			src={img}
-			alt={img.alt ? img.alt : 'Nerd'}
-			quality="mid"
-			width={45}
-			height={45}
-			format="webp"
-			densities={[1.5, 2]}
-			quality={72}
-			class="heading-image"
-		/>
+	{name}
+	<span></span>
+	{
+		img && (
+			<Image
+				src={img}
+				alt={img.alt ? img.alt : 'Nerd'}
+				quality="mid"
+				width={45}
+				height={45}
+				format="webp"
+				densities={[1.5, 2]}
+				quality={72}
+				class="heading-image"
+			/>
+		)
 	}
 </h1>
 
@@ -58,19 +48,19 @@ const {
 </p>
 
 <style>
-  @reference "@/styles/global.css";
+	@reference "@/styles/global.css";
 
-  .job-title {
-    @apply text-muted-foreground mb-6 text-xl;
-  }
-	
-  h1 {
-    @apply mb-2 text-4xl font-bold;
+	.job-title {
+		@apply text-muted-foreground mb-6 text-xl;
+	}
 
-    span {
-      @apply inline-block animate-pulse;
-    }
-  }
+	h1 {
+		@apply mb-2 text-4xl font-bold;
+
+		span {
+			@apply inline-block animate-pulse;
+		}
+	}
 
 	:global(.heading-image) {
 		width: 45px;

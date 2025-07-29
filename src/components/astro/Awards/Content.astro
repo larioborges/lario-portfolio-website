@@ -16,43 +16,39 @@ const { index, award }: AwardContentProps = Astro.props;
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
 
-	document.addEventListener("astro:page-load", () => {
-		const indexValue: number | undefined = document.querySelector('.index')?.innerHTML as number | undefined;
+	document.addEventListener('astro:page-load', () => {
+		const indexValue: number | undefined = document.querySelector('.index')
+			?.innerHTML as number | undefined;
 
-		inView(
-		  ".wrapper",
-		  (element) => {
-		    animate(
-					element,
-					APPEAR_STYLE_TRANISITIONS,
-					{ ease: 'easeOut', duration: 0.6, delay: (indexValue ? indexValue : 0) * 0.1 },
-				);
-			}
-		);
+		inView('.wrapper', (element) => {
+			animate(element, APPEAR_STYLE_TRANISITIONS, {
+				ease: 'easeOut',
+				duration: 0.6,
+				delay: (indexValue ? indexValue : 0) * 0.1,
+			});
+		});
 	});
 </script>
 
 <span class="index">{index}</span>
 <div class="wrapper">
-	<GlassCard
-		class="award-card"
-	>
+	<GlassCard class="award-card">
 		<Fragment>
 			<AwardName {award} />
 			<Issuer {award} />
-			<Tags {award}/>
+			<Tags {award} />
 		</Fragment>
 	</GlassCard>
 </div>
 
 <style>
-@reference '@/styles/global.css';
+	@reference '@/styles/global.css';
 
-:global(.award-card) {
-	@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
-}
+	:global(.award-card) {
+		@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
+	}
 
-.index {
-	@apply hidden;
-}
+	.index {
+		@apply hidden;
+	}
 </style>
