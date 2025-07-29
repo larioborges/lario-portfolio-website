@@ -58,7 +58,7 @@ const {
 	]}
 >
 	{icon !== null && icon !== undefined && <span class="nav-icon">{icon}</span>}
-	<a {href} class:list={['nav-link', { mobile: isMobile }]}>
+	<a {href} data-astro-prefetch class:list={['nav-link', { mobile: isMobile }]}>
 		{name}
 	</a>
 </div>
