@@ -126,12 +126,20 @@ if (article) {
 			href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
 			transition:persist
 		/>
-		<script
+		<!-- <script
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
 			transition:persist
 			transition:persist-props
-			is:inline></script>
+			is:inline></script> -->
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={interWoff2}
+			crossorigin="anonymous"
+			transition:persist
+		/>
 		<link rel="preload" href={fontCssUrl} as="style" />
 		<link rel="stylesheet" href={fontCssUrl} />
 		<script transition:persist is:inline>
@@ -142,14 +150,6 @@ if (article) {
 			gtag('js', new Date());
 			gtag('config', 'G-YW069N7W3X');
 		</script>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={interWoff2}
-			crossorigin="anonymous"
-			transition:persist
-		/>
 		<meta charset="UTF-8" transition:persist />
 		<meta name="viewport" content="width=device-width" transition:persist />
 		<link
