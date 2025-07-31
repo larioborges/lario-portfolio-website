@@ -13,7 +13,7 @@ import { Head } from 'astro-capo';
 import favicon from '@/assets/favicons/favicon.webp';
 import Footer from '@/astro/Footer.astro';
 import GlassHeader from '@/astro/GlassHeader/index.astro';
-import { TITLE, DESCRIPTION, BASE_URL } from '@/constants';
+import { TITLE, DESCRIPTION } from '@/constants';
 
 // interface OpenGraphProps {
 // 	basic: {
@@ -53,8 +53,6 @@ interface Props {
 	title?: string;
 	description?: string;
 	canonicalUrl?: string;
-	canonicalBase?: string;
-	canonicalPath?: string;
 	name: string;
 	// siteName: string;
 	// image?: {
@@ -77,8 +75,7 @@ interface Props {
 const {
 	title = TITLE,
 	description = DESCRIPTION,
-	canonicalBase = BASE_URL,
-	canonicalPath = '',
+	canonicalUrl,
 	name,
 	// siteName = SITE_NAME,
 	// image = seoConfig.image,
@@ -126,7 +123,7 @@ const {
 
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="canonical" href={`${canonicalBase}${canonicalPath}`} />
+		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
 		<link
 			rel="preload"

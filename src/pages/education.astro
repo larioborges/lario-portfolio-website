@@ -14,12 +14,6 @@ const [{ name }, certifications, seoField] = await Promise.all([
 ]);
 ---
 
-<Layout
-	{...seoField}
-	siteName={seoField.title}
-	image={(seoField.image as { fields: any }).fields}
-	{name}
-	canonicalPath="/education"
->
+<Layout {...seoField} image={(seoField.image as { fields: any }).fields} {name}>
 	<EducationComponent {certifications} />
 </Layout>
