@@ -19,6 +19,7 @@ const [{ name }, showcaseProjects, seoField] = await Promise.all([
 	siteName={seoField.title}
 	image={(seoField.image as { fields: any }).fields}
 	{name}
+	canonicalPath="/project-showcase"
 >
 	<ProjectShowcaseComponent {showcaseProjects} />
 </Layout>

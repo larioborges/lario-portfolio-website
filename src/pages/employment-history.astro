@@ -19,6 +19,7 @@ const [{ name }, pastEmployers, seoField] = await Promise.all([
 	siteName={seoField.title}
 	image={(seoField.image as { fields: any }).fields}
 	{name}
+	canonicalPath="/employment-history"
 >
 	<EmploymentHistoryComponent {pastEmployers} />
 </Layout>

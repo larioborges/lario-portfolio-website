@@ -1,147 +1,172 @@
 ---
-import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
-import fontCssUrl from '@fontsource-variable/inter?url';
+/** biome-ignore-all assist/source/organizeImports: just for now */
+import inter400 from '@fontsource/inter/files/inter-latin-400-normal.woff2';
+import inter500 from '@fontsource/inter/files/inter-latin-500-normal.woff2';
+import inter700 from '@fontsource/inter/files/inter-latin-700-normal.woff2';
+import inter800 from '@fontsource/inter/files/inter-latin-800-normal.woff2';
 import '@/styles/global.css';
 import '@/styles/layout.css';
 import { ClientRouter } from 'astro:transitions';
-// import { pwaInfo } from 'virtual:pwa-info';
 import { Head } from 'astro-capo';
-import { SEO } from 'astro-seo';
+// import { SEO } from 'astro-seo';
 // import DOMPurify from 'isomorphic-dompurify';
 import favicon from '@/assets/favicons/favicon.webp';
 import Footer from '@/astro/Footer.astro';
 import GlassHeader from '@/astro/GlassHeader/index.astro';
-// import ReloadPrompt from '@/astro/ui/ReloadPrompt.astro';
-import { seoConfig } from '@/config/seoConfig';
+import { TITLE, DESCRIPTION, BASE_URL } from '@/constants';
 
-interface OpenGraphProps {
-	basic: {
-		title: string;
-		type: string;
-		image: string;
-		url?: URL | string;
-	};
-	optional?: {
-		audio?: string;
-		description?: string;
-		determiner?: string;
-		locale?: string;
-		localeAlternate?: string[];
-		siteName?: string;
-		video?: string;
-	};
-	image?: {
-		url?: string;
-		secureUrl?: string;
-		type?: string;
-		width?: number;
-		height?: number;
-		alt?: string;
-	};
-	article?: {
-		publishedTime?: string;
-		modifiedTime?: string;
-		expirationTime?: string;
-		authors?: string[];
-		section?: string;
-		tags?: string[];
-	};
-}
+// interface OpenGraphProps {
+// 	basic: {
+// 		title: string;
+// 		type: string;
+// 		image: string;
+// 		url?: URL | string;
+// 	};
+// 	optional?: {
+// 		audio?: string;
+// 		description?: string;
+// 		determiner?: string;
+// 		locale?: string;
+// 		localeAlternate?: string[];
+// 		siteName?: string;
+// 		video?: string;
+// 	};
+// 	image?: {
+// 		url?: string;
+// 		secureUrl?: string;
+// 		type?: string;
+// 		width?: number;
+// 		height?: number;
+// 		alt?: string;
+// 	};
+// 	article?: {
+// 		publishedTime?: string;
+// 		modifiedTime?: string;
+// 		expirationTime?: string;
+// 		authors?: string[];
+// 		section?: string;
+// 		tags?: string[];
+// 	};
+// }
 
 interface Props {
-	title: string;
-	description: string;
-	canonicalUrl: string;
-	siteName: string;
-	image?: {
-		url?: string;
-		alt?: string;
-		width?: number;
-		height?: number;
-		type?: string;
-	};
-	article?: {
-		publishedTime?: string;
-		modifiedTime?: string;
-		expirationTime?: string;
-		authors?: string[];
-		section?: string;
-		tags?: string[];
-	};
-	name?: string;
+	title?: string;
+	description?: string;
+	canonicalUrl?: string;
+	canonicalBase?: string;
+	canonicalPath?: string;
+	name: string;
+	// siteName: string;
+	// image?: {
+	// 	url?: string;
+	// 	alt?: string;
+	// 	width?: number;
+	// 	height?: number;
+	// 	type?: string;
+	// };
+	// article?: {
+	// 	publishedTime?: string;
+	// 	modifiedTime?: string;
+	// 	expirationTime?: string;
+	// 	authors?: string[];
+	// 	section?: string;
+	// 	tags?: string[];
+	// };
 }
 
 const {
-	title = seoConfig.siteName,
-	description = seoConfig.description,
-	canonicalUrl = seoConfig.baseURL,
-	siteName = seoConfig.siteName,
-	image = seoConfig.image,
-	article,
+	title = TITLE,
+	description = DESCRIPTION,
+	canonicalBase = BASE_URL,
+	canonicalPath = '',
 	name,
+	// siteName = SITE_NAME,
+	// image = seoConfig.image,
+	// article,
 }: Props = Astro.props;
 
-const openGraph: OpenGraphProps = {
-	basic: {
-		title,
-		type: 'website',
-		image: image.url as string,
-		url: canonicalUrl,
-	},
-	optional: {
-		// audio?: string,
-		description,
-		// determiner?: string,
-		locale: 'en_ZA',
-		localeAlternate: [
-			'en_US',
-		],
-		siteName,
-	},
-};
+// const openGraph: OpenGraphProps = {
+// 	basic: {
+// 		title,
+// 		type: 'website',
+// 		// image: image.url as string,
+// 		url: canonicalUrl,
+// 	},
+// 	optional: {
+// 		// audio?: string,
+// 		description,
+// 		// determiner?: string,
+// 		locale: 'en_ZA',
+// 		siteName,
+// 	},
+// };
 
-if (image !== undefined) {
-	openGraph.basic.image = image.url
-		? image.url
-		: (seoConfig.image.url as string);
-	openGraph.image = {};
-	if (image.url) openGraph.image.url = image.url;
-	if (image.url) openGraph.image.secureUrl = image.url;
-	if (image.width) openGraph.image.width = image.width;
-	if (image.height) openGraph.image.height = image.height;
-	if (image.alt) openGraph.image.alt = image.alt;
-}
+// if (image !== undefined) {
+// 	openGraph.basic.image = image.url
+// 		? image.url
+// 		: (seoConfig.image.url as string);
+// 	openGraph.image = {};
+// 	if (image.url) openGraph.image.url = image.url;
+// 	if (image.url) openGraph.image.secureUrl = image.url;
+// 	if (image.width) openGraph.image.width = image.width;
+// 	if (image.height) openGraph.image.height = image.height;
+// 	if (image.alt) openGraph.image.alt = image.alt;
+// }
 
-if (article) {
-	openGraph.article = article;
-}
+// if (article) {
+// 	openGraph.article = article;
+// }
 ---
 
 <html lang="en" transition:animate="none">
 	<Head>
 		<ClientRouter />
-		<link
-			rel="preload"
-			as="script"
-			href="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
-			transition:persist
-		/>
-		<!-- <script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
-			transition:persist
-			transition:persist-props
-			is:inline></script> -->
+		<meta charset="UTF-8" transition:persist />
+		<meta name="viewport" content="width=device-width" transition:persist />
+
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={`${canonicalBase}${canonicalPath}`} />
+
 		<link
 			rel="preload"
 			as="font"
 			type="font/woff2"
-			href={interWoff2}
+			href={inter400}
 			crossorigin="anonymous"
 			transition:persist
 		/>
-		<link rel="preload" href={fontCssUrl} as="style" />
-		<link rel="stylesheet" href={fontCssUrl} />
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={inter500}
+			crossorigin="anonymous"
+			transition:persist
+		/>
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={inter700}
+			crossorigin="anonymous"
+			transition:persist
+		/>
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href={inter800}
+			crossorigin="anonymous"
+			transition:persist
+		/>
+
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
+			transition:persist
+			transition:persist-props
+			is:inline></script>
 		<script transition:persist is:inline>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
@@ -150,14 +175,8 @@ if (article) {
 			gtag('js', new Date());
 			gtag('config', 'G-YW069N7W3X');
 		</script>
-		<meta charset="UTF-8" transition:persist />
-		<meta name="viewport" content="width=device-width" transition:persist />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href={favicon.src}
-			transition:persist
-		/>
+
+		<link rel="icon" type="webp" href={favicon.src} transition:persist />
 		<meta name="generator" content={Astro.generator} transition:persist />
 		<!--// TODO Lario - imtegrate images from the cnms
 
@@ -196,12 +215,14 @@ if (article) {
 		//   { url: 'https://www.example.ie/og-image-03.jpg' },
 		//   { url: 'https://www.example.ie/og-image-04.jpg' },
 		// ],--->
-		<SEO
+		<!-- <SEO
+			transition:persist
+			transition:persist-props
 			{title}
 			{description}
 			{openGraph}
 			twitter={{
-				creator: '@jonasmerlins1',
+				creator: 'Lario Borges',
 			}}
 			extend={{
 				link: [
@@ -210,24 +231,21 @@ if (article) {
 						href: favicon.src,
 					},
 				],
-				// TODO Lario replace image
-				meta: [
-					{
-						name: 'twitter:image',
-						content:
-							'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
-					},
-					{
-						name: 'twitter:title',
-						content: 'Tinker Tailor Soldier Spy',
-					},
-					{
-						name: 'twitter:description',
-						content: 'Agent',
-					},
-				],
-			}}
-		/>
+		// TODO Lario replace image // meta: [ // {
+			// 		name: 'twitter:image',
+			// 		content:
+			// 			'https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png',
+			// 	},
+			// 	{
+			// 		name: 'twitter:title',
+			// 		content: 'Tinker Tailor Soldier Spy',
+			// 	},
+			// 	{
+			// 		name: 'twitter:description',
+			// 		content: 'Agent',
+			// 	},
+			// ],
+		}} />-->
 		<script src="@/scripts/BrowserInit.ts"></script>
 		<script is:inline>
 			document.addEventListener('astro:after-swap', () => {
@@ -236,7 +254,6 @@ if (article) {
 				}
 			});
 		</script>
-		<!-- TODO Lario PWA { pwaInfo != null && <Fragment set:html={DOMPurify.sanitize(pwaInfo.webManifest.linkTag)} /> } -->
 	</Head>
 
 	<body>
@@ -246,6 +263,5 @@ if (article) {
 			<slot />
 		</main>
 		<Footer name={name} transition:persist-props />
-		<!-- TODO Lario PWA <ReloadPrompt transition:persist /> -->
 	</body>
 </html>

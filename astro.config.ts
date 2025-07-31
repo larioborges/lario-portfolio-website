@@ -1,15 +1,13 @@
 // @ts-check
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
-// import AstroPWA from '@vite-pwa/astro';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
 import purgecss from 'astro-purgecss';
 import astroRobotsTxt from 'astro-robots-txt';
-
-import { /*manifest,*/ seoConfig } from './config/seoConfig';
 import viteConfig from './config/vite.config';
+import { BASE_URL } from './src/constants';
 
 interface COMMAND_ENV {
 	NETLIFY?: 'enabled' | 'disabled';
@@ -47,10 +45,8 @@ const robots =
 
 // TODO Lario PWA
 export default defineConfig({
-	// prefetch: {
-	// 	prefetchAll: true,
-	// },
-	site: seoConfig.baseURL,
+	prefetch: true,
+	site: BASE_URL,
 	...netlifyAdapter,
 	image: {
 		domains: [
