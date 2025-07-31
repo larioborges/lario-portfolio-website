@@ -21,22 +21,19 @@
 		"postpublish": "pinst --enable"
 	},
 	"dependencies": {
-		"@contentful/rich-text-html-renderer": "^17.0.0",
-		"@fontsource/inter": "^5.2.6",
 		"@nanostores/persistent": "^1.0.0",
-		"aos": "^2.3.4",
 		"astro": "5.10.1",
 		"astro-capo": "^0.0.1",
-		"kleur": "^4.1.5",
 		"motion": "^12.19.2",
-		"nanostores": "^1.0.1",
-		"specifier-resolution-node": "^1.1.4"
+		"nanostores": "^1.0.1"
 	},
 	"devDependencies": {
 		"@astrojs/language-server": "^2.15.4",
 		"@astrojs/netlify": "6.4.0",
 		"@astrojs/sitemap": "3.4.1",
 		"@biomejs/biome": "^2.0.5",
+		"@contentful/rich-text-html-renderer": "^17.0.0",
+		"@fontsource/inter": "^5.2.6",
 		"@playform/build": "^0.2.4",
 		"@tailwindcss/vite": "^4.1.10",
 		"@types/bun": "^1.2.15",
@@ -62,9 +59,5 @@
 		"typescript": "^5.8.3",
 		"tw-animate-css": "^1.2.4",
 		"vite": "^6.3.2"
-	},
-	"trustedDependencies": [
-		"@parcel/watcher",
-		"@tailwindcss/oxide"
-	]
+	}
 }
