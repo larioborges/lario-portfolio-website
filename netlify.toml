@@ -24,8 +24,7 @@ Content-Security-Policy = '''
     object-src 'none',
     connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com,
     script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com,
-    img-src 'self' https://*.analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net,
-		require-trusted-types-for 'script' 'html'
+    img-src 'self' https://*.analytics.google.com https://*.google-analytics.com https://*.googletagmanager.com https://images.ctfassets.net
     '''
 Cross-Origin-Opener-Policy = "same-origin"
 Referrer-Policy = "no-referrer"
