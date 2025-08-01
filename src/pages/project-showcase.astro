@@ -1,5 +1,5 @@
 ---
-import ProjectShowcaseComponent from '@/astro/ProjectShowcase/index.astro';
+import ProjectShowcaseComponent from '@/components/ProjectShowcase/index.astro';
 import {
 	getPersonalInfo,
 	getSeoFieldsById,
@@ -14,11 +14,6 @@ const [{ name }, showcaseProjects, seoField] = await Promise.all([
 ]);
 ---
 
-<Layout
-	{...seoField}
-	siteName={seoField.title}
-	image={(seoField.image as { fields: any }).fields}
-	{name}
->
+<Layout {...seoField} image={(seoField.image as { fields: any }).fields} {name}>
 	<ProjectShowcaseComponent {showcaseProjects} />
 </Layout>

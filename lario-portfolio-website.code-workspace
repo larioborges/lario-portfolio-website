@@ -66,7 +66,7 @@
 		],
 		"astro.trace.server": "messages",
 		"astro.updateImportsOnFileMove.enabled": true,
-		"astro.content-intellisense": true,
+		"astro.content-intellisense": false,
 		"astro.language-server.ls-path": "node_modules/@astrojs/language-server/dist/astro-language-server.js",
 		"biome.requireConfiguration": true,
 		"biome.lsp.trace.server": "messages",

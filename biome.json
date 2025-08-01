@@ -1,11 +1,12 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
+	"$schema": "https://biomejs.dev/schemas/2.1.3/schema.json",
 	"vcs": {
 		"enabled": false,
 		"clientKind": "git",
 		"useIgnoreFile": false
 	},
 	"files": {
+		"experimentalScannerIgnores": ["./bun.lock", "./node_modules/**"],
 		"ignoreUnknown": false
 	},
 	"formatter": {
@@ -26,8 +27,7 @@
 			"attributePosition": "multiline",
 			"expand": "always"
 		},
-		"globals": ["window", "document"],
-		"jsxRuntime": "reactClassic"
+		"globals": ["window", "document", "Astro"]
 	},
 	"assist": {
 		"enabled": true,
@@ -45,7 +45,7 @@
 	},
 	"overrides": [
 		{
-			"includes": ["**/*.astro", "**/*.svelte"],
+			"includes": ["**/*.astro"],
 			"linter": {
 				"rules": {
 					"correctness": {
@@ -53,6 +53,9 @@
 						"noUnusedVariables": "off"
 					}
 				}
+			},
+			"formatter": {
+				"enabled": false
 			}
 		}
 	]

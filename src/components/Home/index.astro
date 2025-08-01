@@ -1,6 +1,6 @@
 ---
-import SkillCategorySection from '@/astro/ui/SkillCategorySection.astro';
 import { getFeaturedSkills } from '@/contentful/queries';
+import SkillCategorySection from '@/ui/SkillCategorySection.astro';
 import HeroSection from './HeroSection/index.astro';
 
 const featuredSkills = await getFeaturedSkills();

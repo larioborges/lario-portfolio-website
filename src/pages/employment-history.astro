@@ -1,5 +1,5 @@
 ---
-import EmploymentHistoryComponent from '@/astro/EmploymentHistory.astro';
+import EmploymentHistoryComponent from '@/components/EmploymentHistory.astro';
 import {
 	getPastEmployers,
 	getPersonalInfo,
@@ -14,11 +14,6 @@ const [{ name }, pastEmployers, seoField] = await Promise.all([
 ]);
 ---
 
-<Layout
-	{...seoField}
-	siteName={seoField.title}
-	image={(seoField.image as { fields: any }).fields}
-	{name}
->
+<Layout {...seoField} image={(seoField.image as { fields: any }).fields} {name}>
 	<EmploymentHistoryComponent {pastEmployers} />
 </Layout>

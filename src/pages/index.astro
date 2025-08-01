@@ -1,5 +1,5 @@
 ---
-import Home from '@/astro/Home/index.astro';
+import Home from '@/components/Home/index.astro';
 import { getPersonalInfo, getSeoFieldsById } from '@/contentful/queries';
 import Layout from '@/layouts/Layout.astro';
 
@@ -11,7 +11,6 @@ const [personalInfo, seoField] = await Promise.all([
 
 <Layout
 	{...seoField}
-	siteName={seoField.title}
 	image={(seoField.image as { fields: any }).fields}
 	name={personalInfo.name}
 >
