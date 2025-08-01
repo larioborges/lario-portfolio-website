@@ -12,7 +12,6 @@
 		"prefix": ""
 	},
 	"aliases": {
-		"astro": "@/astro",
 		"components": "@/components",
 		"icons": "@/icons",
 		"motion": "@/motion",

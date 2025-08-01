@@ -1,10 +1,10 @@
 ---
 import DOMPurify from 'isomorphic-dompurify';
-import ContentBlock from '@/astro/ui/ContentBlock.astro';
-import Heading from '@/astro/ui/Heading.astro';
-import PageSection from '@/astro/ui/PageSection.astro';
-import TimelineItem from '@/astro/ui/TimelineItem/index.astro';
 import type { CertificationResponse } from '@/contentful/types/Certification';
+import ContentBlock from '@/ui/ContentBlock.astro';
+import Heading from '@/ui/Heading.astro';
+import PageSection from '@/ui/PageSection.astro';
+import TimelineItem from '@/ui/TimelineItem/index.astro';
 
 const { certifications } = Astro.props;
 const certs = certifications.map((cert: CertificationResponse) => ({

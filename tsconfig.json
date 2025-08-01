@@ -34,7 +34,6 @@
 			"@/constants/*": ["src/constants/*"],
 			"@/icons/*": ["src/components/icons/*"],
 			"@/ui/*": ["src/components/ui/*"],
-			"@/astro/*": ["./src/components/astro/*"],
 			"@/images/*": ["src/assets/images/*"],
 			"@/contentful/*": ["src/contentful/*"]
 		},
