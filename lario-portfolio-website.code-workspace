@@ -37,7 +37,8 @@
 			"source.fixAll.biome": "explicit"
 		},
 		"[astro]": {
-			"editor.defaultFormatter": "esbenp.prettier-vscode"
+			"editor.defaultFormatter": "esbenp.prettier-vscode",
+			"editor.formatOnSave": true,
 		},
 		"[javascript]": {
 			"editor.defaultFormatter": "biomejs.biome"

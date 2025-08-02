@@ -1,10 +1,6 @@
 ---
-import inter400 from '@fontsource/inter/files/inter-latin-400-normal.woff2';
-import inter500 from '@fontsource/inter/files/inter-latin-500-normal.woff2';
-import inter700 from '@fontsource/inter/files/inter-latin-700-normal.woff2';
-import inter800 from '@fontsource/inter/files/inter-latin-800-normal.woff2';
-import '@/styles/global.css';
 import '@/styles/layout.css';
+import '@/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import { Head } from 'astro-capo';
 // import { SEO } from 'astro-seo';
@@ -124,46 +120,18 @@ const {
 		<meta name="description" content={description} />
 		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={inter400}
-			crossorigin="anonymous"
-			transition:persist
-		/>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={inter500}
-			crossorigin="anonymous"
-			transition:persist
-		/>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={inter700}
-			crossorigin="anonymous"
-			transition:persist
-		/>
-		<link
-			rel="preload"
-			as="font"
-			type="font/woff2"
-			href={inter800}
-			crossorigin="anonymous"
-			transition:persist
-		/>
-
 		<script
-			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-YW069N7W3X"
 			transition:persist
 			transition:persist-props
-			is:inline></script>
-		<script transition:persist is:inline>
+			is:inline
+			type="text/partytown"></script>
+		<script
+			type="text/partytown"
+			transition:persist
+			transition:persist-props
+			is:inline
+		>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				window.dataLayer?.push(arguments);

@@ -1,5 +1,6 @@
 // @ts-check
 import netlify from '@astrojs/netlify';
+import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
@@ -59,6 +60,13 @@ export default defineConfig({
 		],
 	},
 	integrations: [
+		partytown({
+			config: {
+				forward: [
+					'dataLayer.push',
+				],
+			},
+		}),
 		sitemap(),
 		...robots,
 		purgecss(),

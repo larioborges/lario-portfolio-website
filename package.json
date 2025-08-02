@@ -21,6 +21,7 @@
 		"postpublish": "pinst --enable"
 	},
 	"dependencies": {
+		"@astrojs/partytown": "^2.1.4",
 		"@nanostores/persistent": "^1.0.0",
 		"astro": "5.10.1",
 		"astro-capo": "^0.0.1",
