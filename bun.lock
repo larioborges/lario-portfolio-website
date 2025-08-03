@@ -8,6 +8,7 @@
         "@nanostores/persistent": "^1.0.0",
         "astro": "5.10.1",
         "astro-capo": "^0.0.1",
+        "astro-theme-toggle": "^0.6.1",
         "motion": "^12.19.2",
         "nanostores": "^1.0.1",
       },
@@ -754,6 +755,8 @@
     "astro-purgecss": ["astro-purgecss@5.3.0", "", { "peerDependencies": { "astro": "^5.0.0", "purgecss": "^7.0.0" } }, "sha512-BFHibkGbhdiNPrDjgV+wKbPITzgr/ZAE6T6396v82FX1DExwXqGa28kIhFOZf/A68RZLJsbQCAZTtJ8lobMxlQ=="],
 
     "astro-robots-txt": ["astro-robots-txt@1.0.0", "", { "dependencies": { "valid-filename": "^4.0.0", "zod": "^3.22.2" } }, "sha512-6JQSLid4gMhoWjOm85UHLkgrw0+hHIjnJVIUqxjU2D6feKlVyYukMNYjH44ZDZBK1P8hNxd33PgWlHzCASvedA=="],
+
+    "astro-theme-toggle": ["astro-theme-toggle@0.6.1", "", {}, "sha512-UkU3ycEHnyl6M39rL3xXXwHfJKEKU0eSQS5dKEL+GInr+JS3jwpt/CCrS3jjc3IN/qVM8lv/gYXZpQx/Bu1Rlw=="],
 
     "async": ["async@3.2.6", "", {}, "sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA=="],
 

@@ -1,22 +1,27 @@
 ---
+import { Toggle } from 'astro-theme-toggle';
 import Menu from '@/icons/Menu.astro';
+import Moon from '@/icons/Moon.astro';
+import Sun from '@/icons/Sun.astro';
 import Button from '@/ui/Button.astro';
-import ThemeToggle from '@/ui/ThemeToggle.astro';
 ---
 
-<script>
-	import { toggleMenu } from '@/store/menu';
-
-	document.addEventListener('astro:page-load', () => {
-		document
-			.querySelector('.menu-button.open')
-			?.addEventListener('click', toggleMenu);
-	});
-</script>
+<style>
+	@reference "@/styles/global.css";
+	.wrapper {
+		@apply flex items-center space-x-2;
+	}
+</style>
 
 <div class="wrapper">
-	<ThemeToggle />
-
+	<Toggle style="width: 24px; height: 24px;">
+		<Fragment slot="icon-light">
+			<Sun class="icon" />
+		</Fragment>
+		<Fragment slot="icon-dark">
+			<Moon class="icon" />
+		</Fragment>
+	</Toggle>
 	<!--
 	TODO Lario
 	<Motion
@@ -32,10 +37,3 @@ import ThemeToggle from '@/ui/ThemeToggle.astro';
 		<Menu class="icon" />
 	</Button>
 </div>
-
-<style>
-	@reference "@/styles/global.css";
-	.wrapper {
-		@apply flex items-center space-x-2;
-	}
-</style>

@@ -5,6 +5,7 @@ import { ClientRouter } from 'astro:transitions';
 import { Head } from 'astro-capo';
 // import { SEO } from 'astro-seo';
 // import DOMPurify from 'isomorphic-dompurify';
+import { ThemeScript } from 'astro-theme-toggle';
 import favicon from '@/assets/favicons/favicon.webp';
 import Footer from '@/components/Footer.astro';
 import GlassHeader from '@/components/GlassHeader/index.astro';
@@ -139,6 +140,7 @@ const {
 			gtag('js', new Date());
 			gtag('config', 'G-YW069N7W3X');
 		</script>
+		<ThemeScript />
 
 		<link rel="icon" type="webp" href={favicon.src} transition:persist />
 		<meta name="generator" content={Astro.generator} transition:persist />
@@ -210,14 +212,6 @@ const {
 			// 	},
 			// ],
 		}} />-->
-		<script src="@/scripts/BrowserInit.ts"></script>
-		<script is:inline>
-			document.addEventListener('astro:after-swap', () => {
-				if (localStorage.getItem('dark') === 'dark') {
-					document.documentElement.classList.add('dark');
-				}
-			});
-		</script>
 	</Head>
 
 	<body>
