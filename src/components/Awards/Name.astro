@@ -4,24 +4,6 @@ import Trophy from '@/icons/Trophy.astro';
 const { award } = Astro.props;
 ---
 
-<script>
-	import { animate, hover } from 'motion';
-	document.addEventListener('astro:page-load', () => {
-		hover('.award-name-icon-wrapper', (element) => {
-			animate(element, { rotate: 20 }, { type: 'spring', stiffness: 500 });
-			return () =>
-				animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
-		});
-	});
-</script>
-
-<div class="award-name">
-	<div class="award-name-icon-wrapper">
-		<Trophy class="trophy-icon" />
-	</div>
-	<h3>{award?.name}</h3>
-</div>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -29,7 +11,7 @@ const { award } = Astro.props;
 		@apply mb-2 flex items-center;
 
 		h3 {
-			@apply font-medium;
+			@apply font-medium m-0;
 		}
 	}
 
@@ -41,3 +23,21 @@ const { award } = Astro.props;
 		@apply h-4 w-4;
 	}
 </style>
+
+<div class="award-name">
+	<div class="award-name-icon-wrapper">
+		<Trophy class="trophy-icon" />
+	</div>
+	<h3>{award?.name}</h3>
+</div>
+
+<script>
+	import { animate, hover } from 'motion';
+	document.addEventListener('astro:page-load', () => {
+		hover('.award-name-icon-wrapper', (element) => {
+			animate(element, { rotate: 20 }, { type: 'spring', stiffness: 500 });
+			return () =>
+				animate(element, { rotate: 0 }, { type: 'spring', stiffness: 500 });
+		});
+	});
+</script>

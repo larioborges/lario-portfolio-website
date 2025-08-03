@@ -7,7 +7,8 @@
 
 @layer base {
 	* {
-		@apply border-border outline-ring/50;
+		/* TODO Lario: change font sizes */
+		@/*lg:text-[22px] sm:text-[18px] text-[16px]*/ apply border-border outline-ring/50;
 		font-display: swap;
 	}
 

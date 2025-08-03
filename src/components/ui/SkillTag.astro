@@ -2,7 +2,23 @@
 const { index = 1 } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+
+	.skill-tag {
+		@apply bg-yellow-500/10 rounded-3xl border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm;
+	}
+
+	.index {
+		display: none;
+	}
+</style>
+
 <span class="index">{index}</span>
+
+<div class="skill-tag">
+	<slot />
+</div>
 
 <script>
 	import { animate, inView } from 'motion';
@@ -20,19 +36,3 @@ const { index = 1 } = Astro.props;
 		});
 	});
 </script>
-
-<div class="skill-tag">
-	<slot />
-</div>
-
-<style>
-	@reference "@/styles/global.css";
-
-	.skill-tag {
-		@apply bg-yellow-500/10 rounded-md border border-yellow-500/10 px-3 py-1 text-sm shadow-sm backdrop-blur-sm;
-	}
-
-	.index {
-		display: none;
-	}
-</style>
