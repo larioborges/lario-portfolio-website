@@ -38,5 +38,10 @@
 			"@/contentful/*": ["src/contentful/*"]
 		},
 		"resolveJsonModule": true
-	}
+	},
+	"plugins": [
+		{
+			"name": "@astrojs/ts-plugin"
+		}
+	]
 }

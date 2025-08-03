@@ -2,6 +2,7 @@
 import netlify from '@astrojs/netlify';
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
+import Biome from '@playform/format';
 import { defineConfig } from 'astro/config';
 import compress from 'astro-compress';
 import astroCompressor from 'astro-compressor';
@@ -85,6 +86,7 @@ export default defineConfig({
 		// 		navigateFallback: null,
 		// 	},
 		// }),
+		Biome(),
 		compress(),
 		astroCompressor(),
 	],
