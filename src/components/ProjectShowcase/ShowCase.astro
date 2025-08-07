@@ -14,6 +14,13 @@ const project = {
 };
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	.project-skills {
+		@apply flex flex-wrap justify-center gap-2 md:justify-start;
+	}
+</style>
+
 <TimelineItem
 	title={`👨‍💻 ${project.name}`}
 	subtitle={`🌍 ${project.employerName}`}
@@ -44,11 +51,4 @@ const project = {
 			</Star>
 		</ContentBlock>
 	</Fragment>
-
-	<style>
-		@reference "@/styles/global.css";
-		.project-skills {
-			@apply flex flex-wrap justify-center gap-2 md:justify-start;
-		}
-	</style>
 </TimelineItem>

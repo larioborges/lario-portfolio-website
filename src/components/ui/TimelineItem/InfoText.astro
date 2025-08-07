@@ -11,20 +11,6 @@ const {
 } = Astro.props;
 ---
 
-{
-	isTitle ? (
-		<h3>
-			{icon && <span class="icon">{icon}</span>}
-			<InfoLink {href} {rel} {target} {text} />
-		</h3>
-	) : (
-		<p>
-			{icon && <span class="icon">{icon}</span>}
-			<InfoLink {href} {rel} {target} {text} />
-		</p>
-	)
-}
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -40,3 +26,17 @@ const {
 		@apply pr-1.5;
 	}
 </style>
+
+{
+	isTitle ? (
+		<h3>
+			{icon && <span class="icon">{icon}</span>}
+			<InfoLink {href} {rel} {target} {text} />
+		</h3>
+	) : (
+		<p>
+			{icon && <span class="icon">{icon}</span>}
+			<InfoLink {href} {rel} {target} {text} />
+		</p>
+	)
+}

@@ -7,6 +7,13 @@ const {
 } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	.map-pin {
+		@apply text-red-400;
+	}
+</style>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
@@ -24,10 +31,3 @@ const {
 	></path>
 	<circle cx="12" cy="10" r="3"></circle>
 </svg>
-
-<style>
-	@reference "@/styles/global.css";
-	.map-pin {
-		@apply text-red-400;
-	}
-</style>

@@ -2,16 +2,7 @@
 import { getFeaturedSkills } from '@/contentful/queries';
 import SkillCategorySection from '@/ui/SkillCategorySection.astro';
 import HeroSection from './HeroSection/index.astro';
-
-const featuredSkills = await getFeaturedSkills();
 ---
-
-<section>
-	<div class="content-wrapper">
-		<HeroSection />
-		<SkillCategorySection {...featuredSkills} />
-	</div>
-</section>
 
 <style>
 	@reference "@/styles/global.css";
@@ -24,3 +15,9 @@ const featuredSkills = await getFeaturedSkills();
 		@apply container mx-auto max-w-4xl px-6 md:px-4;
 	}
 </style>
+
+<section>
+	<div class="content-wrapper">
+		<HeroSection />
+	</div>
+</section>

@@ -12,6 +12,29 @@ interface AwardContentProps {
 const { index, award }: AwardContentProps = Astro.props;
 ---
 
+<style>
+	@reference '@/styles/global.css';
+
+	:global(.award-card) {
+		@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
+	}
+
+	.index {
+		@apply hidden;
+	}
+</style>
+
+<span class="index">{index}</span>
+<div class="wrapper">
+	<GlassCard class="award-card">
+		<Fragment>
+			<AwardName {award} />
+			<Issuer {award} />
+			<Tags {award} />
+		</Fragment>
+	</GlassCard>
+</div>
+
 <script>
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
@@ -29,26 +52,3 @@ const { index, award }: AwardContentProps = Astro.props;
 		});
 	});
 </script>
-
-<span class="index">{index}</span>
-<div class="wrapper">
-	<GlassCard class="award-card">
-		<Fragment>
-			<AwardName {award} />
-			<Issuer {award} />
-			<Tags {award} />
-		</Fragment>
-	</GlassCard>
-</div>
-
-<style>
-	@reference '@/styles/global.css';
-
-	:global(.award-card) {
-		@apply p-4 dark:border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 flex flex-col h-full;
-	}
-
-	.index {
-		@apply hidden;
-	}
-</style>

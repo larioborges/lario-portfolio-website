@@ -2,6 +2,47 @@
 const { heading = null } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	.content-block-wrapper {
+		@apply bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10;
+	}
+	.content-wrapper {
+		@apply ml-4 list-none space-y-2 text-sm;
+	}
+	.heading-wrapper {
+		@apply mb-3 flex items-center;
+	}
+	.icon-wrapper {
+		@apply mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10;
+	}
+	.heading {
+		@apply text-sm font-medium;
+	}
+</style>
+
+<div class="content-block-wrapper">
+	{
+		heading && (
+			<div class="heading-wrapper">
+				{Astro.slots.has('icon') && (
+					<div class="icon-wrapper">
+						<slot name="icon" />
+					</div>
+				)}
+				<h4 class="heading">{heading}</h4>
+			</div>
+		)
+	}
+	{
+		Astro.slots.has('content') && (
+			<div class="content-wrapper">
+				<slot name="content" />
+			</div>
+		)
+	}
+</div>
+
 <script>
 	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
 	import { animate, inView } from 'motion';
@@ -27,44 +68,3 @@ const { heading = null } = Astro.props;
 		);
 	});
 </script>
-
-<div class="content-block-wrapper">
-	{
-		heading && (
-			<div class="heading-wrapper">
-				{Astro.slots.has('icon') && (
-					<div class="icon-wrapper">
-						<slot name="icon" />
-					</div>
-				)}
-				<h4 class="heading">{heading}</h4>
-			</div>
-		)
-	}
-	{
-		Astro.slots.has('content') && (
-			<div class="content-wrapper">
-				<slot name="content" />
-			</div>
-		)
-	}
-</div>
-
-<style>
-	@reference "@/styles/global.css";
-	.content-block-wrapper {
-		@apply bg-background/80 dark:bg-card/10 mt-3 rounded-lg border border-yellow-500/20 p-4 shadow-sm backdrop-blur-sm backdrop-filter dark:border-yellow-500/10;
-	}
-	.content-wrapper {
-		@apply ml-4 list-none space-y-2 text-sm;
-	}
-	.heading-wrapper {
-		@apply mb-3 flex items-center;
-	}
-	.icon-wrapper {
-		@apply mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-yellow-500/10;
-	}
-	.heading {
-		@apply text-sm font-medium;
-	}
-</style>

@@ -5,33 +5,6 @@ import SkillTag from './SkillTag.astro';
 const { name, icon, skills } = Astro.props;
 ---
 
-<script>
-	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
-	import { animate, inView } from 'motion';
-
-	document.addEventListener('astro:page-load', () => {
-		inView('.wrapper', (element) => {
-			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
-		});
-	});
-</script>
-
-<div class="wrapper">
-	<GlassCard class="skill-cat-section">
-		<h3 class="category-heading">
-			{icon && <span>{icon}</span>}
-			{name}
-		</h3>
-		<div class="skill-tag-wrapper">
-			{
-				skills.map((skill: string, index: number) => (
-					<SkillTag {index}>{skill}</SkillTag>
-				))
-			}
-		</div>
-	</GlassCard>
-</div>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -55,3 +28,30 @@ const { name, icon, skills } = Astro.props;
 		@apply p-4;
 	}
 </style>
+
+<div class="wrapper">
+	<GlassCard class="skill-cat-section">
+		<h3 class="category-heading">
+			{icon && <span>{icon}</span>}
+			{name}
+		</h3>
+		<div class="skill-tag-wrapper">
+			{
+				skills.map((skill: string, index: number) => (
+					<SkillTag {index}>{skill}</SkillTag>
+				))
+			}
+		</div>
+	</GlassCard>
+</div>
+
+<script>
+	import { APPEAR_STYLE_TRANISITIONS } from '@/constants';
+	import { animate, inView } from 'motion';
+
+	document.addEventListener('astro:page-load', () => {
+		inView('.wrapper', (element) => {
+			animate(element, APPEAR_STYLE_TRANISITIONS, { duration: 0.3 });
+		});
+	});
+</script>

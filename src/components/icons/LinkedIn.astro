@@ -7,6 +7,13 @@ const {
 } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	.linked-in {
+		@apply text-blue-600/90;
+	}
+</style>
+
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	{width}
@@ -25,10 +32,3 @@ const {
 	<rect width="4" height="12" x="2" y="9"></rect>
 	<circle cx="4" cy="4" r="2"></circle>
 </svg>
-
-<style>
-	@reference "@/styles/global.css";
-	.linked-in {
-		@apply text-blue-600/90;
-	}
-</style>

@@ -8,19 +8,17 @@ import Location from './Location.astro';
 const { locationFields, email, githubUrl, linkedInUrl } = Astro.props;
 ---
 
-<script>
-	import { animate, inView } from 'motion';
+<style>
+	@reference "@/styles/global.css";
 
-	document.addEventListener('astro:page-load', () => {
-		inView('.home-links-wrapper', (element) => {
-			animate(
-				element,
-				{ opacity: [0, 1] },
-				{ duration: 0.2, staggerChildren: 0.1, delayChildren: 0.1 },
-			);
-		});
-	});
-</script>
+	:global(.hero-icon) {
+		@apply mr-2 h-4 w-4;
+	}
+
+	.home-links-wrapper {
+		@apply flex flex-col items-center gap-2 md:items-start;
+	}
+</style>
 
 <div class="home-links-wrapper">
 	<Location {locationFields} />
@@ -44,16 +42,18 @@ const { locationFields, email, githubUrl, linkedInUrl } = Astro.props;
 			</Fragment>
 		</Link>
 	</Link>
-
-	<style>
-		@reference "@/styles/global.css";
-
-		:global(.hero-icon) {
-			@apply mr-2 h-4 w-4;
-		}
-
-		.home-links-wrapper {
-			@apply flex flex-col items-center gap-2 md:items-start;
-		}
-	</style>
 </div>
+
+<script>
+	import { animate, inView } from 'motion';
+
+	document.addEventListener('astro:page-load', () => {
+		inView('.home-links-wrapper', (element) => {
+			animate(
+				element,
+				{ opacity: [0, 1] },
+				{ duration: 0.2, staggerChildren: 0.1, delayChildren: 0.1 },
+			);
+		});
+	});
+</script>

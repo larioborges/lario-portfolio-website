@@ -1,6 +1,7 @@
 import type { Document } from '@contentful/rich-text-types';
 import type { Asset, Entry, EntryFieldTypes, UnresolvedLink } from 'contentful';
 import type { Location } from './Location';
+import type { Skill } from './Skill';
 
 export interface PersonalInfoFieldsBase {
 	name: string;
@@ -9,6 +10,7 @@ export interface PersonalInfoFieldsBase {
 	email: string;
 	githubUrl: string;
 	linkedInUrl: string;
+	highlights: string[];
 }
 
 export interface PersonalInfoResponse extends PersonalInfoFieldsBase {
@@ -27,5 +29,6 @@ export interface PersonalInfo {
 		githubUrl: EntryFieldTypes.Symbol<string>;
 		linkedInUrl: EntryFieldTypes.Symbol<string>;
 		intro: EntryFieldTypes.RichText;
+		highlights: EntryFieldTypes.Array<EntryFieldTypes.Symbol<string>>;
 	};
 }

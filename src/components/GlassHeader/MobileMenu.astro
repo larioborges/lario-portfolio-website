@@ -4,42 +4,6 @@ import Close from '../icons/Close.astro';
 import NavLinks from './NavLinks.astro';
 ---
 
-<script>
-	import { $menuOpen, toggleMenu } from '@/store/menu';
-
-	document.addEventListener('astro:page-load', () => {
-		$menuOpen.listen(() => {
-			if ($menuOpen.get()) {
-				document
-					.querySelector('.nav-links-wrapper-mobile')
-					?.classList.add('open');
-				return;
-			}
-			document
-				.querySelector('.nav-links-wrapper-mobile')
-				?.classList.remove('open');
-		});
-
-		$menuOpen.set(false);
-		document
-			.querySelector('.menu-button.close')
-			?.addEventListener('click', toggleMenu);
-	});
-</script>
-
-<div class="nav-links-wrapper-mobile">
-	<div>
-		<Button
-			aria-label="Toggle menu"
-			class:list={['menu-button', 'close']}
-			name="Close Menu"
-		>
-			<Close class="icon" />
-		</Button>
-	</div>
-	<NavLinks isMobile={true} />
-</div>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -73,3 +37,39 @@ import NavLinks from './NavLinks.astro';
 		}
 	}
 </style>
+
+<div class="nav-links-wrapper-mobile">
+	<div>
+		<Button
+			aria-label="Toggle menu"
+			class:list={['menu-button', 'close']}
+			name="Close Menu"
+		>
+			<Close class="icon" />
+		</Button>
+	</div>
+	<NavLinks isMobile={true} />
+</div>
+
+<script>
+	import { $menuOpen, toggleMenu } from '@/store/menu';
+
+	document.addEventListener('astro:page-load', () => {
+		$menuOpen.listen(() => {
+			if ($menuOpen.get()) {
+				document
+					.querySelector('.nav-links-wrapper-mobile')
+					?.classList.add('open');
+				return;
+			}
+			document
+				.querySelector('.nav-links-wrapper-mobile')
+				?.classList.remove('open');
+		});
+
+		$menuOpen.set(false);
+		document
+			.querySelector('.menu-button.close')
+			?.addEventListener('click', toggleMenu);
+	});
+</script>
