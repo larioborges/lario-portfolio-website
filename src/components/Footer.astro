@@ -2,6 +2,51 @@
 const { name } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+
+	footer {
+		@apply from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm;
+
+		> div {
+			@apply container mx-auto max-w-4xl px-6 md:px-4;
+		}
+	}
+
+	.footer-content {
+		@apply flex flex-col items-center justify-between md:flex-row;
+	}
+
+	.footer-text {
+		@apply text-muted-foreground text-center text-sm md:text-left;
+	}
+
+	.built-by {
+		@apply mt-2 md:mt-0;
+	}
+</style>
+
+<footer>
+	<div>
+		<div class="footer-content">
+			<p class="footer-text rights-reserved">
+				&copy; {new Date().getFullYear()}&nbsp;
+				{name}. All rights reserved.
+			</p>
+			<p class="footer-text built-by">
+				Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a
+					href="https://tailwindcss.com"
+					target="_blank">Tailwind</a
+				> & <a href="https://www.contentful.com/" target="_blank">Contentful</a
+				>. View
+				<a
+					href="https://github.com/larioborges/lario-portfolio-website"
+					target="_blank">this repo</a
+				>.
+			</p>
+		</div>
+	</div>
+</footer>
 <script>
 	import { APPEAR_ANIMATION } from '@/constants';
 	import { inView, animate, hover } from 'motion';
@@ -32,49 +77,3 @@ const { name } = Astro.props;
 		});
 	});
 </script>
-
-<footer>
-	<div>
-		<div class="footer-content">
-			<p class="footer-text rights-reserved">
-				&copy; {new Date().getFullYear()}&nbsp;
-				{name}. All rights reserved.
-			</p>
-			<p class="footer-text built-by">
-				Built using <a href="https://astro.build/" target="_blank">Astro</a>, <a
-					href="https://tailwindcss.com"
-					target="_blank">Tailwind</a
-				> & <a href="https://www.contentful.com/" target="_blank">Contentful</a
-				>. View
-				<a
-					href="https://github.com/larioborges/lario-portfolio-website"
-					target="_blank">this repo</a
-				>.
-			</p>
-		</div>
-	</div>
-</footer>
-
-<style>
-	@reference "@/styles/global.css";
-
-	footer {
-		@apply from-background to-muted/20 border-t border-yellow-500/10 bg-gradient-to-b py-6 backdrop-blur-sm;
-
-		> div {
-			@apply container mx-auto max-w-4xl px-6 md:px-4;
-		}
-	}
-
-	.footer-content {
-		@apply flex flex-col items-center justify-between md:flex-row;
-	}
-
-	.footer-text {
-		@apply text-muted-foreground text-center text-sm md:text-left;
-	}
-
-	.built-by {
-		@apply mt-2 md:mt-0;
-	}
-</style>

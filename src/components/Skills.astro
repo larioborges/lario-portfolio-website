@@ -7,6 +7,25 @@ import SkillCategorySection from '@/ui/SkillCategorySection.astro';
 const { skillCategories } = Astro.props;
 ---
 
+<style>
+	@reference '@/styles/global.css';
+
+	.skills-wrapper {
+		@apply space-y-6;
+	}
+</style>
+
+<PageSection>
+	<Heading slot="heading" icon="🛠️" text="Skills" />
+	<div slot="content" class="skills-wrapper">
+		{
+			skillCategories.map(({ name, icon, skills }: SkillCategoryResponse) => (
+				<SkillCategorySection {name} {icon} {skills} />
+			))
+		}
+	</div>
+</PageSection>
+
 <script>
 	import { animate, inView } from 'motion';
 
@@ -20,22 +39,3 @@ const { skillCategories } = Astro.props;
 		});
 	});
 </script>
-
-<PageSection>
-	<Heading slot="heading" icon="🛠️" text="Skills" />
-	<div slot="content" class="skills-wrapper">
-		{
-			skillCategories.map(({ name, icon, skills }: SkillCategoryResponse) => (
-				<SkillCategorySection {name} {icon} {skills} />
-			))
-		}
-	</div>
-</PageSection>
-
-<style>
-	@reference '@/styles/global.css';
-
-	.skills-wrapper {
-		@apply space-y-6;
-	}
-</style>

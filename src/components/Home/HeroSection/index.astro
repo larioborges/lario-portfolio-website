@@ -20,35 +20,6 @@ Astro.props;
 const { fields: locationFields } = location as Entry;
 ---
 
-<script>
-	import { animate, inView } from 'motion';
-
-	document.addEventListener('astro:page-load', () => {
-		inView('.hero-links-wrapper', (element) => {
-			animate(
-				element,
-				{ opacity: [0, 1], visibility: ['hidden', 'visible'] },
-				{ staggerChildren: 0.1, delayChildren: 0.2 },
-			);
-		});
-	});
-</script>
-
-<section>
-	<div>
-		<div class="hero-links-wrapper">
-			<div class="details">
-				<Name {name} jobTitle="Senior Full Stack Web Engineer" />
-				<Links {email} {linkedInUrl} {githubUrl} {locationFields} />
-			</div>
-
-			<ProfilePic />
-		</div>
-
-		<Intro {intro} />
-	</div>
-</section>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -68,3 +39,32 @@ const { fields: locationFields } = location as Entry;
 		}
 	}
 </style>
+
+<section>
+	<div>
+		<div class="hero-links-wrapper">
+			<div class="details">
+				<Name {name} jobTitle="Senior Full Stack Web Engineer" />
+				<Links {email} {linkedInUrl} {githubUrl} {locationFields} />
+			</div>
+
+			<ProfilePic />
+		</div>
+
+		<Intro {intro} />
+	</div>
+</section>
+
+<script>
+	import { animate, inView } from 'motion';
+
+	document.addEventListener('astro:page-load', () => {
+		inView('.hero-links-wrapper', (element) => {
+			animate(
+				element,
+				{ opacity: [0, 1], visibility: ['hidden', 'visible'] },
+				{ staggerChildren: 0.1, delayChildren: 0.2 },
+			);
+		});
+	});
+</script>

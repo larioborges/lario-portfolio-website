@@ -2,6 +2,18 @@
 const { href } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+
+	.hero-link {
+		@apply text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors;
+	}
+</style>
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="hero-link">
+	<slot />
+</a>
+
 <script>
 	import { animate, inView, hover } from 'motion';
 	import {
@@ -18,15 +30,3 @@ const { href } = Astro.props;
 		});
 	});
 </script>
-
-<a href={href} target="_blank" rel="noopener noreferrer" class="hero-link">
-	<slot />
-</a>
-
-<style>
-	@reference "@/styles/global.css";
-
-	.hero-link {
-		@apply text-muted-foreground hover:text-foreground flex items-center text-sm transition-colors;
-	}
-</style>

@@ -2,6 +2,16 @@
 const { award } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	.issuer {
+		@apply text-muted-foreground mb-1 pl-8 text-xs;
+		a {
+			@apply underline;
+		}
+	}
+</style>
+
 {
 	award.issuerWebsiteUrl ? (
 		<p class="issuer">
@@ -15,13 +25,3 @@ const { award } = Astro.props;
 		<p class="issuer">🏢 {`${award.issuerName} - ${award.date}`}</p>
 	)
 }
-
-<style>
-	@reference "@/styles/global.css";
-	.issuer {
-		@apply text-muted-foreground mb-1 pl-8 text-xs;
-		a {
-			@apply underline;
-		}
-	}
-</style>

@@ -6,6 +6,26 @@ import southAfrica from '@/images/south-africa.png';
 const { name } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+	:global(.light-icon, .dark-icon) {
+		@apply mr-2.5 inline-block align-middle;
+	}
+	:global(.light-icon) {
+		@apply dark:hidden;
+		width: 35px;
+		height: 35px;
+	}
+	:global(.dark-icon) {
+		@apply hidden dark:inline-block;
+		width: 35px;
+		height: 35px;
+	}
+	.home-link {
+		@apply flex items-center text-lg font-medium;
+	}
+</style>
+
 <!-- whileTap={{
   TODO Lario
 	scale: 0.95,
@@ -33,23 +53,3 @@ const { name } = Astro.props;
 	/>
 	{name}
 </a>
-
-<style>
-	@reference "@/styles/global.css";
-	:global(.light-icon, .dark-icon) {
-		@apply mr-2.5 inline-block align-middle;
-	}
-	:global(.light-icon) {
-		@apply dark:hidden;
-		width: 35px;
-		height: 35px;
-	}
-	:global(.dark-icon) {
-		@apply hidden dark:inline-block;
-		width: 35px;
-		height: 35px;
-	}
-	.home-link {
-		@apply flex items-center text-lg font-medium;
-	}
-</style>

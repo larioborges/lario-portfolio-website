@@ -4,12 +4,6 @@ import SkillTag from '@/ui/SkillTag.astro';
 const { award } = Astro.props;
 ---
 
-<div class="tags">
-	<div>
-		{award.tags.map((tag: string) => <SkillTag>{tag}</SkillTag>)}
-	</div>
-</div>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -21,3 +15,9 @@ const { award } = Astro.props;
 		}
 	}
 </style>
+
+<div class="tags">
+	<div>
+		{award.tags.map((tag: string) => <SkillTag>{tag}</SkillTag>)}
+	</div>
+</div>

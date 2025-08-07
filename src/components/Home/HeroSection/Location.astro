@@ -4,6 +4,28 @@ import MapPoint from '@/icons/MapPoint.astro';
 const { locationFields } = Astro.props;
 ---
 
+<style>
+	@reference "@/styles/global.css";
+
+	.location-wrapper {
+		@apply text-muted-foreground flex items-center text-sm;
+	}
+</style>
+
+<p class="location-wrapper">
+	<MapPoint class="hero-icon" />
+
+	{
+		locationFields.googleMapsUrl != null ? (
+			<a href={locationFields.googleMapsUrl} target="_blank">
+				{locationFields.name}
+			</a>
+		) : (
+			<span>{locationFields.name}</span>
+		)
+	}
+</p>
+
 <script>
 	import { animate, inView, hover } from 'motion';
 	import {
@@ -21,25 +43,3 @@ const { locationFields } = Astro.props;
 		});
 	});
 </script>
-
-<p class="location-wrapper">
-	<MapPoint class="hero-icon" />
-
-	{
-		locationFields.googleMapsUrl != null ? (
-			<a href={locationFields.googleMapsUrl} target="_blank">
-				{locationFields.name}
-			</a>
-		) : (
-			<span>{locationFields.name}</span>
-		)
-	}
-</p>
-
-<style>
-	@reference "@/styles/global.css";
-
-	.location-wrapper {
-		@apply text-muted-foreground flex items-center text-sm;
-	}
-</style>

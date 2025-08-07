@@ -2,15 +2,6 @@
 const { icon, text } = Astro.props;
 ---
 
-<h2>
-	<span class="project-showcase-heading-icon">
-		{icon}&nbsp;
-	</span>
-	<span>
-		{text}
-	</span>
-</h2>
-
 <style>
 	@reference "@/styles/global.css";
 
@@ -22,3 +13,12 @@ const { icon, text } = Astro.props;
 		@apply mr-2 inline-block;
 	}
 </style>
+
+<h2>
+	<span class="project-showcase-heading-icon">
+		{icon}&nbsp;
+	</span>
+	<span>
+		{text}
+	</span>
+</h2>

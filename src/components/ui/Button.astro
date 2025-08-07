@@ -25,20 +25,6 @@ const {
 }: Props = Astro.props as Props;
 ---
 
-{
-	asChild ? (
-		<slot {...props} />
-	) : (
-		<button
-			class:list={[className, variant, `size-${size}`, ...classList]}
-			aria-label={name}
-			{...props}
-		>
-			<slot />
-		</button>
-	)
-}
-
 <style>
 	@reference '@/styles/global.css'
 
@@ -77,3 +63,17 @@ const {
 		}
 	}
 </style>
+
+{
+	asChild ? (
+		<slot {...props} />
+	) : (
+		<button
+			class:list={[className, variant, `size-${size}`, ...classList]}
+			aria-label={name}
+			{...props}
+		>
+			<slot />
+		</button>
+	)
+}
